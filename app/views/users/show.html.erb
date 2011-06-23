@@ -1,0 +1,11 @@
+<h1><%= @user.name %></h1>
+
+<div id="userdetails">
+	<p>Email: <%= @user.email %></p>
+	<p>School: <%= @user.school %></p>
+	<p>Affiliated Organizations: <%= @user.affiliatedorgs %></p>
+	<p>Link to Facebook Profile: <%= @user.fblink %></p>
+	<p>About Me: <%= @user.aboutme %>
+</div>
+
+<%= link_to "Edit", edit_user_path(current_user) %>

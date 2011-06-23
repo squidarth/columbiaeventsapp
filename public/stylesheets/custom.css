@@ -1,0 +1,59 @@
+h3
+{
+	text-align: center;
+	font-family: trebuchet, sans-serif;
+	color: blue;
+}
+#mainheader
+{
+	text-align: center;
+	font-family: trebuchet, sans-serif;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	
+}
+nav 
+{
+  float: right;
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+nav ul 
+{
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li 
+{
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+nav ul li a 
+{
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+nav ul li a:visited 
+{
+  color: #09c;
+}
+
+nav ul li a:hover 
+{
+  text-decoration: underline;
+}
+.eventlisting
+{
+	border: 2px solid;
+	border-color: black;
+	float: left;
+	width: 500px;
+	height: 500px;
+}

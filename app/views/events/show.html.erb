@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @event.description %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @event.date %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @event.time %>
+</p>
+<p>
+  <b>Location:</b>
+  <%= @event.location %>
+</p>
+<p>
+  <b>Author:</b>
+  <%= @event.author %>
+</p>
+<% if @event.facebooklink %>
+<p>
+  <b>Facebook Event Link:</b>
+  <%= @event.facebooklink %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
