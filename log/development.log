@@ -4840,3 +4840,204 @@ Started GET "/users/10" for 127.0.0.1 at 2011-06-24 00:43:30 -0400
 Rendered events/_event.html.erb (10.7ms)
 Rendered users/show.html.erb within layouts/application (26.9ms)
 Completed 200 OK in 118ms (Views: 31.3ms | ActiveRecord: 0.8ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2011-06-24 00:49:36 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 10)
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC[0m
+Rendered events/_event.html.erb (64.1ms)
+Rendered users/show.html.erb within layouts/application (90.9ms)
+Completed 200 OK in 218ms (Views: 94.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-24 00:49:38 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mEvent Load (1.4ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (91.6ms)
+Completed 200 OK in 112ms (Views: 95.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2011-06-24 00:49:50 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 10)
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC[0m
+Rendered events/_event.html.erb (10.5ms)
+Rendered users/show.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 115ms (Views: 31.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-06-24 00:50:28 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XIOwdmoyrzH64fl8C25nbj4ZoheSx9++ER3MTEGvZHA=", "event"=>{"name"=>"mEGA PARTY", "description"=>"LOTS OF MEGA SHIT", "date"=>"dEC 24", "time"=>"4:00 PM", "location"=>"MY HAUS", "author"=>"SID", "facebooklink"=>"WWW.FACEBOOK.COM"}, "commit"=>"Create Event"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+  [1m[36mAREL (2.0ms)[0m  [1mINSERT INTO "events" ("name", "description", "date", "time", "author", "facebooklink", "location", "created_at", "updated_at", "user_id") VALUES ('mEGA PARTY', 'LOTS OF MEGA SHIT', 'dEC 24', '4:00 PM', 'SID', 'WWW.FACEBOOK.COM', 'MY HAUS', '2011-06-24 04:50:28.937068', '2011-06-24 04:50:28.937068', 10)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+Redirected to http://0.0.0.0:3000/users/10
+Completed 302 Found in 288ms
+
+
+Started GET "/users/10" for 127.0.0.1 at 2011-06-24 00:50:29 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 10)[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (11.1ms)
+Rendered users/show.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 117ms (Views: 31.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-24 00:50:47 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (88.0ms)
+Completed 200 OK in 109ms (Views: 92.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2011-06-24 00:53:35 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 10)[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (11.1ms)
+Rendered users/show.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 116ms (Views: 31.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-24 00:53:49 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (90.6ms)
+Completed 200 OK in 136ms (Views: 94.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2011-06-24 00:53:57 -0400
+  Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-24 00:53:57 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 128ms (Views: 85.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-06-24 00:54:09 -0400
+  Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered sessions/new.html.erb within layouts/application (61.8ms)
+Completed 200 OK in 67ms (Views: 66.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2011-06-24 00:54:24 -0400
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XIOwdmoyrzH64fl8C25nbj4ZoheSx9++ER3MTEGvZHA=", "session"=>{"email"=>"bjindal@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'bjindal@gmail.com' LIMIT 1
+Redirected to http://0.0.0.0:3000/users/10
+Completed 302 Found in 79ms
+
+
+Started GET "/users/10" for 127.0.0.1 at 2011-06-24 00:54:24 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 10)[0m
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (11.0ms)
+Rendered users/show.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 126ms (Views: 35.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-06-24 00:55:26 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XIOwdmoyrzH64fl8C25nbj4ZoheSx9++ER3MTEGvZHA=", "event"=>{"name"=>"Maya's Birthday", "description"=>"Cake and fun", "date"=>"Nov. 12, 2013", "time"=>"4:00 PM", "location"=>"my haus", "author"=>"Sid", "facebooklink"=>"www.facebook.com"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "events" ("name", "description", "date", "time", "author", "facebooklink", "location", "created_at", "updated_at", "user_id") VALUES ('Maya''s Birthday', 'Cake and fun', 'Nov. 12, 2013', '4:00 PM', 'Sid', 'www.facebook.com', 'my haus', '2011-06-24 04:55:26.553476', '2011-06-24 04:55:26.553476', 10)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/10
+Completed 302 Found in 264ms
+
+
+Started GET "/users/10" for 127.0.0.1 at 2011-06-24 00:55:26 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 10)
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC[0m
+Rendered events/_event.html.erb (37.0ms)
+Rendered users/show.html.erb within layouts/application (53.8ms)
+Completed 200 OK in 145ms (Views: 57.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-24 00:56:03 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mEvent Load (1.8ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (119.7ms)
+Completed 200 OK in 141ms (Views: 124.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-24 01:04:36 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 2) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 3) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 4) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 5) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 6) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 7) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 8) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 9) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 11) ORDER BY events.created_at DESC[0m
+Completed 500 Internal Server Error in 97ms
+
+NoMethodError (undefined method `scramble' for #<Array:0x93a0c4c>):
+  app/controllers/pages_controller.rb:12:in `home'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (32.3ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-24 01:04:51 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 2) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 3) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 4) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 5) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 6) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 7) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 8) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 9) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 11) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 116ms (Views: 33.3ms | ActiveRecord: 9.6ms)

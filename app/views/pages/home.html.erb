@@ -1,3 +1,44 @@
 <!--Display previously posted events-->
 <h3>Find out what's happening on campus today!</h3>
 
+
+<% if @array_of_events[-1]%>
+<div class="eventlisting">
+			Name : <%= @array_of_events[-1].name %><br />
+			Description: <%= @array_of_events[-1].description %><br />
+			Date: <%= @array_of_events[-1].date %><br />
+			Time: <%= @array_of_events[-1].time %><br />
+			Location: <%= @array_of_events[-1].location %><br />
+			Facebook Event Link: <%= @array_of_events[-1].facebooklink %><br />
+			By: <%= @array_of_events[-1].author%>
+</div>
+<% end %>
+<% if @array_of_events[-2]%>
+<div class="eventlisting">
+			Name : <%= @array_of_events[-2].name %><br />
+			Description: <%= @array_of_events[-2].description %><br />
+			Date: <%= @array_of_events[-2].date %><br />
+			Time: <%= @array_of_events[-2].time %><br />
+			By: <%= @array_of_events[-2].author%>
+</div>
+<% end %>
+<% if @array_of_events[-3]%>
+<div class="eventlisting">
+			Name : <%= @array_of_events[-3].name %><br />
+			Description: <%= @array_of_events[-3].description %><br />
+			Date: <%= @array_of_events[-3].date %><br />
+			Time: <%= @array_of_events[-3].time %><br />
+			By: <%= @array_of_events[-3].author%>
+</div>
+<% end %>
+<% if @array_of_events[-4]%>
+<div class="eventlisting">
+			Name : <%= @array_of_events[-4].name %><br />
+			Description: <%= @array_of_events[-4].description %><br />
+			Date: <%= @array_of_events[-4].date %><br />
+			Time: <%= @array_of_events[-4].time %><br />
+			By: <%= @array_of_events[-4].author%>
+</div>
+<% end %>
+
+		

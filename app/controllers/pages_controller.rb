@@ -1,7 +1,15 @@
 class PagesController < ApplicationController
   def home
     @title = "Home"
-    #@event = Event.all#{:one => Event.find(-1), :two => Event.find(-2), :three => Event.find(-3), :four => Event.find(-4)}
+    @users = User.all
+    @array_of_events = []
+    @users.each do |user|
+      events = user.events
+      events.each do |event|
+        @array_of_events << event
+      end
+    end
+    @array_of_events.shuffle
     
   end
 
