@@ -1,0 +1,12 @@
+<tr>
+	<td class="event">
+		<span class="content"><%= event.name %></span>
+		<span class="content"><%= event.description %></span>
+		<span class="content"><%= event.location %></span>
+		<span class="content"><%= event.date %></span>
+		<span class="content"><%= event.time %></span>
+		<span class="content"><%= event.facebooklink %></span>
+		<span class="content"><%= event.author %></span>
+		<span class = "timestamp">Posted <%= time_ago_in_words(event.created_at) %></span>
+	</td>
+</tr>

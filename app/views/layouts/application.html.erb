@@ -16,15 +16,15 @@
 		<div class="flash <%= key %>"><%= value %></div>
 		<% end %>
 	</section>
-	<%= yield %>
+	
 	<nav>
 			<ul>
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", about_path %></li>
 				<li><%= link_to "Contact", contact_path %></li>
 				<% if signed_in? %>
-				<li><%= link_to "New Event", newevent_path %></li>
 				<li><%= link_to "Profile", current_user %></li>
+				<li><%= link_to "View all users", allusers_path%></li>
 				<li><%= link_to "Sign out", signout_path %></li>
 				<% else %> 
 				<li><%= link_to "Sign in", signin_path %></li>
@@ -32,5 +32,6 @@
 				<% end %>
 			</ul>
   </nav>
+  <%= yield %>
 </body>
 </html>

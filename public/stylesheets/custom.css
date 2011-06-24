@@ -1,3 +1,13 @@
+#userdetails
+{
+	float: left;
+	width: 500px;
+}
+#createnewevents
+{
+	float: right;
+	width: 500px;
+}
 h3
 {
 	text-align: center;

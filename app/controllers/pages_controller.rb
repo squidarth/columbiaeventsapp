@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     @title = "Home"
-    @event = Event.all#{:one => Event.find(-1), :two => Event.find(-2), :three => Event.find(-3), :four => Event.find(-4)}
+    #@event = Event.all#{:one => Event.find(-1), :two => Event.find(-2), :three => Event.find(-3), :four => Event.find(-4)}
     
   end
 

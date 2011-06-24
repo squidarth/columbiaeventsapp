@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  #before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authorized_user, :only => :destroy
   # GET /events
   # GET /events.xml
   def index
@@ -23,15 +25,6 @@ class EventsController < ApplicationController
 
   # GET /events/new
   # GET /events/new.xml
-  def new
-    @title = "Create Event"
-    @event = Event.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @event }
-    end
-  end
 
   # GET /events/1/edit
   def edit
@@ -41,16 +34,14 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.xml
   def create
-    @event = Event.new(params[:event])
-
-    respond_to do |format|
-      if @event.save
-       format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
-      end
+    @event = current_user.events.build(params[:event])
+    if @event.save
+      flash[:success] = "Event created!"
+      redirect_to @event.user
+    else
+      redirect_to about_path
     end
+    
   end
 
   # PUT /events/1
@@ -80,4 +71,11 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+    def authorized_user
+      @event = current_user.events.find_by_id(params[:id])
+      redirect_to root_path if @micropost.nil?
+    end
 end

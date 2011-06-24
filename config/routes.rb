@@ -4,10 +4,10 @@ Sidsapp::Application.routes.draw do
   resources :users
   resources :events
   
+  match '/allusers', :to => 'users#index'
   match '/signup', :to => 'users#new'
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
-  match '/newevent', :to => 'events#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   
