@@ -6519,3 +6519,252 @@ Started GET "/users/20" for 127.0.0.1 at 2011-06-25 01:21:08 -0400
 Rendered events/_event.html.erb (2.1ms)
 Rendered users/show.html.erb within layouts/application (34.5ms)
 Completed 200 OK in 148ms (Views: 38.9ms | ActiveRecord: 2.4ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-25 13:34:25 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (12.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 2) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 3) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 4) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 5) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 6) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 7) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 8) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 9) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (3.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 11) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (2.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 12) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 13) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 14) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 15) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 16) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 17) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 18) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 19) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 20) ORDER BY events.created_at DESC[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 20 LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (99.1ms)
+Completed 200 OK in 318ms (Views: 109.9ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2011-06-25 13:34:28 -0400
+  Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-25 13:34:28 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (12.9ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 2) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 3) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 4) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 5) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 6) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 7) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 8) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 9) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (3.5ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 11) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (2.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 12) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 13) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 14) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 15) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 16) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 17) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 18) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 19) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 20) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (60.3ms)
+Completed 200 OK in 207ms (Views: 64.4ms | ActiveRecord: 22.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2011-06-25 13:34:29 -0400
+  Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered users/new.html.erb within layouts/application (177.6ms)
+Completed 200 OK in 207ms (Views: 182.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-06-25 13:34:51 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJyczw6lMoRvPsQW5fDnR3+ETErHBw0TVOKNmsmBq3o=", "user"=>{"name"=>"Shmelly Kelly", "email"=>"skelly@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "affiliatedorgs"=>"akflj", "school"=>"alsjk", "fblink"=>"asdjklf", "aboutme"=>"alksdjf", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xa9232cc @original_filename="monkey.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"monkey.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110625-3018-15cucwf>>}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 1528ms
+
+Psych::SyntaxError (couldn't parse YAML at line 2 column 20):
+  app/controllers/users_controller.rb:23:in `create'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-06-25 13:36:21 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/signin
+Completed 302 Found in 65ms
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-06-25 13:36:21 -0400
+  Processing by SessionsController#new as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered sessions/new.html.erb within layouts/application (75.7ms)
+Completed 200 OK in 97ms (Views: 94.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2011-06-25 13:36:25 -0400
+  Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (65.6ms)
+Completed 200 OK in 94ms (Views: 69.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-06-25 13:36:45 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJyczw6lMoRvPsQW5fDnR3+ETErHBw0TVOKNmsmBq3o=", "user"=>{"name"=>"shmelly kelly", "email"=>"skelly@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "affiliatedorgs"=>"", "school"=>"", "fblink"=>"", "aboutme"=>"", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xba48f84 @original_filename="monkey.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"monkey.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110625-3018-8b28eg>>}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 71ms
+
+Errno::ENOENT (No such file or directory - /config/s3.yml):
+  app/controllers/users_controller.rb:23:in `create'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-06-25 13:37:38 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://0.0.0.0:3000/signin
+Completed 302 Found in 64ms
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-06-25 13:37:39 -0400
+  Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered sessions/new.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 48ms (Views: 47.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2011-06-25 13:37:40 -0400
+  Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered users/new.html.erb within layouts/application (65.5ms)
+Completed 200 OK in 96ms (Views: 69.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-06-25 13:38:07 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJyczw6lMoRvPsQW5fDnR3+ETErHBw0TVOKNmsmBq3o=", "user"=>{"name"=>"shmelly kelly", "email"=>"skelly@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "affiliatedorgs"=>"jkl", "school"=>"dsjl", "fblink"=>"dlf", "aboutme"=>"ldsjk", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xba7e490 @original_filename="monkey.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"monkey.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110625-3018-1i5my8p>>}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 70ms
+
+Psych::SyntaxError (couldn't parse YAML at line 2 column 20):
+  app/controllers/users_controller.rb:23:in `create'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-25 13:38:43 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (12.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 2) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 3) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 4) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 5) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 6) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 7) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 8) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 9) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (3.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 10) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 11) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (2.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 12) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 13) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 14) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 15) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 16) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 17) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 18) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 19) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 20) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (66.5ms)
+Completed 200 OK in 193ms (Views: 70.8ms | ActiveRecord: 21.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2011-06-25 13:38:44 -0400
+  Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 95ms (Views: 70.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-06-25 13:39:02 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJyczw6lMoRvPsQW5fDnR3+ETErHBw0TVOKNmsmBq3o=", "user"=>{"name"=>"Shmelly Kelly", "email"=>"skelly@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "affiliatedorgs"=>"", "school"=>"", "fblink"=>"", "aboutme"=>"", "avatar"=>#<ActionDispatch::Http::UploadedFile:0xba4dd7c @original_filename="monkey.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"monkey.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110625-3018-rncqsb>>}, "commit"=>"Create User"}
+  [1m[35mSQL (0.3ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('skelly@gmail.com')) LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "aboutme", "affiliatedorgs", "school", "fblink", "created_at", "updated_at", "encrypted_password", "salt", "admin", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at") VALUES ('Shmelly Kelly', 'skelly@gmail.com', '', '', '', '', '2011-06-25 17:39:02.978022', '2011-06-25 17:39:02.978022', '174940b576c56939ede855da1bac49ffb85859f6edfe90f3c4f96f067a203f8e', 'c0dc81cdc418aa8b7e7d8ee8ab7184cced8226f2135ef991405edd6783eb5bbd', 'f', 'monkey.png', 'image/png', 95049, '2011-06-25 17:39:02.380059')[0m
+[paperclip] Saving attachments.
+[paperclip] saving avatars/21/original.png
+[paperclip] saving avatars/21/small.png
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('skelly@gmail.com')) AND ("users".id <> 21) LIMIT 1
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/users/21
+Completed 302 Found in 2859ms
+
+
+Started GET "/users/21" for 127.0.0.1 at 2011-06-25 13:39:05 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 21)[0m
+Rendered users/show.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 137ms (Views: 34.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/21" for 127.0.0.1 at 2011-06-25 13:48:33 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 21)
+Rendered users/show.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 137ms (Views: 33.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-06-25 13:49:12 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AJyczw6lMoRvPsQW5fDnR3+ETErHBw0TVOKNmsmBq3o=", "event"=>{"name"=>"Shmelly's Birthday", "description"=>"Lots of cake so u should come!", "date"=>"Friday", "time"=>"gotta get down onfriday", "location"=>"my haus", "author"=>"Sid", "facebooklink"=>"www.mylazysundays.com", "photo"=>#<ActionDispatch::Http::UploadedFile:0xb837ec0 @original_filename="monkey.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"event[photo]\"; filename=\"monkey.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110625-3018-popk9v>>}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "events" ("name", "description", "date", "time", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at") VALUES ('Shmelly''s Birthday', 'Lots of cake so u should come!', 'Friday', 'gotta get down onfriday', 'Sid', 'www.mylazysundays.com', 'my haus', '2011-06-25 17:49:12.831254', '2011-06-25 17:49:12.831254', 21, 'monkey.png', 'image/png', 95049, '2011-06-25 17:49:12.715212')
+[paperclip] Saving attachments.
+[paperclip] saving photos/16/original.png
+[paperclip] saving photos/16/small.png
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/21
+Completed 302 Found in 2485ms
+
+
+Started GET "/users/21" for 127.0.0.1 at 2011-06-25 13:49:14 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 21)
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 21) ORDER BY events.created_at DESC[0m
+Rendered events/_event.html.erb (3.5ms)
+Rendered users/show.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 160ms (Views: 40.9ms | ActiveRecord: 2.6ms)
