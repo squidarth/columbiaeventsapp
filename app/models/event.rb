@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :description, :date, :time, :location, :author, :facebooklink
+  attr_accessible :name, :description, :date, :time, :location, :author, :facebooklink, :photo
+  
+  has_attached_file :photo, :styles => { :small => "150x150>" }
   
   belongs_to :user
   

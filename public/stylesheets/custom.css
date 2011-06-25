@@ -1,12 +1,32 @@
+#firstdescrip
+{
+	margin-top: 100px;
+}
+#indivevent
+{
+	float:right;
+	border: 
+}
 #userdetails
 {
+	border: 2px solid;
+	border-color: black;
+	margin-bottom: 220px;
+	margin-top: 70px;
 	float: left;
-	width: 500px;
+	margin-left: 40px;
 }
 #createnewevents
 {
-	float: right;
-	width: 500px;
+	border: 2px solid;
+	border-color: black;
+	margin-top:50px;
+	float:right;
+	padding-left: 15px;
+	margin-bottom: 81px;
+	margin-left: 400px;
+	
+	
 }
 h3
 {
@@ -64,6 +84,6 @@ nav ul li a:hover
 	border: 2px solid;
 	border-color: black;
 	float: left;
-	width: 500px;
-	height: 500px;
+	width: 300px;
+	height: 300px;
 }

@@ -8,7 +8,7 @@ gem 'rake', '0.8.7'
 
 gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
-gem 'gravatar_image_tag', '1.0.0.pre2'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
 group :development do
   gem 'rspec-rails', '2.5.0'

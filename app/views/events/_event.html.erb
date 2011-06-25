@@ -1,12 +1,24 @@
-<tr>
-	<td class="event">
-		<span class="content"><%= event.name %></span>
-		<span class="content"><%= event.description %></span>
-		<span class="content"><%= event.location %></span>
-		<span class="content"><%= event.date %></span>
-		<span class="content"><%= event.time %></span>
-		<span class="content"><%= event.facebooklink %></span>
-		<span class="content"><%= event.author %></span>
-		<span class = "timestamp">Posted <%= time_ago_in_words(event.created_at) %></span>
-	</td>
-</tr>
+<div class="eventlisting">
+	<%= image_tag event.photo.url(:small) %>
+<p>
+	Name:<span class="content"><%= event.name %></span>	
+</p>
+<p>
+	Description:<span class="content"><%= event.description %></span>	
+</p>
+<p>
+	Location:<span class="content"><%= event.location %></span>
+</p>
+<p>
+	Date:<span class="content"><%= event.date %></span>	
+</p>
+<p>
+	Time:<span class="content"><%= event.time %></span>	
+</p>
+<p>
+	Link to Facebook Event:<span class="content"><%= event.facebooklink %></span>	
+</p>
+<p>
+	Author:<span class="content"><%= event.author %></span>	
+</p>
+</div>
