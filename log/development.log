@@ -13348,3 +13348,461 @@ Rendered categories/_events.html.erb (43.4ms)
   [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
 Rendered categories/theater.html.erb within layouts/application (61.3ms)
 Completed 200 OK in 192ms (Views: 64.4ms | ActiveRecord: 6.5ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 19:01:30 -0400
+  Processing by CategoriesController#theater as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.7ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1561.0ms)
+Rendered categories/theater.html.erb within layouts/application (1562.8ms)
+Completed 500 Internal Server Error in 1730ms
+
+ActionView::Template::Error (You did not provide both required access keys. Please provide the access_key_id and the secret_access_key.):
+    2: 
+    3: <%= @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+    7: 	<% else %>
+    8: 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+  app/views/categories/_events.html.erb:5:in `block in _app_views_categories__events_html_erb__39546133_89720940_96469480'
+  app/views/categories/_events.html.erb:3:in `each'
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__39546133_89720940_96469480'
+  app/views/categories/theater.html.erb:1:in `_app_views_categories_theater_html_erb___668029238_89739220_793612926'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.1ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 19:02:08 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.7ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (6.5ms)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (64.9ms)
+Completed 200 OK in 190ms (Views: 66.5ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-28 19:02:13 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+  [1m[35mEvent Load (3.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (7.3ms)
+Rendered users/show.html.erb within layouts/application (141.8ms)
+Completed 200 OK in 252ms (Views: 143.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 19:02:14 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddCategoryToEvents (20110628192043)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255), "month" varchar(255), "category" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255), "month" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_events"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110628192043'[0m
+Migrating to AddMonthToEvents (20110627201721)
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255), "month" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110627201721'
+Migrating to AddYearToEvents (20110627201647)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_events"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110627201647'[0m
+Migrating to AddAttachmentPhotoToEvent (20110625051158)
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_size" integer, "photo_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110625051158'
+Migrating to AddAttachmentAvatarToUser (20110625044535)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_file_size" integer, "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110625044535'[0m
+Migrating to AddUserIdToEvents (20110624031155)
+  [1m[35mSQL (0.9ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110624031155'
+Migrating to AddAdminToUsers (20110624024201)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f') [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_users"
+  [1m[36mAREL (0.2ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110624024201'[0m
+Migrating to AddSaltToUsers (20110621061938)
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "users"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36mSQL (0.1ms)[0m  [1mDROP TABLE "altered_users"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621061938'
+Migrating to AddPasswordToUsers (20110621061036)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621061036'[0m
+Migrating to AddEmailUniquenessIndex (20110621060055)
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621060055'
+Migrating to CreateUsers (20110621053237)
+  [1m[36mSQL (0.9ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mAREL (0.9ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621053237'
+Migrating to CreateEvents (20110619054207)
+  [1m[36mSQL (0.9ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110619054207'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateEvents (20110619054207)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110619054207')
+Migrating to CreateUsers (20110621053237)
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110621053237')
+Migrating to AddEmailUniquenessIndex (20110621060055)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110621060055')[0m
+Migrating to AddPasswordToUsers (20110621061036)
+  [1m[35mSQL (0.8ms)[0m  ALTER TABLE "users" ADD "encrypted_password" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110621061036')[0m
+Migrating to AddSaltToUsers (20110621061938)
+  [1m[35mSQL (0.4ms)[0m  ALTER TABLE "users" ADD "salt" varchar(255)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110621061938')[0m
+Migrating to AddAdminToUsers (20110624024201)
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110624024201')[0m
+Migrating to AddUserIdToEvents (20110624031155)
+  [1m[35mSQL (2.1ms)[0m  ALTER TABLE "events" ADD "user_id" integer
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110624031155')[0m
+Migrating to AddAttachmentAvatarToUser (20110625044535)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "users" ADD "avatar_file_name" varchar(255)
+  [1m[36mSQL (1.0ms)[0m  [1mALTER TABLE "users" ADD "avatar_content_type" varchar(255)[0m
+  [1m[35mSQL (0.6ms)[0m  ALTER TABLE "users" ADD "avatar_file_size" integer
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "users" ADD "avatar_updated_at" datetime[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110625044535')
+Migrating to AddAttachmentPhotoToEvent (20110625051158)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "events" ADD "photo_file_name" varchar(255)[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "events" ADD "photo_content_type" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "events" ADD "photo_file_size" integer[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "events" ADD "photo_updated_at" datetime
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110625051158')[0m
+Migrating to AddYearToEvents (20110627201647)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "events" ADD "year" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110627201647')[0m
+Migrating to AddMonthToEvents (20110627201721)
+  [1m[35mSQL (1.2ms)[0m  ALTER TABLE "events" ADD "month" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110627201721')[0m
+Migrating to AddCategoryToEvents (20110628192043)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "events" ADD "category" integer
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110628192043')[0m
+Migrating to AddTimeToEvents (20110628231218)
+  [1m[35mSQL (0.4ms)[0m  ALTER TABLE "events" ADD "time" integer
+SQLite3::SQLException: duplicate column name: time: ALTER TABLE "events" ADD "time" integer
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddCategoryToEvents (20110628192043)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255), "month" varchar(255), "category" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255), "month" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_events"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110628192043'[0m
+Migrating to AddMonthToEvents (20110627201721)
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255), "month" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110627201721'
+Migrating to AddYearToEvents (20110627201647)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime, "year" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_events"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110627201647'[0m
+Migrating to AddAttachmentPhotoToEvent (20110625051158)
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_content_type" varchar(255), "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_size" integer, "photo_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_file_size" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mSQL (0.7ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer, "photo_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110625051158'
+Migrating to AddAttachmentAvatarToUser (20110625044535)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_users"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_file_size" integer, "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_users"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "avatar_updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110625044535'[0m
+Migrating to AddUserIdToEvents (20110624031155)
+  [1m[35mSQL (0.4ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.3ms)[0m  DROP TABLE "events"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "time" integer, "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36mSQL (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110624031155'
+Migrating to AddAdminToUsers (20110624024201)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f') [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.1ms)[0m  DROP TABLE "altered_users"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110624024201'[0m
+Migrating to AddSaltToUsers (20110621061938)
+  [1m[35mSQL (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (2.8ms)[0m  DROP TABLE "users"
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36mSQL (0.1ms)[0m  [1mDROP TABLE "altered_users"[0m
+  [1m[35mAREL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621061938'
+Migrating to AddPasswordToUsers (20110621061036)
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.6ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_users")[0m
+  [1m[35mSQL (0.2ms)[0m  DROP TABLE "altered_users"
+  [1m[36mAREL (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621061036'[0m
+Migrating to AddEmailUniquenessIndex (20110621060055)
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621060055'
+Migrating to CreateUsers (20110621053237)
+  [1m[36mSQL (0.8ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mAREL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110621053237'
+Migrating to CreateEvents (20110619054207)
+  [1m[36mSQL (0.9ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110619054207'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateEvents (20110619054207)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "date" varchar(255), "author" varchar(255), "facebooklink" varchar(255), "location" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110619054207')
+Migrating to CreateUsers (20110621053237)
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "aboutme" varchar(255), "affiliatedorgs" varchar(255), "school" varchar(255), "fblink" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110621053237')
+Migrating to AddEmailUniquenessIndex (20110621060055)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110621060055')[0m
+Migrating to AddPasswordToUsers (20110621061036)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "users" ADD "encrypted_password" varchar(255)
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110621061036')[0m
+Migrating to AddSaltToUsers (20110621061938)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "users" ADD "salt" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110621061938')[0m
+Migrating to AddAdminToUsers (20110624024201)
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110624024201')[0m
+Migrating to AddUserIdToEvents (20110624031155)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "events" ADD "user_id" integer
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110624031155')[0m
+Migrating to AddAttachmentAvatarToUser (20110625044535)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "users" ADD "avatar_file_name" varchar(255)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "users" ADD "avatar_content_type" varchar(255)[0m
+  [1m[35mSQL (0.6ms)[0m  ALTER TABLE "users" ADD "avatar_file_size" integer
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "users" ADD "avatar_updated_at" datetime[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110625044535')
+Migrating to AddAttachmentPhotoToEvent (20110625051158)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "events" ADD "photo_file_name" varchar(255)[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "events" ADD "photo_content_type" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "events" ADD "photo_file_size" integer[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "events" ADD "photo_updated_at" datetime
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110625051158')[0m
+Migrating to AddYearToEvents (20110627201647)
+  [1m[35mSQL (1.0ms)[0m  ALTER TABLE "events" ADD "year" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110627201647')[0m
+Migrating to AddMonthToEvents (20110627201721)
+  [1m[35mSQL (0.4ms)[0m  ALTER TABLE "events" ADD "month" varchar(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110627201721')[0m
+Migrating to AddCategoryToEvents (20110628192043)
+  [1m[35mSQL (0.5ms)[0m  ALTER TABLE "events" ADD "category" integer
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110628192043')[0m
+Migrating to AddTimeToEvents (20110628231218)
+  [1m[35mSQL (0.4ms)[0m  ALTER TABLE "events" ADD "time" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110628231218')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
