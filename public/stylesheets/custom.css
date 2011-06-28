@@ -85,4 +85,5 @@ nav ul li a:hover
 	border-color: black;
 	float: left;
 	width: 300px;
+	margin-bottom: 10px;
 }

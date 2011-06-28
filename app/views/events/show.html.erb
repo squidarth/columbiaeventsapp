@@ -24,8 +24,8 @@
   <%= @event.location %>
 </p>
 <p>
-  <b>Author:</b>
-  <%= @event.author %>
+  <b>Category:</b>
+  <%= @event.category %>
 </p>
 <% if @event.facebooklink %>
 <p>
@@ -34,5 +34,5 @@
 </p>
 <% end %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event) %>
+<%= link_to "delete", @event, :method => :delete, :confirm => "You sure?", :title => @event.name %>

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110625051158) do
+ActiveRecord::Schema.define(:version => 20110628192043) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.string   "date"
-    t.string   "time"
+    t.integer  "time"
     t.string   "author"
     t.string   "facebooklink"
     t.string   "location"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(:version => 20110625051158) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "year"
+    t.string   "month"
+    t.integer  "category"
   end
 
   create_table "users", :force => true do |t|

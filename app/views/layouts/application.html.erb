@@ -7,10 +7,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<header>
 
 		<h1 id="mainheader">Welcome to Events Hub!</h1>
-	</header>
+
 	<section class="success">
 		<% flash.each do |key, value| %>
 		<div class="flash <%= key %>"><%= value %></div>

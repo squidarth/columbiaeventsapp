@@ -10,6 +10,13 @@ Sidsapp::Application.routes.draw do
   match '/about', :to => 'pages#about'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/fraternities', :to => 'categories#fraternities'
+  match '/theater', :to => 'categories#theater'
+  match '/sports', :to => 'categories#sports'
+  match '/careernetworking', :to => 'categories#careernetworking'
+  match '/arts', :to => 'categories#arts'
+  match '/communityservice', :to => 'categories#communityservice'
+  match '/stuco', :to => 'categories#studentcouncil'
   
   root :to => 'pages#home'
 

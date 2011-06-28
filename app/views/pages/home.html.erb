@@ -2,43 +2,71 @@
 <h3 id="firstdescrip">Find out what's happening on campus today!</h3>
 
 
+<ul class="events">
 <% if @array_of_events[-1]%>
-<div class="eventlisting">
-			Name : <%= @array_of_events[-1].name %><br />
-			Description: <%= @array_of_events[-1].description %><br />
-			Date: <%= @array_of_events[-1].date %><br />
-			Time: <%= @array_of_events[-1].time %><br />
-			Location: <%= @array_of_events[-1].location %><br />
-			Facebook Event Link: <%= @array_of_events[-1].facebooklink %><br />
-			By: <%= @array_of_events[-1].author%>
-</div>
+
+<li class="eventlisting">
+			<% if @array_of_events[-1].photo.file? %>
+			<%= image_tag @array_of_events[-1].photo.url(:small) %>
+			<% else %>
+			<%= image_tag("questionmark.png", :height => 150, :width => 120) %>
+			<% end %>
+			<p>Name : <%= @array_of_events[-1].name %></p>
+			<p>Description: <%= @array_of_events[-1].description %></p>
+			<p>Date: <%= @array_of_events[-1].date %></p>
+			<p>Time: <%= @array_of_events[-1].time %></p>
+			<p>Location: <%= @array_of_events[-1].location %></p>
+			<p>Facebook Event Link: <%= @array_of_events[-1].facebooklink %></p>
+			<p>By: <%= @array_of_events[-1].author%></p>
+</li>
 <% end %>
 <% if @array_of_events[-2]%>
-<div class="eventlisting">
-			Name : <%= @array_of_events[-2].name %><br />
-			Description: <%= @array_of_events[-2].description %><br />
-			Date: <%= @array_of_events[-2].date %><br />
-			Time: <%= @array_of_events[-2].time %><br />
-			By: <%= @array_of_events[-2].author%>
-</div>
+<li class="eventlisting">
+			<% if @array_of_events[-2].photo.file? %>
+			<%= image_tag @array_of_events[-2].photo.url(:small) %>
+			<% else %>
+			<%= image_tag("questionmark.png") %>
+			<% end %>
+			<p>Name : <%= @array_of_events[-2].name %></p>
+			<p>Description: <%= @array_of_events[-2].description %></p>
+			<p>Date: <%= @array_of_events[-2].date %></p>
+			<p>Time: <%= @array_of_events[-2].time %></p>
+			<p>Location: <%= @array_of_events[-2].location %></p>
+			<p>Facebook Event Link: <%= @array_of_events[-2].facebooklink %></p>
+			<p>By: <%= @array_of_events[-2].author%></p>
+</li>
 <% end %>
 <% if @array_of_events[-3]%>
-<div class="eventlisting">
-			Name : <%= @array_of_events[-3].name %><br />
-			Description: <%= @array_of_events[-3].description %><br />
-			Date: <%= @array_of_events[-3].date %><br />
-			Time: <%= @array_of_events[-3].time %><br />
-			By: <%= @array_of_events[-3].author%>
-</div>
+<li class="eventlisting">
+			<% if @array_of_events[-3].photo.file? %>
+			<%= image_tag @array_of_events[-3].photo.url(:small) %>
+			<% else %>
+			<%= image_tag("questionmark.png") %>
+			<% end %>
+			<p>Name : <%= @array_of_events[-3].name %></p>
+			<p>Description: <%= @array_of_events[-3].description %></p>
+			<p>Date: <%= @array_of_events[-3].date %></p>
+			<p>Time: <%= @array_of_events[-3].time %></p>
+			<p>Location: <%= @array_of_events[-3].location %></p>
+			<p>Facebook Event Link: <%= @array_of_events[-3].facebooklink %></p>
+			<p>By: <%= @array_of_events[-3].author%></p>
+</li>
 <% end %>
 <% if @array_of_events[-4]%>
-<div class="eventlisting">
-			Name : <%= @array_of_events[-4].name %><br />
-			Description: <%= @array_of_events[-4].description %><br />
-			Date: <%= @array_of_events[-4].date %><br />
-			Time: <%= @array_of_events[-4].time %><br />
-			By: <%= @array_of_events[-4].author%>
-</div>
+<li class="eventlisting">
+			<% if @array_of_events[-4].photo.file? %>
+			<%= image_tag @array_of_events[-4].photo.url(:small) %>
+			<% else %>
+			<%= image_tag("questionmark.png") %>
+			<% end %>
+			<p>Name : <%= @array_of_events[-4].name %></p>
+			<p>Description: <%= @array_of_events[-4].description %></p>
+			<p>Date: <%= @array_of_events[-4].date %></p>
+			<p>Time: <%= @array_of_events[-4].time %></p>
+			<p>Location: <%= @array_of_events[-4].location %></p>
+			<p>Facebook Event Link: <%= @array_of_events[-4].facebooklink %></p>
+			<p>By: <%= @array_of_events[-4].author%></p>
+</li>
 <% end %>
-
+</ul>
 		

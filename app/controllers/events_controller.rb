@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  #before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
   # GET /events
   # GET /events.xml
@@ -63,19 +63,15 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.xml
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(events_url) }
-      format.xml  { head :ok }
-    end
+    flash[:success] = "Event deleted!"
+    redirect_to current_user
   end
   
   private
   
     def authorized_user
       @event = current_user.events.find_by_id(params[:id])
-      redirect_to root_path if @micropost.nil?
+      redirect_to root_path if @event.nil?
     end
 end
