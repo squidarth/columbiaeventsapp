@@ -14107,3 +14107,817 @@ ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
   
 
 Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-29 00:01:22 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (1840.2ms)
+Completed 500 Internal Server Error in 2064ms
+
+ActionView::Template::Error (undefined local variable or method `communityservice' for #<#<Class:0x97da470>:0x97c3a7c>):
+    39:   		<li><%= link_to "Sports", sports_path %></li>
+    40:   		<li><%= link_to "Arts", arts_path %></li>
+    41:   		<li><%= link_to "Career Networking", careernetworking_path %></li>
+    42:   		<li><%= link_to "Community Service", communityservice %></li>
+    43:   		<li><%= link_to "Student Council", stuco_path %></li>
+    44:   	</ul>
+    45:   </nav>
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb__486615137_79562480__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-29 00:01:46 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (79.5ms)
+Completed 200 OK in 177ms (Views: 82.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/fraternities" for 127.0.0.1 at 2011-06-29 00:01:49 -0400
+  Processing by CategoriesController#fraternities as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (39.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/fraternities.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 176ms (Views: 61.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-29 00:01:51 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (3.8ms)
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (54.7ms)
+Completed 200 OK in 178ms (Views: 56.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/sports" for 127.0.0.1 at 2011-06-29 00:01:53 -0400
+  Processing by CategoriesController#sports as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/sports.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 143ms (Views: 22.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/arts" for 127.0.0.1 at 2011-06-29 00:01:54 -0400
+  Processing by CategoriesController#arts as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/arts.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 141ms (Views: 22.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/careernetworking" for 127.0.0.1 at 2011-06-29 00:01:55 -0400
+  Processing by CategoriesController#careernetworking as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (0.9ms)
+  [1m[35mUser Load (3.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/careernetworking.html.erb within layouts/application (54.2ms)
+Completed 200 OK in 175ms (Views: 55.7ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:01:56 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/communityservice.html.erb within layouts/application (93.3ms)
+Completed 200 OK in 98ms (Views: 96.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stuco" for 127.0.0.1 at 2011-06-29 00:01:57 -0400
+  Processing by CategoriesController#studentcouncil as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/studentcouncil.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 175ms (Views: 54.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:01:59 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/communityservice.html.erb within layouts/application (92.5ms)
+Completed 200 OK in 98ms (Views: 95.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/careernetworking" for 127.0.0.1 at 2011-06-29 00:02:01 -0400
+  Processing by CategoriesController#careernetworking as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/careernetworking.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 142ms (Views: 22.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/stuco" for 127.0.0.1 at 2011-06-29 00:02:03 -0400
+  Processing by CategoriesController#studentcouncil as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/studentcouncil.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 143ms (Views: 22.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:02:31 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/communityservice.html.erb within layouts/application (59.1ms)
+Completed 200 OK in 65ms (Views: 63.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:02:48 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (1.3ms)
+Rendered categories/communityservice.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_86545840_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_86550470__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started GET "/fraternities" for 127.0.0.1 at 2011-06-29 00:03:20 -0400
+  Processing by CategoriesController#fraternities as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (4.9ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/fraternities.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 146ms (Views: 26.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-29 00:03:21 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (4.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 155ms (Views: 24.6ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/sports" for 127.0.0.1 at 2011-06-29 00:03:21 -0400
+  Processing by CategoriesController#sports as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/sports.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 143ms (Views: 22.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/arts" for 127.0.0.1 at 2011-06-29 00:03:23 -0400
+  Processing by CategoriesController#arts as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/arts.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 168ms (Views: 54.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/careernetworking" for 127.0.0.1 at 2011-06-29 00:03:24 -0400
+  Processing by CategoriesController#careernetworking as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/careernetworking.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 143ms (Views: 22.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:03:27 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (1.2ms)
+Rendered categories/communityservice.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_86608050_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_86612410__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.2ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:06:11 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (1.2ms)
+Rendered categories/communityservice.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_86231640_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_86236940__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.9ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-29 00:07:16 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (83.4ms)
+Completed 200 OK in 187ms (Views: 87.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-29 00:07:18 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (34.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+  [1m[35mEvent Load (1.5ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (7.2ms)
+Rendered users/show.html.erb within layouts/application (227.0ms)
+Completed 200 OK in 420ms (Views: 309.5ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-29 00:07:19 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-06-29 00:07:28 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BdOZFLpf56qbKvGkXz9uHp5qabBwrL8xb7d1lcIfiXA=", "event"=>{"name"=>"sfdg", "description"=>"adsff", "month"=>"January", "date"=>"1", "year"=>"2011", "time"=>"1", "location"=>"asdfasfasf", "category"=>"7", "facebooklink"=>"fdsa"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "events" ("name", "description", "date", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "year", "month", "category", "time") VALUES ('sfdg', 'adsff', '1', NULL, 'fdsa', 'asdfasfasf', '2011-06-29 04:07:28.404813', '2011-06-29 04:07:28.404813', 1, NULL, NULL, NULL, NULL, '2011', 'January', 7, 1)
+[paperclip] Saving attachments.
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 343ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-29 00:07:28 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)
+  [1m[36mEvent Load (2.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered events/_event.html.erb (9.7ms)
+Rendered users/show.html.erb within layouts/application (86.3ms)
+Completed 200 OK in 199ms (Views: 88.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-29 00:07:28 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:07:33 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (1.2ms)
+Rendered categories/communityservice.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_86420230_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_86425330__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.7ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:07:52 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (1.2ms)
+Rendered categories/communityservice.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_85884670_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_85889490__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.9ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:10:17 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (1.3ms)
+Rendered categories/communityservice.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_87064390_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_87102030__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-29 00:10:28 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (38.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (49.4ms)
+Completed 200 OK in 151ms (Views: 53.1ms | ActiveRecord: 40.9ms)
+
+
+Started GET "/sports" for 127.0.0.1 at 2011-06-29 00:10:35 -0400
+  Processing by CategoriesController#sports as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.0ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/sports.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 142ms (Views: 22.6ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:10:59 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (35.2ms)
+Rendered categories/communityservice.html.erb within layouts/application (37.2ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <%= @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_86146250_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_86151540__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:11:49 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/_events.html.erb (1.4ms)
+Rendered categories/communityservice.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/_events.html.erb:3:in `_app_views_categories__events_html_erb__1009375321_86425830_534582444'
+  app/views/categories/communityservice.html.erb:1:in `_app_views_categories_communityservice_html_erb___359068865_86431440__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.9ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:20:39 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/communityservice.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <div class="eventlisting">
+    5: 	<% if event.photo.file? %>
+    6: 	<%= image_tag event.photo.url(:small) %>
+  app/views/categories/communityservice.html.erb:3:in `_app_views_categories_communityservice_html_erb___359068865_85882370__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.9ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:21:03 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/communityservice.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |event| %>
+    4: <% end %>
+  app/views/categories/communityservice.html.erb:3:in `_app_views_categories_communityservice_html_erb___359068865_77658640__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (46.4ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:21:25 -0400
+  Processing by CategoriesController#communityservice as HTML
+ERROR: compiling _app_views_categories_communityservice_html_erb___359068865_86600620__1063441484 RAISED /home/sid123/RailsProjects/columbiaeventsapp/app/views/categories/communityservice.html.erb:6: syntax error, unexpected keyword_ensure, expecting $end
+Function body:           def _app_views_categories_communityservice_html_erb___359068865_86600620__1063441484(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "categories/communityservice";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>');@output_buffer.append= ( @title );@output_buffer.safe_concat('</h1>
+
+'); @array_of_events 
+ end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_view/template.rb:258:in `module_eval'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_view/template.rb:258:in `compile'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_view/template.rb:134:in `block in render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:26:in `render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:93:in `render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/sid123/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activerecord-3.0.9/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:150:in `process_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:436:in `_run__128840757__process_action__557005689__callbacks'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:119:in `process'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:41:in `process'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal.rb:138:in `dispatch'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_controller/metal.rb:178:in `block in action'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:32:in `block in call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:12:in `cache'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:31:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/railties-3.0.9/lib/rails/rack/logger.rb:13:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/activesupport-3.0.9/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-1.2.3/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/railties-3.0.9/lib/rails/application.rb:168:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/railties-3.0.9/lib/rails/application.rb:77:in `method_missing'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/railties-3.0.9/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+/home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+/home/sid123/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/sid123/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/sid123/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered categories/communityservice.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (/home/sid123/RailsProjects/columbiaeventsapp/app/views/categories/communityservice.html.erb:6: syntax error, unexpected keyword_ensure, expecting $end):
+    3: <% @array_of_events %>
+    4: <% end %>
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.8ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:21:38 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/communityservice.html.erb within layouts/application (94.5ms)
+Completed 200 OK in 100ms (Views: 97.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:21:42 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/communityservice.html.erb within layouts/application (92.9ms)
+Completed 200 OK in 98ms (Views: 96.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:22:08 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/communityservice.html.erb within layouts/application (92.0ms)
+Completed 200 OK in 97ms (Views: 95.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:22:10 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/communityservice.html.erb within layouts/application (59.8ms)
+Completed 200 OK in 65ms (Views: 63.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:22:35 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/communityservice.html.erb within layouts/application (93.0ms)
+Completed 200 OK in 98ms (Views: 96.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:23:44 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/communityservice.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |e| %>
+    4: 	<p><%= e %></p>
+    5: 
+    6: <% end %>
+  app/views/categories/communityservice.html.erb:3:in `_app_views_categories_communityservice_html_erb___359068865_86326850__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:24:44 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/communityservice.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @array_of_events.each do |e| %>
+    4: 	<p><%= e %></p>
+    5: 
+    6: <% end %>
+  app/views/categories/communityservice.html.erb:3:in `_app_views_categories_communityservice_html_erb___359068865_85380490__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:25:15 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/communityservice.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @times.each do |e| %>
+    4: 	<p><%= e %></p>
+    5: 
+    6: <% end %>
+  app/views/categories/communityservice.html.erb:3:in `_app_views_categories_communityservice_html_erb___359068865_86613900__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:26:37 -0400
+  Processing by CategoriesController#communityservice as HTML
+Rendered categories/communityservice.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <h1><%= @title %></h1>
+    2: 
+    3: <% @categories.each do |e| %>
+    4: 	<p><%= e %></p>
+    5: 
+    6: <% end %>
+  app/views/categories/communityservice.html.erb:3:in `_app_views_categories_communityservice_html_erb___359068865_86281910__1063441484'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.7ms)
+
+
+Started GET "/commservice" for 127.0.0.1 at 2011-06-29 00:28:49 -0400
+  Processing by CategoriesController#commservice as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (4.1ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/commservice.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 188ms (Views: 26.0ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:30:32 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (2.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (41.6ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/communityservice.html.erb within layouts/application (59.5ms)
+Completed 200 OK in 188ms (Views: 63.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/fraternities" for 127.0.0.1 at 2011-06-29 00:30:36 -0400
+  Processing by CategoriesController#fraternities as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (4.6ms)
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/fraternities.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 185ms (Views: 60.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-29 00:30:37 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (2.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (4.1ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 155ms (Views: 26.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/sports" for 127.0.0.1 at 2011-06-29 00:30:38 -0400
+  Processing by CategoriesController#sports as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/sports.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 156ms (Views: 23.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/arts" for 127.0.0.1 at 2011-06-29 00:30:39 -0400
+  Processing by CategoriesController#arts as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (2.0ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (34.9ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/arts.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 175ms (Views: 56.6ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/careernetworking" for 127.0.0.1 at 2011-06-29 00:30:40 -0400
+  Processing by CategoriesController#careernetworking as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.3ms)
+  [1m[36mUser Load (39.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/careernetworking.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 183ms (Views: 23.9ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/communityservice" for 127.0.0.1 at 2011-06-29 00:30:41 -0400
+  Processing by CategoriesController#communityservice as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (38.0ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (3.9ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/communityservice.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 148ms (Views: 25.5ms | ActiveRecord: 40.2ms)
+
+
+Started GET "/stuco" for 127.0.0.1 at 2011-06-29 00:30:41 -0400
+  Processing by CategoriesController#studentcouncil as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (2.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (1.1ms)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/studentcouncil.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 147ms (Views: 24.5ms | ActiveRecord: 4.5ms)
