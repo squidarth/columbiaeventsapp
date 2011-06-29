@@ -56,7 +56,7 @@ class CategoriesController < ApplicationController
       @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council']
     end
     
-      private
+    private
   
     def compile_categories(category)
       users = User.all

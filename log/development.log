@@ -13806,3 +13806,304 @@ Migrating to AddTimeToEvents (20110628231218)
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-28 19:53:28 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Completed 404 Not Found in 57ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=1):
+  app/controllers/users_controller.rb:10:in `show'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.2ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-28 19:53:30 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 78ms (Views: 35.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2011-06-28 19:53:32 -0400
+  Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (122.8ms)
+Completed 200 OK in 169ms (Views: 142.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-06-28 19:53:51 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FgIhjEiw9rG446cD6heDZ9K+ZzoT3Apyak9H4Vltybc=", "user"=>{"name"=>"Sid Shanker", "email"=>"sshanker220@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "affiliatedorgs"=>"aldsjf", "school"=>"asdjklf", "fblink"=>"askldjf", "aboutme"=>"skldfsdf"}, "commit"=>"Create User"}
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('sshanker220@gmail.com')) LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "email", "aboutme", "affiliatedorgs", "school", "fblink", "created_at", "updated_at", "encrypted_password", "salt", "admin", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at") VALUES ('Sid Shanker', 'sshanker220@gmail.com', 'skldfsdf', 'aldsjf', 'asdjklf', 'askldjf', '2011-06-28 23:53:52.659835', '2011-06-28 23:53:52.659835', 'f641d4e230753646e05d174edee4bfe0ff36b291db6b193648eec4358e1ef650', '1ed0d090693f312f907923273987f641736c07d3a686a6f1a5e6eee11ce18bca', 'f', NULL, NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (0.3ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('sshanker220@gmail.com')) AND ("users".id <> 1) LIMIT 1
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 1691ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-28 19:53:52 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+Rendered users/show.html.erb within layouts/application (62.3ms)
+Completed 200 OK in 174ms (Views: 66.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 19:53:53 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 19:53:53 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-06-28 19:54:10 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FgIhjEiw9rG446cD6heDZ9K+ZzoT3Apyak9H4Vltybc=", "event"=>{"name"=>"asdf", "description"=>"asdfas", "month"=>"April", "date"=>"20", "year"=>"2012", "time"=>"20", "location"=>"asdfasf", "category"=>"2", "facebooklink"=>"aasdf"}, "commit"=>"Create Event"}
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "events" ("name", "description", "date", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "year", "month", "category", "time") VALUES ('asdf', 'asdfas', '20', NULL, 'aasdf', 'asdfasf', '2011-06-28 23:54:10.226153', '2011-06-28 23:54:10.226153', 1, NULL, NULL, NULL, NULL, '2012', 'April', 2, 20)[0m
+[paperclip] Saving attachments.
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 295ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-28 19:54:10 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+  [1m[35mEvent Load (1.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (3.0ms)
+Rendered users/show.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 149ms (Views: 42.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 19:54:10 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 19:54:10 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 19:54:17 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (4.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 141ms (Views: 23.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 19:56:04 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 138ms (Views: 19.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 19:56:28 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 166ms (Views: 49.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 19:57:20 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 137ms (Views: 18.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:01:40 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 136ms (Views: 19.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:01:43 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 169ms (Views: 51.2ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:02:50 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 136ms (Views: 18.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:04:11 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 139ms (Views: 19.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:04:13 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 185ms (Views: 22.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:06:58 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (3.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (51.6ms)
+Completed 200 OK in 177ms (Views: 53.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:09:27 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 140ms (Views: 19.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:09:37 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (1.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (3.5ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered categories/theater.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 144ms (Views: 24.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/theater" for 127.0.0.1 at 2011-06-28 20:17:00 -0400
+  Processing by CategoriesController#theater as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (1.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (3.7ms)
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered categories/theater.html.erb within layouts/application (53.8ms)
+Completed 200 OK in 174ms (Views: 55.7ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-28 20:17:03 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)
+  [1m[36mEvent Load (1.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered events/_event.html.erb (38.0ms)
+Rendered users/show.html.erb within layouts/application (74.8ms)
+Completed 200 OK in 186ms (Views: 77.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 20:17:03 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 20:17:03 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-06-28 20:17:54 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FgIhjEiw9rG446cD6heDZ9K+ZzoT3Apyak9H4Vltybc=", "event"=>{"name"=>"dasf", "description"=>"asdf", "month"=>"February", "date"=>"31", "year"=>"2011", "time"=>"1", "location"=>"asdfasf", "category"=>"1", "facebooklink"=>"asdf", "photo"=>#<ActionDispatch::Http::UploadedFile:0xa3310d0 @original_filename="monkey.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"event[photo]\"; filename=\"monkey.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20110628-7092-1a3ciiv>>}, "commit"=>"Create Event"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "events" ("name", "description", "date", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "year", "month", "category", "time") VALUES ('dasf', 'asdf', '31', NULL, 'asdf', 'asdfasf', '2011-06-29 00:17:55.732427', '2011-06-29 00:17:55.732427', 1, 'monkey.png', 'image/png', 95049, '2011-06-29 00:17:55.194820', '2011', 'February', 1, 1)[0m
+[paperclip] Saving attachments.
+[paperclip] saving photos/2/original.png
+[paperclip] saving photos/2/small.png
+  [1m[35mUser Load (35.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 2871ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-06-28 20:17:57 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+  [1m[35mEvent Load (1.5ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (7.0ms)
+Rendered users/show.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 161ms (Views: 48.2ms | ActiveRecord: 39.5ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 20:17:58 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-06-28 20:17:58 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)

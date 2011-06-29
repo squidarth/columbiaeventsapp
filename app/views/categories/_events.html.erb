@@ -1,6 +1,6 @@
 <h1><%= @title %></h1>
 
-<%= @array_of_events.each do |event| %>
+<% @array_of_events.each do |event| %>
 <div class="eventlisting">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small) %>
