@@ -14,7 +14,7 @@
 	Location:<span class="content"><%= event.location %></span>
 </p>
 <p>
-	Date:<span class="content"> <%= event.month %> <%= event.date %>, <%= event.year %></span>
+	Date:<span class="content"> <%= @months[event.month - 1] %> <%= event.day %>, <%= event.year %></span>
 </p>
 
 <p>

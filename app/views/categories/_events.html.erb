@@ -1,7 +1,7 @@
 <h1><%= @title %></h1>
 
 <% @array_of_events.each do |event| %>
-<div class="eventlisting">
+<li class="eventlisting">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small) %>
 	<% else %>
@@ -17,7 +17,7 @@
 	Location:<span class="content"><%= event.location %></span>
 </p>
 <p>
-	Date:<span class="content"> <%= event.month %> <%= event.date %>, <%= event.year %></span>
+	Date:<span class="content"> <%= @months[event.month - 1] %> <%= event.date %>, <%= event.year %></span>
 </p>
 
 <p>
@@ -32,5 +32,5 @@
 <p>
 	<%= link_to "Event Page", event %>
 </p>
-</div>
+</li>
 <% end %>

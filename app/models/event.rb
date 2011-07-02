@@ -1,7 +1,9 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :description, :date, :time, :location, :author, :facebooklink, :photo, :year, :month, :category
+  attr_accessible :name, :description, :day, :time, :location, :author, :facebooklink, :photo, :year, :month, :category, :datescore
   
   has_attached_file :photo, :styles => { :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
+  
+  has_many :comments, :dependent => :destroy
   
   belongs_to :user
   

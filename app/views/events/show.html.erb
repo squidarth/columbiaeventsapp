@@ -1,38 +1,57 @@
-<p id="notice"><%= notice %></p>
-
+<div id="eventshow">
+	<% if @event.photo.file? %>
+	<%= image_tag @event.photo.url(:small) %>
+	<% else %>
+	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<% end %>
+	<br />
 <p>
-  <b>Name:</b>
-  <%= @event.name %>
+	Name:<span class="content"><%= @event.name %></span>	
+</p>
+<p>
+	Description:<span class="content"><%= @event.description %></span>	
+</p>
+<p>
+	Location:<span class="content"><%= @event.location %></span>
+</p>
+<p>
+	Date:<span class="content"> <%= @months[@event.month - 1] %> <%= @event.date %>, <%= @event.year %></span>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @event.date %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%= @event.time %>
+	Time:<span class="content"> <%= @times[@event.time - 1] %></span>	
 </p>
 <p>
-  <b>Location:</b>
-  <%= @event.location %>
+	Category:<span class="content"><%= @categories[@event.category - 1] %></span>
 </p>
 <p>
-  <b>Category:</b>
-  <%= @event.category %>
+	Link to Facebook Event:<span class="content"><%= @event.facebooklink %></span>	
 </p>
-<% if @event.facebooklink %>
-<p>
-  <b>Facebook Event Link:</b>
-  <%= @event.facebooklink %>
-</p>
-<% end %>
-
+<% if current_user?(@event.user)%>
 <%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to "delete", @event, :method => :delete, :confirm => "You sure?", :title => @event.name %>
+<% end %>
+</div>
+
+<div id="commentform">
+	<%= form_for(@comment) do |f| %>
+		    <% if signed_in? %>
+		    <p><%= f.label :author %><br />
+    		<%= f.text_field :author, :value => current_user.name %></p>
+    		<% else %>
+ 		    <p><%= f.label :author %><br />
+    		<%= f.text_field :author %></p>   		
+    		<% end %>
+    		
+    		<p><%= f.label :content %><br />
+    		<%= f.text_field :content %></p>
+    		
+    		<p><%= f.submit %></p>
+	<% end %>
+</div>
+<div id="comments">
+	<% @comments.each do |comment| %>
+		<p><%= comment.author %></p>
+		<p><%= comment.content %></p>
+	<% end %>
+</div>

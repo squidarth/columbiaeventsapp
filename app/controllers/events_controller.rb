@@ -16,6 +16,12 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    @comment = @event.comments.build(:event_id => :id)
+    session[:event_id] = @event.id
+    @comments = @event.comments.reverse
+    @times = ['12:00 AM', '1:00 AM','2:00 AM', '3:00 AM','4:00 AM','5:00 AM', '6:00 AM','7:00 AM','8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM']
+    @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council']
+    @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
     #respond_to do |format|
      # format.html # show.html.erb
@@ -35,11 +41,12 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = current_user.events.build(params[:event])
+    @event.datescore = (365)*(@event.year - 2011) + (30)*(@event.month - 1) + @event.day + (1/24)*(@event.time)
     if @event.save
       flash[:success] = "Event created!"
       redirect_to @event.user
     else
-      redirect_to about_path
+      redirect_to @event.user
     end
     
   end

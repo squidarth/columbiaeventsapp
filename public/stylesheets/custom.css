@@ -1,3 +1,19 @@
+#commentform
+{
+	text-align: center;
+}
+#comments
+{
+	text-align: center;
+}
+#eventshow
+{
+	margin-left: 520px;
+	border: 2px solid;
+	border-color: black;
+	margin-top: 70px;
+	margin-right: 520px;
+}
 #firstdescrip
 {
 	margin-top: 100px;
