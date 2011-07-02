@@ -15,8 +15,6 @@ class Event < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 140 }
   validates :description, :length => { :maximum => 140 }
   validates :location,  :length => { :maximum => 140 }
-  validates :date, :length => { :maximum => 140 }
-  validates :time, :length => { :maximum => 140 }
   validates :author, :length => { :maximum => 140 }
   validates :user_id, :presence => true
 
