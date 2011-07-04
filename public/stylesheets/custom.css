@@ -59,42 +59,92 @@ h3
 	margin-left: 0px;
 	
 }
-nav 
+
+
+ul#menu 
 {
-  float: right;
-  background-color: white;
-  padding: 0 0.7em;
-  white-space: nowrap;
+background: #000;
+color: #fff;
+float: right;
+margin: 0;
+padding: 0.3em 0em;
 }
 
-nav ul 
-{
-  margin: 0;
-  padding: 0;
+
+ul#menu li {
+display: inline;
+margin: 0.1em 1em;
+position: relative;
 }
 
-nav ul li 
-{
-  list-style-type: none;
-  display: inline-block;
-  padding: 0.2em 0;
+ul#menu h2 {
+font-size: 100%;
+font-weight: normal;
+display: inline;
 }
 
-nav ul li a 
-{
-  padding: 0 5px;
-  font-weight: bold;
+
+ul#menu li a {
+color: #fff;
+text-decoration: none;
+padding: 0 0.4em;
 }
 
-nav ul li a:visited 
-{
-  color: #09c;
+ul#menu li a:hover {
+text-decoration: underline;
 }
 
-nav ul li a:hover 
-{
-  text-decoration: underline;
+ul#menu li.mega a {
+background: transparent url(arrow.gif) center right no-repeat;
+padding: 0 1.2em;
 }
+
+ul#menu li.mega a:hover {
+text-decoration: underline;
+}
+
+ul#menu div {
+display: none;
+}
+
+ul#menu li.mega div {
+border: 1px solid #dda;
+position: absolute;
+top: 1.6em;
+left: 0em;
+padding: 1.3em;
+background: #000;
+}
+
+ul#menu li.hovering div {
+display: block;
+}
+
+ul#menu li.mega div a {
+color: #fff;
+padding: 0;
+background-image: none;
+}
+ul#menu li.mega div a:hover {
+text-decoration: underline;
+}
+
+ul#menu li div a.more {
+color: #390;
+font-weight: bold;
+}
+
+
+ul#menu div h3 {
+color: #f70;
+font-weight: bold;
+font-size: 1.1em;
+}
+ul#menu div p {
+margin: 0 0 0.8em 0;
+padding: 0;
+}
+
 .eventlisting
 {
 	border: 2px solid;
