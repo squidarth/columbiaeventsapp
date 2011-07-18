@@ -1,16 +1,13 @@
 class CommentsController < ApplicationController
   
     def create
-      @event = Event.find_by_id(session[:event_id])
-      session[:event_id] = nil
-      @comment = @event.comments.build(params[:comment])
-    #@comment = Event.find(params[:event]).comments.build(params[:comment])
-    if @comment.save
-      flash[:success] = "Comment sent!"
-      redirect_to @comment.event
-    else
-      redirect_to @event
-    end
-    
-  end
+      @comment = Comment.create!(params[:comment])
+      @event = Event.find_by_id(@comment.event_id)
+         respond_to do |format|
+           if @comment.save
+             format.html { redirect_to @event }
+             format.js 
+          end
+         end  
+   end
 end

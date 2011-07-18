@@ -8,11 +8,11 @@
 }
 #eventshow
 {
-	margin-left: 520px;
+	margin-left: 400px;
 	border: 2px solid;
 	border-color: black;
 	margin-top: 70px;
-	margin-right: 520px;
+	margin-right: 400px;
 }
 #firstdescrip
 {
@@ -59,15 +59,19 @@ h3
 	margin-left: 0px;
 	
 }
-
+.rule
+{
+	border-bottom: 1px solid;
+}
 
 ul#menu 
 {
-background: #000;
-color: #fff;
+color: #000;
 float: right;
 margin: 0;
 padding: 0.3em 0em;
+width: 100%;
+text-align: right;
 }
 
 
@@ -75,6 +79,7 @@ ul#menu li {
 display: inline;
 margin: 0.1em 1em;
 position: relative;
+text-align: left;
 }
 
 ul#menu h2 {
@@ -85,7 +90,7 @@ display: inline;
 
 
 ul#menu li a {
-color: #fff;
+color: #000;
 text-decoration: none;
 padding: 0 0.4em;
 }
@@ -134,12 +139,6 @@ color: #390;
 font-weight: bold;
 }
 
-
-ul#menu div h3 {
-color: #f70;
-font-weight: bold;
-font-size: 1.1em;
-}
 ul#menu div p {
 margin: 0 0 0.8em 0;
 padding: 0;
@@ -152,4 +151,30 @@ padding: 0;
 	float: left;
 	width: 300px;
 	margin-bottom: 10px;
+}
+.signup
+{
+	font-family: trebuchet, sans-serif;
+	width: 150px;
+	height:50px;
+	background-color: green;
+	color: #fff;
+	float: right;
+	margin-top: 70px;
+	padding-left: 10px;
+}
+.signup a
+{
+	font-family: trebuchet, sans-serif;
+	font-size: 2em;
+	color: #fff;
+	text-decoration: none;
+}
+.events
+{
+	list-style: none;
+}
+textarea
+{
+	font-family: trebuchet, sans-serif;
 }

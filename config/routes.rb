@@ -2,10 +2,11 @@ Sidsapp::Application.routes.draw do
   
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
-  resources :events 
-  resources :comments
+  resources :events do
+    resources :comments, :only => [:create]
+  end
   
-  
+  match "comments/create" => "comments#create"
   match '/allusers', :to => 'users#index'
   match '/signup', :to => 'users#new'
   match '/contact', :to => 'pages#contact'

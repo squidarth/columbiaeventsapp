@@ -3,18 +3,22 @@
 <head>
   <title><%= title %></title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag 'jquery', 'hoverIntent', 'application' %>
+
+  <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+  <%= javascript_include_tag "jquery-rails.js" %>
+  <%= javascript_include_tag 'hoverIntent', 'application', 'effects.js', 'controls.js', 'dragdrop.js' %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<section class="success">
-		<% flash.each do |key, value| %>
-		<div class="flash <%= key %>"><%= value %></div>
-		<% end %>
-	</section>
-	
+	<div class="rule">
+	<%= image_tag ("header.jpeg"), :usemap => "#image_link", :display => "block" %>
+	<map name="image_link">
+		<area href="<%= url_for root_path %>" shape="rect" coords="0,0,189,19" />
+	</map>
 	<nav>
 			<ul id="menu">
+
 				<li class="mega">
 					<h2>
 						<a href="#">Categories</a>
@@ -55,6 +59,13 @@
 				
 			</ul>
   </nav>
+  </div>
+  	<section class="success">
+		<% flash.each do |key, value| %>
+		<div class="flash <%= key %>"><%= value %></div>
+		<% end %>
+	</section>
+	
   <%= yield %>
 </body>
 </html>
