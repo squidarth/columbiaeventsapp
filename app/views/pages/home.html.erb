@@ -1,38 +1,17 @@
-<div class="signup"><%= link_to "Sign up!", signup_path %></div>
-<ul class="events">
-<% @array_of_events.each do |event| %>
-<li class="eventlisting">
-	<% if event.photo.file? %>
-	<%= image_tag event.photo.url(:small) %>
-	<% else %>
-	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
-	<% end %>
-<p>
-	Name:<span class="content"><%= event.name %></span>	
-</p>
-<p>
-	Description:<span class="content"><%= event.description %></span>	
-</p>
-<p>
-	Location:<span class="content"><%= event.location %></span>
-</p>
-<p>
-	Date:<span class="content"> <%= @months[event.month - 1] %> <%= event.day %>, <%= event.year %></span>
-</p>
+<div id="introduction">
+	<%= image_tag("introduction.gif") %>
+</div>
 
-<p>
-	Time:<span class="content"> <%= @times[event.time - 1] %></span>	
-</p>
-<p>
-	Category:<span class="content"><%= @categories[event.category - 1] %></span>
-</p>
-<p>
-	Link to Facebook Event:<span class="content"><%= event.facebooklink %></span>	
-</p>
-<p>
-	<%= link_to "Event Page", event %>
-</p>
-</li>
-<% end %>
+
+<div class="signup"><%= link_to "Sign up!", signup_path %></div>
+
+<ul id="mycarousel" class="jcarousel jcarousel-skin-tango">
+			  <% @array_of_events.each do |event| %>
+					<li><%= link_to(event) do %>
+						<%= image_tag event.photo.url(:small), :width => 100, :height => 100 %>
+						<% end %></li>
+
+				<% end %>
+	
 </ul>
-		
+	

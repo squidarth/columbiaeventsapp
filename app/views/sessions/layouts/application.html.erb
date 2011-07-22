@@ -7,28 +7,22 @@
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" %>
   <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery-rails.js" %>
-  <%= javascript_include_tag 'hoverIntent', 'application', 'effects.js', 'controls.js', 'dragdrop.js', 'jquery.jcarousel' %>
+  <%= javascript_include_tag 'hoverIntent', 'application', 'effects.js', 'controls.js', 'dragdrop.js' %>
   <%= csrf_meta_tag %>
-  <script type="text/javascript">
-jQuery(document).ready(function() {
-    jQuery('#mycarousel').jcarousel({
-        // Configuration goes here
-        scroll: 1,
-        auto: .5,
-        wrap: 'circular'
-    });
-});
-</script>
 </head>
 <body>
-	<div id="main_container">
-		<div id="header">
-		<div id="logo"><a href="/"><%= image_tag ("logo.gif")%></div>
-		
-	<div id="menu_tab">
-			<ul class="menu">
+	<div class="rule">
+	<%= image_tag ("header.jpeg"), :usemap => "#image_link", :display => "block" %>
+	<map name="image_link">
+		<area href="<%= url_for root_path %>" shape="rect" coords="0,0,189,19" />
+	</map>
+	<nav>
+			<ul id="menu">
+
 				<li class="mega">
-					<a class="categories" href="#">Categories</a>
+					<h2>
+						<a href="#">Categories</a>
+					</h2>
 					<div>
 						<p><%= link_to "Fraternities", fraternities_path %></p>
 						<p><%= link_to "Theater", theater_path %></p>
@@ -40,14 +34,18 @@ jQuery(document).ready(function() {
 					</div>	
 				</li>
 				<li class="mega">
-					<a class="about" href="#">About</a>
+					<h2>
+						<a href="#">About</a>
+					</h2>
 					<div>
 						<p><%= link_to "About", about_path %></p>
 						<p><%= link_to "Contact", contact_path %></p>
 					</div>
 				</li>
 				<li class="mega">
-					<a class="account" href="#">Account</a>
+					<h2>
+						<a href="#">Account</a>
+					</h2>
 					<div>
 						<% if signed_in? %>
 						<p><%= link_to "Profile", current_user %></p>
@@ -58,8 +56,9 @@ jQuery(document).ready(function() {
 						<% end %>
 					</div>
 				</li>
+				
 			</ul>
-  </div>
+  </nav>
   </div>
   	<section class="success">
 		<% flash.each do |key, value| %>
@@ -68,6 +67,5 @@ jQuery(document).ready(function() {
 	</section>
 	
   <%= yield %>
-  </div>
 </body>
 </html>

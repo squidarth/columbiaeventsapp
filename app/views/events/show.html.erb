@@ -6,26 +6,26 @@
 	<% end %>
 	<br />
 <p>
-	Name:<span class="content"><%= @event.name %></span>	
+	<b>Name: </b> <%= @event.name %>	
 </p>
 <p>
-	Description:<span class="content"><%= @event.description %></span>	
+	<b>Description: </b> <%= @event.description %>	
 </p>
 <p>
-	Location:<span class="content"><%= @event.location %></span>
+	<b>Location: </b> <%= @event.location %>
 </p>
 <p>
-	Date:<span class="content"> <%= @months[@event.month - 1] %> <%= @event.day %>, <%= @event.year %></span>
+	<b>Date:</b> <%= @months[@event.month - 1] %> <%= @event.day %>, <%= @event.year %>
 </p>
 
 <p>
-	Time:<span class="content"> <%= @times[@event.time - 1] %></span>	
+	<b>Time:</b> <%= @times[@event.time - 1] %>
 </p>
 <p>
-	Category:<span class="content"><%= @categories[@event.category - 1] %></span>
+	<b>Category: </b><%= @categories[@event.category - 1] %>
 </p>
 <p>
-	Link to Facebook Event:<span class="content"><%= @event.facebooklink %></span>	
+	<b>Link to Facebook Event: </b><%= @event.facebooklink %>	
 </p>
 <% if current_user?(@event.user)%>
 <%= link_to 'Edit', edit_event_path(@event) %>

@@ -1,30 +1,39 @@
-#commentform
-{
+html {
+	background:url("/images/bg.jpg") repeat;
+}
+#header {
+	width:1200px;
+	height:140px;
+	margin:auto;
+	background:url("/images/header_bg.jpg") no-repeat center;
+}
+#menu_tab {
+	width:960px;
+	height:32px;
+	clear:both;
+	padding:47px 0 0 0;
+}
+#commentform {
 	text-align: center;
 }
-#comments
-{
+#comments {
 	text-align: center;
 }
-#eventshow
-{
+#eventshow {
 	margin-left: 400px;
-	border: 2px solid;
-	border-color: black;
 	margin-top: 70px;
 	margin-right: 400px;
+	font-family:Arial, Helvetica, sans-serif;
 }
-#firstdescrip
-{
+#firstdescrip {
 	margin-top: 100px;
 }
-#indivevent
-{
+#indivevent {
 	float:right;
-	border: 
-}
-#userdetails
-{
+	border:
+	}
+	#userdetails
+	{
 	border: 2px solid;
 	border-color: black;
 	margin-bottom: 220px;
@@ -32,8 +41,7 @@
 	float: left;
 	margin-left: 40px;
 }
-#createnewevents
-{
+#createnewevents {
 	border: 2px solid;
 	border-color: black;
 	margin-top:50px;
@@ -41,111 +49,96 @@
 	padding-left: 15px;
 	margin-bottom: 81px;
 	margin-left: 400px;
-	
-	
 }
-h3
+#logo
 {
+padding:0px 0 0 0px;
+margin-left: 100px;
+float:left;
+}
+#menu_tab {
+	width:1200px;
+	height:20px;
+	clear:both;
+	padding:47px 0 0 0;
+}
+ul.menu {
+	list-style-type:none;
+	/*display:block;*/
+	width: auto;
+	margin: auto;
+	padding:0px 0 0 160px;
+}
+ul.menu li {
+	/*display:inline;*/
+	line-height:25px;
 	text-align: center;
-	font-family: trebuchet, sans-serif;
-	color: blue;
 }
-#mainheader
-{
+ul.menu li a {
+	color: #DDDDAA;
+	font-size:14px;
+	font-weight:bold;
+	float:left;
+	display:block;
+	height:32px;
+	text-decoration:none;
+	padding:0 30px 0 0;
+	margin:0 110px 0 0;
+}
+ul.menu li a:hover {
+	color: #FFFFFF;
+}
+
+#introduction{
+	width: 960px;
+	color: white;
+	margin:auto;
+	margin-top: 5px;
+	margin-bottom: 0;
 	text-align: center;
-	font-family: trebuchet, sans-serif;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-left: 0px;
-	
 }
-.rule
-{
-	border-bottom: 1px solid;
+#mycarousel{
+	margin:auto;
 }
 
-ul#menu 
-{
-color: #000;
-float: right;
-margin: 0;
-padding: 0.3em 0em;
-width: 100%;
-text-align: right;
-}
+ ul.menu div {
+ display: none;
+ }
 
+ ul.menu li.mega div {
+ border: 1px solid #dda;
+ position: absolute;
+ z-index: 100;
+ top: 0em;
+ left: 0em;
+ padding: 1.3em;
+ background: #666666;
+ }
 
-ul#menu li {
-display: inline;
-margin: 0.1em 1em;
-position: relative;
-text-align: left;
-}
+ ul.menu li.hovering div {
+ display: block;
+ }
 
-ul#menu h2 {
-font-size: 100%;
-font-weight: normal;
-display: inline;
-}
+ ul.menu li.mega div a {
+ color: #fff;
+ padding: 0;
+ background-image: none;
+ }
+ ul.menu li.mega div a:hover {
+ text-decoration: underline;
+ }
 
+ ul.menu li div a.more {
+ color: #390;
+ font-weight: bold;
+ }
 
-ul#menu li a {
-color: #000;
-text-decoration: none;
-padding: 0 0.4em;
-}
-
-ul#menu li a:hover {
-text-decoration: underline;
-}
-
-ul#menu li.mega a {
-background: transparent url(arrow.gif) center right no-repeat;
-padding: 0 1.2em;
-}
-
-ul#menu li.mega a:hover {
-text-decoration: underline;
-}
-
-ul#menu div {
-display: none;
-}
-
-ul#menu li.mega div {
-border: 1px solid #dda;
-position: absolute;
-top: 1.6em;
-left: 0em;
-padding: 1.3em;
-background: #000;
-}
-
-ul#menu li.hovering div {
-display: block;
-}
-
-ul#menu li.mega div a {
-color: #fff;
-padding: 0;
-background-image: none;
-}
-ul#menu li.mega div a:hover {
-text-decoration: underline;
-}
-
-ul#menu li div a.more {
-color: #390;
-font-weight: bold;
-}
-
-ul#menu div p {
-margin: 0 0 0.8em 0;
-padding: 0;
-}
-
-.eventlisting
-{
+ ul.menu div p {
+ margin: 0 0 0.8em 0;
+ padding: 0;
+ }
+ 
+.eventlisting {
 	border: 2px solid;
 	border-color: black;
 	float: left;
@@ -153,28 +146,28 @@ padding: 0;
 	margin-bottom: 10px;
 }
 .signup
-{
-	font-family: trebuchet, sans-serif;
-	width: 150px;
-	height:50px;
-	background-color: green;
-	color: #fff;
-	float: right;
-	margin-top: 70px;
-	padding-left: 10px;
-}
-.signup a
-{
-	font-family: trebuchet, sans-serif;
-	font-size: 2em;
-	color: #fff;
-	text-decoration: none;
-}
-.events
-{
+ {
+ font-family: trebuchet, sans-serif;
+ color: #fff;
+ width: 150px;
+ text-align: center;
+ margin: auto;
+ margin-top: 60px;
+ }
+ .signup a
+ {
+ font-family:Arial, Helvetica, sans-serif;
+ font-size: 2em;
+ color: #fff;
+ text-decoration: none;
+ }
+.events {
 	list-style: none;
 }
-textarea
-{
+textarea {
 	font-family: trebuchet, sans-serif;
+}
+.content{
+	display:inline;
+	float:right;
 }
