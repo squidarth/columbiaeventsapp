@@ -33681,3 +33681,325 @@ Started GET "/" for 127.0.0.1 at 2011-07-21 21:51:45 -0400
   [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
 Rendered pages/home.html.erb within layouts/application (37.0ms)
 Completed 200 OK in 224ms (Views: 43.6ms | ActiveRecord: 6.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-21 22:39:51 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (4.9ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Completed 500 Internal Server Error in 1929ms
+
+AWS::S3::MissingAccessKey (You did not provide both required access keys. Please provide the access_key_id and the secret_access_key.):
+  app/controllers/pages_controller.rb:12:in `block (2 levels) in home'
+  app/controllers/pages_controller.rb:11:in `block in home'
+  app/controllers/pages_controller.rb:9:in `each'
+  app/controllers/pages_controller.rb:9:in `home'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.8ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-21 22:40:29 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (5.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 265ms (Views: 88.7ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/fraternities" for 127.0.0.1 at 2011-07-21 22:40:55 -0400
+  Processing by CategoriesController#fraternities as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (37.0ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered categories/_events.html.erb (30.0ms)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered categories/fraternities.html.erb within layouts/application (90.2ms)
+Completed 200 OK in 243ms (Views: 118.6ms | ActiveRecord: 39.8ms)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2011-07-21 22:41:25 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = 3 ORDER BY events.created_at DESC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".event_id = 3)[0m
+  [1m[35mUser Load (2.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered comments/_comment.html.erb (0.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered events/show.html.erb within layouts/application (279.2ms)
+Completed 200 OK in 438ms (Views: 308.2ms | ActiveRecord: 3.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/events/3" for 127.0.0.1 at 2011-07-22 02:16:45 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"3"}
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:Event> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/event.rb:4)
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = 3 ORDER BY events.created_at DESC LIMIT 1
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".event_id = 3)[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered comments/_comment.html.erb (0.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered events/show.html.erb within layouts/application (2313.5ms)
+Completed 200 OK in 2637ms (Views: 2375.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-22 02:16:48 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (38.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 355ms (Views: 111.8ms | ActiveRecord: 41.8ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-07-22 02:19:34 -0400
+  Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered sessions/new.html.erb within layouts/application (91.5ms)
+Completed 200 OK in 98ms (Views: 96.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2011-07-22 02:19:46 -0400
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hahs0x7d1cPi6Smgl5byN2ozeDEC7psG0OlQvL7k+Wk=", "session"=>{"email"=>"sshanker220@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'sshanker220@gmail.com' LIMIT 1
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 164ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-07-22 02:19:46 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+  [1m[35mEvent Load (6.1ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (95.8ms)
+Rendered users/show.html.erb within layouts/application (196.0ms)
+Completed 200 OK in 328ms (Views: 211.7ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-07-22 02:19:47 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-07-22 02:20:37 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hahs0x7d1cPi6Smgl5byN2ozeDEC7psG0OlQvL7k+Wk=", "event"=>{"name"=>"Pizza PARTY", "description"=>"pizza and bud light", "month"=>"4", "day"=>"3", "year"=>"2011", "time"=>"6", "location"=>"ldsfn", "category"=>"3", "facebooklink"=>"dsfFSA", "photo"=>#<ActionDispatch::Http::UploadedFile:0xb5b9cfc @original_filename="party2.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"event[photo]\"; filename=\"party2.jpeg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/tmp/RackMultipart20110722-1732-1lkh8zu>>}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "events" ("name", "description", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "category", "time", "day", "month", "year", "datescore") VALUES ('Pizza PARTY', 'pizza and bud light', NULL, 'dsfFSA', 'ldsfn', '2011-07-22 06:20:37.789936', '2011-07-22 06:20:37.789936', 1, 'party2.jpeg', 'image/jpeg', 8963, '2011-07-22 06:20:37.397293', 3, 6, 3, 4, 2011, 93.0)
+[paperclip] Saving attachments.
+[paperclip] saving photos/18/original.jpeg
+Completed 500 Internal Server Error in 40740ms
+
+SocketError (getaddrinfo: Name or service not known):
+  app/controllers/events_controller.rb:45:in `create'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-22 02:22:24 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (4.9ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (79.1ms)
+Completed 200 OK in 1588ms (Views: 82.5ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-07-22 02:22:30 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+  [1m[35mEvent Load (5.8ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (98.7ms)
+Rendered users/show.html.erb within layouts/application (212.8ms)
+Completed 200 OK in 330ms (Views: 211.6ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-07-22 02:22:31 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-07-22 02:23:55 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hahs0x7d1cPi6Smgl5byN2ozeDEC7psG0OlQvL7k+Wk=", "event"=>{"name"=>"Sid's Event", "description"=>"coolest event ever", "month"=>"1", "day"=>"1", "year"=>"2011", "time"=>"1", "location"=>"asdfadsfasf", "category"=>"1", "facebooklink"=>"asdfasfsa"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "events" ("name", "description", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "category", "time", "day", "month", "year", "datescore") VALUES ('Sid''s Event', 'coolest event ever', NULL, 'asdfasfsa', 'asdfadsfasf', '2011-07-22 06:23:55.988868', '2011-07-22 06:23:55.988868', 1, NULL, NULL, NULL, NULL, 1, 1, 1, 1, 2011, 1.0)
+[paperclip] Saving attachments.
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 303ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-07-22 02:23:56 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)
+  [1m[36mEvent Load (7.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered events/_event.html.erb (96.1ms)
+Rendered users/show.html.erb within layouts/application (143.5ms)
+Completed 200 OK in 259ms (Views: 140.9ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-07-22 02:23:56 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-07-22 02:24:59 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hahs0x7d1cPi6Smgl5byN2ozeDEC7psG0OlQvL7k+Wk=", "event"=>{"name"=>"Ziggy's party", "description"=>"aklsjdf", "month"=>"4", "day"=>"1", "year"=>"2011", "time"=>"1", "location"=>"sdsadfas", "category"=>"1", "facebooklink"=>"dsaf"}, "commit"=>"Create Event"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mAREL (2.6ms)[0m  [1mINSERT INTO "events" ("name", "description", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "category", "time", "day", "month", "year", "datescore") VALUES ('Ziggy''s party', 'aklsjdf', NULL, 'dsaf', 'sdsadfas', '2011-07-22 06:24:59.201893', '2011-07-22 06:24:59.201893', 1, NULL, NULL, NULL, NULL, 1, 1, 1, 4, 2011, 91.0)[0m
+[paperclip] Saving attachments.
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 356ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-07-22 02:24:59 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 1)[0m
+  [1m[35mEvent Load (8.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Rendered events/_event.html.erb (99.6ms)
+Rendered users/show.html.erb within layouts/application (185.8ms)
+Completed 200 OK in 300ms (Views: 181.7ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/avatars/small/missing.png" for 127.0.0.1 at 2011-07-22 02:24:59 -0400
+
+ActionController::RoutingError (No route matches "/avatars/small/missing.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/events/19" for 127.0.0.1 at 2011-07-22 02:25:06 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mEvent Load (2.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = 19 ORDER BY events.created_at DESC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".event_id = 19)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered comments/_comment.html.erb (0.6ms)
+Rendered events/show.html.erb within layouts/application (105.5ms)
+Completed 200 OK in 224ms (Views: 109.2ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/comments/create" for 127.0.0.1 at 2011-07-22 02:25:16 -0400
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hahs0x7d1cPi6Smgl5byN2ozeDEC7psG0OlQvL7k+Wk=", "comment"=>{"author"=>"Sid Shanker", "content"=>"this event was cool", "event_id"=>"19"}, "commit"=>"Create Comment"}
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "comments" ("author", "content", "created_at", "updated_at", "event_id") VALUES ('Sid Shanker', 'this event was cool', '2011-07-22 06:25:16.701865', '2011-07-22 06:25:16.701865', 19)[0m
+  [1m[35mEvent Load (2.5ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = 19 ORDER BY events.created_at DESC LIMIT 1
+Rendered comments/_comment.html.erb (0.4ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".event_id = 19)[0m
+Rendered comments/create.js.erb (24.2ms)
+Completed 200 OK in 319ms (Views: 93.9ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/comments/create" for 127.0.0.1 at 2011-07-22 02:25:27 -0400
+  Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hahs0x7d1cPi6Smgl5byN2ozeDEC7psG0OlQvL7k+Wk=", "comment"=>{"author"=>"Anonymous", "content"=>"coool", "event_id"=>"19"}, "commit"=>"Create Comment"}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "comments" ("author", "content", "created_at", "updated_at", "event_id") VALUES ('Anonymous', 'coool', '2011-07-22 06:25:27.484068', '2011-07-22 06:25:27.484068', 19)
+  [1m[36mEvent Load (1.0ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = 19 ORDER BY events.created_at DESC LIMIT 1[0m
+Rendered comments/_comment.html.erb (0.4ms)
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".event_id = 19)
+Rendered comments/create.js.erb (25.3ms)
+Completed 200 OK in 338ms (Views: 33.6ms | ActiveRecord: 1.5ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-22 17:17:59 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.7ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (65.3ms)
+Completed 200 OK in 1984ms (Views: 109.8ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-22 17:18:32 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (40.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (74.6ms)
+Completed 200 OK in 234ms (Views: 78.1ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-22 17:18:34 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (34.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered pages/home.html.erb within layouts/application (71.9ms)
+Completed 200 OK in 260ms (Views: 41.5ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/events/6" for 127.0.0.1 at 2011-07-22 17:18:38 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mEvent Load (0.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = 6 ORDER BY events.created_at DESC LIMIT 1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".event_id = 6)
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered comments/_comment.html.erb (0.8ms)
+Rendered events/show.html.erb within layouts/application (246.2ms)
+Completed 200 OK in 416ms (Views: 284.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-22 17:19:15 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.7ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 231ms (Views: 41.5ms | ActiveRecord: 8.9ms)

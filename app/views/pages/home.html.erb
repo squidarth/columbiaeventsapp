@@ -2,9 +2,6 @@
 	<%= image_tag("introduction.gif") %>
 </div>
 
-
-<div class="signup"><%= link_to "Sign up!", signup_path %></div>
-
 <ul id="mycarousel" class="jcarousel jcarousel-skin-tango">
 			  <% @array_of_events.each do |event| %>
 					<li><%= link_to(event) do %>
