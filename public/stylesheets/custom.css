@@ -32,15 +32,15 @@ html {
 	float:right;
 	border:
 	}
-	#userdetails
-	{
+/*#userdetails
+{
 	border: 2px solid;
 	border-color: black;
 	margin-bottom: 220px;
 	margin-top: 70px;
 	float: left;
 	margin-left: 40px;
-}
+}*/
 #createnewevents {
 	border: 2px solid;
 	border-color: black;
