@@ -177,6 +177,9 @@ textarea {
     padding: 0px;
     margin: 0px;
     overflow: hidden;
+    border:#000000;
+    border-width: 10px;
+    border-color: #000000
 }
 .scroller_roll ul{
     padding: 0px;
