@@ -47,15 +47,7 @@ padding:0px 0 0 0px;
 overflow: hidden;
 float: left;
 }
-#introduction{
-	width: 700px;
-	color: black;
-	font-family: "Helvetica", "Arial", "sans-serif";
-	font-size: 140%;
-	margin-top: 5px;
-	margin-bottom: 0;
-	text-align: center;
-}
+
 /*
  * Navigation
  */
@@ -72,12 +64,50 @@ float: left;
 }
 #categories{
 	float: left;
-	text-align: left;
 	clear: both;
+	list-style-type: none;
+	margin-left: 300px;
+}
+#categories li{
+	
+	display: inline;
+	margin-right: 8px;
+}
+#categories li a{
+	list-style: none;
+	text-decoration: none;
+	font-family: "Helvetica", "Arial", "sans-serif";
+	color: black;
+	font-size: 100%;
 }
 /*
  * ---------------------------------------------
  */
+
+#signup
+ {
+ width: 150px;
+ text-align: center;
+ margin: auto;
+ margin-bottom: 50px;
+ }
+ #signup a
+ {
+ font-family: Helvetica, Arial, sans-serif;
+ font-size: 1.2em;
+ color: #000000;
+ text-decoration: none;
+ }
+ #introduction{
+	width: 700px;
+	color: black;
+	font-family: "Helvetica", "Arial", "sans-serif";
+	font-size: 140%;
+	margin-top: 40px;
+	
+	margin-left: 300px;
+	text-align: left;
+}
 .eventlisting {
 	border: 2px solid;
 	border-color: black;
@@ -85,22 +115,6 @@ float: left;
 	width: 300px;
 	margin-bottom: 10px;
 }
-.signup
- {
- font-family: trebuchet, sans-serif;
- color: #fff;
- width: 150px;
- text-align: center;
- margin: auto;
- margin-top: 60px;
- }
- .signup a
- {
- font-family:Arial, Helvetica, sans-serif;
- font-size: 2em;
- color: #fff;
- text-decoration: none;
- }
 .events {
 	list-style: none;
 }
