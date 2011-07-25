@@ -2,7 +2,8 @@
 	<%= image_tag("introduction.gif") %>
 </div>
 
-<ul id="mycarousel" class="jcarousel jcarousel-skin-tango">
+<div id="scroller_roll" class="scroller_roll">
+<ul>
 			  <% @array_of_events.each do |event| %>
 					<li><%= link_to(event) do %>
 						<%= image_tag event.photo.url(:small), :width => 100, :height => 100 %>
@@ -11,4 +12,7 @@
 				<% end %>
 	
 </ul>
+<div style="clear: both"></div>
+</div>
+
 	

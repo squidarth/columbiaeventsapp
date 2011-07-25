@@ -7,18 +7,25 @@
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" %>
   <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery-rails.js" %>
-  <%= javascript_include_tag 'hoverIntent', 'application', 'jquery.jcarousel' %>
+  <%= javascript_include_tag 'hoverIntent', 'application', 'scroller_roll.js' %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
-$(document).ready(function() {
-	
-    $('#mycarousel').jcarousel({
-    	alert("Working");
-        scroll: 1,
-        auto: .5,
-        wrap: 'circular'
-    });
-});
+	            $(function() {
+                $("#scroller_roll").scroller_roll({
+                    title_show: 'enable',//enable  disable
+                    time_interval: '15',
+                    window_background_color: "#C1F0FF",
+                    window_padding: '1',
+                    border_size: '1',
+                    border_color: '#0099CC',
+                    images_width: '75',
+                    images_height: '70',
+                    images_margin: '5',
+                    title_size: '12',
+                    title_color: 'black',
+                    show_count: '3'
+                });
+            });
 </script>
 </head>
 <body>
