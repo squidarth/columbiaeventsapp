@@ -34213,3 +34213,597 @@ ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
   
 
 Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 21:41:19 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.5ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 1645ms (Views: 51.3ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 21:41:58 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.5ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 219ms (Views: 39.4ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 21:41:58 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 21:43:47 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 228ms (Views: 42.3ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 21:43:48 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 22:22:53 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (73.3ms)
+Completed 200 OK in 234ms (Views: 76.8ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 22:22:53 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 22:23:51 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (7.0ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (38.7ms)
+Completed 200 OK in 236ms (Views: 43.3ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 22:23:51 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 22:24:20 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 272ms (Views: 76.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 22:24:21 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 22:24:56 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (7.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 237ms (Views: 43.8ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 22:24:56 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 22:43:09 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.5ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (73.0ms)
+Completed 200 OK in 273ms (Views: 76.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 22:43:10 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:03:02 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 231ms (Views: 41.9ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:03:03 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:05:12 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.7ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (75.8ms)
+Completed 200 OK in 280ms (Views: 78.5ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:05:13 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:05:51 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.9ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 239ms (Views: 44.2ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:05:51 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:06:12 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.6ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (72.9ms)
+Completed 200 OK in 270ms (Views: 75.7ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:06:12 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/fraternities" for 127.0.0.1 at 2011-07-24 23:06:13 -0400
+  Processing by CategoriesController#fraternities as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (42.7ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+Rendered categories/_events.html.erb (81.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered categories/fraternities.html.erb within layouts/application (108.8ms)
+Completed 200 OK in 264ms (Views: 128.8ms | ActiveRecord: 44.1ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:06:14 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:06:28 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.6ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 227ms (Views: 40.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:06:29 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:07:13 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (75.1ms)
+Completed 200 OK in 239ms (Views: 78.2ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:07:13 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:08:26 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.7ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 235ms (Views: 42.4ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:08:27 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:09:30 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (71.7ms)
+Completed 200 OK in 269ms (Views: 74.7ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:09:31 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:09:49 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.9ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 243ms (Views: 44.3ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:09:50 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:10:36 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (73.7ms)
+Completed 200 OK in 274ms (Views: 76.5ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:10:36 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:11:35 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.9ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 240ms (Views: 44.2ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:11:36 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:11:38 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (2.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (74.6ms)
+Completed 200 OK in 277ms (Views: 77.5ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:11:38 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:12:20 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (44.4ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (77.1ms)
+Completed 200 OK in 244ms (Views: 81.8ms | ActiveRecord: 45.7ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:12:20 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:12:23 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 238ms (Views: 42.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:12:23 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:13:11 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (41.0ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (76.2ms)
+Completed 200 OK in 240ms (Views: 80.7ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:13:11 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:13:53 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 245ms (Views: 43.9ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:13:53 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:14:24 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.6ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (74.6ms)
+Completed 200 OK in 237ms (Views: 79.2ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:14:25 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:18:56 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.9ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (38.1ms)
+Completed 200 OK in 239ms (Views: 42.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:18:57 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:19:20 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.8ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (75.7ms)
+Completed 200 OK in 242ms (Views: 79.0ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:19:20 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:20:29 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 239ms (Views: 43.6ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:20:29 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:20:57 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.6ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (73.3ms)
+Completed 200 OK in 275ms (Views: 76.5ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:20:58 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:21:00 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (7.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (38.1ms)
+Completed 200 OK in 238ms (Views: 42.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:21:00 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:21:02 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.6ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (74.9ms)
+Completed 200 OK in 274ms (Views: 77.3ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:21:02 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:21:28 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (43.8ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (74.5ms)
+Completed 200 OK in 242ms (Views: 79.1ms | ActiveRecord: 45.3ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:21:29 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:21:41 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (6.9ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered pages/home.html.erb within layouts/application (39.3ms)
+Completed 200 OK in 246ms (Views: 43.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:21:42 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-24 23:22:44 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (6.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (76.9ms)
+Completed 200 OK in 242ms (Views: 81.4ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-24 23:22:44 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)

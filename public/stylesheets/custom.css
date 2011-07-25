@@ -1,18 +1,6 @@
 html {
 	background:url("/images/bg.jpg") repeat;
 }
-#header {
-	width:1200px;
-	height:140px;
-	margin:auto;
-	background:url("/images/header_bg.jpg") no-repeat center;
-}
-#menu_tab {
-	width:960px;
-	height:32px;
-	clear:both;
-	padding:47px 0 0 0;
-}
 #commentform {
 	text-align: center;
 }
@@ -53,42 +41,9 @@ html {
 #logo
 {
 padding:0px 0 0 0px;
-margin-left: 100px;
+width: 960px;
 float:left;
 }
-#menu_tab {
-	width:1200px;
-	height:20px;
-	clear:both;
-	padding:47px 0 0 0;
-}
-ul.menu {
-	list-style-type:none;
-	/*display:block;*/
-	width: auto;
-	margin: auto;
-	padding:0px 0 0 160px;
-}
-ul.menu li {
-	/*display:inline;*/
-	line-height:25px;
-	text-align: center;
-}
-ul.menu li a {
-	color: #DDDDAA;
-	font-size:14px;
-	font-weight:bold;
-	float:left;
-	display:block;
-	height:32px;
-	text-decoration:none;
-	padding:0 30px 0 0;
-	margin:0 110px 0 0;
-}
-ul.menu li a:hover {
-	color: #FFFFFF;
-}
-
 #introduction{
 	width: 960px;
 	color: white;
@@ -97,47 +52,20 @@ ul.menu li a:hover {
 	margin-bottom: 0;
 	text-align: center;
 }
-#mycarousel{
-	margin:auto;
+/*
+ * Navigation
+ */
+#topright{
+	float:right;
+	display: inline;
 }
-
- ul.menu div {
- display: none;
- }
-
- ul.menu li.mega div {
- border: 1px solid #dda;
- position: absolute;
- z-index: 100;
- top: 0em;
- left: 0em;
- padding: 1.3em;
- background: #666666;
- }
-
- ul.menu li.hovering div {
- display: block;
- }
-
- ul.menu li.mega div a {
- color: #fff;
- padding: 0;
- background-image: none;
- }
- ul.menu li.mega div a:hover {
- text-decoration: underline;
- }
-
- ul.menu li div a.more {
- color: #390;
- font-weight: bold;
- }
-
- ul.menu div p {
- margin: 0 0 0.8em 0;
- padding: 0;
- }
- 
+#categories{
+	float: left;
+	text-align: left;
+}
+/*
+ * ---------------------------------------------
+ */
 .eventlisting {
 	border: 2px solid;
 	border-color: black;
@@ -175,7 +103,7 @@ textarea {
 
 .scroller_roll{
     padding: 0px;
-    margin: 0px;
+    margin: auto;
     overflow: hidden;
     border:#000000;
     border-width: 10px;

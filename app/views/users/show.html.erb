@@ -1,6 +1,11 @@
 
 <div id="userdetails">
+	<% if @user.avatar.file? %>
 	<%= image_tag @user.avatar.url(:small) %>
+	<% else %>
+	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<% end %>
+	
 	<h1><%= @user.name %></h1>
 	<p>Email: <%= @user.email %></p>
 	<p>School: <%= @user.school %></p>

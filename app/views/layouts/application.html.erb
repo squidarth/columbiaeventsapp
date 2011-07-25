@@ -10,14 +10,6 @@
   <%= javascript_include_tag 'hoverIntent', 'application', 'scroller_roll.js' %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
-  			$(document).ready(function(){
-  				if(jQuery().scroller_roll){
-  					alert("scroller_roll loaded");
-  				}else{
-  					alert("scroller_roll not loaded");
-  				}
-  			});
-  			
 	        $(document).ready(function() {
                 $("#scroller_roll").scroller_roll({
                     title_show: 'disable',//enable  disable
@@ -39,13 +31,19 @@
 <body>
 	<div id="main_container">
 		<div id="header">
-		<div id="logo"><a href="/"><%= image_tag ("logo.gif")%></div>
-		
-	<div id="menu_tab">
-			<ul class="menu">
-				<li class="mega">
-					<a class="categories" href="#">Categories</a>
-					<div>
+			<div id="logo"><a href="/"><%= image_tag ("logo.gif")%></div>
+					<div id="topright">
+						<%= link_to "About", about_path %>
+						<%= link_to "Contact", contact_path %>
+						<% if signed_in? %>
+						<%= link_to "Profile", current_user %>
+						<%= link_to "View all users", allusers_path%>
+						<%= link_to "Sign out", signout_path %>
+						<% else %>
+						<%= link_to "Sign in", signin_path %>
+						<% end %>
+					</div>
+					<div id="categories">
 						<p><%= link_to "Fraternities", fraternities_path %></p>
 						<p><%= link_to "Theater", theater_path %></p>
 						<p><%= link_to "Sports", sports_path %></p>
@@ -54,28 +52,7 @@
 						<p><%= link_to "Community Service", communityservice_path %></p>
 						<p><%= link_to "Student Council", stuco_path %></p>
 					</div>	
-				</li>
-				<li class="mega">
-					<a class="about" href="#">About</a>
-					<div>
-						<p><%= link_to "About", about_path %></p>
-						<p><%= link_to "Contact", contact_path %></p>
-					</div>
-				</li>
-				<li class="mega">
-					<a class="account" href="#">Account</a>
-					<div>
-						<% if signed_in? %>
-						<p><%= link_to "Profile", current_user %></p>
-						<p><%= link_to "View all users", allusers_path%></p>
-						<p><%= link_to "Sign out", signout_path %></p>
-						<% else %>
-						<p><%= link_to "Sign in", signin_path %></p>
-						<% end %>
-					</div>
-				</li>
-			</ul>
-  </div>
+
   </div>
   	<section class="success">
 		<% flash.each do |key, value| %>
