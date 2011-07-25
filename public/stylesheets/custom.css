@@ -38,16 +38,20 @@ html {
 	margin-bottom: 81px;
 	margin-left: 400px;
 }
+#header{
+	overflow: hidden;
+}
 #logo
 {
 padding:0px 0 0 0px;
-width: 960px;
-float:left;
+overflow: hidden;
+float: left;
 }
 #introduction{
-	width: 960px;
-	color: white;
-	margin:auto;
+	width: 700px;
+	color: black;
+	font-family: "Helvetica", "Arial", "sans-serif";
+	font-size: 140%;
 	margin-top: 5px;
 	margin-bottom: 0;
 	text-align: center;
@@ -58,10 +62,18 @@ float:left;
 #topright{
 	float:right;
 	display: inline;
+
+}
+#topright a{
+	text-decoration: none;
+	font-family: "Helvetica", "Arial", "sans-serif";
+	color: black;
+	font-size: 75%;
 }
 #categories{
 	float: left;
 	text-align: left;
+	clear: both;
 }
 /*
  * ---------------------------------------------
