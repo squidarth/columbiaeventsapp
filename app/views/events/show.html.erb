@@ -33,7 +33,7 @@
 <% end %>
 </div>
 
-<span id="comments_count"><%= pluralize((@comments.size - 1), "Comment") %></span>
+
 
 <div id="commentform">
 <%= form_for([@event, @comment], :url => {:controller => :comments, :action => :create}, :remote => true) do |f| %>
@@ -52,6 +52,8 @@
      <p><%= f.submit %></p>
 <% end %>
 </div>
+<% if(@comments != nil)%>
 <div id="comments">
 	<%= render :partial => @comments, :locals => { :list => true } %>
 </div>
+<% end %>

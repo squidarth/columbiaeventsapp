@@ -33,6 +33,10 @@ class EventsController < ApplicationController
   # GET /events/new.xml
 
   # GET /events/1/edit
+  def new
+    @event = Event.new
+    @user = current_user
+  end
   def edit
     @event = Event.find(params[:id])
   end
