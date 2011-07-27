@@ -7,19 +7,11 @@ html {
 #comments {
 	text-align: center;
 }
-#eventshow {
-	margin-left: 400px;
-	margin-top: 70px;
-	margin-right: 400px;
-	font-family:Arial, Helvetica, sans-serif;
-}
+
 #firstdescrip {
 	margin-top: 100px;
 }
-#indivevent {
-	float:right;
-	border:
-	}
+
 /*#userdetails
 {
 	border: 2px solid;
@@ -99,31 +91,47 @@ float: left;
  text-decoration: none;
  }
  #introduction{
-	width: 700px;
+	width: 693px;
 	color: black;
 	font-family: "Helvetica", "Arial", "sans-serif";
 	font-size: 140%;
 	margin-top: 40px;
-	
-	margin-left: 300px;
-	text-align: left;
+	margin-bottom: 40px;
+	margin-left: 340px;
 }
-.eventlisting {
-	border: 2px solid;
-	border-color: black;
-	float: left;
-	width: 300px;
-	margin-bottom: 10px;
-}
-.events {
-	list-style: none;
-}
+
+
 textarea {
 	font-family: trebuchet, sans-serif;
 }
 .content{
 	display:inline;
 	float:right;
+}
+/*
+ * Event listings
+ */
+.eventphoto{
+	float: left;
+}
+#eventdetails{
+	float:left;
+	font-family: "Helvetica", "Arial", "sans-serif";
+	text-decoration: none;
+	color: black;
+	margin-left: 10px;
+}
+.eventlisting{
+	float: left;
+	width: 1200px;
+	text-decoration: none;
+	color: black;
+	margin-top: 15px;
+}
+.cattitle{
+	text-align: center;
+	font-family: "Helvetica", "Arial", "sans-serif";
+	font-size: 140%;
 }
 /* For the Scroller Roll */
 

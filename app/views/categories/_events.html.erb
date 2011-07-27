@@ -1,36 +1,23 @@
-<h1><%= @title %></h1>
+<div class="cattitle"><%= @title %></div>
 
 <% @array_of_events.each do |event| %>
-<li class="eventlisting">
+<a href="/events/<%= event.id %>"><div class="eventlisting">
+	<div class="eventphoto">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small) %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
+	</div>
+<div id="eventdetails">
 <p>
-	Name:<span class="content"><%= event.name %></span>	
+	<%= event.name %><br />
+	On <%= @months[event.month - 1] %> <%= event.day %>, <%= event.year %> at <%= @times[event.time - 1] %>	in <%= event.location %><br />
+	Description: <%= event.description %> <br />
+	Link to Facebook Event:  <%= event.facebooklink %>	<br />
 </p>
-<p>
-	Description:<span class="content"><%= event.description %></span>	
-</p>
-<p>
-	Location:<span class="content"><%= event.location %></span>
-</p>
-<p>
-	Date:<span class="content"> <%= @months[event.month - 1] %> <%= event.day %>, <%= event.year %></span>
-</p>
-
-<p>
-	Time:<span class="content"> <%= @times[event.time - 1] %></span>	
-</p>
-<p>
-	Category:<span class="content"><%= @categories[event.category - 1] %></span>
-</p>
-<p>
-	Link to Facebook Event:<span class="content"><%= event.facebooklink %></span>	
-</p>
-<p>
-	<%= link_to "Event Page", event %>
-</p>
-</li>
+</div>
+</div>
+<%= image_tag ("rails.png")%>
+</a>
 <% end %>
