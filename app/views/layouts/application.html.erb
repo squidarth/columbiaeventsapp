@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title><%= title %></title>
   <%= stylesheet_link_tag 'custom', 'skin' %>
@@ -27,13 +28,7 @@
                 });
             });
 </script>
-      <script src="http://connect.facebook.net/en_US/all.js"></script>
-      <script>
-         FB.init({ 
-            appId:'263515600329607', cookie:true, 
-            status:true, xfbml:true 
-         });
-      </script>
+
 </head>
 <body>
 	<div id="main_container">
@@ -66,7 +61,17 @@
 		<div class="flash <%= key %>"><%= value %></div>
 		<% end %>
 	</section>
+	  <script src="http://connect.facebook.net/en_US/all.js"></script>
+      <script>
+         FB.init({ 
+            appId:'263515600329607', cookie:true, 
+            status:true, xfbml:true 
+         });
+      </script>
 	<fb:login-button>Login with Facebook</fb:login-button>
+	       <iframe src="http://www.facebook.com/plugins/like.php?href=YOUR_URL"
+        scrolling="no" frameborder="0"
+        style="border:none; width:450px; height:80px"></iframe>
   <%= yield %>
   </div>
 </body>
