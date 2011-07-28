@@ -2,7 +2,7 @@
 <%= form_for @user, :html => { :multipart => true } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <div>Some errors prevented you from signing up. </div>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -21,7 +21,7 @@
     <%= f.text_field :email %>
   </div>
     <div class="field">
-    Password*<br />
+    Password* <br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
@@ -49,7 +49,7 @@
   <div class="field">
   	<%= f.file_field :avatar %>
   </div>
-  <p>Note: All fields with a * are required.</p>
+  <p>Note: All fields with a * are required.  Please make passwords more than 6 characters.</p>
   <div class="actions">
     <%= f.submit %>
   </div>
