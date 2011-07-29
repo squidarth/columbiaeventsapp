@@ -15,6 +15,7 @@ class UsersController < ApplicationController
      @title = @user.name
      @events = @user.events
      @event = Event.new if signed_in?
+     @authorizations = @user.authorizations
    end
    
    def new

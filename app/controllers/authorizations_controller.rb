@@ -4,17 +4,19 @@ class AuthorizationsController < ApplicationController
   end
   
   def create
-    render :text => request.env["omniauth.auth"]
-    #current_user.authentications.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
+    auth  = request.env["omniauth.auth"]
+    current_user.authorizations.create(:provider => auth['provider'], :uid => auth['uid'])
+    redirect_to current_user
+    
     #flash[:notice] = "Authentication successful."
     #redirect_to authentications_url
   end
   
   def destroy
-    @authentication = current_user.authentications.find(params[:id])
-    @authentication.destroy
+    @authorization= current_user.authentications.find(params[:id])
+    @authorization.destroy
     flash[:notice] = "Successfully destroyed authentication."
-    redirect_to authentications_url
+    redirect_to authorizations_url
   end
 
 

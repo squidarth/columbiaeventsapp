@@ -20,6 +20,9 @@
 	
 	<b>Recently made events: </b>
 </div>
+<% @authorizations.each do |authorization|%>
+<b>authorization.provider<b>
+<% end %>
 <% unless @user.events.empty? %>
 	<div class="events">
 		<%= render @events %>
