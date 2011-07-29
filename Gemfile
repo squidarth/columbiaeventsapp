@@ -10,7 +10,8 @@ gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'aws-s3'
-gem 'omniauth'
+gem 'nokogiri', '1.4.2'
+gem 'omniauth', '0.2.6'
 group :development do
   gem 'rspec-rails', '2.5.0'
   gem 'annotate-models', '1.0.4'
@@ -19,7 +20,6 @@ end
 
 group :test do
   gem 'rspec', '2.5.0'
-  gem 'webrat', '0.7.1'
   gem 'factory_girl_rails', '1.0'
 end
 
