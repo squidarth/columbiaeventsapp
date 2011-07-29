@@ -31,26 +31,18 @@
 
 </head>
 <body>
-	<div id="fb-root"></div>
-	<script src="http://connect.facebook.net/en_US/all.js"></script>
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId  : '263515600329607',
-	      status : true, // check login status
-	      cookie : true, // enable cookies to allow the server to access the session
-	      xfbml  : true,  // parse XFBML
-	      oauth : true //enables OAuth 2.0
-	    });
-	  };
-	
-	  (function() {
-	    var e = document.createElement('script');
-	    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-	    e.async = true;
-	    document.getElementById('fb-root').appendChild(e);
-	  }());
-	</script>
+ <div id="fb-root"></div>
+ <script src="http://connect.facebook.net/en_US/all.js"></script>
+ <script>
+   FB.init({
+     appId  : '263515600329607',
+     status : true, // check login status
+     cookie : true, // enable cookies to allow the server to access the session
+     xfbml  : true, // parse XFBML
+     channelUrl  : 'http://www.yourdomain.com/channel.html', // Custom channel URL
+     oauth : true // enables OAuth 2.0
+   });
+ </script>
 	<div id="main_container">
 		<div id="header">
 			<div id="logo"><a href="/"><%= image_tag ("logo.gif")%></div>
