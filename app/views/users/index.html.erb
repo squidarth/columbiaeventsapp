@@ -3,9 +3,8 @@
 	<% @users.each do |user| %>
 
 		<p>Name: <%= user.name %></p>
-		<p><%= link_to "View Profile", user %><% if current_user.admin %>
+		<p><%= link_to "View Profile", user %>
 			| <%= link_to "delete", user, :method => :delete, :confirm => "You sure?", :title => "Delete #{user.name}" %>
-		<% end %>
 		</p>
 	<% end %>
 </div>
