@@ -37,11 +37,12 @@ class UsersController < ApplicationController
       end
     end
     
-    def delete
+    def destroy
       @user = User.find(params[:id])
       @user.destroy
       redirect_to :root
     end
+    
     def edit
       @user = User.find(params[:id])
       @title = "Edit User"

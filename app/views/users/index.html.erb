@@ -4,7 +4,7 @@
 
 		<p>Name: <%= user.name %></p>
 		<p><%= link_to "View Profile", user %>
-			| <%= link_to "delete", delete_user_path(user) %>
+			| <%= link_to "delete", destroy_user_path(user) %>
 		</p>
 	<% end %>
 </div>
