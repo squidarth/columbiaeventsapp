@@ -14,7 +14,7 @@ class AuthorizationsController < ApplicationController
       redirect_to current_user
     else #case that new user needs to be created
       random_id = rand(99999999)
-      user = User.create(:name => auth['user_info']['first_name'], :email => auth['user_info']['email'], :password => random_id, :password_confirmation => random_id )
+      user = User.create(:name => auth['user_info']['first_name'] + auth['user_info']['last_name'], :email => auth['user_info']['email'], :password => random_id, :password_confirmation => random_id )
       if user.save!
         user.authorizations.build(:provider => auth['provider'], :uid => auth['uid'])
         sign_in user
