@@ -5,7 +5,7 @@ class Authorization < ActiveRecord::Base
   
   
   def self.find_from_hash(hash)
-    find_by_provider_and_uid(hash['provider'], hash['uid'])
+    Authorization.find_by_uid(hash['uid'])
   end
   
   def self.create_from_hash(hash, user = nil)

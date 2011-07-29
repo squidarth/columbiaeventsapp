@@ -23,10 +23,7 @@ class User < ActiveRecord::Base
                         
    before_save :encrypt_password
    
-   def self.create_from_hash!(hash)
-      create(:name => hash['user_info']['name'])
-   end
-   
+
    def has_password?(submitted_password)
      encrypted_password == encrypt(submitted_password)
    end
