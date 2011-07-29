@@ -120,6 +120,10 @@ float: left;
  width: 400px;
  text-align: center;
  margin: auto;
+ font-family: Helvetica, Arial, sans-serif;
+ font-size: 1.2em;
+ color: #000000;
+ text-decoration: none;
  }
  #signup a
  {
