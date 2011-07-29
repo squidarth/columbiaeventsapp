@@ -5,11 +5,15 @@ class AuthorizationsController < ApplicationController
   
   def create
     auth  = request.env["omniauth.auth"]
-    current_user.authorizations.create(:provider => auth['provider'], :uid => auth['uid'])
-    redirect_to current_user
-    
-    #flash[:notice] = "Authentication successful."
-    #redirect_to authentications_url
+    authorization = Authorization.find_by_provider_and_uid(auth['provider', auth['uid']])
+    if authorization #case that an authorizaiton is found, sign in user
+      sign_in(authentication.user)
+      redirect_to(authentication.user)
+    else
+      current_user.authorizations.create(:provider => auth['provider'], :uid => auth['uid'])
+      redirect_to current_user
+    end
+
   end
   
   def destroy
