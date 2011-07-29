@@ -110,13 +110,15 @@ float: left;
 /*
  * ---------------------------------------------
  */
-
+#facebooklogin{
+	margin: auto;
+	margin-bottom: 50px;
+}
 #signup
  {
  width: 400px;
  text-align: center;
  margin: auto;
- margin-bottom: 50px;
  }
  #signup a
  {

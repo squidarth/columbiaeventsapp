@@ -12,7 +12,7 @@
 <div id="signup">
 	<%= link_to "Sign up!", signup_path %> or Sign-in using Facebook!
 </div>
-<a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a>
+<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a></div>
 <div id="scroller_roll" class="scroller_roll">
 <ul>
 			  <% @array_of_events.each do |event| %>

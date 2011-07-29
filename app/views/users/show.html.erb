@@ -8,10 +8,18 @@
 	
 	<h1><%= @user.name %></h1>
 	<p>Email: <%= @user.email %></p>
+	<% if(@user.school)%>
 	<p>School: <%= @user.school %></p>
+	<% end %>
+	<% if(@user.affiliatedorgs)%>
 	<p>Affiliated Organizations: <%= @user.affiliatedorgs %></p>
+	<% end %>
+	<% if(@user.fblink)%>
 	<p>Facebook Profile: <a href=<%= @user.fblink %>><%= @user.fblink %></a></p>
+	<% end %>
+	<% if(@user.aboutme) %>
 	<p>About Me: <%= @user.aboutme %></p>
+	<% end %>
 	<%= link_to "Edit", edit_user_path(current_user) %>
 </div>
 
@@ -20,9 +28,7 @@
 	
 	<b>Recently made events: </b>
 </div>
-<% @authorizations.each do |authorization|%>
-<b>authorization.provider<b>
-<% end %>
+
 <% unless @user.events.empty? %>
 	<div class="events">
 		<%= render @events %>
