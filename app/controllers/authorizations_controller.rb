@@ -1,11 +1,11 @@
 class AuthorizationsController < ApplicationController
   def index
-    @authentications = current_user.authentications if current_user
+    @authorizations = current_user.authorizations if current_user
   end
   
   def create
     auth  = request.env["omniauth.auth"]
-    authorization = Authorization.find_by_provider_and_uid(auth['provider', auth['uid']])
+    authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid']])
     if authorization #case that an authorizaiton is found, sign in user
       sign_in(authorization.user)
       redirect_to(authorization.user)
