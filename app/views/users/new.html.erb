@@ -1,3 +1,11 @@
+<script src="http://connect.facebook.net/en_US/all.js#appId=263515600329607&xfbml=1"></script>
+
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js#appId=263515600329607&xfbml=1"></script>
+
+  <%= init_fb_registration %>
+  <%= fb_registration_form("fields" =>"name,email,password", "redirect-uri"=> "/", "width" =>830) %>
+
 <h1>Sign up!</h1>
 <%= form_for @user, :html => { :multipart => true } do |f| %>
   <% if @user.errors.any? %>
