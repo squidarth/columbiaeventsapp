@@ -39144,3 +39144,46 @@ ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
   
 
 Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.5ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-28 23:37:05 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:7)
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (7.9ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+Completed 500 Internal Server Error in 1703ms
+
+AWS::S3::MissingAccessKey (You did not provide both required access keys. Please provide the access_key_id and the secret_access_key.):
+  app/controllers/pages_controller.rb:12:in `block (2 levels) in home'
+  app/controllers/pages_controller.rb:11:in `block in home'
+  app/controllers/pages_controller.rb:9:in `each'
+  app/controllers/pages_controller.rb:9:in `home'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.9ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-28 23:37:25 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (7.2ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (49.8ms)
+Completed 200 OK in 245ms (Views: 54.2ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/stylesheets/skin.css" for 127.0.0.1 at 2011-07-28 23:37:26 -0400
+
+ActionController::RoutingError (No route matches "/stylesheets/skin.css"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2011-07-28 23:37:32 -0400
