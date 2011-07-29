@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
    attr_accessible :name, :email, :password, :password_confirmation, :aboutme, :affiliatedorgs, :school, :fblink, :avatar 
 
    has_many :events, :dependent => :destroy
+   has_many :authorizations
    
    has_attached_file :avatar, :styles => { :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
    
@@ -21,6 +22,10 @@ class User < ActiveRecord::Base
                         :length => { :within => 6..40 }
                         
    before_save :encrypt_password
+   
+   def self.create_from_hash!(hash)
+      create(:name => hash['user_info']['name'])
+   end
    
    def has_password?(submitted_password)
      encrypted_password == encrypt(submitted_password)
