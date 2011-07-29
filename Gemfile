@@ -10,7 +10,6 @@ gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'aws-s3'
-gem 'facebook_registration'
 
 group :development do
   gem 'rspec-rails', '2.5.0'
