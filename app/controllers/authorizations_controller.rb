@@ -4,7 +4,6 @@ class AuthorizationsController < ApplicationController
   end
   
   def create
-   render :text => request.env["omniauth.auth"]
    auth  = request.env["omniauth.auth"]
     authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
     if authorization #case that an authorizaiton is found, sign in user
