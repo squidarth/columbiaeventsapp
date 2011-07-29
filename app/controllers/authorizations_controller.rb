@@ -7,8 +7,8 @@ class AuthorizationsController < ApplicationController
     auth  = request.env["omniauth.auth"]
     authorization = Authorization.find_by_provider_and_uid(auth['provider', auth['uid']])
     if authorization #case that an authorizaiton is found, sign in user
-      sign_in(authentication.user)
-      redirect_to(authentication.user)
+      sign_in(authorization.user)
+      redirect_to(authorization.user)
     else
       current_user.authorizations.create(:provider => auth['provider'], :uid => auth['uid'])
       redirect_to current_user
