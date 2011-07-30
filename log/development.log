@@ -39567,3 +39567,112 @@ Migrating to AddFbnicknameToUsers (20110730024256)
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("comments")
   [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("authorizations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("events")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateEvents (20110619054207)
+Migrating to CreateUsers (20110621053237)
+Migrating to AddEmailUniquenessIndex (20110621060055)
+Migrating to AddPasswordToUsers (20110621061036)
+Migrating to AddSaltToUsers (20110621061938)
+Migrating to AddAdminToUsers (20110624024201)
+Migrating to AddUserIdToEvents (20110624031155)
+Migrating to AddAttachmentAvatarToUser (20110625044535)
+Migrating to AddAttachmentPhotoToEvent (20110625051158)
+Migrating to AddCategoryToEvents (20110628192043)
+Migrating to AddTimeToEvents (20110628231218)
+Migrating to CreateComments (20110629205503)
+Migrating to AddEventIdToComments (20110630040124)
+Migrating to AddDayToEvents (20110701211608)
+Migrating to AddMonthToEvents (20110701211702)
+Migrating to AddYearToEvents (20110701211722)
+Migrating to AddDatescoreToEvents (20110702054259)
+Migrating to CreateAuthorizations (20110729040022)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("authorizations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("comments")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("events")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateEvents (20110619054207)
+Migrating to CreateUsers (20110621053237)
+Migrating to AddEmailUniquenessIndex (20110621060055)
+Migrating to AddPasswordToUsers (20110621061036)
+Migrating to AddSaltToUsers (20110621061938)
+Migrating to AddAdminToUsers (20110624024201)
+Migrating to AddUserIdToEvents (20110624031155)
+Migrating to AddAttachmentAvatarToUser (20110625044535)
+Migrating to AddAttachmentPhotoToEvent (20110625051158)
+Migrating to AddCategoryToEvents (20110628192043)
+Migrating to AddTimeToEvents (20110628231218)
+Migrating to CreateComments (20110629205503)
+Migrating to AddEventIdToComments (20110630040124)
+Migrating to AddDayToEvents (20110701211608)
+Migrating to AddMonthToEvents (20110701211702)
+Migrating to AddYearToEvents (20110701211722)
+Migrating to AddDatescoreToEvents (20110702054259)
+Migrating to CreateAuthorizations (20110729040022)
+Migrating to AddFbnicknameToUsers (20110730025227)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mALTER TABLE "users" ADD "fbnickname" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110730025227')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("authorizations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("comments")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("events")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
