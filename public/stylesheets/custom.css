@@ -25,18 +25,7 @@ html {
 	margin-bottom: 40px;
 	margin-left: 340px;
 }
-#commentform {
-	text-align: center;
-	float: right;
-	margin-right: 200px;
-}
-.comment {
-	float: right;
-	width: 693px;
-	/*background-color: #0033FF;*/
-	margin-right: 80px;
-	
-}
+
 #timestamp{
 	text-align: right;
 }
@@ -149,17 +138,28 @@ textarea {
 	display:inline;
 	float:right;
 }
+
 /*
- * Event listings
+ * eventshow page
  */
 #eventshow{
 	border: 2px solid;
 	font-family: Helvetica, Arial, sans-serif;
 	border-color: black;
-	margin-top: 20px;
-	float: left;
-	margin-left: 20px;
+	margin: auto;
+	width: 400px;
 }
+
+#commentform {
+	text-align: center;
+}
+.comment {
+	width: 693px;
+	margin: auto;
+}
+/*
+ * event listings
+ */
 #recentlymadeevents{
 	float: right;
 	color: black;
