@@ -1,10 +1,9 @@
-<img href="http://graph.facebook.com/sshanker1/picture?type=large"></img>
+
 <div id="userdetails">
 	<% if @user.avatar.file? %>
 	<%= image_tag @user.avatar.url(:small) %>
 	<% elsif @user.fbnickname %>
-	<img href="http://graph.facebook.com/sshanker1/picture?type=normal"></img>
-	<img href="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=normal"></img>
+	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=normal"></img>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
