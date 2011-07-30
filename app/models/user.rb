@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
    attr_accessor :password
-   attr_accessible :name, :email, :password, :password_confirmation, :aboutme, :affiliatedorgs, :school, :fblink, :avatar 
+   attr_accessible :name, :email, :password, :password_confirmation, :aboutme, :affiliatedorgs, :school, :fblink, :avatar, :fbnickname 
 
    has_many :events, :dependent => :destroy
    has_many :authorizations, :dependent => :destroy
