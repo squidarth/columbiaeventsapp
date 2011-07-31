@@ -3,7 +3,7 @@
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title><%= title %></title>
-  <%= stylesheet_link_tag 'custom', 'skin' %>
+  <%= stylesheet_link_tag 'custom', 'dribble' %>
 
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" %>
   <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
@@ -42,31 +42,59 @@
      oauth : true // enables OAuth 2.0
    });
  </script>
-	<div id="main_container">
-		<div id="header">
-			<div id="logo"><a href="/"><%= image_tag ("logo.gif")%></div>
-					<div id="topright">
-						<%= link_to "About", about_path %>
-						<%= link_to "Contact", contact_path %>
-						<% if signed_in? %>
-						<%= link_to "Profile", current_user %>
-						<%= link_to "View all users", allusers_path%>
-						<%= link_to "Sign out", signout_path %>
-						<% else %>
-						<%= link_to "Sign in", signin_path %>
-						<% end %>
-					</div>
-					<ul id="categories">
-						<li><%= link_to "Fraternities", fraternities_path %></li>
-						<li><%= link_to "Theater", theater_path %></li>
-						<li><%= link_to "Sports", sports_path %></li>
-						<li><%= link_to "Arts", arts_path %></li>
-						<li><%= link_to "Career Networking", careernetworking_path %></li>
-						<li><%= link_to "Community Service", communityservice_path %></li>
-						<li><%= link_to "Student Council", stuco_path %></li>
-					</ul>	
+	<div id="maincontainer">
+		<div id="header" class="group"><div id="header-inner" class="group">
+	
+<div id="logo"><a href="/"><%= image_tag ("logo.gif")%></div>
 
-  </div>
+	<ul id="nav">
+			<li id="t-signin">
+				<ul>
+					<% if signed_in? %>
+					<li>
+					<%= link_to "Sign out", signout_path %>
+					</li>
+					<li>
+					<%= link_to "View all users", allusers_path %>
+					</li>
+					<li>
+					<%= link_to "Profile", current_user %>
+					</li>
+					<% else %>
+					<li>
+					<%= link_to "Sign in", signin_path %>
+					</li>
+					<% end %>
+				</ul>
+			</li>
+			<li id="t-shots">
+				<%= link_to "Fraternities", fraternities_path %>
+			</li>
+		<li id="t-players">
+
+			<%= link_to "Theater", theater_path %>
+
+
+		</li>
+		<li id="t-explore">
+			<%= link_to "Sports", sports_path %>
+		</li>
+		<li id="t-explore">
+			<li><%= link_to "Arts", arts_path %></li>
+		</li>
+		<li id="t-explore">
+			<%= link_to "Career Networking", careernetworking_path %>
+		</li>
+			<li id="t-about">
+				<%= link_to "Community Service", communityservice_path %>
+			</li>
+			<li id="t-about">
+				<%= link_to "Student Council", stuco_path %>
+			</li>
+	
+	</ul>
+</div></div> 
+
   	<section class="success">
 		<% flash.each do |key, value| %>
 		<div class="flash <%= key %>"><%= value %></div>
@@ -76,6 +104,16 @@
 	  <script src="http://connect.facebook.net/en_US/all.js"></script>
 
   <%= yield %>
+  <div id="footer"><div id="footer-inner">
+	<p id="footer-nav">
+		<%= link_to "About", about_path %> |
+		<%= link_to "Contact", contact_path %>
+
+	
+	</p>
+	<p>Copyright EventSalsa. <br />  Handcrafted in Darien, Connecticut. Hosted by <a href="http://www.heroku.com/">Heroku</a>.</p>
+
+</div></div>
   </div>
 </body>
 </html>

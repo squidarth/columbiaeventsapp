@@ -1,6 +1,6 @@
-
-<div id="introduction">
-	<p>Welcome to LionEvents.com, the number one place to find out what cool events are happening on your campus!
+<div id="main">
+<div id="faq-players-and-spectators" class="faq">
+	<p>Welcome to EventSalsa.com, the number one place to find out what cool events are happening on your campus!
 		If you're a student group, all you have to do is take the two seconds that it takes to create an acount
 		and start posting events. </p>
 	<p>If you're a regular student, like me, all you have to do is a click a category to find out if there's
@@ -8,10 +8,12 @@
 		
 	<p>In the meantime, check out the events below!</p>
 </div>
+</div>
 <div id="signup">
 	<%= link_to "Sign up", signup_path %> or Sign-in using Facebook!
 </div>
 <div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a></div>
+
 <div id="scroller_roll" class="scroller_roll">
 <ul>
 			  <% @array_of_events.each do |event| %>
