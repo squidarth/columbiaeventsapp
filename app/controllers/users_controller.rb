@@ -15,7 +15,7 @@ class UsersController < ApplicationController
      @title = @user.name
      @events = @user.events
      @event = Event.new if signed_in?
-     @authorizations = @user.authorizations
+     @token = @user.authorizations.find_by_provider('facebook').token
    end
    
    def new
