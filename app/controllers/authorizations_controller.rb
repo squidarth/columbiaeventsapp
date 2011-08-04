@@ -7,16 +7,19 @@ class AuthorizationsController < ApplicationController
    auth  = request.env["omniauth.auth"]
     authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
     if authorization #case that an authorizaiton is found, sign in user
-      sign_in(authorization.user)
-      redirect_to(authorization.user)
+      user = authorization.user
+      authorization.destroy
+      user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+      sign_in(user)
+      redirect_to(user)
     elsif signed_in? #case that user is already signed into eventsalsa
-      current_user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'])
+      current_user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
       redirect_to current_user
     else #case that new user needs to be created
       random_id = rand(99999999)
-      user = User.create(:name => auth['user_info']['first_name'] + " " + auth['user_info']['last_name'], :email => auth['user_info']['email'], :fblink => auth['user_info']['urls']['Facebook'], :fbnickname => auth['user_info']['nickname'],:password => random_id, :password_confirmation => random_id )
+      user = User.create(:name => auth['user_info']['first_name'] + " " + auth['user_info']['last_name'], :email => auth['user_info']['email'], :fblink => auth['user_info']['urls']['Facebook'], :fbnickname => auth['user_info']['nickname'],:password => random_id, :password_confirmation => random_id, :facebookid => auth['extra']['user_hash']['id'])
       if user.save!
-        user.authorizations.build(:provider => auth['provider'], :uid => auth['uid'])
+        user.authorizations.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
         sign_in user
         redirect_to user
       else

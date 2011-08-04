@@ -10,7 +10,7 @@
 <div id="eventdetails">
 <p>
 	<%= event.name %><br />
-	On <%= @months[event.month - 1] %> <%= event.day %>, <%= event.year %> at <%= @times[event.time - 1] %>	in <%= event.location %><br />
+	On <%= event.date%>	in <%= event.location %><br />
 	Description: <%= event.description %> <br />
 	Category: <%= event.category %> <br />
 	Link to Facebook Event:  <%= event.facebooklink %>	<br />

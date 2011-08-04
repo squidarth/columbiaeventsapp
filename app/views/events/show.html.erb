@@ -15,14 +15,22 @@
 	<b>Location: </b> <%= @event.location %>
 </p>
 <p>
-	<b>Date:</b> <%= @months[@event.month - 1] %> <%= @event.day %>, <%= @event.year %>
+	<% if @event.date %>
+	<b>Date:</b> <%= @event.date %>
+	<% end %>
 </p>
 
 <p>
-	<b>Time:</b> <%= @times[@event.time - 1] %>
+	<b>Time: <%= @event.time %></b>
+</p>
+<p>
+	Datetime: <%= @event.datetime %>
 </p>
 <p>
 	<b>Category: </b><%= @categories[@event.category - 1] %>
+</p>
+<p>
+	Facebookevent: <b><%= @event.facebookevent %></b>
 </p>
 <p>
 	<b>Link to Facebook Event: </b><%= @event.facebooklink %>	

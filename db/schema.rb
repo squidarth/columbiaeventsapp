@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110730025227) do
+ActiveRecord::Schema.define(:version => 20110802231523) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110730025227) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
   end
 
   create_table "comments", :force => true do |t|
@@ -42,11 +43,14 @@ ActiveRecord::Schema.define(:version => 20110730025227) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "category"
-    t.integer  "time"
     t.integer  "day"
     t.integer  "month"
     t.integer  "year"
     t.float    "datescore"
+    t.date     "date"
+    t.time     "time"
+    t.time     "datetime"
+    t.integer  "facebookevent"
   end
 
   create_table "users", :force => true do |t|
@@ -66,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110730025227) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "fbnickname"
+    t.string   "facebookid"
   end
 
 end

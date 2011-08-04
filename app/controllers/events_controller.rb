@@ -45,10 +45,23 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = current_user.events.build(params[:event])
-    @event.datescore = (365)*(@event.year - 2011) + (30)*(@event.month - 1) + @event.day + (1/24)*(@event.time)
     if @event.save
       flash[:success] = "Event created!"
-      redirect_to @event.user
+      
+      datetime = Time.mktime(@event.date.year(), @event.date.month(), @event.date.day(), @event.time.hour(), @event.time.min())
+      if current_user.authorizations.find_by_provider('facebook').token
+        @graph = Koala::Facebook::GraphAPI.new(current_user.authorizations.find_by_provider('facebook').token)  
+        picture = Koala::UploadableIO.new(@event.photo.url(:small))
+        params = {
+            :picture => picture,
+            :name => 'Event name',
+            :description => 'Event description',
+            :start_time => datetime,
+           }
+        
+        @graph.put_object('me', 'events', params )
+      end
+      redirect_to @event
     else
       redirect_to @event.user
     end
