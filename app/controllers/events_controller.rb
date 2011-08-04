@@ -50,8 +50,15 @@ class EventsController < ApplicationController
       
       #changed year to 2011 @event.date.year
       datetime = Time.mktime(@event.date.cwyear, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
-      if !current_user.authorizations.empty?
-        @graph = Koala::Facebook::GraphAPI.new(current_user.authorizations.find_by_provider('facebook').token)  
+      
+
+      if(!current_user.authorizations.empty?)
+        current_user.authorizations.each do |authorization|
+          if authorization.provider == 'facebook'
+            token = authorization.token
+          end
+        end
+        @graph = Koala::Facebook::GraphAPI.new(token)  
         picture = Koala::UploadableIO.new(@event.photo.url(:small))
         params = {
             :picture => picture,
