@@ -48,8 +48,9 @@ class EventsController < ApplicationController
     if @event.save
       flash[:success] = "Event created!"
       
-      datetime = Time.mktime(@event.date.year(), @event.date.month(), @event.date.day(), @event.time.hour(), @event.time.min())
-      if current_user.authorizations.find_by_provider('facebook').token
+      #changed year to 2011 @event.date.year
+      datetime = Time.mktime(@event.date.cwyear, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+      if current_user.authorizations.find_by_provider('facebook')
         @graph = Koala::Facebook::GraphAPI.new(current_user.authorizations.find_by_provider('facebook').token)  
         picture = Koala::UploadableIO.new(@event.photo.url(:small))
         params = {

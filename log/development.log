@@ -50136,3 +50136,372 @@ Migrating to AddFacebookeventToEvents (20110802231523)
   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("comments")
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /home/sid123/RailsProjects/columbiaeventsapp/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-04 15:42:06 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:User> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/user.rb:8)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mEvent Load (5.6ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 1) ORDER BY events.created_at DESC
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered pages/home.html.erb within layouts/application (42.4ms)
+Completed 200 OK in 1184ms (Views: 62.2ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:42:08 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:42:08 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/glass-light.png" for 127.0.0.1 at 2011-08-04 15:42:09 -0400
+
+ActionController::RoutingError (No route matches "/images/glass-light.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-08-04 15:42:10 -0400
+  Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered sessions/new.html.erb within layouts/application (316.6ms)
+Completed 200 OK in 333ms (Views: 332.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-08-04 15:42:11 -0400
+  Processing by SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered sessions/new.html.erb within layouts/application (90.1ms)
+Completed 200 OK in 96ms (Views: 95.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:42:11 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:42:11 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2011-08-04 15:42:13 -0400
+  Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 120ms (Views: 52.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:42:14 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:42:14 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-08-04 15:42:29 -0400
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o+eQqyPj3BMjboEWZWVbFpDBZQ8Bs/mM0poROZUUc2o=", "user"=>{"name"=>"Sid Shanker", "email"=>"sshanker220@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "affiliatedorgs"=>"", "school"=>"", "fblink"=>"", "aboutme"=>""}, "commit"=>"Create User"}
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('sshanker220@gmail.com')) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "aboutme", "affiliatedorgs", "school", "fblink", "created_at", "updated_at", "encrypted_password", "salt", "admin", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at", "fbnickname", "facebookid") VALUES ('Sid Shanker', 'sshanker220@gmail.com', '', '', '', '', '2011-08-04 19:42:30.055796', '2011-08-04 19:42:30.055796', '0f16191e5dbee64fe1a347111659e3173bffadf86c6fac211811912966ad5fd9', '95301fee5ec6e5f8ca8f387fb20193c5c2801721769ea2bc639560080234ad2b', 'f', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+  [1m[35mSQL (0.3ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('sshanker220@gmail.com')) AND ("users".id <> 2) LIMIT 1
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/users/2
+Completed 302 Found in 315ms
+
+
+Started GET "/users/2" for 127.0.0.1 at 2011-08-04 15:42:30 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE ("events".user_id = 2)[0m
+Rendered users/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 152ms (Views: 15.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:42:31 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:42:31 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/glass-light.png" for 127.0.0.1 at 2011-08-04 15:42:31 -0400
+
+ActionController::RoutingError (No route matches "/images/glass-light.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2011-08-04 15:42:32 -0400
+  Processing by EventsController#new as HTML
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered events/_form.html.erb (24.1ms)
+Rendered events/new.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 176ms (Views: 56.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:42:33 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:42:33 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-08-04 15:42:53 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o+eQqyPj3BMjboEWZWVbFpDBZQ8Bs/mM0poROZUUc2o=", "event"=>{"name"=>"asdf", "description"=>"adsfasf", "date"=>"08/10/2011", "time(1i)"=>"2011", "time(2i)"=>"8", "time(3i)"=>"4", "time(4i)"=>"03", "time(5i)"=>"27", "location"=>"adsfads", "category"=>"5", "author"=>"Sid Shanker", "facebookevent"=>"0"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "events" ("name", "description", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "datetime", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "category", "datescore", "date", "time", "facebookevent") VALUES ('asdf', 'adsfasf', 'Sid Shanker', NULL, 'adsfads', '2011-08-04 19:42:53.636962', '2011-08-04 19:42:53.636962', 2, NULL, NULL, NULL, NULL, NULL, 5, NULL, '2011-10-08', '2011-08-04 03:27:00.000000', 0)
+[paperclip] Saving attachments.
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = 'facebook' AND ("authorizations".user_id = 2) LIMIT 1[0m
+Completed 500 Internal Server Error in 308ms
+
+NoMethodError (undefined method `token' for nil:NilClass):
+  app/controllers/events_controller.rb:52:in `create'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2011-08-04 15:43:34 -0400
+  Processing by EventsController#new as HTML
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered events/_form.html.erb (24.6ms)
+Rendered events/new.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 162ms (Views: 38.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:43:35 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:43:35 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.7ms)
+
+
+Started GET "/images/glass-light.png" for 127.0.0.1 at 2011-08-04 15:43:35 -0400
+
+ActionController::RoutingError (No route matches "/images/glass-light.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.0ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-08-04 15:43:42 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o+eQqyPj3BMjboEWZWVbFpDBZQ8Bs/mM0poROZUUc2o=", "event"=>{"name"=>"asdfadsf", "description"=>"asdfasdf", "date"=>"08/18/2011", "time(1i)"=>"2011", "time(2i)"=>"8", "time(3i)"=>"4", "time(4i)"=>"06", "time(5i)"=>"29", "location"=>"asdfasf", "category"=>"1", "author"=>"Sid Shanker", "facebookevent"=>"0"}, "commit"=>"Create Event"}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "events" ("name", "description", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "datetime", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "category", "datescore", "date", "time", "facebookevent") VALUES ('asdfadsf', 'asdfasdf', 'Sid Shanker', NULL, 'asdfasf', '2011-08-04 19:43:43.099335', '2011-08-04 19:43:43.099335', 2, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, '2011-08-04 06:29:00.000000', 0)
+[paperclip] Saving attachments.
+Completed 500 Internal Server Error in 291ms
+
+NoMethodError (undefined method `year' for nil:NilClass):
+  app/controllers/events_controller.rb:51:in `create'
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.8ms)
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.8ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2011-08-04 15:44:32 -0400
+  Processing by EventsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered events/_form.html.erb (63.5ms)
+Rendered events/new.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 198ms (Views: 76.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:44:33 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:44:33 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-08-04 15:44:46 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o+eQqyPj3BMjboEWZWVbFpDBZQ8Bs/mM0poROZUUc2o=", "event"=>{"name"=>"asdfad", "description"=>"dasf", "date"=>"08/02/2011", "time(1i)"=>"2011", "time(2i)"=>"8", "time(3i)"=>"4", "time(4i)"=>"02", "time(5i)"=>"34", "location"=>"asdfasdf", "category"=>"5", "author"=>"Sid Shanker", "facebookevent"=>"0"}, "commit"=>"Create Event"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "events" ("name", "description", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "datetime", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "category", "datescore", "date", "time", "facebookevent") VALUES ('asdfad', 'dasf', 'Sid Shanker', NULL, 'asdfasdf', '2011-08-04 19:44:47.100598', '2011-08-04 19:44:47.100598', 2, NULL, NULL, NULL, NULL, NULL, 5, NULL, '2011-02-08', '2011-08-04 02:34:00.000000', 0)[0m
+[paperclip] Saving attachments.
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = 'facebook' AND ("authorizations".user_id = 2) LIMIT 1
+Redirected to http://0.0.0.0:3000/events/6
+Completed 302 Found in 355ms
+
+
+Started GET "/events/6" for 127.0.0.1 at 2011-08-04 15:44:47 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mEvent Load (1.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = 6 ORDER BY events.created_at DESC LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".event_id = 6)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered comments/_comment.html.erb (0.7ms)
+Rendered events/show.html.erb within layouts/application (184.9ms)
+Completed 200 OK in 386ms (Views: 188.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:44:48 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:44:48 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/glass-light.png" for 127.0.0.1 at 2011-08-04 15:44:59 -0400
+
+ActionController::RoutingError (No route matches "/images/glass-light.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/glass-light.png" for 127.0.0.1 at 2011-08-04 15:47:33 -0400
+
+ActionController::RoutingError (No route matches "/images/glass-light.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2011-08-04 15:47:34 -0400
+  Processing by EventsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered events/_form.html.erb (24.4ms)
+Rendered events/new.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 164ms (Views: 36.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:47:35 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:47:35 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2011-08-04 15:47:44 -0400
+  Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o+eQqyPj3BMjboEWZWVbFpDBZQ8Bs/mM0poROZUUc2o=", "event"=>{"name"=>"asdfadsfadsf", "description"=>"asdfadsf", "date"=>"08/10/2011", "time(1i)"=>"2011", "time(2i)"=>"8", "time(3i)"=>"4", "time(4i)"=>"05", "time(5i)"=>"30", "location"=>"dasfasf", "category"=>"2", "author"=>"Sid Shanker", "facebookevent"=>"0"}, "commit"=>"Create Event"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "events" ("name", "description", "author", "facebooklink", "location", "created_at", "updated_at", "user_id", "datetime", "photo_file_name", "photo_content_type", "photo_file_size", "photo_updated_at", "category", "datescore", "date", "time", "facebookevent") VALUES ('asdfadsfadsf', 'asdfadsf', 'Sid Shanker', NULL, 'dasfasf', '2011-08-04 19:47:44.529700', '2011-08-04 19:47:44.529700', 2, NULL, NULL, NULL, NULL, NULL, 2, NULL, '2011-10-08', '2011-08-04 05:30:00.000000', 0)[0m
+[paperclip] Saving attachments.
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT "authorizations".* FROM "authorizations" WHERE "authorizations"."provider" = 'facebook' AND ("authorizations".user_id = 2) LIMIT 1
+Redirected to http://0.0.0.0:3000/events/7
+Completed 302 Found in 321ms
+
+
+Started GET "/events/7" for 127.0.0.1 at 2011-08-04 15:47:44 -0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mEvent Load (2.6ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = 7 ORDER BY events.created_at DESC LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".event_id = 7)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered comments/_comment.html.erb (0.6ms)
+Rendered events/show.html.erb within layouts/application (123.4ms)
+Completed 200 OK in 245ms (Views: 126.3ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/images/sharkskin.gif" for 127.0.0.1 at 2011-08-04 15:47:45 -0400
+
+ActionController::RoutingError (No route matches "/images/sharkskin.gif"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/dribbble-tm.png" for 127.0.0.1 at 2011-08-04 15:47:45 -0400
+
+ActionController::RoutingError (No route matches "/images/dribbble-tm.png"):
+  
+
+Rendered /home/sid123/.rvm/gems/ruby-1.9.2-p180@sidsgems/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
