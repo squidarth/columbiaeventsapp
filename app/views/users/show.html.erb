@@ -12,7 +12,7 @@
 	
 	<h1><%= @user.name %></h1>
 	<% if @authorizations.empty? %>
-	<p>Mess up></p>
+	<p>Mess up</p>
 	<% end %>
 	<% @authorizations.each do |authorization| %>
 	<p>Provider: <%= authorization.provider %></p>
