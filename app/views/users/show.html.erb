@@ -11,9 +11,11 @@
 	<% end %>
 	
 	<h1><%= @user.name %></h1>
+	<% @authorizations.each do |authorization| %>
+	<p>Provider: <%= authorization.provider %></p>
+	<p>UID: <%= authorization.uid %></p>
+	<% end %>
 	<p>Token: <%= @token %></p>
-	<p>Monkey: <%= @monkey %></p>
-	<p>Chicken: <%= @chicken %>
 	<p>Email: <%= @user.email %></p>
 	<% if(@user.school)%>
 	<p>School: <%= @user.school %></p>

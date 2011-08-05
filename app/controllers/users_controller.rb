@@ -15,15 +15,7 @@ class UsersController < ApplicationController
      @title = @user.name
      @events = @user.events
      @event = Event.new if signed_in?
-     @user.authorizations.each do |authorization|
-          if authorization.provider == 'facebook'
-            @chicken = "chicken"
-            @token = authorization.token
-          end
-          if authorization.token
-            @monkey = "monkey"
-          end
-        end
+     @authorizations = @user.authorizations
    end
    
    def new
