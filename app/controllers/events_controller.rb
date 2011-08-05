@@ -58,7 +58,7 @@ class EventsController < ApplicationController
           end
         end
         @graph = Koala::Facebook::GraphAPI.new(@token)  
-        picture = Koala::UploadableIO.new(@event.photo.url(:small), 'jpeg')
+        picture = Koala::UploadableIO.new('http://s3.amazonaws.com/ColumbiaEventsApp/photos/15/small.jpeg?1312514688', 'jpeg')
         params = {
             :picture => picture,
             :name => 'Event name',
