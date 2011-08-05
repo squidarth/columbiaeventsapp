@@ -3,11 +3,11 @@
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title><%= title %></title>
-  <%= stylesheet_link_tag 'custom', 'dribble' %>
+  <%= stylesheet_link_tag 'custom', 'dribble', 'jquery-ui-timepicker.css' %>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" %>
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
-  <%= javascript_include_tag "jquery-rails.js" %>
+  <%= javascript_include_tag "jquery-rails.js", "jquery.ui.timepicker.js" %>
   <%= javascript_include_tag 'hoverIntent', 'application', 'scroller_roll.js' %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
