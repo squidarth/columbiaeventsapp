@@ -17,7 +17,11 @@ class UsersController < ApplicationController
      @event = Event.new if signed_in?
      @user.authorizations.each do |authorization|
           if authorization.provider == 'facebook'
+            @chicken = "chicken"
             @token = authorization.token
+          end
+          if authorization.token
+            @monkey = "monkey"
           end
         end
    end
