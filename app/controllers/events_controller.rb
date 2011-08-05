@@ -47,26 +47,25 @@ class EventsController < ApplicationController
     @event = current_user.events.build(params[:event])
     if @event.save
       flash[:success] = "Event created!"
-      
-      #changed year to 2011 @event.date.year
-      datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
-      
-      if(!current_user.authorizations.empty?)
-        current_user.authorizations.each do |authorization|
-          if authorization.provider.eql?("facebook")
-            @token = authorization.token
+      if(@event.facebookevent == 1)
+        datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+        if(!current_user.authorizations.empty?)
+          current_user.authorizations.each do |authorization|
+            if authorization.provider.eql?("facebook")
+              @token = authorization.token
+            end
           end
+          @graph = Koala::Facebook::GraphAPI.new(@token)  
+          picture = Koala::UploadableIO.new(File.open(@event.photo.url))
+          params = {
+              :picture => picture,
+              :name => 'Event name',
+              :description => 'Event description',
+              :start_time => datetime,
+             }
+          
+          @graph.put_object('me', 'events', params )
         end
-        @graph = Koala::Facebook::GraphAPI.new(@token)  
-        picture = Koala::UploadableIO.new(File.open(@event.photo.url(:small)))
-        params = {
-            :picture => picture,
-            :name => 'Event name',
-            :description => 'Event description',
-            :start_time => datetime,
-           }
-        
-        @graph.put_object('me', 'events', params )
       end
       redirect_to @event
     else

@@ -30,7 +30,9 @@
 	<%= f.hidden_field :author, :value => @user.name %>
   	<p>Picture
   	<%= f.file_field :photo %></p>
+  	<% if(!current_user.authorizations.empty?)%>
 	<p>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></p>
+	<% end %>
     <p><%= f.submit %></p>
 <% end %>
 </div>
