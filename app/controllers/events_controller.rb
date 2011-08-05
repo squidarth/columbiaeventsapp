@@ -49,16 +49,16 @@ class EventsController < ApplicationController
       flash[:success] = "Event created!"
       
       #changed year to 2011 @event.date.year
-      datetime = Time.mktime(@event.date.cwyear, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+      datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
       
 
       if(!current_user.authorizations.empty?)
         current_user.authorizations.each do |authorization|
-          if authorization.provider == 'facebook'
-            token = authorization.token
+          if authorization.provider.eql?("facebook")
+            @token = authorization.token
           end
         end
-        @graph = Koala::Facebook::GraphAPI.new(token)  
+        @graph = Koala::Facebook::GraphAPI.new(@token)  
         picture = Koala::UploadableIO.new(@event.photo.url(:small))
         params = {
             :picture => picture,
