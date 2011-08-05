@@ -19,7 +19,7 @@ class AuthorizationsController < ApplicationController
       random_id = rand(99999999)
       user = User.create(:name => auth['user_info']['first_name'] + " " + auth['user_info']['last_name'], :email => auth['user_info']['email'], :fblink => auth['user_info']['urls']['Facebook'], :fbnickname => auth['user_info']['nickname'],:password => random_id, :password_confirmation => random_id, :facebookid => auth['extra']['user_hash']['id'])
       if user.save!
-        user.authorizations.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+        user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
         sign_in user
         redirect_to user
       else

@@ -17,6 +17,7 @@
 	<% @authorizations.each do |authorization| %>
 	<p>Provider: <%= authorization.provider %></p>
 	<p>UID: <%= authorization.uid %></p>
+	<p>Token: <%= authorization.token %>
 	<% end %>
 	<p>Email: <%= @user.email %></p>
 	<% if(@user.school)%>
