@@ -15,7 +15,7 @@ class UsersController < ApplicationController
      @title = @user.name
      @events = @user.events
      @event = Event.new if signed_in?
-     current_user.authorizations.each do |authorization|
+     @user.authorizations.each do |authorization|
           if authorization.provider == 'facebook'
             @token = authorization.token
           end
