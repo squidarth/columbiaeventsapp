@@ -56,11 +56,12 @@ class EventsController < ApplicationController
             end
           end
           @graph = Koala::Facebook::GraphAPI.new(@token)  
-          picture = Koala::UploadableIO.new((@event.photo.url))
+          #picture = Koala::UploadableIO.new((@event.photo.url))
           params = {
-              :picture => picture,
-              :name => 'Event name',
-              :description => 'Event description',
+              #:picture => picture,
+              :name => @event.name,
+              :description => @event.description,
+              :location => @event.location,
               :start_time => datetime,
              }
           
