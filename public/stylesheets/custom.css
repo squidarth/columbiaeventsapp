@@ -1,206 +1,85 @@
-html {
-	background:url("/images/bg.jpg") repeat;
-}
-/* flash style */
-.success{
-	font-family: "Helvetica", "Arial", "sans-serif";
-	font-size: 120%;
-	font-style: bold;
-}
+/** {border:0; margin:0; padding:0; outline:0;} /* Start all shit like this/*
 
+/* STYLE FOR APPLICATION.HTML, nav, logo, dashboard*/
 
-#timestamp{
-	text-align: right;
+#wrapper{
+	min-width: 960px;
 }
-
-#firstdescrip {
-	margin-top: 100px;
+body{
+	font-size: small;
+	color: #333;
 }
-
-#userdetails
-{
-	border: 2px solid;
-	font-family: Helvetica, Arial, sans-serif;
-	border-color: black;
-	margin-top: 20px;
+#logo a{
 	float: left;
-	margin-left: 20px;
+	margin-left: 15%;
 }
-#createnewevents {	
-	font-family: Helvetica, Arial, sans-serif;
-	border: 2px solid;
-	border-color: black;
-	margin-top:10px;
-	float:left;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-bottom: 81px;
-	margin-left: 500px;
-}
-
-#logo
-{
-padding:0px 0 0 0px;
-overflow: hidden;
-float: left;
-}
-
-/*
- * Navigation
- 
-#topright{
+#dashboard{
+	border-radius: 10px;
 	float:right;
-	display: inline;
-
-}
-#topright a{
-	text-decoration: none;
-	font-family: "Helvetica", "Arial", "sans-serif";
-	color: black;
-	font-size: 75%;
-}
-*/
-#categories{
-	float: left;
-	clear: both;
-	list-style-type: none;
-	margin-left: 300px;
-}
-#categories li{
-	
-	display: inline;
-	margin-right: 8px;
-}
-#categories li a{
+	margin: 0;
+	padding: 10px; 0 0 46px;
 	list-style: none;
-	text-decoration: none;
-	font-family: "Helvetica", "Arial", "sans-serif";
-	color: black;
-	font-size: 100%;
+	background:#EC1D25;
 }
-/*
- * ---------------------------------------------
- */
-#facebooklogin{
-	margin: auto;
-	margin-bottom: 50px;
-	margin-left: 600px;
-}
-#signup
- {
- width: 400px;
- text-align: center;
- margin: auto;
- font-family: Helvetica, Arial, sans-serif;
- font-size: 1.6em;
- color: #666;
- text-decoration: none;
- margin-bottom: 10px;
- }
- #signup a
- {
- font-family: Helvetica, Arial, sans-serif;
- color: #666;
- text-decoration: none;
- }
- #introduction{
-	width: 693px;
-	color: black;
-	font-family: "Helvetica", "Arial", "sans-serif";
-	font-size: 140%;
-	margin-top: 40px;
-	margin-bottom: 40px;
-	margin-left: 340px;
-}
-
-
-textarea {
-	font-family: trebuchet, sans-serif;
-}
-.content{
-	display:inline;
-	float:right;
-}
-
-/*
- * eventshow page
- */
-#eventshow{
-	border: 2px solid;
-	font-family: Helvetica, Arial, sans-serif;
-	border-color: black;
-	margin: auto;
-	width: 400px;
-}
-
-#commentform {
-	text-align: center;
-}
-.comment {
-	width: 693px;
-	margin: auto;
-}
-/*
- * event listings
- */
-#recentlymadeevents{
-	float: right;
-	color: black;
-	text-decoration: none;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 100%;
-	text-align: center;
-	margin-right: 500px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-#neweventlink a{
-	float: right;
-	color: black;
-	text-decoration: none;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 140%;
-	text-align: center;
-	margin-right: 500px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-.eventphoto{
+#dashboard li{
 	float: left;
+	margin: 0 5px 0 0;
+	padding: 0;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 110%;
 }
-#eventdetails{
+#dashboard a{
+	float: left;
+	display: block;
+	margin: 0;
+	padding: 4px 8px;
+	color: #ffffff/*#231F20*/;
+	text-decoration: none;
+	background: #EC1D25;
+}
+#nav{
+	border-radius: 10px;
+	clear:both;
 	float:left;
-	font-family: "Helvetica", "Arial", "sans-serif";
-	text-decoration: none;
-	color: black;
-	margin-left: 10px;
+	width: 960px;
+	margin-left: 15%;
+	margin-right: 15%;
+	padding: 10px; 0 0 46px;
+	list-style: none;
+	background: #EC1D25
 }
-.eventlisting{
+#nav li{
 	float: left;
-	width: 1200px;
+	margin: 0 1px 0 0;
+	padding: 0;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 110%;
+}
+#nav li #search{
+	float: left;
+}
+#nav li #search form{
+	float: left;
+}
+#nav a{
+	float: left;
+	display: block;
+	margin: 0;
+	padding: 4px 8px;
+	color: #ffffff/*#231F20*/;
 	text-decoration: none;
-	color: black;
-	margin-top: 35px;
-	margin-left: 400px;
+	background: #EC1D25;
 }
-.eventlistinguser{
-	float: right;
-	text-decoration: none;
-	margin-right: 200px;
-	width: 600px;
-	color: black;
-}
-.cattitle{
-	text-align: center;
-	font-family: "Helvetica", "Arial", "sans-serif";
-	font-size: 140%;
-}
-/* For the Scroller Roll */
 
+/* STYLE FOR SCROLLER ROLL */
 .scroller_roll{
+	float: right;
+	text-align: center;
+	width: 800px;
     padding: 0px;
     margin: auto;
+    margin-top: 3.5%;
+    margin-right: 33%;
     overflow: hidden;
     border:#000000;
     border-width: 10px;
@@ -228,289 +107,212 @@ textarea {
 .scroller_roll ul li a img{
     border: none;
 }
-/*
- * From dribble
- */
-/* nav */
-
-#nav {
+/*  CODE FOR ABOUT PAGES */
+.pages-text{
 	float: left;
-	width: 85%;
-	margin: 2px 0 0 20px;
-	color: #ffffff;
-	}
-#nav li {
-	float: left;
-	margin: 10px 4px 0 0;
-	font-size: 1.25em;
-	line-height: 1;
-	}
-#nav li#t-profile,
-#nav li#t-signin, #nav li#t-signup {
-	float: right;
-	}
-#nav li#t-profile img {
-	float: left;
-	margin: 0 6px 0 0;
-	}
-#nav li a {
-	display: block;
-	padding: 6px 10px 7px 10px;
-	text-decoration: none;
-	color: #ffffff;
-	}
-#nav li a:hover,
-#nav li#t-profile:hover a,
-#nav li#t-shots:hover a,
-#nav li#t-players:hover a,
-#nav li#t-explore:hover a {
-	color: #fff;
-	background: rgba(255,255,255,.12) url(/images/glass-light.png) repeat-x 0 50%;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	}
-#nav li#t-signin a, #nav li#t-signup a {
-	padding: 0;
-	margin: 0 10px 6px 5px;
-	font-size: 1em;
-	}
-#nav li#t-signin a:hover, #nav li#t-signup a:hover {
-	background: transparent;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;
-	}
-#nav li#t-upld a span {
-	padding-left: 29px;
-	background: url(/images/icon-upload.png) no-repeat 0 50%;
-	}
-body#user-profile #nav li#t-profile a,
-body#shots #nav li#t-shots a,
-body#players #nav li#t-players a,
-body#explore #nav li#t-explore a,
-body#activity #nav li#t-activity a,
-body#upld #nav li#t-upld a,
-body#about #nav li#t-about a,
-body#following li#t-following a,
-body#incoming-activity li#t-activity a {
-	font-weight: bold;
-	color: #fff;
-	background: #3b4147;
-	background: rgba(43,48,53,.53) url(/images/nav-shadow.png) repeat-x top left;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	}
-#nav li#t-profile a.url,
-#nav li#t-shots a.has-sub,
-#nav li#t-players a.has-sub,
-#nav li#t-explore a.has-sub {
-	padding-right: 22px;
-	background-color: rgba(43,48,53,.53);
-	background: url(/images/icon-submenu.png) no-repeat 100% 50%;
-	}
-#nav li#t-profile:hover a.url,
-body#user-profile #nav li#t-profile:hover a.url,
-#nav li#t-shots:hover a.has-sub,
-body#shots #nav li#t-shots:hover a.has-sub,
-#nav li#t-players:hover a.has-sub,
-body#players #nav li#t-players:hover a.has-sub,
-#nav li#t-explore:hover a.has-sub,
-body#explore #nav li#t-explore:hover a.has-sub {
-	background-color: rgba(255,255,255,.12);
-	background-image:
-		url(/images/glass-light.png),
-		url(/images/icon-submenu.png);
-	background-repeat: repeat-x, no-repeat;
-	background-position: 0 50%, 100% 50%;
-	}
-body#user-profile #nav li#t-profile a.url,
-body#shots #nav li#t-shots a.has-sub,
-body#players #nav li#t-players a.has-sub,
-body#explore #nav li#t-explore a.has-sub {
-	background-image:
-		url(/images/nav-shadow.png),
-		url(/images/icon-submenu.png);
-	background-repeat: repeat-x, no-repeat;
-	background-position: top left, 100% 50%;
-	}
-/*FAQ style for the big pieces of text
- * 
- */
-div.faq {
-	margin-top: 25px;
-	margin-bottom: 15px;
-	padding: 15px 15px 0 15px;
-	border: 1px solid #ddd;
-	background: #fff;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	}
-#main div.faq p {
-	margin: 0;
-	padding: 0 0 15px 0;
-	line-height: 1.5;t-signin
-	color: #666;
-	}
-#main div.faq h3 {
-	margin: 0 0 5px 0;
-	font-size: 1.4em;
-	font-weight: normal;
-	line-height: 1.2;
-	}
-/*
- * More general stuff
- */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	border: 0;
-	outline: 0;
-	background: transparent;
-	}
-ol, ul {
-	list-style: none;
-	}
-blockquote, q {
-	quotes: none;
-	}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	}
-
-/* master styles
---------------------------------------------- */
-
-body {
+	text-align: left;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #333;
-	font-size: 62.5%;
-	background: #fff;
-	}
-
-/* links */
-
-a:link, a:visited {
-	color: #4083a9;
-	outline: none;
-	text-decoration: none;
-	}
-a:hover {
-	text-decoration: none;
-	color: #205f82;
-	}
-
-/* custom selection colors */
-
-::-moz-selection {
-	color: #fff;
-	color: rgba(255,255,255,.85);
-	background: #ea4c88;
-	}
-::selection {
-	color: #fff;
-	color: rgba(255,255,255,.85);
-	background: #ea4c88;
-	}
-
-/* page structure
---------------------------------------------- */
-
-#wrap {
-	background: #f0f0f0 url(/images/tile.gif) repeat -70% 0;
-	}
-#wrap-inner {
-	padding: 25px 0 30px 0;
-	background: url(/images/big-fade.png) repeat-x -70% 0;
-	}
-#content {
-	position: relative;
-	width: 940px;
-	margin: 0 auto;
-	padding: 0;
 	font-size: 1.2em;
-	}
-	/*
-	 * essential
-	 */
-#main {
+	width: 36%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 32%;
+	padding-left: 1%;
+	border-radius: 10px;
+	border: 1px solid #ddd;
+}
+/*sign up/sign-in code for home page */
+
+#signup {
+	float: left;
+	font-size: 1.1em;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	text-align: center;
 	margin: auto;
-	/*float: left;*/
-	width: 700px;
-	font-size: 1.6em;
-	}
-#main.main-full {
-	float: none;
-	width: 940px;
-	}
-#main div.col-50 {
-	float: left;
-	width: 330px;
-	}
-#main div.col-50-last {
-	float: right;
-	width: 330px;
-	}
-#main div.col-60 {
-	float: left;
-	width: 560px;
-	}
-#main div.col-70 {
-	float: left;
-	width: 460px;
-	}
-#main div.col-30 {
-	float: right;
-	width: 220px;
-	}
-#main div.col-2x2 {
-	float: left;
-	width: 460px;
-	}
-#main div.col-2x2-last {
-	float: right;
-	width: 460px;
-	}
-#secondary {
-	float: right;
-	width: 220px;
-	font-size: 1.2em;
-	}
+	margin-left: 43%;
+}
+#signup a{
+	text-decoration: none;
+	color: #333;
+	font-style: bold;
+}
 
-/* header
---------------------------------------------- */
+/* NEW EVENT STYLE/ EDIT EVENT */
 
-#header {
-	background: #FF0000 url(/images/sharkskin.gif) repeat-x -70% 0;
-	}
-	/*#434950*/
-#header-inner {
+#createnewevents{
+	float: left;
+	margin-left: 34%;
+	margin-top: 2%;
+    background: #EC1D25;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding-right: 20px;
+    width: 420px;
+    color: #111111;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+#createnewevents h1{
+	font-size: 2.5em;
+	text-align: center;
+}
+form#new_event ul li{
+	background: #b9cf6a;
+	/*background: rgba(255,255,255,.3);*/
+	border-color: #e3ebc3;
+	border-color: rgba(255,255,255,.6);
+	border-style: solid;
+	border-width: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 30px;
+	list-style: none;
+	padding: 5px 10px;
+	margin-bottom: 2px;
+}
+/* SIGN IN STYLE*/
+
+#signinpage{
+	float: left;
+	margin-left: 34%;
+	margin-top: 2%;
+    background: #EC1D25;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-left: 10px;
+    width: 430px;
+    color: #111111;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+#signinpage h1{
+	font-size: 2.5em;
+	text-align: center;
+}
+
+#signinpage form ul li{
+	background: #9BAED7;
+	/*background: rgba(255,255,255,.3);*/
+	border-color: #e3ebc3;
+	border-color: rgba(255,255,255,.6);
+	border-style: solid;
+	border-width: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 30px;
+	list-style: none;
+	padding: 5px 10px;
+	margin-bottom: 2px;
+}
+/* User Edit Page*/
+#edituser{
+	float: left;
+	margin-left: 34%;
+	margin-top: 2%;
+    background: #EC1D25;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-left: 10px;
+    width: 430px;
+    color: #111111;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+#edituser h1{
+	font-size: 2em;
+	text-align: center;
+}
+#edituser form ul li{
+	background: #9BAED7;
+	/*background: rgba(255,255,255,.3);*/
+	border-color: #e3ebc3;
+	border-color: rgba(255,255,255,.6);
+	border-style: solid;
+	border-width: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 30px;
+	list-style: none;
+	padding: 5px 10px;
+	margin-bottom: 2px;
+}
+/*  CATEGORY SHOW PAGES */
+#catshowpage{
+	height: 50px;
+	float:left;
+	text-align: left;
+	margin-left: 400px;
+}
+#eventdetails img{
+	float: left;
+}
+#eventdetails{
+	float:left;
 	width: 100%;
-	margin: 0 0;
-	padding: 15px 0;
-	}
-#logo {
+}
+#eventwords{
+	float:left;
+}
+
+/* Event Show Page*/
+
+#eventuser{
+	float:left;
+	margin-left: 400px;
+}
+#eventuser img{
 	float: left;
-	margin: 0;
-	}
-#logo img {
-	/*height: 0;*/
-	}
-#logo a,
-#logo span {
-	display: block;
-	width: 166px;
-	height: 40px;
-	background: url(/images/dribbble-tm.png) no-repeat 0 0;
-	-webkit-transition: opacity .2s ease;
-	-o-transition: opacity .2s ease;
-	transition: opacity .2s ease;
-	}
-#logo a:hover {
-	opacity: .6;
-	}
+}
+#eventuser p {
+	float: left;
+}
+#eventshow{
+	margin-left: 400px;
+	float: left;
+}
+#eventshow img{
+	float: left;
+}
+#eventshow ul{
+	clear: both;
+	float: left;
+}
+#eventshow ul li{
+	clear: both;
+	list-style: none;
+	margin-right: 0px;
+	float: left;
+}
+#comment_stuff{
+	clear: both;
+	float: left;
+}
+/* FOOTER */
+
+#footer{
+	border-top: 1.5px solid #ddd;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	width: 960px;
+	clear: both;
+	text-align: left;
+	margin-right: 15%;
+	margin-top: 2%;
+	color: #666;
+}
+#footer-nav{
+	float: left;
+}
+#footer-nav a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #666;
+}
+#footer-descrip{
+	float:right;
+}

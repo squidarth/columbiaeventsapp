@@ -6,6 +6,8 @@ Sidsapp::Application.routes.draw do
     resources :comments, :only => [:create]
   end
   
+  match 'events/search', :to => 'events#search'
+  match 'users/:id/password', :to => 'users#changepassword'
   match '/users/destroy', :to => 'users#destroy'
   match '/auth/:provider/callback', :to => 'authorizations#create'
   match "comments/create" => "comments#create"

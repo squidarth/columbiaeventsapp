@@ -1,5 +1,4 @@
-<div id="main">
-<div id="faq-players-and-spectators" class="faq">
+<div id="introduction" class="pages-text">
 	<p>Welcome to EventSalsa.com, the number one place to find out what cool events are happening on your campus!
 		If you're a student group, all you have to do is take the two seconds that it takes to create an acount
 		and start posting events. </p>
@@ -8,12 +7,12 @@
 		
 	<p>In the meantime, check out the events below!</p>
 </div>
-</div>
 <div id="signup">
 	<%= link_to "Sign up", signup_path %> or Sign-in using Facebook!
+	<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a></div>
 </div>
-<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a></div>
 
+<% if !@array_of_events.empty?%>
 <div id="scroller_roll" class="scroller_roll">
 <ul>
 			  <% @array_of_events.each do |event| %>
@@ -26,5 +25,6 @@
 </ul>
 <div style="clear: both"></div>
 </div>
+<% end %>
 
 	

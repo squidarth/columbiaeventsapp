@@ -48,17 +48,28 @@ class UsersController < ApplicationController
       @title = "Edit User"
     end
     
-    def update
+    def changepassword
       @user = User.find(params[:id])
-      if @user.update_attributes(params[:user])
-        flash[:success] = "Profile updated"
-        redirect_to @user
-      else 
-        @title = "Edit user"
-        render 'edit'
-      end
+      @title = "Change password"  
     end
     
+    def update
+      @user = User.find(params[:id])
+      if(params[:user][:password])
+        @user.update_attributes(params[:user])
+        flash[:success] = "Password Updated"
+        redirect_to contact_path
+      else
+          #if @user.update_attributes!(:name => params[:user]["name"], :email => params[:user]["email"])
+          if User.update(@user.id, :name => params[:user]["name"], :email => params[:user]["email"])
+          flash[:success] = params[:user][:name]
+          redirect_to @user
+          else
+            redirect_to contact_path
+          end
+          #redirect_to contact_path
+      end
+    end
     private
     
 

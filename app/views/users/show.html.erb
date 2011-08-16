@@ -10,15 +10,7 @@
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
 	
-	<h1><%= @user.name %></h1>
-	<% if @authorizations.empty? %>
-	<p>Mess up</p>
-	<% end %>
-	<% @authorizations.each do |authorization| %>
-	<p>Provider: <%= authorization.provider %></p>
-	<p>UID: <%= authorization.uid %></p>
-	<p>Token: <%= authorization.token %>
-	<% end %>
+	<h1>Name: <%= @user.name %></h1>
 	<p>Email: <%= @user.email %></p>
 	<% if(@user.school)%>
 	<p>School: <%= @user.school %></p>

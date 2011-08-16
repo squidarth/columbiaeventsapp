@@ -1,37 +1,43 @@
+<div id="eventuser">
+	<% if @event.user.avatar.file? %>
+	<%= image_tag @event.user.avatar.url(:thumb), :id => "eventuserphoto" %>
+	<% end %>
+	<p><%= @event.name %><br />
+	By: <%= @event.user.name %></p>	
+</div>
+
+
 <div id="eventshow">
 	<% if @event.photo.file? %>
 	<%= image_tag @event.photo.url(:small) %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
-	<br />
-<p>
-	<b>Name: </b> <%= @event.name %>	
-</p>
-<p>
+<ul>
+<li>
 	<b>Description: </b> <%= @event.description %>	
-</p>
-<p>
+</li>
+<li>
 	<b>Location: </b> <%= @event.location %>
-</p>
-<p>
+</li>
+<li>
 	<% if @event.date %>
 	<b>Date:</b> <%= @event.date %>
 	<% end %>
-</p>
-
-<p>
+</li>
+<li>
 	<b>Time: <%= @event.time %></b>
-</p>
-<p>
+</li>
+<li>
 	<b>Category: </b><%= @categories[@event.category - 1] %>
-</p>
-<p>
+</li>
+<li>
 	Facebookevent: <b><%= @event.facebookevent %></b>
-</p>
-<p>
+</li>
+<li>
 	<b>Link to Facebook Event: </b><%= @event.facebooklink %>	
-</p>
+</li>
+</ul>
 <% if current_user?(@event.user)%>
 <%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to "delete", @event, :method => :delete, :confirm => "You sure?", :title => @event.name %>
@@ -39,7 +45,7 @@
 </div>
 
 
-
+<div id="comment_stuff">
 <div id="commentform">
 <%= form_for([@event, @comment], :url => {:controller => :comments, :action => :create}, :remote => true) do |f| %>
 <% if signed_in? %>
@@ -62,3 +68,4 @@
 	<%= render :partial => @comments, :locals => { :list => true } %>
 </div>
 <% end %>
+</div>

@@ -1,6 +1,6 @@
 <div id="createnewevents">
-	<h1>Make a new event!</h1>
-	<%= form_for(@event, :html => { :multipart => true }) do |f| %>
+	<h1><%= @title %></h1>
+	<%= form_for(@event, :html => { :multipart => true, :id => "new_event" }) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <p>Errors prevented your event from being saved!</p>
@@ -12,27 +12,32 @@
       </ul>
     </div>
   <% end %>
-
-    <p><%= f.label :name %>
-    <%= f.text_field :name %></p>
+	
+	<ul>
+    <li><%= f.label :name %>
+    <%= f.text_field :name %></li>
     	
-    <p>What?
-    <%= f.text_field :description %></p>
+    <li><label for="event_description">What?</label>
+    <%= f.text_field :description %></li>
 
-    <p>When?
-    <%= f.text_field :date  %> <%= f.text_field :time %><!--CHANGED TIME_SELECT TO TEXT-FIELD -->
-    </p>
-    <p>Where?
-    <%= f.text_field :location %></p>
+    <li><label for="event_date">When?</label>
+    <%= f.text_field :date, :size => 5  %> <%= f.text_field :time, :size => 5 %><!--CHANGED TIME_SELECT TO TEXT-FIELD -->
+    </li>
+    <li><label for="event_location">Where?</label>
+    <%= f.text_field :location %></li>
 
-    <p><%= f.label :category %>
-    <%= f.select(:category, [['Fraternities', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8]]) %></p>
-	<%= f.hidden_field :author, :value => @user.name %>
-  	<p>Picture
-  	<%= f.file_field :photo %></p>
+    <li><%= f.label :category %>
+    <%= f.select(:category, [['Fraternities', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8]]) %></li>
+  	
+  	<li><label for="event_photo">Picture</label>
+  	<%= f.file_field :photo %></li>
   	<% if(!current_user.authorizations.empty?)%>
-	<p>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></p>
+	<li>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></li>
 	<% end %>
-    <p><%= f.submit %></p>
+    <li><%= f.submit %></li>
+    <% if @event.name %>
+    <li><%= link_to "Back to event", @event%></li>
+    <% end %>
+    </ul>
 <% end %>
 </div>

@@ -1,25 +1,23 @@
+<div id="catshowpage">
 <div class="cattitle"><%= @title %></div>
 
 <% @array_of_events.each do |event| %>
-<a href="/events/<%= event.id %>"><div class="eventlisting">
-	<div class="eventphoto">
+<div id="eventdetails"><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small) %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
-	</div>
-<div id="eventdetails">
-<p>
+</a>
+
+<p id="eventwords">
 	<%= event.name %><br />
 	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %><br />
 	Description: <%= event.description %> <br />
 	Link to Facebook Event:  <%= event.facebooklink %>	<br />
 </p>
-<hr width=100% >
 </div>
 
-</div>
 
-</a>
 <% end %>
+</div>

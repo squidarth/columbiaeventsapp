@@ -1,6 +1,6 @@
-<h1>Edit user</h1>
-
-<%= form_for(@user) do |f| %>
+<div id="edituser">
+	<h1>Edit <%= @user.name %></h1>
+<%= form_for @user, :html => { :multipart => true } do |f| %>
   <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count, "error") %> 
@@ -14,25 +14,39 @@
     </ul>
   </div>
 <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
+	<ul>
+   <li>
+    Name*
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
+  </li>
+  <li>
+    Email*
     <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmation" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
+  </li>
+  <li>
+    <%= f.label :affiliatedorgs, "Affiliated Organizations: " %>
+    <%= f.text_field :affiliatedorgs %>
+  </li>
+  <li>
+    <%= f.label :school %>
+    <%= f.text_field :school %>
+  </li>
+  <li>
+    <%= f.label :fblink, "Link to Facebook Profile" %><br />
+    <%= f.text_field :fblink %>
+  </li>
+    <li>
+    <%= f.label :aboutme, "About Me: " %><br />
+    <%= f.text_area :aboutme, :size => "40x5" %>
+  </li>
+  <li>
+  	<%= f.file_field :avatar %>
+  </li>
+  <li>
     <%= f.submit "Update" %>
-  </div>
+  </li>
+  </ul>
+  <%= link_to "Change Password", '/users/' + @user.id.to_s + '/password'%>
 <% end %>
 
+</div>

@@ -8,7 +8,7 @@ module ApplicationHelper
   end
   
   def title
-    base_title = "Events Hub"
+    base_title = "EventSalsa"
     if @title.nil?
       base_title
     else

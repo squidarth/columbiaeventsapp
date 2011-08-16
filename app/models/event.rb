@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   #attr_accessible :name, :description, :day, :time, :location, :author, :facebooklink, :photo, :year,:date, :month, :category, :datescore
   
-  has_attached_file :photo, :styles => { :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
+  has_attached_file :photo, :styles => { :thumb => "75x75>", :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
   
   has_many :comments, :dependent => :destroy
   
@@ -17,5 +17,10 @@ class Event < ActiveRecord::Base
   validates :location,  :length => { :maximum => 140 }
   validates :author, :length => { :maximum => 140 }
   validates :user_id, :presence => true
+  
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['name LIKE ? OR description LIKE ?', search_condition, search_condition])
+  end
 
 end
