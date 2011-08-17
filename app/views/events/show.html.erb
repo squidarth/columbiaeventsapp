@@ -1,9 +1,12 @@
+<div id="event">
 <div id="eventuser">
 	<% if @event.user.avatar.file? %>
 	<%= image_tag @event.user.avatar.url(:thumb), :id => "eventuserphoto" %>
 	<% end %>
-	<p><%= @event.name %><br />
-	By: <%= @event.user.name %></p>	
+	<div id="user_details">
+		<p id="title"><%= @event.name %></p>
+		<p id="name">By: <%= @event.user.name %></p>
+	</div>	
 </div>
 
 
@@ -38,13 +41,16 @@
 	<b>Link to Facebook Event: </b><%= @event.facebooklink %>	
 </li>
 </ul>
+
 <% if current_user?(@event.user)%>
+<div id="controls">
 <%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to "delete", @event, :method => :delete, :confirm => "You sure?", :title => @event.name %>
+</div>
 <% end %>
 </div>
 
-
+<!--
 <div id="comment_stuff">
 <div id="commentform">
 <%= form_for([@event, @comment], :url => {:controller => :comments, :action => :create}, :remote => true) do |f| %>
@@ -68,4 +74,6 @@
 	<%= render :partial => @comments, :locals => { :list => true } %>
 </div>
 <% end %>
+</div>
+-->
 </div>

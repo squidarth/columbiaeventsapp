@@ -43,11 +43,10 @@
      oauth : true // enables OAuth 2.0
    });
  </script>
-		<div id="header" class="group">
-	
-<div id="logo"><a href="/"><%= image_tag ("logo.gif")%></div>
+	<div id="top_part">
+<div id="logo"><a href="/"><%= image_tag ("logo.gif"), :width => 300 %></div>
 				
-				<div id="dashboardwrapper">
+				
 				<ul id="dashboard">
 					<% if signed_in? %>
 					<li>
@@ -59,6 +58,9 @@
 					<li>
 					<%= link_to "Profile", current_user %>
 					</li>
+					<li>
+						<%= link_to "Make New Event", new_event_path%>
+					</li>
 					<% else %>
 					<li id="signin">
 					<%= link_to "Sign in", signin_path %>
@@ -66,39 +68,6 @@
 					<% end %>
 				</ul>
 				</div>
-
-	<ul id="nav">
-			<li>
-				<%= link_to "Fraternities", fraternities_path %>
-			</li>
-		<li>
-			<%= link_to "Theater", theater_path %>
-		</li>
-		<li>
-			<%= link_to "Sports", sports_path %>
-		</li>
-		<li>
-			<%= link_to "Arts", arts_path %>
-		</li>
-		<li>
-			<%= link_to "Career Networking", careernetworking_path %>
-		</li>
-			<li>
-				<%= link_to "Community Service", communityservice_path %>
-			</li>
-			<li>
-				<%= link_to "Student Council", stuco_path %>
-			</li>
-			<li id="search">
-				<% form_tag :controller => :events, :action => :search do%>
-					<%= text_field_tag :search, params[:search], :id => :search_field %>
-					<%= submit_tag "Search", :name => nil %>
-				<% end %>
-			</liv>
-	
-	</ul>
-</div>
-<div id="main">
   	<section class="success">
 		<% flash.each do |key, value| %>
 		<div class="flash <%= key %>"><%= value %></div>
@@ -106,16 +75,100 @@
 	</section>
 	<div id="fb-root"></div>
 	  <script src="http://connect.facebook.net/en_US/all.js"></script>
-</div>
+	<div id="mainpagewrapper">
+	<ul id="nav">
+		<% if @title == "Home"%>
+		<li class="selected">
+			<%= link_to "All", root_path %>
+		</li>
+		<%else%>
+		<li>
+			<%= link_to "All", root_path %>
+		</li>
+		<% end %>
+		<% if @title == "Fraternities"%>
+			<li class="selected">
+				<%= link_to "Fraternities", fraternities_path %>
+			</li>
+		<% else %>
+			<li>
+				<%= link_to "Fraternities", fraternities_path %>
+			</li>
+		<% end %>
+		<% if @title == "Theater" %>
+		<li class="selected">
+			<%= link_to "Theater", theater_path %>
+		</li>
+		<% else %>
+		<li>
+			<%= link_to "Theater", theater_path %>
+		</li>
+		<% end %>
+		<% if @title == "Sports"%>
+		<li class="selected">
+			<%= link_to "Sports", sports_path %>
+		</li>
+		<% else %>
+		<li>
+			<%= link_to "Sports", sports_path %>
+		</li>
+		<% end %>
+		<% if @title == "Arts"%>
+		<li class="selected">
+			<%= link_to "Arts", arts_path %>
+		</li>
+		<% else %>
+		<li>
+			<%= link_to "Arts", arts_path %>
+		</li>
+		<% end %>
+		<% if @title == "Career Networking" %>
+		<li class="selected">
+			<%= link_to "Career Networking", careernetworking_path %>
+		</li>
+		<% else %>
+		<li>
+			<%= link_to "Career Networking", careernetworking_path %>
+		</li>
+		<% end %>
+		<% if @title == "Community Service"%>
+			<li class="selected">
+				<%= link_to "Community Service", communityservice_path %>
+			</li>
+			<% else %>
+			<li>
+				<%= link_to "Community Service", communityservice_path %>
+			</li>
+			<% end %>
+			<% if @title == "Student Council"%>
+			<li class="selected">
+				<%= link_to "Student Council", stuco_path %>
+			</li>
+			<% else %>
+			<li>
+				<%= link_to "Student Council", stuco_path %>
+			</li>
+			<%end %>
+	</ul>
+					<div id="searchbar">
+					<% form_tag(events_path, {:method => :get}) do %>
+					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
+					<%= submit_tag "Search!", :name => nil, :id => "search_select" %>
+					<% end %>
+					</div>
+
+<div id="main">
+
   <%= yield %>
+  </div>
+</div>
   <div id="footer">
 	<p id="footer-nav">
 		<%= link_to "About", about_path %> |
 		<%= link_to "Contact", contact_path %>
 	</p>
 	<p id="footer-descrip">Copyright EventSalsa. <br />  Made in Darien, Connecticut. Hosted by <a href="http://www.heroku.com/">Heroku</a>.</p>
-
-</div>
+  </div>
 </div>
 </body>
 </html>

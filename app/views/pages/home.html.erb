@@ -1,30 +1,26 @@
-<div id="introduction" class="pages-text">
-	<p>Welcome to EventSalsa.com, the number one place to find out what cool events are happening on your campus!
-		If you're a student group, all you have to do is take the two seconds that it takes to create an acount
-		and start posting events. </p>
-	<p>If you're a regular student, like me, all you have to do is a click a category to find out if there's
-		anything going on that interests you.</p>
-		
-	<p>In the meantime, check out the events below!</p>
-</div>
+<ul id="catshowpage">
+
+<% @array_of_events.each do |event| %>
+<li><a href="/events/<%= event.id %>">
+	<% if event.photo.file? %>
+	<%= image_tag event.photo.url(:small) %>
+	<% else %>
+	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
+	<% end %>
+</a>
+
+<p id="eventwords">
+	<%= event.name %><br />
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %><br />
+	Description: <%= event.description %> <br />
+	Link to Facebook Event:  <%= event.facebooklink %>	<br />
+</p>
+</li>
+
+
+<% end %>
+</ul>
 <div id="signup">
 	<%= link_to "Sign up", signup_path %> or Sign-in using Facebook!
 	<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a></div>
 </div>
-
-<% if !@array_of_events.empty?%>
-<div id="scroller_roll" class="scroller_roll">
-<ul>
-			  <% @array_of_events.each do |event| %>
-					<li><%= link_to(event) do %>
-						<%= image_tag event.photo.url(:small), :width => 100, :height => 100 %>
-						<% end %></li>
-
-				<% end %>
-	
-</ul>
-<div style="clear: both"></div>
-</div>
-<% end %>
-
-	

@@ -1,4 +1,5 @@
-
+<div id="user">
+	<div id="title"><%= @user.name %></div>
 <div id="userdetails">
 	<% if @user.avatar.file? %>
 	<%= image_tag @user.avatar.url(:small) %>
@@ -10,31 +11,27 @@
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
 	
-	<h1>Name: <%= @user.name %></h1>
-	<p>Email: <%= @user.email %></p>
+	<ul>
+	<li>Email: <%= @user.email %></li>
 	<% if(@user.school)%>
-	<p>School: <%= @user.school %></p>
+	<li>School: <%= @user.school %></li>
 	<% end %>
 	<% if(@user.affiliatedorgs)%>
-	<p>Affiliated Organizations: <%= @user.affiliatedorgs %></p>
+	<li>Affiliated Organizations: <%= @user.affiliatedorgs %></li>
 	<% end %>
 	<% if(@user.fblink)%>
-	<p>Facebook Profile: <a href="<%= @user.fblink %>"><%= @user.fblink %></a></p>
+	<li>Facebook Profile: <a href="<%= @user.fblink %>"><%= @user.fblink %></a></li>
 	<% end %>
 	<% if(@user.aboutme) %>
-	<p>About Me: <%= @user.aboutme %></p>
+	<li>About Me: <%= @user.aboutme %></li>
 	<% end %>
+	</ul>
 	<%= link_to "Edit", edit_user_path(current_user) %>
 </div>
-
-<div id="neweventlink"><%= link_to "Make a new event!", new_event_path %></div>
-<div id="recentlymadeevents">
-	
-	<b>Recently made events: </b>
 </div>
-
 <% unless @user.events.empty? %>
 	<div class="events">
-		<%= render @events %>
+		<%= render 'events' %>
 	</div>
 	<% end %>
+

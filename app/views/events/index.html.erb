@@ -1,31 +1,22 @@
-<h1>Listing events</h1>
+<ul id="catshowpage">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Author</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% @array_of_events.each do |event| %>
+<li><a href="/events/<%= event.id %>">
+	<% if event.photo.file? %>
+	<%= image_tag event.photo.url(:small) %>
+	<% else %>
+	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
+	<% end %>
+</a>
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.description %></td>
-    <td><%= event.date %></td>
-    <td><%= event.time %></td>
-    <td><%= event.author %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<p id="eventwords">
+	<%= event.name %><br />
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %><br />
+	Description: <%= event.description %> <br />
+	Link to Facebook Event:  <%= event.facebooklink %>	<br />
+</p>
+</li>
+
+
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>
+</ul>

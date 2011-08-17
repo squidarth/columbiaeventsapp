@@ -13,7 +13,7 @@ class UsersController < ApplicationController
      @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council']
      @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
      @title = @user.name
-     @events = @user.events
+     @array_of_events = @user.events
      @event = Event.new if signed_in?
      @authorizations = @user.authorizations
    end

@@ -9,9 +9,7 @@ class PagesController < ApplicationController
     @users.each do |user|
       events = user.events
       events.each do |event|
-        if event.photo.file?
           @array_of_events << event
-        end
       end
     end
     @array_of_events.shuffle
