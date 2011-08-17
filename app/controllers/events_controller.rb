@@ -68,7 +68,7 @@ class EventsController < ApplicationController
           require 'open-uri'
           OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
           OpenURI::Buffer.const_set 'StringMax', 0
-          picture = Koala::UploadableIO.new(open('http://s3.amazonaws.com/ColumbiaEventsApp/photos/40/small.jpeg').path, 'image')
+          picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
           params = {
               :picture => picture,
               :name => @event.name,
