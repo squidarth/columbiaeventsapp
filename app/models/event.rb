@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   default_scope :order => 'events.created_at DESC'
   
   validates_attachment_size :photo, :less_than => 5.megabytes
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
   
   validates :name, :presence => true, :length => { :maximum => 140 }
   validates :description, :length => { :maximum => 140 }
