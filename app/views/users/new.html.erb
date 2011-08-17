@@ -1,3 +1,4 @@
+<div id="signuppage">
 <h1>Sign up!</h1>
 <%= form_for @user, :html => { :multipart => true } do |f| %>
   <% if @user.errors.any? %>
@@ -11,46 +12,47 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    Name*<br />
+	<ul>
+		<li>
+    <label for="name">Name*</label>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    Email*<br />
+  </li>
+  <li>
+    <label for="email">Email*</label>
     <%= f.text_field :email %>
-  </div>
-    <div class="field">
-    Password* <br />
+  </li>
+    <li>
+    <label for="password">Password*</label>
     <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    Password Confirmation*<br />
+  </li>
+  <li>
+    <label for="password_confirmation">Password Confirmation*</label>
     <%= f.password_field :password_confirmation %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :affiliatedorgs, "Affiliated Organizations: " %><br />
+  </li>
+  <li>
+    <%= f.label :affiliatedorgs, "Affiliated Organizations: " %>
     <%= f.text_field :affiliatedorgs %>
-  </div>
-  <div class="field">
-    <%= f.label :school %><br />
+  </li>
+  <li>
+    <%= f.label :school %>
     <%= f.text_field :school %>
-  </div>
-  <div class="field">
-    <%= f.label :fblink, "Link to Facebook Profile" %><br />
+  </li>
+  <li>
+    <%= f.label :fblink, "Link to Facebook Profile" %>
     <%= f.text_field :fblink %>
-  </div>
-    <div class="field">
-    <%= f.label :aboutme, "About Me: " %><br />
+  </li>
+    <li>
+    <%= f.label :aboutme, "About Me: " %>
     <%= f.text_area :aboutme, :size => "40x5" %>
-  </div>
-  <div class="field">
+  </li>
+  <li>
   	<%= f.file_field :avatar %>
-  </div>
-  <p>Note: All fields with a * are required.  Please make passwords more than 6 characters.</p>
-  <div class="actions">
+  </li>
+  
+  <li>
     <%= f.submit %>
-  </div>
+  </li>
+  </ul>
+  <p>Note: All fields with a * are required.  Please make passwords more than 6 characters.</p>
 <% end %>
+</div>

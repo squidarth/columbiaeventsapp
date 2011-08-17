@@ -1,10 +1,27 @@
-<h1>List of All Users</h1>
 <div id="allusers">
+	<h1>List of All Users</h1>
+	<ul id="userlist">
 	<% @users.each do |user| %>
-
-		<p>Name: <%= user.name %></p>
-		<p><%= link_to "View Profile", user %>
-			| <%= link_to "delete", user, :method => :delete %>
+		<li>
+				<a href="/users/<%= user.id %>">
+				<% if user.avatar.file? %>
+				<%= image_tag user.avatar.url(:thumb) %>
+				<% elsif user.fbnickname %>
+				<img src="http://graph.facebook.com/<%= user.fbnickname %>/picture?type=normal" height="100" width="100"></img>
+				<% elsif user.facebookid%>
+				<img src="https://graph.facebook.com/<%= user.facebookid%>/picture?type=normal"></img>
+				<% else%>
+				<%= image_tag ("questionmark.png"), :height => 75, :width => 75 %>
+				<% end %>
+				</a>
+				<p> <%= user.name %></p>
+		</li>
+		
+		<% if current_user.email == "sps2133@columbia.edu"%>
+		<p>
+			<%= link_to "delete", user, :method => :delete %>
 		</p>
+		<% end %>
 	<% end %>
+	</ul>
 </div>

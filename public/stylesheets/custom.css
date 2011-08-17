@@ -19,6 +19,34 @@ body{
 	border-bottom: solid 1px #FF4040;
 	overflow: hidden;
 }
+#intropara{
+	clear: both;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	width: 960px;
+	margin: auto;
+	margin-bottom: 20px;
+	background-color: #FEF5CA;
+	border-radius: 10px;
+	font-weight: bold;
+}
+#intropara p#emphasis{
+	margin-bottom: 0;
+	font-size: 2.4em;
+	
+}
+#intropara p#descrip{
+	margin-top: 0;
+}
+#signup {
+	text-align: center;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+#signup a{
+	text-decoration: none;
+	color: #333;
+	font-style: bold;
+}
 #dashboard{
 	border-radius: 10px;
 	float:right;
@@ -128,21 +156,44 @@ body{
 	border: 1px solid #ddd;
 }
 /*sign up/sign-in code for home page */
-
-#signup {
+/* USER SIGN UP STYLE */
+#signuppage{
 	float: left;
-	font-size: 1.1em;
+	margin-left: 24%;
+	margin-top: 2%;
+    background: #FF4040;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-left: 10px;
+    width: 550px;
+    color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	text-align: center;
-	margin: auto;
-	margin-left: 43%;
-}
-#signup a{
-	text-decoration: none;
-	color: #333;
-	font-style: bold;
 }
 
+#signuppage h1{
+	font-size: 2.5em;
+	text-align: center;
+}
+
+#signuppage form ul li{
+	background: #9BAED7;
+	/*background: rgba(255,255,255,.3);*/
+	border-color: #e3ebc3;
+	border-style: solid;
+	border-width: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 30px;
+	list-style: none;
+	padding: 5px 10px;
+	margin-bottom: 2px;
+}
+#signuppage form ul li label{
+	width: 100px;
+}
 /* NEW EVENT STYLE/ EDIT EVENT */
 
 #createnewevents{
@@ -183,13 +234,13 @@ form#new_event ul li{
 	float: left;
 	margin-left: 34%;
 	margin-top: 2%;
-    background: #EC1D25;
+    background: #FF4040;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     padding-right: 20px;
     padding-left: 10px;
-    width: 430px;
+    /*width: 430px;*/
     color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
@@ -203,7 +254,6 @@ form#new_event ul li{
 	background: #9BAED7;
 	/*background: rgba(255,255,255,.3);*/
 	border-color: #e3ebc3;
-	border-color: rgba(255,255,255,.6);
 	border-style: solid;
 	border-width: 2px;
 	-moz-border-radius: 5px;
@@ -214,6 +264,7 @@ form#new_event ul li{
 	padding: 5px 10px;
 	margin-bottom: 2px;
 }
+
 /* USER SHOW PAGE */
 #user{
 	margin-left: 180px;
@@ -293,6 +344,46 @@ form#new_event ul li{
 	list-style: none;
 	padding: 5px 10px;
 	margin-bottom: 2px;
+}
+/* USER INDEX */
+
+#allusers{
+	margin-left: 300px;
+}
+#allusers h1{
+	margin-left: 30px;
+	color: #fff;
+	padding: 5px 5px 5px;
+	text-align: center;
+	background-color: #ff4040;
+	border-radius: 30px;
+	border-bottom: solid 5px #ff8080;
+}
+#allusers ul{
+	float: left;
+}
+#allusers ul li{
+	margin: 0 0 0 0px;
+	margin-bottom: 15px;
+	clear: both;
+	float: left;
+	list-style: none;
+	padding: 10px 10px 10px;
+	text-align: center;
+	background-color: #ff4040;
+	border-radius: 30px;
+	border-bottom: solid 5px #ff8080;
+}
+#allusers ul li img{
+	float: left;
+}
+#allusers ul li p{
+	margin-top: 10px;
+	color: #fff;
+	font-size: 2em;
+	font-weight: bold;
+	margin-left: 10px;
+	float: left;
 }
 /*  CATEGORY SHOW PAGES */
 #catshowpage{

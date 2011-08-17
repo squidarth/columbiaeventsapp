@@ -67,6 +67,18 @@
 					</li>
 					<% end %>
 				</ul>
+				<% if !signed_in? %>
+				<div id="intropara">
+				<p id="emphasis">Welcome to EventSalsa, an event catalogue.</p>
+					<p id="descrip">To see what's happening on campus, simply click a category below!  To make events,
+						it takes a second to signup with Facebook.  The coolest part? You can make 
+						any event you make on EventSalsa a Facebook event!</p>
+					<div id="signup">
+						<%= link_to "Sign up", signup_path %> or Sign-in using Facebook!
+						<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Login with Facebook</fb:login-button></a></div>
+					</div>
+				</div>
+				<% end %>
 				</div>
   	<section class="success">
 		<% flash.each do |key, value| %>
