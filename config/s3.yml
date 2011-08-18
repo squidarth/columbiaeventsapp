@@ -1,4 +1,3 @@
-access_key_id: AKIAJL2ORE66WOKDPU7A
-secret_access_key: 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
-bucket: ColumbiaEventsApp
-
+access_key_id: <%= ENV['S3_KEY'] %>
+secret_access_key: <%= ENV['S3_SECRET'] %>
+bucket: <%= ENV['S3_BUCKET_NAME'] %>
