@@ -1,14 +1,18 @@
 <div id="signinpage">
-<h1>Sign in</h1>
-
+	<div id="signinpage_facebook_signin">
+		<p id="facebook_signin_title">Sign in with Facebook!</p>
+		<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Sign in</fb:login-button></a></div>
+	</div>
+<div id="custom_signin">
+<div id="signinpage_title">Or without it!</div>
 <%= form_for(:session, :url => sessions_path) do |f| %>
   <ul>
   	<li>
-    <%= f.label :email %>
+    <p><%= f.label :email %></p>
     <%= f.text_field :email %>
     </li>
   <li>
-    <%= f.label :password %>
+    <p><%= f.label :password %></p>
     <%= f.password_field :password %>
   </li>
   <li>
@@ -18,4 +22,5 @@
 <% end %>
 
 <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>
 </div>

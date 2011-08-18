@@ -1,5 +1,7 @@
 <div id="createnewevents">
-	<h1><%= @title %></h1>
+	<div id="make_new_event">
+		<%= @title %>
+	</div>
 	<%= form_for(@event, :html => { :multipart => true, :id => "new_event" }) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -14,25 +16,25 @@
   <% end %>
 	
 	<ul>
-    <li><%= f.label :name %>
+    <li><p><%= f.label :name %></p>
     <%= f.text_field :name %></li>
     	
-    <li><label for="event_description">What?</label>
+    <li><p><label for="event_description">What?</label></p>
     <%= f.text_field :description %></li>
 
-    <li><label for="event_date">When?</label>
+    <li><p><label for="event_date">When?</label></p>
     <%= f.text_field :date, :size => 5  %> <%= f.text_field :time, :size => 5 %><!--CHANGED TIME_SELECT TO TEXT-FIELD -->
     </li>
-    <li><label for="event_location">Where?</label>
+    <li><p><label for="event_location">Where?</label></p>
     <%= f.text_field :location %></li>
 
-    <li><%= f.label :category %>
+    <li><p><%= f.label :category %></p>
     <%= f.select(:category, [['Fraternities', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8]]) %></li>
   	
-  	<li><label for="event_photo">Picture</label>
+  	<li><p><label for="event_photo">Picture</label></p>
   	<%= f.file_field :photo %></li>
   	<% if(!current_user.authorizations.empty?)%>
-	<li>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></li>
+	<li><p>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></p></li>
 	<% end %>
     <li><%= f.submit %></li>
     <% if @event.name %>

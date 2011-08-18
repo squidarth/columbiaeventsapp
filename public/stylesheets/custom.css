@@ -16,7 +16,7 @@ body{
 	float: left;
 }
 #top_part{
-	border-bottom: solid 1px #FF4040;
+	border-bottom: solid 3px #FF4040;
 	overflow: hidden;
 }
 #intropara{
@@ -78,8 +78,7 @@ body{
 #nav{
 	float: left;
 	border-radius: 10px;
-	border: solid 2px #999999;
-	width: 180px;
+	/*border: solid 2px #999999;*/
 	margin: 10px auto 0;
 	padding: 10px 0px 5px 0;
 	padding-left: 10px;
@@ -89,25 +88,28 @@ body{
 #nav li{
 	display: block;
 	margin: 0 0 0 0px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	padding: 0;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	background-color: #ff4040;
+	border-radius: 20px;
 	font-size: 110%;
+	width: 170px;
 }
 #nav a{
-	margin-bottom: 20px;
-	border-radius: 20px;
+	display: block;
 	padding: 4px 8px;
 	color: #ffffff/*#231F20*/;
 	text-decoration: none;
 	font-weight: bold;
-	background-color: #ff4040;
+	border-radius: 20px;
+
 }
 #nav li.selected a{
-		margin-bottom: 20px;
+	margin-bottom: 5px;
 	border-radius: 20px;
 	padding: 4px 8px;
-		text-decoration: none;
+	text-decoration: none;
 	font-weight: bold;
 	color: #333333;
 	background-color: #FF8080;
@@ -159,112 +161,149 @@ body{
 /* USER SIGN UP STYLE */
 #signuppage{
 	float: left;
-	margin-left: 24%;
-	margin-top: 2%;
-    background: #FF4040;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+	margin: 15px 0 0 280px;
     border-radius: 5px;
-    padding-right: 20px;
-    padding-left: 10px;
-    width: 550px;
+    width: 500px;
     color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
-
-#signuppage h1{
-	font-size: 2.5em;
-	text-align: center;
-}
-
-#signuppage form ul li{
-	background: #9BAED7;
-	/*background: rgba(255,255,255,.3);*/
-	border-color: #e3ebc3;
-	border-style: solid;
-	border-width: 2px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+#signuppage div#facebook_signup{
+	margin-top: 20px;
+	border: solid 1px #e3ebc3;
+	margin-bottom: 20px;
+	background-color: #fff;
 	border-radius: 5px;
-	line-height: 30px;
+	width: 400px;
+	padding: 5px 10px 10px 20px;
+	text-align: center;
+	
+}
+#signuppage div#facebook_signup p#facebook_signup_title{
+	font-size: 2em;
+	color: #666666;
+	font-weight: bold;
+	margin: 0 0 5px 0px;
+}
+#signuppage div#facebook_signup p#facebook_signup_descrip{
+	font-size: 1em;
+	color: #666666;
+	font-weight: bold;
+	margin: 0 0 0 0;
+}
+#signuppage #facebook_signup #facebooklogin{
+	margin: 10px auto auto 0;
+	
+}
+#signuppage form{
+	border: solid 1px #e3ebc3;
+	border-radius: 5px;
+	width: 400px;	
+	padding: 5px 10px 0 20px;
+}
+#signuppage form div#signup_form_intro{
+	width: 300px;
+	font-weight: bold;
+	color: #666666;
+	border-radius: 5px;
+	background-color: #fff;
+	margin-left: 35px;
+}
+#signuppage form ul li{
+	border-radius: 5px;
 	list-style: none;
-	padding: 5px 10px;
 	margin-bottom: 2px;
+	margin-left: 0;
+	width: 300px;
+	background-color: #fff;
 }
-#signuppage form ul li label{
-	width: 100px;
+#signuppage form ul li p{
+	width: 160px;
+	margin-bottom: 0;
+	margin-top: 0;
+	font-weight: bold;
+	color: #666666;
 }
+
 /* NEW EVENT STYLE/ EDIT EVENT */
 
 #createnewevents{
 	float: left;
-	margin-left: 34%;
-	margin-top: 2%;
-   	background-color: #ff4040;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+	margin-top: 20px;
+	margin-left: 300px;
+	border: solid 2px #E3EBC3;
     border-radius: 5px;
-    padding-right: 20px;
     width: 420px;
     color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
-#createnewevents h1{
-	font-size: 2.5em;
+#createnewevents div#make_new_event{
+	font-size: 2em;
 	text-align: center;
+	font-weight: bold;
+	color: #666666;
 }
 form#new_event ul li{
-	background: #9BAED7;
-	/*background: rgba(255,255,255,.3);*/
-	border-color: #e3ebc3;
-	border-color: rgba(255,255,255,.6);
-	border-style: solid;
-	border-width: 2px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	line-height: 30px;
 	list-style: none;
 	padding: 5px 10px;
-	margin-bottom: 2px;
+}
+form#new_event ul li p{
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	color: #666666;
+	font-weight: bold;
+	margin: 0 0 0 0;
 }
 /* SIGN IN STYLE*/
-
 #signinpage{
 	float: left;
-	margin-left: 34%;
-	margin-top: 2%;
-    background: #FF4040;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    padding-right: 20px;
-    padding-left: 10px;
-    /*width: 430px;*/
-    color: #111111;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	margin-top: 20px;
 }
-
-#signinpage h1{
-	font-size: 2.5em;
+#signinpage_facebook_signin{
+	margin: 15px 0 0 280px;
+	padding: 0 15px 10px 0;
+	border: solid 1px #e3ebc3;
+    border-radius: 5px;
+    width: 350px;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	text-align: center;
 }
-
-#signinpage form ul li{
-	background: #9BAED7;
-	/*background: rgba(255,255,255,.3);*/
-	border-color: #e3ebc3;
-	border-style: solid;
-	border-width: 2px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+#signinpage_facebook_signin p#facebook_signin_title{
+	font-size: 2em;
+	font-weight: bold;
+	color: #666666;
+	text-align: center;
+	padding: 0 15px 0 0;
+	margin: 0 0 6px 0;
+}
+#custom_signin{
+	float: left;
+	margin: 15px 0 0 280px;
+	padding: 0 15px 0 0;
+	border: solid 1px #e3ebc3;
+    border-radius: 5px;
+    width: 350px;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+#custom_signin div#signinpage_title{
+	font-size: 2em;
+	font-weight: bold;
+	color: #666666;
+	text-align: center;
+	padding: 0 15px 0 0;
+}
+#custom_signin form ul li{
 	border-radius: 5px;
-	line-height: 30px;
 	list-style: none;
-	padding: 5px 10px;
 	margin-bottom: 2px;
 }
-
+#custom_signin form ul li p{
+	margin: 0 0 0 0;
+	font-weight: bold;
+	color: #666666;
+}
+#custom_signin p{
+	margin-left: 40px;
+}
 /* USER SHOW PAGE */
 #user{
 	margin-left: 180px;
