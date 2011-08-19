@@ -10,24 +10,6 @@
   <%= javascript_include_tag "jquery-rails.js", "jquery.ui.timepicker.js" %>
   <%= javascript_include_tag 'hoverIntent', 'application', 'scroller_roll.js' %>
   <%= csrf_meta_tag %>
-  <script type="text/javascript">
-	        $(document).ready(function() {
-                $("#scroller_roll").scroller_roll({
-                    title_show: 'disable',//enable  disable
-                    time_interval: '17',
-                    window_background_color: "#FFFFFF",
-                    window_padding: '1',
-                    border_size: '10',
-                    border_color: '#FFFFFF',
-                    images_width: '100',
-                    images_height: '100',
-                    images_margin: '0',
-                    title_size: '12',
-                    title_color: 'black',
-                    show_count: '10'
-                });
-            });
-</script>
 
 </head>
 <body>
@@ -82,7 +64,7 @@
 				</div>
   	<section class="success">
 		<% flash.each do |key, value| %>
-		<div class="flash <%= key %>"><%= value %></div>
+		<div class="flash<%= key %>"><%= value %></div>
 		<% end %>
 	</section>
 	<div id="fb-root"></div>

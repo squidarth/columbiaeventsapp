@@ -5,10 +5,7 @@
 		<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Sign up with Facebook!</fb:login-button></a></div>
 	</div>
 <%= form_for @user, :html => { :multipart => true } do |f| %>
-	<div id="signup_form_intro">
-		If you are abnormal (or born before 1980) and don't have a Facebook, don't worry, I have you
-		covered too! Simply sign up with your email below!
-	</div>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <div>Some errors prevented you from signing up. </div>
@@ -20,6 +17,10 @@
       </ul>
     </div>
   <% end %>
+  	<div id="signup_form_intro">
+		If you are abnormal (or born before 1980) and don't have a Facebook, don't worry, I have you
+		covered too! Simply sign up with your email below!
+	</div>
 	<ul>
 		
 		<li>

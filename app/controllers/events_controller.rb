@@ -5,7 +5,12 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
     if params[:search]
-      @array_of_events = Event.search(params[:search])
+      @events = Event.search(params[:search])
+      @events.each do |event| #possibly move this into the event model
+        if event.date > Date.today || event.date == Date.today
+          array_of_events << event
+        end
+      end
     else
       @array_of_events = Event.all
     end
@@ -82,7 +87,8 @@ class EventsController < ApplicationController
       end
       redirect_to @event
     else
-      redirect_to @event.user
+      @title = "Make New Event!"
+      render 'new'
     end
     
   end

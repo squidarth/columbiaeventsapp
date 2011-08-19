@@ -1,8 +1,9 @@
 <div id="createnewevents">
-	<div id="make_new_event">
-		<%= @title %>
-	</div>
+
 	<%= form_for(@event, :html => { :multipart => true, :id => "new_event" }) do |f| %>
+		<div id="make_new_event">
+			<%= @title %>
+		</div>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <p>Errors prevented your event from being saved!</p>
@@ -37,7 +38,7 @@
 	<li><p>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></p></li>
 	<% end %>
     <li><%= f.submit %></li>
-    <% if @event.name %>
+    <% if !@event.name.nil? %>
     <li><%= link_to "Back to event", @event%></li>
     <% end %>
     </ul>

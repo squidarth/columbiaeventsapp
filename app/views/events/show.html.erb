@@ -1,7 +1,13 @@
 <div id="event">
 <div id="eventuser">
 	<% if @event.user.avatar.file? %>
-	<%= image_tag @event.user.avatar.url(:thumb), :id => "eventuserphoto" %>
+	<%= image_tag @event.user.avatar.url(:thumb) %>
+	<% elsif @event.user.fbnickname %>
+	<img src="http://graph.facebook.com/<%= @event.user.fbnickname %>/picture?type=normal" height="75" width="75"></img>
+	<% elsif @event.user.facebookid%>
+	<img src="https://graph.facebook.com/<%= @event.user.facebookid%>/picture?type=normal" height="75" width="75"></img>
+	<% else%>
+	<%= image_tag ("questionmark.png"), :height => 75, :width => 75 %>
 	<% end %>
 	<div id="user_details">
 		<p id="title"><%= @event.name %></p>
@@ -20,9 +26,11 @@
 <li>
 	<%= @event.description %>	
 </li>
+<% if(!(@event.location == "")) %>
 <li>
 	Place: <%= @event.location %>
 </li>
+<% end %>
 <li>
 	<% if @event.date && @event.time%>
 	Time: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <%= @event.time.hour%>:<%= @event.time.min%>

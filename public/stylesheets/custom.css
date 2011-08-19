@@ -120,6 +120,30 @@ body{
 	background-color: #FF8080;
 }
 
+/* STYLE FOR THE FLASH */
+
+section.success .flasherror{
+	text-align: center;
+	color: #FFFEFF;
+	font-size: 1.5em;
+	font-weight: bold;
+	background-color: #F0463D;
+	border-radius: 20px;
+	margin: 30px auto 0 495px;
+	padding: 10px 0 10px 0;
+	max-width: 300px;
+}
+section.success .flashsuccess{
+	text-align: center;
+	color: #FFFEFF;
+	font-size: 1.5em;
+	font-weight: bold;
+	background-color: #256AA3;
+	border-radius: 20px;
+	margin: 30px auto 0 495px;
+	padding: 10px 0 10px 0;
+	max-width: 300px;
+}
 /*  STYLE FOR MAINPAGEWRAPPER */
 
 #mainpagewrapper{
@@ -238,7 +262,10 @@ body{
 	font-weight: bold;
 	color: #666666;
 }
-
+#error_explanation{
+	color: #F0463D;
+	font-weight: bold;
+}
 /* NEW EVENT STYLE/ EDIT EVENT */
 
 #createnewevents{
