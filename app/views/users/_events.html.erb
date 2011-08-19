@@ -9,14 +9,14 @@
 	<% end %>
 </a>
 
-<p id="eventwords">
-	<%= event.name %><br />
+<div id="eventwords">
+	<p id="event_title"><%= event.name %></p>
 	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.hour%>:<%= event.time.min %><br />
-	Description: <%= event.description %> <br />
+	<%= event.description %> <br />
 	<% if event.facebooklink%>
 	Link to Facebook Event:  <%= event.facebooklink %>	<br />
 	<% end %>
-</p>
+</div>
 </li>
 
 

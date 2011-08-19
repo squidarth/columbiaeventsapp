@@ -18,9 +18,15 @@ class Event < ActiveRecord::Base
   validates :author, :length => { :maximum => 140 }
   validates :user_id, :presence => true
   
+  validate :validate_date
   def self.search(search)
     search_condition = "%" + search + "%"
-    find(:all, :conditions => ['name LIKE ? OR description LIKE ?', search_condition, search_condition])
+    find(:all, :conditions => ['name LIKE ? OR description LIKE ? ', search_condition, search_condition])
   end
-
+  
+  private
+  
+    def validate_date
+      errors.add("Date", "is invalid.") unless self.date>=Date.today
+    end
 end

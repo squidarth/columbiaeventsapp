@@ -1,3 +1,4 @@
+<% if !@array_of_events.empty? %>
 <ul id="catshowpage">
 
 <% @array_of_events.each do |event| %>
@@ -9,14 +10,19 @@
 	<% end %>
 </a>
 
-<p id="eventwords">
-	<%= event.name %><br />
-	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %><br />
-	Description: <%= event.description %> <br />
+<div id="eventwords">
+	<p id="event_title"><%= event.name %></p>
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.hour%>:<%= event.time.min %><br />
+	<%= event.description %> <br />
+	<% if event.facebooklink%>
 	Link to Facebook Event:  <%= event.facebooklink %>	<br />
-</p>
+	<% end %>
+</div>
 </li>
 
 
 <% end %>
 </ul>
+<% else %>
+<div id="no_results">No events found :(</div>
+<% end %>

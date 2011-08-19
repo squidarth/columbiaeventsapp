@@ -18,34 +18,31 @@
 	<% end %>
 <ul>
 <li>
-	<b>Description: </b> <%= @event.description %>	
+	<%= @event.description %>	
 </li>
 <li>
-	<b>Location: </b> <%= @event.location %>
+	Place: <%= @event.location %>
 </li>
 <li>
-	<% if @event.date %>
-	<b>Date:</b> <%= @event.date %>
+	<% if @event.date && @event.time%>
+	Time: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <%= @event.time.hour%>:<%= @event.time.min%>
+	<% elsif @event.date %>
+	Date: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
+	<% elsif @event.time %>
+	Time: <%= @event.time.hour%>:<%= @event.time.min %>
 	<% end %>
 </li>
-<li>
-	<b>Time: <%= @event.time %></b>
-</li>
-<li>
-	<b>Category: </b><%= @categories[@event.category - 1] %>
-</li>
-<li>
-	Facebookevent: <b><%= @event.facebookevent %></b>
-</li>
+<% if @event.facebooklink%>
 <li>
 	<b>Link to Facebook Event: </b><%= @event.facebooklink %>	
 </li>
+<% end %>
 </ul>
 
 <% if current_user?(@event.user)%>
 <div id="controls">
 <%= link_to 'Edit', edit_event_path(@event) %>
-<%= link_to "delete", @event, :method => :delete, :confirm => "You sure?", :title => @event.name %>
+<%= link_to "Delete", @event, :method => :delete, :confirm => "You sure?", :title => @event.name %>
 </div>
 <% end %>
 </div>

@@ -1,27 +1,29 @@
-<% if !@events.empty? %>
-<% @events.each do |event| %>
-<a href="/events/<%= event.id %>"><div class="eventlisting">
-	<div class="eventphoto">
+<div>debug</div>
+<% if !@array_of_events.empty? %>
+<ul id="catshowpage">
+
+<% @array_of_events.each do |event| %>
+<li><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small) %>
 	<% else %>
-	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
 	<% end %>
-	</div>
-<div id="eventdetails">
-<p>
-	<%= event.name %><br />
-	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %><br />
-	Description: <%= event.description %> <br />
-	Link to Facebook Event:  <%= event.facebooklink %>	<br />
-</p>
-<hr width=100% >
-</div>
-
-</div>
-
 </a>
+
+<div id="eventwords">
+	<p id="event_title"><%= event.name %></p>
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.hour%>:<%= event.time.min %><br />
+	<%= event.description %> <br />
+	<% if event.facebooklink%>
+	Link to Facebook Event:  <%= event.facebooklink %>	<br />
+	<% end %>
+</div>
+</li>
+
+
 <% end %>
+</ul>
 <% else %>
 <p>No events found</p>
 <% end %>

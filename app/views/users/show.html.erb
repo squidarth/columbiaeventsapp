@@ -12,22 +12,25 @@
 	<% end %>
 	
 	<ul>
-	<li>Email: <%= @user.email %></li>
+	<li><b>Email:</b> <%= @user.email %></li>
 	<% if(@user.school)%>
-	<li>School: <%= @user.school %></li>
+	<li><b>School:</b> <%= @user.school %></li>
 	<% end %>
 	<% if(@user.affiliatedorgs)%>
-	<li>Affiliated Organizations: <%= @user.affiliatedorgs %></li>
+	<li><b>Affiliated Organizations:</b> <%= @user.affiliatedorgs %></li>
 	<% end %>
 	<% if(@user.fblink)%>
-	<li>Facebook Profile: <a href="<%= @user.fblink %>"><%= @user.fblink %></a></li>
+	<li><b>Facebook Profile:</b> <a href="<%= @user.fblink %>"><%= @user.fblink %></a></li>
 	<% end %>
 	<% if(@user.aboutme) %>
-	<li>About Me: <%= @user.aboutme %></li>
+	<li><b>About Me:</b> <%= @user.aboutme %></li>
 	<% end %>
 	</ul>
-	<%= link_to "Edit", edit_user_path(current_user) %>
+	<!--<%= link_to "Edit", edit_user_path(current_user), :id => "edit_user" %>-->
 </div>
+</div>
+<div id="users_events">
+	<%= @user.name%>'s Events
 </div>
 <% unless @user.events.empty? %>
 	<div class="events">

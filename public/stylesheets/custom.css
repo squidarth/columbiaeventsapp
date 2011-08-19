@@ -1,6 +1,6 @@
 /** {border:0; margin:0; padding:0; outline:0;} /* Start all shit like this/*
 
-/* STYLE FOR APPLICATION.HTML, nav, logo, dashboard*/
+/* STYLE FOR APPLICATION.HTML, nav, logo, 	background-color:#af352a;*/
 
 #wrapper{
 	min-width: 1100px;
@@ -16,7 +16,7 @@ body{
 	float: left;
 }
 #top_part{
-	border-bottom: solid 3px #FF4040;
+	border-bottom: solid 3px #F0463D;
 	overflow: hidden;
 }
 #intropara{
@@ -47,13 +47,14 @@ body{
 	color: #333;
 	font-style: bold;
 }
+
 #dashboard{
 	border-radius: 10px;
 	float:right;
 	margin-top: 20px;
 	padding: 10px; 0 0 46px;
 	list-style: none;
-	background-color: #ff4040;
+	background-color:#F0463D;
 }
 #dashboard li{
 	float: left;
@@ -67,10 +68,10 @@ body{
 	display: block;
 	margin: 0;
 	padding: 4px 8px;
-	color: #ffffff/*#231F20*/;
+	color: #fffeff/*#231F20*/;
 	font-weight: bold;
 	text-decoration: none;
-	background-color: #ff4040;
+	background-color:#F0463D;
 }
 #dashboard a:hover{
 	color: #111111;
@@ -91,7 +92,7 @@ body{
 	margin-bottom: 5px;
 	padding: 0;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	background-color: #ff4040;
+	background-color:#F0463D;
 	border-radius: 20px;
 	font-size: 110%;
 	width: 170px;
@@ -99,7 +100,7 @@ body{
 #nav a{
 	display: block;
 	padding: 4px 8px;
-	color: #ffffff/*#231F20*/;
+	color: #fffeff/*#231F20*/;
 	text-decoration: none;
 	font-weight: bold;
 	border-radius: 20px;
@@ -140,8 +141,22 @@ body{
 	border: solid 1px #ff4040;
 	border-bottom: solid 2px #ff8080;
 	width: 80px;
-	color: #fff;
-	background-color: #ff4040;
+	color: #fffeff;
+	background-color:#F0463D;
+}
+
+/* CODE FOR SEARCH ACTION*/
+
+
+#no_results{
+	background-color:#F0463D;
+	color: #fffeff;
+	border-radius: 5px;
+	margin: 30px 0 0px 350px;
+	padding: 5px 10px 5px 10px;
+	font-weight: bold;
+	font-size: 2em;
+	
 }
 /*  CODE FOR ABOUT PAGES */
 .pages-text{
@@ -149,10 +164,10 @@ body{
 	text-align: left;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.2em;
-	width: 36%;
-	margin-top: 2%;
+	width: 600px;
+	margin-top: 50px;
 	margin-bottom: 2%;
-	margin-left: 32%;
+	margin-left: 180px;
 	padding-left: 1%;
 	border-radius: 10px;
 	border: 1px solid #ddd;
@@ -313,20 +328,20 @@ form#new_event ul li p{
 	margin-bottom: 20px;
 	clear: both;
 	float: left;
-	color: #fff;
+	color: #fffeff;
 	font-size: 2.4em;
 	font-weight: bold;
-	background-color: #ff4040;
+	background-color:#F0463D;
 	border-radius: 30px;
 	border-bottom: solid 5px #ff8080;
 	padding: 10px 10px 10px;
 }
 #userdetails{
 	clear: both;
-	color: #fff;
+	color: #fffeff;
 	border-bottom: solid 2px #ff8080;
-	margin-bottom: 10px;
-	background-color: #ff4040; 
+	margin-bottom: 20px;
+	background-color:#F0463D; 
 	padding: 10px 10px 10px;
 	border-radius: 30px;
 	float: left;
@@ -334,8 +349,11 @@ form#new_event ul li p{
 #userdetails img{
 	margin-top: 12px;
 	border-radius: 10px;
-	border: solid 3px #fff;
+	border: solid 3px #fffeff;
 	float: left;
+}
+#userdetails a{
+	color: #fffeff;
 }
 #userdetails ul{
 	float: left;
@@ -347,6 +365,18 @@ form#new_event ul li p{
 	float: left;
 }
 
+#users_events{
+	clear:both;
+	float: left;
+	background-color:#F0463D; 
+	padding: 10px 10px 10px;
+	border-radius: 30px;
+	color: #fffeff;
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0 0 20px 180px;
+}
+
 /* NOTE FOR USER SHOW PAGE THE EVENTS PARTIAL USES THE SAME STYLE AS THE CATEGORY PAGE */
 
 
@@ -355,14 +385,14 @@ form#new_event ul li p{
 	float: left;
 	margin-left: 34%;
 	margin-top: 2%;
-    background: #EC1D25;
+	background-color:#F0463D;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     padding-right: 20px;
     padding-left: 10px;
     width: 430px;
-    color: #111111;
+    color: #fffeff;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #edituser h1{
@@ -373,7 +403,6 @@ form#new_event ul li p{
 	background: #9BAED7;
 	/*background: rgba(255,255,255,.3);*/
 	border-color: #e3ebc3;
-	border-color: rgba(255,255,255,.6);
 	border-style: solid;
 	border-width: 2px;
 	-moz-border-radius: 5px;
@@ -391,10 +420,10 @@ form#new_event ul li p{
 }
 #allusers h1{
 	margin-left: 30px;
-	color: #fff;
+	color: #fffeff;
 	padding: 5px 5px 5px;
 	text-align: center;
-	background-color: #ff4040;
+	background-color:#F0463D;
 	border-radius: 30px;
 	border-bottom: solid 5px #ff8080;
 }
@@ -409,7 +438,7 @@ form#new_event ul li p{
 	list-style: none;
 	padding: 10px 10px 10px;
 	text-align: center;
-	background-color: #ff4040;
+	background-color:#F0463D;
 	border-radius: 30px;
 	border-bottom: solid 5px #ff8080;
 }
@@ -418,7 +447,7 @@ form#new_event ul li p{
 }
 #allusers ul li p{
 	margin-top: 10px;
-	color: #fff;
+	color: #fffeff;
 	font-size: 2em;
 	font-weight: bold;
 	margin-left: 10px;
@@ -439,7 +468,7 @@ form#new_event ul li p{
 	float: left;
 	list-style: none;
 	width: 600px;
-	background-color: #ff4040;
+	background-color:#F0463D;
 	border-radius: 30px;
 	border-bottom: solid 5px #ff8080;
 	margin-bottom: 20px;
@@ -450,10 +479,21 @@ form#new_event ul li p{
 	padding-right: 10px;
 }
 #catshowpage li #eventwords{
-	margin-left: 10px;
+	margin-left: 30px;
+	margin-top: 0;
+	color: #fffeff;
+	font-weight: bold;
 	float:left;
 }
-
+#catshowpage li #eventwords p#event_title{
+	margin-top: 0;
+	margin-bottom: 10px;
+	font-size: 2em;
+}
+#catshowpage li a img{
+	border: solid 2px #fffeff;
+	border-radius: 5px;
+}
 /* Event Show Page*/
 
 #event{
@@ -461,17 +501,19 @@ form#new_event ul li p{
 	margin-left: 350px;
 }
 #eventuser{
-	padding: 10px 10px 10px;
+	padding: 10px 20px 10px;
 	float:left;
-	color: #fff;
+	color: #fffeff;
 	border-bottom: solid 2px #ff8080;
 	margin-bottom: 10px;
-	background-color: #ff4040; 
+	background-color:#F0463D;
 	border-radius: 30px;
 }
 #eventuser img{
 	clear:both;
 	float: left;
+	border: solid 2px #fffeff;
+	border-radius: 10px;
 }
 #eventuser div#user_details{
 	float: left;
@@ -492,10 +534,11 @@ form#new_event ul li p{
 }
 #eventshow{
 	clear: both;
-	color: #fff;
+	color: #fffeff;
+	font-weight: bold;
 	border-bottom: solid 2px #ff8080;
 	margin-bottom: 10px;
-	background-color: #ff4040; 
+	background-color:#F0463D;
 	padding: 10px 10px 10px;
 	border-radius: 30px;
 	float: left;
