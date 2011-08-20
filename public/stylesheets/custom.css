@@ -528,6 +528,7 @@ form#new_event ul li p{
 #event{
 	margin-top: 30px;
 	margin-left: 350px;
+	width: 800px;
 }
 #eventuser{
 	padding: 10px 20px 10px;
@@ -566,7 +567,7 @@ form#new_event ul li p{
 	color: #fffeff;
 	font-weight: bold;
 	border-bottom: solid 2px #ff8080;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	background-color:#F0463D;
 	padding: 10px 10px 10px;
 	border-radius: 30px;
@@ -596,8 +597,11 @@ form#new_event ul li p{
 	color: #fff;
 }
 #comments{
-	margin-top: 60px;
+	clear:both;
+	float: left;
+	margin-top: 20px;
 }
+
 /* FOOTER */
 
 #footer{

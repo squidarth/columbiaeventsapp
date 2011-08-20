@@ -6,9 +6,10 @@ class EventsController < ApplicationController
   def index
     if params[:search]
       @events = Event.search(params[:search])
+      @array_of_events = []
       @events.each do |event| #possibly move this into the event model
         if event.date > Date.today || event.date == Date.today
-          array_of_events << event
+          @array_of_events << event
         end
       end
     else
