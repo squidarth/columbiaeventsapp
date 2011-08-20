@@ -590,7 +590,7 @@ form#new_event ul li p{
 }
 #eventshow div#controls a{
 	text-decoration: none;
-	color: #fff;
+	color: #666666;
 }
 #comments{
 	clear:both;

@@ -133,38 +133,38 @@ class EventsController < ApplicationController
       # 2.) (Update all attributes of the field)
       if @event.update_attributes(params[:event])
         #include facebook event stuff here
-        if(@event.facebookevent == 1)
-          if(!current_user.authorizations.empty?)
-            current_user.authorizations.each do |authorization|
-            if authorization.provider.eql?("facebook")
-              @token = authorization.token
-            end
-          end
-          graph = Koala::Facebook::GraphAPI.new(@token)
-          if(params[:event][:name])
-            graph.put_object(@event.facebooklink, 'events', :name => params[:event][:name])
-          end
-          if(params[:event][:description])
-            graph.put_object(@event.facebooklink, '', :description => params[:event][:description])
-          end
-          if(params[:event][:location])
-            graph.put_object(@event.facebooklink, '', :location => params[:event][:location])
-          end
+        #if(@event.facebookevent == 1)
+        #  if(!current_user.authorizations.empty?)
+        #    current_user.authorizations.each do |authorization|
+        #    if authorization.provider.eql?("facebook")
+        #      @token = authorization.token
+        #    end
+       #   end
+      #    graph = Koala::Facebook::GraphAPI.new(@token)
+      #    if(params[:event][:name])
+     #       graph.put_object(@event.facebooklink, '', :name => @event.name)
+     #     end
+    #      if(params[:event][:description])
+    #        graph.put_object(@event.facebooklink, '', :description => params[:event][:description])
+   #       end
+      #    if(params[:event][:location])
+     #       graph.put_object(@event.facebooklink, '', :location => params[:event][:location])
+      #    end
           
-          if(params[:event][:date] && params[:event][:time])
-            datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
-            graph.put_object(@event.facebooklink, '', :start_time => datetime)
-          end  
+     #     if(params[:event][:date] && params[:event][:time])
+     #       datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+     ##       graph.put_object(@event.facebooklink, '', :start_time => datetime)
+     #Q     end  
           
-          if(params[:event][:avatar])
-              require 'open-uri'
-              OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
-              OpenURI::Buffer.const_set 'StringMax', 0          
-              picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
-              graph.put_object(@event.facebooklink, '', :picture => picture)
-          end
-         end  
-        end
+    #      if(params[:event][:avatar])
+     #         require 'open-uri'
+     #         OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+     ##         OpenURI::Buffer.const_set 'StringMax', 0          
+     #         picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
+     #         graph.put_object(@event.facebooklink, '', :picture => picture)
+      ##    end
+      #   end  
+        #end
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml { head :ok }
         
