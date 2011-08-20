@@ -111,6 +111,17 @@
 			<%= link_to "Career Networking", careernetworking_path %>
 		</li>
 		<% end %>
+		
+		<% if @title == "Politics"%>
+				<li class="selected">
+			<%= link_to "Politics", politics_path %>
+		</li>
+		<% else %>
+		<li>
+			<%= link_to "Politics", politics_path %>
+		</li>
+		
+		<% end %>
 		<% if @title == "Community Service"%>
 			<li class="selected">
 				<%= link_to "Community Service", communityservice_path %>

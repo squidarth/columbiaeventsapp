@@ -19,6 +19,7 @@ Sidsapp::Application.routes.draw do
   match '/fraternities', :to => 'categories#fraternities'
   match '/theater', :to => 'categories#theater'
   match '/sports', :to => 'categories#sports'
+  match '/politics', :to => 'categories#politics'
   match '/careernetworking', :to => 'categories#careernetworking'
   match '/arts', :to => 'categories#arts'
   match '/communityservice', :to => 'categories#communityservice'
