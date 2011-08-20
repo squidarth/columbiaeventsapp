@@ -215,6 +215,10 @@ section.success .flashsuccess{
 	border-radius: 10px;
 	border: 1px solid #ddd;
 }
+
+.pages-text a{
+	color: #666;
+}
 /*sign up/sign-in code for home page */
 /* USER SIGN UP STYLE */
 #signuppage{
