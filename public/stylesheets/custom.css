@@ -141,10 +141,10 @@ body{
 
 section.success .flasherror{
 	text-align: center;
-	color: #FFFEFF;
-	font-size: 1.5em;
+	color: #F0463D;
+	font-size: 1.2em;
 	font-weight: bold;
-	background-color: #F0463D;
+	border: solid 1px #ddd;
 	border-radius: 20px;
 	margin: 30px auto 0 495px;
 	padding: 10px 0 10px 0;
@@ -152,10 +152,21 @@ section.success .flasherror{
 }
 section.success .flashsuccess{
 	text-align: center;
-	color: #FFFEFF;
-	font-size: 1.5em;
+	color: #256AA3;
+	font-size: 1.2em;
 	font-weight: bold;
-	background-color: #256AA3;
+	border: solid 1px #ddd;
+	border-radius: 20px;
+	margin: 30px auto 0 495px;
+	padding: 10px 0 10px 0;
+	max-width: 300px;
+}
+section.success .flashnotice{
+	text-align: center;
+	color: #F0463D;
+	font-size: 1.2em;
+	font-weight: bold;
+	border: solid 1px #ddd;
 	border-radius: 20px;
 	margin: 30px auto 0 495px;
 	padding: 10px 0 10px 0;
