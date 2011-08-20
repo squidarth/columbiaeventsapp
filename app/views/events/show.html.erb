@@ -42,7 +42,7 @@
 </li>
 <% if @event.facebooklink%>
 <li>
-	<b>Link to Facebook Event: </b><%= @event.facebooklink %>	
+	<a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>"><b>Link to Facebook Event: </b></a>	
 </li>
 <% end %>
 </ul>

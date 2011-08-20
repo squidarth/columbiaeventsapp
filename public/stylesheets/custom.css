@@ -16,7 +16,7 @@ body{
 	float: left;
 }
 #top_part{
-	border-bottom: solid 3px #F0463D;
+	border-bottom: solid 1px #F0463D;
 	overflow: hidden;
 }
 #intropara{
@@ -52,13 +52,15 @@ body{
 	border-radius: 10px;
 	float:right;
 	margin-top: 20px;
-	padding: 10px; 0 0 46px;
+	padding: 10px 0px 10px 10px;
 	list-style: none;
+
 	background-color:#F0463D;
 }
 #dashboard li{
 	float: left;
-	margin: 0 5px 0 0;
+	margin: 0 15px 0 0;
+	text-align: center;
 	padding: 0;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-size: 110%;
@@ -66,8 +68,6 @@ body{
 #dashboard a{
 	float: left;
 	display: block;
-	margin: 0;
-	padding: 4px 8px;
 	color: #fffeff/*#231F20*/;
 	font-weight: bold;
 	text-decoration: none;
@@ -355,20 +355,18 @@ form#new_event ul li p{
 	margin-bottom: 20px;
 	clear: both;
 	float: left;
-	color: #fffeff;
+	color: #666;
 	font-size: 2.4em;
 	font-weight: bold;
-	background-color:#F0463D;
 	border-radius: 30px;
-	border-bottom: solid 5px #ff8080;
+	border: solid 1px #ddd;
 	padding: 10px 10px 10px;
 }
 #userdetails{
 	clear: both;
-	color: #fffeff;
-	border-bottom: solid 2px #ff8080;
-	margin-bottom: 20px;
-	background-color:#F0463D; 
+	color: #666;
+	border: solid 1px #ddd;
+	margin-bottom: 20px; 
 	padding: 10px 10px 10px;
 	border-radius: 30px;
 	float: left;
@@ -380,7 +378,8 @@ form#new_event ul li p{
 	float: left;
 }
 #userdetails a{
-	color: #fffeff;
+	color: #666;
+	text-decoration: none;
 }
 #userdetails ul{
 	float: left;
@@ -395,10 +394,10 @@ form#new_event ul li p{
 #users_events{
 	clear:both;
 	float: left;
-	background-color:#F0463D; 
 	padding: 10px 10px 10px;
+	border: solid 1px #ddd;
 	border-radius: 30px;
-	color: #fffeff;
+	color: #666;
 	font-size: 2em;
 	font-weight: bold;
 	margin: 0 0 20px 180px;
@@ -410,35 +409,37 @@ form#new_event ul li p{
 /* User Edit Page*/
 #edituser{
 	float: left;
-	margin-left: 34%;
-	margin-top: 2%;
-	background-color:#F0463D;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+	margin: 15px 0 0 280px;
     border-radius: 5px;
-    padding-right: 20px;
-    padding-left: 10px;
-    width: 430px;
-    color: #fffeff;
+    width: 500px;
+    color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
-#edituser h1{
+#edituser form{
+	border: solid 1px #e3ebc3;
+	border-radius: 5px;
+	width: 400px;	
+	padding: 5px 10px 0 20px;
+	color: #666;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+#edituser form #edit_user_title{
 	font-size: 2em;
 	text-align: center;
+	font-weight: bold;
+	
 }
 #edituser form ul li{
-	background: #9BAED7;
-	/*background: rgba(255,255,255,.3);*/
-	border-color: #e3ebc3;
-	border-style: solid;
-	border-width: 2px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	line-height: 30px;
 	list-style: none;
-	padding: 5px 10px;
+	color: #666;
+	font-weight: bold;
 	margin-bottom: 2px;
+}
+#edituser ul li p{
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	color: #666666;
+	font-weight: bold;
+	margin: 0 0 0 0;
 }
 /* USER INDEX */
 
@@ -497,20 +498,18 @@ form#new_event ul li p{
 	float: left;
 	list-style: none;
 	width: 600px;
-	background-color:#F0463D;
-	border-radius: 30px;
-	border-bottom: solid 5px #ff8080;
-	margin-bottom: 20px;
+	border-bottom: solid 1px #999;
 	margin-right: 20px;
-	padding-left: 20px;
-	padding-bottom: 10px;
-	padding-top: 10px;
+	padding: 5px 0 5px 10px;
 	padding-right: 10px;
+}
+#catshowpage li:hover{
+	background-color: #ECF1EF;
 }
 #catshowpage li #eventwords{
 	margin-left: 30px;
 	margin-top: 0;
-	color: #fffeff;
+	color: #666;
 	font-weight: bold;
 	float:left;
 }
@@ -520,23 +519,21 @@ form#new_event ul li p{
 	font-size: 2em;
 }
 #catshowpage li a img{
-	border: solid 2px #fffeff;
 	border-radius: 5px;
 }
 /* Event Show Page*/
 
 #event{
 	margin-top: 30px;
-	margin-left: 350px;
+	margin-left: 200px;
 	width: 800px;
 }
 #eventuser{
 	padding: 10px 20px 10px;
 	float:left;
-	color: #fffeff;
-	border-bottom: solid 2px #ff8080;
+	color: #666;
+	border: solid 1px #ddd;
 	margin-bottom: 10px;
-	background-color:#F0463D;
 	border-radius: 30px;
 }
 #eventuser img{
@@ -564,11 +561,10 @@ form#new_event ul li p{
 }
 #eventshow{
 	clear: both;
-	color: #fffeff;
+	color: #666;
 	font-weight: bold;
-	border-bottom: solid 2px #ff8080;
+	border: solid 1px #ddd;
 	margin-bottom: 20px;
-	background-color:#F0463D;
 	padding: 10px 10px 10px;
 	border-radius: 30px;
 	float: left;

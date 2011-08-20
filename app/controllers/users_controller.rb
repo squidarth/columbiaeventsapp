@@ -61,19 +61,27 @@ class UsersController < ApplicationController
         redirect_to contact_path
       else
           #if @user.update_attributes!(:name => params[:user]["name"], :email => params[:user]["email"])
-          if User.update(@user.id, :name => params[:user]["name"], :email => params[:user]["email"])
-          flash[:success] = params[:user][:name]
-          redirect_to @user
+          email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+          #figure out how to get user avatar
+          if((params[:user][:email] =~ email_regex))
+            @user.update_attribute(:name, params[:user][:name])
+            @user.update_attribute(:email, params[:user][:email])
+            @user.update_attribute(:school, params[:user][:school])
+            @user.update_attribute(:aboutme, params[:user][:aboutme])
+            
+            if(params[:user][:avatar])
+              @user.update_attribute(:avatar, params[:user][:avatar])
+            end
+            redirect_to @user
           else
-            redirect_to contact_path
+            @email_error = "Please enter a valid email"
+            render 'edit'
           end
-          #redirect_to contact_path
       end
     end
-    private
     
-
-      
+    private
+     
       def correct_user
           @user = User.find(params[:id])
           redirect_to(root_path) unless current_user?(@user)

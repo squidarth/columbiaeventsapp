@@ -1,5 +1,4 @@
 <div id="edituser">
-	<h1>Edit <%= @user.name %></h1>
 <%= form_for @user, :html => { :multipart => true } do |f| %>
   <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -14,32 +13,29 @@
     </ul>
   </div>
 <% end %>
+	<div id="edit_user_title">Edit <%= @user.name%></div>
+	<% if @email_error %>
+		<div id="error_explanation">Please enter a valid email!</div>
+	<% end %>
 	<ul>
    <li>
-    Name*
+    <p><%= f.label :name, "Name" %></p>
     <%= f.text_field :name %>
   </li>
   <li>
-    Email*
+    <p><%= f.label :email, "Email"%></p>
     <%= f.text_field :email %>
   </li>
   <li>
-    <%= f.label :affiliatedorgs, "Affiliated Organizations: " %>
-    <%= f.text_field :affiliatedorgs %>
-  </li>
-  <li>
-    <%= f.label :school %>
+    <p><%= f.label :school %></p>
     <%= f.text_field :school %>
   </li>
-  <li>
-    <%= f.label :fblink, "Link to Facebook Profile" %><br />
-    <%= f.text_field :fblink %>
-  </li>
     <li>
-    <%= f.label :aboutme, "About Me: " %><br />
+    <p><%= f.label :aboutme, "About Me" %></p>
     <%= f.text_area :aboutme, :size => "40x5" %>
   </li>
   <li>
+  	<p><%= f.label :avatar, "Profile Picture" %></p>
   	<%= f.file_field :avatar %>
   </li>
   <li>

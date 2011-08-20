@@ -8,9 +8,11 @@ class EventsController < ApplicationController
       @events = Event.search(params[:search])
       @array_of_events = []
       @events.each do |event| #possibly move this into the event model
-        if event.date > Date.today || event.date == Date.today
+        if event.date
+         if event.date > Date.today || event.date == Date.today
           @array_of_events << event
         end
+      end
       end
     else
       @array_of_events = Event.all
@@ -63,7 +65,6 @@ class EventsController < ApplicationController
     if @event.save
       flash[:success] = "Event created!"
       if(@event.facebookevent == 1)
-        datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
         if(!current_user.authorizations.empty?)
           current_user.authorizations.each do |authorization|
             if authorization.provider.eql?("facebook")
@@ -74,23 +75,41 @@ class EventsController < ApplicationController
           require 'open-uri'
           OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
           OpenURI::Buffer.const_set 'StringMax', 0
-          picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
-          if(@event.date && @event.time)
-               datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
-               params = {
+          #NEED TO HAVE SEPARATE SEND OPTIONS FOR PICTURE, NO PICTURE, DATE&TIME, NO DATE&TIME
+          
+          #CASE THAT PICTURE, DATE, TIME EXIST
+          if(!@event.photo.nil? && @event.date && @event.time)
+            picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
+            datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+            params = {
               :picture => picture,
               :name => @event.name,
               :description => @event.description,
               :location => @event.location,
               :start_time => datetime,
              }
+          elsif(!@event.photo.nil?) #CASE THAT PHOTO EXISTS, NO DATETIME
+            picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
+            params = {
+              :picture => picture,
+              :name => @event.name,
+              :description => @event.description,
+              :location => @event.location,
+             }
+          elsif(@event.date && @event.time)
+            datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+            params = {
+              :name => @event.name,
+              :description => @event.description,
+              :location => @event.location,
+              :start_time => datetime,
+             }
           else
-           params = {
-                :picture => picture,
-                :name => @event.name,
-                :description => @event.description,
-                :location => @event.location,
-               }
+            params = {
+              :name => @event.name,
+              :description => @event.description,
+              :location => @event.location,
+             }
           end
           @event.facebooklink  = @graph.put_object('me', 'events', params )
           @event.save
@@ -108,11 +127,47 @@ class EventsController < ApplicationController
   # PUT /events/1.xml
   def update
     @event = Event.find(params[:id])
-
     respond_to do |format|
+      #Changes that need to be made
+      # 1.) Make sure that the Facebook event is changed as well
+      # 2.) (Update all attributes of the field)
       if @event.update_attributes(params[:event])
+        #include facebook event stuff here
+        if(@event.facebookevent == 1)
+          if(!current_user.authorizations.empty?)
+            current_user.authorizations.each do |authorization|
+            if authorization.provider.eql?("facebook")
+              @token = authorization.token
+            end
+          end
+          graph = Koala::Facebook::GraphAPI.new(@token)
+          if(params[:event][:name])
+            graph.put_object(@event.facebooklink, '', :name => params[:event][:name])
+          end
+          if(params[:event][:description])
+            graph.put_object(@event.facebooklink, '', :description => params[:event][:description])
+          end
+          if(params[:event][:location])
+            graph.put_object(@event.facebooklink, '', :location => params[:event][:location])
+          end
+          
+          if(params[:event][:date] && params[:event][:time])
+            datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+            graph.put_object(@event.facebooklink, '', :start_time => datetime)
+          end  
+          
+          if(params[:event][:avatar])
+              require 'open-uri'
+              OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+              OpenURI::Buffer.const_set 'StringMax', 0          
+              picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
+              graph.put_object(@event.facebooklink, '', :picture => picture)
+          end
+         end  
+        end
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
         format.xml { head :ok }
+        
       else
         format.html { render :action => "edit" }
         format.xml { render :xml => @event.errors, :status => :unprocessable_entity }
