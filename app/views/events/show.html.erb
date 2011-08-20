@@ -33,11 +33,11 @@
 <% end %>
 <li>
 	<% if @event.date && @event.time%>
-	Time: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <%= @event.time.hour%>:<%= @event.time.min%>
+	Time: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <% if(@event.time.hour>12)%> <%= (@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
 	<% elsif @event.date %>
 	Date: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
 	<% elsif @event.time %>
-	Time: <%= @event.time.hour%>:<%= @event.time.min %>
+	Time: <% if(@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
 	<% end %>
 </li>
 <% if @event.facebooklink%>
@@ -55,6 +55,9 @@
 <% end %>
 </div>
 
+<div id="comments">
+<fb:comments href="http://www.eventsalsa.com/events/<%= @event.id %>" num_posts="10" width="600"></fb:comments>
+</div>
 <!--
 <div id="comment_stuff">
 <div id="commentform">

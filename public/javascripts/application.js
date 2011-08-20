@@ -3,5 +3,8 @@
 
 	  $(document).ready(function() {
     		$("#event_date").datepicker({dateFormat: 'dd-mm-yy'});
-    		$('#event_time').timepicker();
+    		$('#event_time').timepicker({
+    			showPeriod: true,
+    			showLeadingZero: true
+    		});
   	  });

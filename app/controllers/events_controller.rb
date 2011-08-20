@@ -74,15 +74,25 @@ class EventsController < ApplicationController
           OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
           OpenURI::Buffer.const_set 'StringMax', 0
           picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
-          params = {
+          if(@event.date && @event.time)
+               datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
+               params = {
               :picture => picture,
               :name => @event.name,
               :description => @event.description,
               :location => @event.location,
               :start_time => datetime,
              }
-          
-          @graph.put_object('me', 'events', params )
+          else
+           params = {
+                :picture => picture,
+                :name => @event.name,
+                :description => @event.description,
+                :location => @event.location,
+               }
+          end
+          @event.facebooklink  = @graph.put_object('me', 'events', params )
+          @event.save
         end
       end
       redirect_to @event

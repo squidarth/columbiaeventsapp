@@ -463,7 +463,7 @@ form#new_event ul li p{
 	clear: both;
 	float: left;
 	list-style: none;
-	padding: 10px 10px 10px;
+	padding: 10px 10px 10px 30px;
 	text-align: center;
 	background-color:#F0463D;
 	border-radius: 30px;
@@ -471,9 +471,11 @@ form#new_event ul li p{
 }
 #allusers ul li img{
 	float: left;
+	border: solid 2px #fffeff;
+	border-radius: 15px;
 }
 #allusers ul li p{
-	margin-top: 10px;
+	margin: 10px 0 auto 10px;
 	color: #fffeff;
 	font-size: 2em;
 	font-weight: bold;
@@ -564,7 +566,7 @@ form#new_event ul li p{
 	color: #fffeff;
 	font-weight: bold;
 	border-bottom: solid 2px #ff8080;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
 	background-color:#F0463D;
 	padding: 10px 10px 10px;
 	border-radius: 30px;
@@ -593,9 +595,8 @@ form#new_event ul li p{
 	text-decoration: none;
 	color: #fff;
 }
-#comment_stuff{
-	clear: both;
-	float: left;
+#comments{
+	margin-top: 60px;
 }
 /* FOOTER */
 

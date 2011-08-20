@@ -74,8 +74,12 @@ class CategoriesController < ApplicationController
       users.each do |user|
         events = user.events
         events.each do |event|
-          if event.category == category && (event.date > Date.today || event.date == Date.today)
-            array_of_events << event
+          if event.category == category
+            if event.date
+              if event.date >= Date.today
+                array_of_events << event
+              end
+            end
           end
         end
        end

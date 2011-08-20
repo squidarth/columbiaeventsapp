@@ -13,7 +13,7 @@
 <div id="eventwords">
 	<p id="event_title"><%= event.name %></p>
 	<% if(event.date && event.time)%>
-	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.hour%>:<%= event.time.min %><br />
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <% if(event.time.hour>12)%> <%= (event.time.hour-12) %>:<%= event.time.min %> PM <% else %><%= event.time.hour %>:<%= event.time.min %> AM<% end %><br />
 	<% end %>
 	<%= event.description %> <br />
 	<% if event.facebooklink%>
