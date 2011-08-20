@@ -23,28 +23,45 @@ body{
 	clear: both;
 	padding-left: 5px;
 	padding-bottom: 5px;
-	width: 960px;
-	margin: auto;
-	margin-bottom: 20px;
-	background-color: #FEF5CA;
+	width: 600px;
+	margin: 35px 0 20px 200px;
+	color: #666;
 	border-radius: 10px;
 	font-weight: bold;
 }
 #intropara p#emphasis{
-	margin-bottom: 0;
+	margin-bottom: 30px;
 	font-size: 2.4em;
 	
 }
 #intropara p#descrip{
 	margin-top: 0;
+	font-size: 1.3em;
 }
 #signup {
-	text-align: center;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	margin-top: 30px;
+	margin-left: 180px;
 }
-#signup a{
+#signup .intro_login{
+	float: left;
+	margin-right: 20px;
+	background-color: #256AA3;
+	vertical-align: middle;
+	-moz-border-radius: 40px;
+	-webkit-border-radius: 40px;
+	padding: 0 0 0;
+	text-align: center;
+	width: 80px;
+	height: 80px;
+}
+#signup .intro_login p{
+	margin-top: 25px;
+}
+#signup .intro_login p a{
+	
 	text-decoration: none;
-	color: #333;
+	color: #fffeff;
 	font-style: bold;
 }
 
@@ -186,8 +203,10 @@ section.success .flashsuccess{
 .pages-text{
 	float: left;
 	text-align: left;
+	color: #666;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.2em;
+	font-weight: bold;
 	width: 600px;
 	margin-top: 50px;
 	margin-bottom: 2%;
@@ -234,7 +253,7 @@ section.success .flashsuccess{
 	
 }
 #signuppage form{
-	border: solid 1px #e3ebc3;
+	border: solid 1px #ddd;
 	border-radius: 5px;
 	width: 400px;	
 	padding: 5px 10px 0 20px;
@@ -272,7 +291,7 @@ section.success .flashsuccess{
 	float: left;
 	margin-top: 20px;
 	margin-left: 300px;
-	border: solid 2px #E3EBC3;
+	border: solid 1px #ddd;
     border-radius: 5px;
     width: 420px;
     color: #111111;
@@ -303,7 +322,7 @@ form#new_event ul li p{
 #signinpage_facebook_signin{
 	margin: 15px 0 0 280px;
 	padding: 0 15px 10px 0;
-	border: solid 1px #e3ebc3;
+	border: solid 1px #ddd;
     border-radius: 5px;
     width: 350px;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -321,7 +340,7 @@ form#new_event ul li p{
 	float: left;
 	margin: 15px 0 0 280px;
 	padding: 0 15px 0 0;
-	border: solid 1px #e3ebc3;
+	border: solid 1px #ddd;
     border-radius: 5px;
     width: 350px;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -447,28 +466,29 @@ form#new_event ul li p{
 	margin-left: 300px;
 }
 #allusers h1{
-	margin-left: 30px;
-	color: #fffeff;
+	color: #666;
+	margin: 20px 0 0px 0;
 	padding: 5px 5px 5px;
 	text-align: center;
-	background-color:#F0463D;
-	border-radius: 30px;
-	border-bottom: solid 5px #ff8080;
+	border-bottom: solid 1px #ddd;
 }
 #allusers ul{
+	margin-top: 0;
+	padding-top: 0;
 	float: left;
 }
 #allusers ul li{
 	margin: 0 0 0 0px;
-	margin-bottom: 15px;
+	width: 300px;
 	clear: both;
 	float: left;
 	list-style: none;
 	padding: 10px 10px 10px 30px;
 	text-align: center;
-	background-color:#F0463D;
-	border-radius: 30px;
-	border-bottom: solid 5px #ff8080;
+	border-bottom: solid 1px #ddd;
+}
+#allusers ul li:hover{
+	background-color: #ECF1EF; 
 }
 #allusers ul li img{
 	float: left;
@@ -477,7 +497,7 @@ form#new_event ul li p{
 }
 #allusers ul li p{
 	margin: 10px 0 auto 10px;
-	color: #fffeff;
+	color: #666;
 	font-size: 2em;
 	font-weight: bold;
 	margin-left: 10px;
@@ -517,6 +537,10 @@ form#new_event ul li p{
 	margin-top: 0;
 	margin-bottom: 10px;
 	font-size: 2em;
+}
+#catshowpage li #eventwords a{
+	text-decoration: none;
+	color: #666;
 }
 #catshowpage li a img{
 	border-radius: 5px;

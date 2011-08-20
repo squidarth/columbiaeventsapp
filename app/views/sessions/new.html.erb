@@ -6,6 +6,7 @@
 <div id="custom_signin">
 <div id="signinpage_title">Or without it!</div>
 <%= form_for(:session, :url => sessions_path) do |f| %>
+	<div id=error_explanation><%= @invalid %></div>
   <ul>
   	<li>
     <p><%= f.label :email %></p>

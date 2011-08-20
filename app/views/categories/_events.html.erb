@@ -16,7 +16,7 @@
 	<% end %>
 	<%= event.description %> <br />
 	<% if event.facebooklink%>
-	Link to Facebook Event:  <%= event.facebooklink %>	<br />
+	<a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>"><b>Link to Facebook Event</b></a>	
 	<% end %>
 </div>
 </li>

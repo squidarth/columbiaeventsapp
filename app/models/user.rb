@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
      (user && user.salt == cookie_salt) ? user : nil
    end
    
+   def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['name LIKE ? ', search_condition])
+   end
    private
    
       def encrypt_password
@@ -57,4 +61,5 @@ class User < ActiveRecord::Base
       def secure_hash(string)
         Digest::SHA2.hexdigest(string)
       end
+      
 end

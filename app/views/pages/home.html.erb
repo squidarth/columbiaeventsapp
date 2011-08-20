@@ -1,3 +1,18 @@
+<% if !signed_in?%>
+<div id="intropara">
+<p id="emphasis">Welcome to EventSalsa, an event catalogue.</p>
+<p id="descrip">EventSalsa is the best place to find out what awesome events are happening
+	on campus!  To start, simply click on a category on the left!  <br /><br />
+	If you are a student group or someone who likes to organize events, EventSalsa is a great
+	tool to use for making Facebook events! All you need to do is click Sign-in with Facebook
+	to start posting events, and for each event you create, EventSalsa will create an Facebook
+	event for you and put it in a category for everyone to see! It's that simple!</p>
+<div id="signup">
+	<div class="intro_login"><p><%= link_to "Sign up", signup_path %></p></div>
+	<div class="intro_login"><p><a href="/auth/facebook">Log in with Facebook</a></p></div>
+</div>
+</div>
+<% else %>
 <ul id="catshowpage">
 
 <% @array_of_events.each do |event| %>
@@ -11,12 +26,12 @@
 
 <div id="eventwords">
 	<p id="event_title"><%= event.name %></p>
-	<% if event.date && event.time %>
-	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.hour%>:<%= event.time.min %><br />
+	<% if event.date %>
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <% if(event.time.hour>12)%> <%= (event.time.hour-12) %>:<%= event.time.min %> PM <% else %><%= event.time.hour %>:<%= event.time.min %> AM<% end %><br />
 	<% end %>
 	<%= event.description %> <br />
 	<% if event.facebooklink%>
-	Link to Facebook Event:  <%= event.facebooklink %>	<br />
+	<a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>"><b>Link to Facebook Event</b></a>	
 	<% end %>
 </div>
 </li>
@@ -24,3 +39,5 @@
 
 <% end %>
 </ul>
+<% end %>
+
