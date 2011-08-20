@@ -142,7 +142,7 @@ class EventsController < ApplicationController
           end
           graph = Koala::Facebook::GraphAPI.new(@token)
           if(params[:event][:name])
-            graph.put_object(@event.facebooklink, '', :name => params[:event][:name])
+            graph.put_object(@event.facebooklink, 'events', :name => params[:event][:name])
           end
           if(params[:event][:description])
             graph.put_object(@event.facebooklink, '', :description => params[:event][:description])
