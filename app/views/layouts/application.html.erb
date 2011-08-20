@@ -131,7 +131,6 @@
 			<%end %>
 	</ul>
 					<% if(@title=="All Users")%>
-					<P>CHICKEN </p>
 					<div id="searchbar">
 					<% form_tag(users_path, {:method => :get}) do%>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
