@@ -522,7 +522,6 @@ form#new_event ul li p{
 }
 /*  CATEGORY SHOW PAGES */
 #catshowpage{
-	min-height: 500px;
 	margin-top: 40px;
 	margin-left: 140px;
 }
@@ -561,6 +560,23 @@ form#new_event ul li p{
 }
 #catshowpage li a img{
 	border-radius: 5px;
+}
+#more{
+	clear:both;
+	float: left;
+	width: 600px;
+	border-bottom: solid 1px #999;
+	padding: 5px 0 5px 10px;
+	padding-right: 10px;	
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 1.4em;
+	text-align: center;
+	margin-left: 180px;
+}
+#more:hover{
+	background: #ECF1EF;
 }
 /* Event Show Page*/
 

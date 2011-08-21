@@ -20,7 +20,32 @@
 	<% end %>
 </div>
 </li>
-
-
 <% end %>
 </ul>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var from = 0, to = 5, step = 5;
+	
+	function showNext(list) {
+	  list
+	    .find('li').hide().end()
+	    .find('li:lt(' + (to) + '):not(li:lt(' + from + '))')
+	      .show();
+	  to+= step;
+	}
+	
+	showNext($('ul#catshowpage'));
+	$('#more').click(function(e){
+		e.preventDefault();
+		showNext($('ul#catshowpage'));
+	});
+
+});
+</script>
+<% if @array_of_events.empty? %>
+<div id="no_results">No events found :(</div>
+<% end %>
+<% if @array_of_events.size > 5%>
+<a href="#" id="more">More</a>
+<% end %>

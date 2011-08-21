@@ -19,10 +19,22 @@
 
 
 <div id="eventshow">
+	<% if @event.facebooklink %>
+	<a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>">
 	<% if @event.photo.file? %>
 	<%= image_tag @event.photo.url(:small) %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<% end %>
+	</a>
+	<% else %>
+		<a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>">
+	<% if @event.photo.file? %>
+	<%= image_tag @event.photo.url(:small) %>
+	<% else %>
+	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<% end %>
+	</a>
 	<% end %>
 <ul>
 <li>
