@@ -1,5 +1,6 @@
 <div id="event">
 <div id="eventuser">
+	<a href="/users/<%= @event.user.id %>">
 	<% if @event.user.avatar.file? %>
 	<%= image_tag @event.user.avatar.url(:thumb) %>
 	<% elsif @event.user.fbnickname %>
@@ -9,6 +10,7 @@
 	<% else%>
 	<%= image_tag ("questionmark.png"), :height => 75, :width => 75 %>
 	<% end %>
+	</a>
 	<div id="user_details">
 		<p id="title"><%= @event.name %></p>
 		<p id="name">By: <%= @event.user.name %></p>
