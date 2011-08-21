@@ -43,7 +43,7 @@ body{
 	margin-top: 30px;
 	margin-left: 170px;
 }
-#signup .intro_login{
+#signup a{
 	float: left;
 	margin-right: 30px;
 	background-color: #256AA3;
@@ -54,30 +54,28 @@ body{
 	text-align: center;
 	width: 	100px;
 	height: 100px;
-}
-#signup .intro_login p{
-	margin-top: 30px;
-}
-#signup div#facebook_login p{
-	margin-top: 30px;
-}
-#signup div#email_login p{
-	margin-top: 40px;
-}
-#signup .intro_login p a{
-	
 	text-decoration: none;
 	color: #fffeff;
 	font-style: bold;
+	vertical-align: middle;
 }
 
+#signup a#facebook_login{
+	padding-top: 30px;
+	width: 	100px;
+	height: 70px;
+}
+#signup a#email_login{
+	padding-top: 35px;
+	width: 	100px;
+	height: 65px;
+}
 #dashboard{
 	border-radius: 10px;
 	float:right;
 	margin-top: 20px;
 	padding: 10px 0px 10px 10px;
 	list-style: none;
-
 	background-color:#F0463D;
 }
 #dashboard li{

@@ -8,8 +8,8 @@
 	to start posting events, and for each event you create, EventSalsa will create an Facebook
 	event for you and put it in a category for everyone to see! It's that simple!</p>
 <div id="signup">
-	<div id="email_login" class="intro_login"><p><%= link_to "Sign up", signup_path %></p></div>
-	<div id="facebook_login" class="intro_login"><p><a href="/auth/facebook">Log in with Facebook</a></p></div>
+	<%= link_to "Sign up", signup_path, :id => "email_login" %>
+	<a href="/auth/facebook" id="facebook_login">Log in with Facebook</a>
 </div>
 </div>
 <% else %>
