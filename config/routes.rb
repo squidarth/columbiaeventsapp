@@ -25,6 +25,7 @@ Sidsapp::Application.routes.draw do
   match '/communityservice', :to => 'categories#communityservice'
   match '/stuco', :to => 'categories#studentcouncil'
   match '/all', :to => 'categories#all'
+  match '/other', :to => 'categories#other'
   
   root :to => 'pages#home'
 

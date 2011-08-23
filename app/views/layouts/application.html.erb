@@ -10,7 +10,8 @@
   <%= javascript_include_tag "jquery-rails.js", "jquery.ui.timepicker.js" %>
   <%= javascript_include_tag 'hoverIntent', 'application', 'scroller_roll.js' %>
   <%= csrf_meta_tag %>
-
+<LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
+	
 </head>
 <body>
 	<div id="wrapper">
@@ -26,11 +27,11 @@
    });
  </script>
 	<div id="top_part">
-<div id="logo"><a href="/"><%= image_tag ("logo.gif"), :width => 300 %></div>
+<div id="logo"><a href="/"><%= image_tag ("EventSalsa.png"), :width => 300 %></div>
 				
-				
+				<% if signed_in? %>
 				<ul id="dashboard">
-					<% if signed_in? %>
+					
 					<li>
 					<%= link_to "Sign out", signout_path %>
 					</li>
@@ -43,12 +44,14 @@
 					<li>
 						<%= link_to "Make New Event", new_event_path%>
 					</li>
-					<% else %>
+				</ul>
+				<% else %>
+				<ul id="dashboard_signin">
 					<li id="signin">
 					<%= link_to "Sign in", signin_path %>
 					</li>
-					<% end %>
 				</ul>
+				<% end %>
 				</div>
   	<section class="success">
 		<% flash.each do |key, value| %>
@@ -62,7 +65,7 @@
 			<%= link_to "All", all_path %>
 		</li>
 		<%else%>
-		<li>
+		<li class="unselected">
 			<%= link_to "All", all_path %>
 		</li>
 		<% end %>
@@ -71,7 +74,7 @@
 				<%= link_to "Fraternities", fraternities_path %>
 			</li>
 		<% else %>
-			<li>
+			<li class="unselected">
 				<%= link_to "Fraternities", fraternities_path %>
 			</li>
 		<% end %>
@@ -80,7 +83,7 @@
 			<%= link_to "Theater", theater_path %>
 		</li>
 		<% else %>
-		<li>
+		<li class="unselected">
 			<%= link_to "Theater", theater_path %>
 		</li>
 		<% end %>
@@ -89,7 +92,7 @@
 			<%= link_to "Sports", sports_path %>
 		</li>
 		<% else %>
-		<li>
+		<li class="unselected">
 			<%= link_to "Sports", sports_path %>
 		</li>
 		<% end %>
@@ -98,7 +101,7 @@
 			<%= link_to "Arts", arts_path %>
 		</li>
 		<% else %>
-		<li>
+		<li class="unselected">
 			<%= link_to "Arts", arts_path %>
 		</li>
 		<% end %>
@@ -107,7 +110,7 @@
 			<%= link_to "Career Networking", careernetworking_path %>
 		</li>
 		<% else %>
-		<li>
+		<li class="unselected">
 			<%= link_to "Career Networking", careernetworking_path %>
 		</li>
 		<% end %>
@@ -117,7 +120,7 @@
 			<%= link_to "Politics", politics_path %>
 		</li>
 		<% else %>
-		<li>
+		<li class="unselected">
 			<%= link_to "Politics", politics_path %>
 		</li>
 		
@@ -127,7 +130,7 @@
 				<%= link_to "Community Service", communityservice_path %>
 			</li>
 			<% else %>
-			<li>
+			<li class="unselected">
 				<%= link_to "Community Service", communityservice_path %>
 			</li>
 			<% end %>
@@ -136,8 +139,17 @@
 				<%= link_to "Student Council", stuco_path %>
 			</li>
 			<% else %>
-			<li>
+			<li class="unselected">
 				<%= link_to "Student Council", stuco_path %>
+			</li>
+			<%end %>
+			<% if @title == "Other"%>
+			<li class="selected">
+				<%= link_to "Other", other_path %>
+			</li>
+			<% else %>
+			<li class="unselected">
+				<%= link_to "Other", other_path %>
 			</li>
 			<%end %>
 	</ul>

@@ -46,18 +46,21 @@ body{
 #signup a{
 	float: left;
 	margin-right: 30px;
-	background-color: #256AA3;
+	background: url(/images/blue_circle_unselected.png) no-repeat;
 	vertical-align: middle;
 	-moz-border-radius: 60px;
 	-webkit-border-radius: 60px;
 	padding: 0 0 0;
 	text-align: center;
 	width: 	100px;
-	height: 100px;
 	text-decoration: none;
 	color: #fffeff;
 	font-style: bold;
 	vertical-align: middle;
+	border: none;
+}
+#signup a:hover{
+	background: url(/images/blue_circle_selected.png) no-repeat;
 }
 
 #signup a#facebook_login{
@@ -71,12 +74,12 @@ body{
 	height: 65px;
 }
 #dashboard{
-	border-radius: 30px;
 	float:right;
 	margin-top: 20px;
+	width: 380px;
 	padding: 5px 0px 5px 15px;
 	list-style: none;
-	background-color:#F0463D;
+	background: url(/images/dashboard_full.png) no-repeat;
 }
 #dashboard li{
 	float: left;
@@ -92,14 +95,41 @@ body{
 	color: #fffeff/*#231F20*/;
 	font-weight: bold;
 	text-decoration: none;
-	background-color:#F0463D;
 }
 #dashboard a:hover{
-	color: #111111;
+	color: #333;
+}
+#dashboard_signin{
+	float:right;
+	margin: 20px 0 0;
+	padding: 5px 0px 10px 0px;
+	list-style: none;
+	width: 80px;
+	background: url(/images/sign_in_dashboard.png) no-repeat;
+}
+#dashboard_signin li{
+	display: block;
+	float: left;
+	margin: 0 0 0 0;
+	text-align: center;
+	padding: 0 0 0px 10px;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 110%;
+}
+#dashboard_signin a{
+	float: left;
+	display: block;
+	padding: 0 0px 0 0;
+	color: #fffeff/*#231F20*/;
+	font-weight: bold;
+	text-decoration: none;
+}
+#dashboard_signin a:hover{
+	color: #333;
 }
 #nav{
 	float: left;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 	/*border: solid 2px #999999;*/
 	margin: 10px auto 0;
 	padding: 10px 0px 5px 0;
@@ -110,13 +140,16 @@ body{
 #nav li{
 	display: block;
 	margin: 0 0 0 0px;
-	margin-bottom: 5px;
+	background: url(/images/red_nav_bar_unselected.png) no-repeat;
 	padding: 0;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	background-color:#F0463D;
-	border-radius: 20px;
+	/*background-color:#F0463D;*/
 	font-size: 110%;
 	width: 170px;
+	height: 33px;
+}
+#nav li:hover{
+	background: url(/images/red_nav_bar_selected.png) no-repeat;
 }
 #nav a{
 	display: block;
@@ -124,21 +157,21 @@ body{
 	color: #fffeff/*#231F20*/;
 	text-decoration: none;
 	font-weight: bold;
-	border-radius: 20px;
+	/*border-radius: 20px;*/
+	border: none;
 
 }
 #nav li.selected a{
-	margin-bottom: 5px;
-	border-radius: 20px;
+	background: url(/images/red_nav_bar_selected.png) no-repeat;
 	padding: 4px 8px;
 	text-decoration: none;
 	font-weight: bold;
 	color: #333333;
-	background-color: #FF8080;
+	/*background-color: #FF8080;*/
 }
 #nav a:hover{
 	color: #333333;
-	background-color: #FF8080;
+	background: url(/images/red_nav_bar_selected.png) no-repeat;
 }
 
 /* STYLE FOR THE FLASH */
@@ -191,16 +224,20 @@ section.success .flashnotice{
 	float: right;
 }
 #searchbar input#search_select{
-	border-radius: 10px;
 	border: 0;
 	width: 80px;
+	height: 30px;
+	margin-top: 0;
+	padding-top: 0;
 	color: #fffeff;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-weight: bold;
-	background-color:#F0463D;
-	font-family: 
+	background: url(/images/search_bar.png) no-repeat;
 }
-
+#searchbar input#search_select:hover{
+	color: #333;
+	background: url(/images/search_bar_selected.png) no-repeat;
+}
 /* CODE FOR SEARCH ACTION*/
 
 
@@ -332,6 +369,17 @@ form#new_event ul li p{
 	color: #666666;
 	font-weight: bold;
 	margin: 0 0 0 0;
+}
+
+#event_submit{
+	height: 40px;
+	width: 100px;
+	background: url(/images/orange_button_unselected.png) no-repeat;
+	border: none;
+	color: #333333;
+}
+#event_submit:hover{
+	background: url(/images/orange_button_selected.png) no-repeat;
 }
 /* SIGN IN STYLE*/
 #signinpage{
@@ -625,6 +673,9 @@ form#new_event ul li p{
 	padding: 10px 10px 10px;
 	border-radius: 30px;
 	float: left;
+}
+#eventshow{
+	color: #666;
 }
 #eventshow img{
 	margin-top: 12px;
