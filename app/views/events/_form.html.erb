@@ -37,7 +37,7 @@
   	<% if(!current_user.authorizations.empty?)%>
 	<li><p>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></p></li>
 	<% end %>
-    <li><%= f.submit %></li>
+    <li><%= f.submit "Create Event!", :class => "submitter" %></li>
     <% if !@event.name.nil? %>
     <li><%= link_to "Back to event", @event%></li>
     <% end %>

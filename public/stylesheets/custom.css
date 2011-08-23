@@ -371,15 +371,17 @@ form#new_event ul li p{
 	margin: 0 0 0 0;
 }
 
-#event_submit{
+.submitter{
 	height: 40px;
 	width: 100px;
-	background: url(/images/orange_button_unselected.png) no-repeat;
+	background: url(/images/green_button_unselected.png) no-repeat;
 	border: none;
-	color: #333333;
+	color: #fffeff;
+	font-weight: bold;
 }
-#event_submit:hover{
-	background: url(/images/orange_button_selected.png) no-repeat;
+.submitter:hover{
+	background: url(/images/green_button_selected.png) no-repeat;
+	color: #111111;
 }
 /* SIGN IN STYLE*/
 #signinpage{
