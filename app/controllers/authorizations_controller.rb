@@ -22,7 +22,7 @@ class AuthorizationsController < ApplicationController
           :fblink => auth['user_info']['urls']['Facebook'], 
           :fbnickname => auth['user_info']['nickname'],
           :password => random_id, :password_confirmation => random_id, 
-          :facebookid => auth['extra']['user_hash'][:id])
+          :facebookid => auth['uid'])
       if user.save!
         user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
         sign_in user
