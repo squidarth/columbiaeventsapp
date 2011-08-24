@@ -18,7 +18,7 @@ class AuthorizationsController < ApplicationController
     else #case that new user needs to be created
       random_id = rand(99999999)
       user = User.create(:name => auth['user_info']['first_name'] + " " + auth['user_info']['last_name'], 
-          :email => auth['user_info']['extra']['user_hash']['email'], 
+          :email => auth['extra']['user_hash']['email'], 
           :fblink => auth['user_info']['urls']['Facebook'], 
           :fbnickname => auth['user_info']['nickname'],
           :password => random_id, :password_confirmation => random_id, 
