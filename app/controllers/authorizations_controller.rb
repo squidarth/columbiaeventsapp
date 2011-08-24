@@ -24,7 +24,7 @@ class AuthorizationsController < ApplicationController
           :password => random_id, :password_confirmation => random_id, 
           :facebookid => auth['uid'])
       if user.save!
-        user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+        user.authorizations.create!(:provider => auth['provider'], :uid => auth['extra']['user_hash']['id'], :token => auth['credentials']['token'])
         sign_in user
         redirect_to user
       else
