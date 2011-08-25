@@ -238,6 +238,29 @@ section.success .flashnotice{
 	color: #333;
 	background: url(/images/search_bar_selected.png) no-repeat;
 }
+
+#calendar_link{
+	margin-top: 15px;
+	padding: 5px 0 5px 0;
+	clear:right;
+	float: right;
+	font-size: 1.1em;
+	width: 120px;
+	background: url(/images/view_calendar_unselected.png) no-repeat;
+	border-radius: 30px;
+	text-align: center;
+}
+#calendar_link:hover{
+	background: url(/images/view_calendar_selected.png) no-repeat;
+}
+#calendar_link a{
+	text-decoration: none;
+	color: #FFF;
+	font-weight: bold;
+}
+#calendar_link a:hover{
+	color: #333;
+}
 /* CODE FOR SEARCH ACTION*/
 
 
@@ -751,21 +774,24 @@ form#new_event ul li p{
 
 #calendar th {
   background: #DDD;
-  color: #666;
   text-align: center;
   width: 40px;
 }
 
 #calendar td {
   background: #FFF;
-  color: #777;
   height: 40px;
   vertical-align: top;
   font-size: 16px;
 }
 #calendar td a{
-	text-decoration: none;
 	color: #666;
+	text-decoration: none;
+	font-weight: bold;
+}
+#calendar td #selected{
+	text-decoration: none;
+	color: #FF7F50;
 	font-weight: bold;
 }
 

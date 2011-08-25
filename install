@@ -2527,4 +2527,494 @@ Started GET "/events/calendar?date=2011%2F08%2F24" for 127.0.0.1 at 2011-08-25 0
 DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__813990599_84242120_1031965303 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
 DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__813990599_84242120_1031965303 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
   [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
-DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= 
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb___579173481_84239280_1031965303 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (146.1ms)
+Completed 200 OK in 257ms (Views: 149.2ms | ActiveRecord: 57.0ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F24" for 127.0.0.1 at 2011-08-25 02:51:25 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/24"}
+  [1m[35mEvent Load (15.0ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__813990599_86506870_1031965303 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__813990599_86506870_1031965303 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb___579173481_86505240_1031965303 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (146.3ms)
+Completed 200 OK in 258ms (Views: 146.5ms | ActiveRecord: 19.4ms)
+^C[2011-08-25 02:51:46] INFO  going to shutdown ...
+[2011-08-25 02:51:46] INFO  WEBrick::HTTPServer#start done.
+Exiting
+]0;sid123@sidharth-R470: ~/RailsProjects/columbiaeventsappsid123@sidharth-R470:~/RailsProjects/columbiaeventsapp$ git add .
+]0;sid123@sidharth-R470: ~/RailsProjects/columbiaeventsappsid123@sidharth-R470:~/RailsProjects/columbiaeventsapp$ git a[Kcommit-m [K[K[K -m "Ade[Kded tes t e[Kcalednar[K[K[K[Kndar"
+[master e31e1bd] Added test calendar
+ 11 files changed, 5373 insertions(+), 13 deletions(-)
+ create mode 100644 app/views/events/calendar.html.erb
+ create mode 100644 install
+]0;sid123@sidharth-R470: ~/RailsProjects/columbiaeventsappsid123@sidharth-R470:~/RailsProjects/columbiaeventsapp$ git push noriign[K[K[Kgin master
+Counting objects: 45, done.
+Delta compression using up to 2 threads.
+Compressing objects:   4% (1/23)   Compressing objects:   8% (2/23)   Compressing objects:  13% (3/23)   Compressing objects:  17% (4/23)   Compressing objects:  21% (5/23)   Compressing objects:  26% (6/23)   Compressing objects:  30% (7/23)   Compressing objects:  34% (8/23)   Compressing objects:  39% (9/23)   Compressing objects:  43% (10/23)   Compressing objects:  47% (11/23)   Compressing objects:  52% (12/23)   Compressing objects:  56% (13/23)   Compressing objects:  60% (14/23)   Compressing objects:  65% (15/23)   Compressing objects:  69% (16/23)   Compressing objects:  73% (17/23)   Compressing objects:  78% (18/23)   Compressing objects:  82% (19/23)   Compressing objects:  86% (20/23)   Compressing objects:  91% (21/23)   Compressing objects:  95% (22/23)   Compressing objects: 100% (23/23)   Compressing objects: 100% (23/23), done.
+Writing objects:   4% (1/24)   Writing objects:   8% (2/24)   Writing objects:  12% (3/24)   Writing objects:  16% (4/24)   Writing objects:  20% (5/24)   Writing objects:  25% (6/24)   Writing objects:  29% (7/24)   Writing objects:  33% (8/24)   Writing objects:  37% (9/24)   Writing objects:  41% (10/24)   Writing objects:  45% (11/24)   Writing objects:  50% (12/24)   Writing objects:  54% (13/24)   Writing objects:  58% (14/24)   Writing objects:  62% (15/24)   Writing objects:  66% (16/24)   Writing objects:  70% (17/24)   Writing objects:  75% (18/24)   Writing objects:  79% (19/24)   Writing objects:  83% (20/24)   Writing objects:  87% (21/24)   Writing objects:  91% (22/24)   Writing objects:  95% (23/24)   Writing objects: 100% (24/24)   Writing objects: 100% (24/24), 30.72 KiB, done.
+Total 24 (delta 18), reused 0 (delta 0)
+To git@github.com:sshanker220/columbiaeventsapp.git
+   2bea56f..e31e1bd  master -> master
+]0;sid123@sidharth-R470: ~/RailsProjects/columbiaeventsappsid123@sidharth-R470:~/RailsProjects/columbiaeventsapp$ git push heroku master
+Counting objects: 45, done.
+Delta compression using up to 2 threads.
+Compressing objects:   4% (1/23)   Compressing objects:   8% (2/23)   Compressing objects:  13% (3/23)   Compressing objects:  17% (4/23)   Compressing objects:  21% (5/23)   Compressing objects:  26% (6/23)   Compressing objects:  30% (7/23)   Compressing objects:  34% (8/23)   Compressing objects:  39% (9/23)   Compressing objects:  43% (10/23)   Compressing objects:  47% (11/23)   Compressing objects:  52% (12/23)   Compressing objects:  56% (13/23)   Compressing objects:  60% (14/23)   Compressing objects:  65% (15/23)   Compressing objects:  69% (16/23)   Compressing objects:  73% (17/23)   Compressing objects:  78% (18/23)   Compressing objects:  82% (19/23)   Compressing objects:  86% (20/23)   Compressing objects:  91% (21/23)   Compressing objects:  95% (22/23)   Compressing objects: 100% (23/23)   Compressing objects: 100% (23/23), done.
+Writing objects:   4% (1/24)   Writing objects:   8% (2/24)   Writing objects:  12% (3/24)   Writing objects:  16% (4/24)   Writing objects:  20% (5/24)   Writing objects:  25% (6/24)   Writing objects:  29% (7/24)   Writing objects:  33% (8/24)   Writing objects:  37% (9/24)   Writing objects:  41% (10/24)   Writing objects:  45% (11/24)   Writing objects:  50% (12/24)   Writing objects:  54% (13/24)   Writing objects:  58% (14/24)   Writing objects:  62% (15/24)   Writing objects:  66% (16/24)   Writing objects:  70% (17/24)   Writing objects:  75% (18/24)   Writing objects:  79% (19/24)   Writing objects:  83% (20/24)   Writing objects:  87% (21/24)   Writing objects:  91% (22/24)   Writing objects:  95% (23/24)   Writing objects: 100% (24/24)   Writing objects: 100% (24/24), 30.72 KiB, done.
+Total 24 (delta 18), reused 0 (delta 0)
+
+-----> Heroku receiving push
+-----> Ruby/Rails app detected
+-----> Detected Rails is not set to serve static_assets
+       Installing rails3_serve_static_assets... done
+-----> Configure Rails 3 to disable x-sendfile
+       Installing rails3_disable_x_sendfile... done
+-----> Configure Rails to log to stdout
+       Installing rails_log_stdout... done
+-----> Gemfile detected, running Bundler version 1.0.7
+       Unresolved dependencies detected; Installing...
+       Using --without development:test
+       Fetching source index for http://rubygems.org/
+       Fetching git://github.com/thoughtbot/paperclip.git
+       Fetching git://github.com/p8/table_builder.git
+       Installing rake (0.8.7) 
+       Installing abstract (1.0.0) 
+       Installing activesupport (3.0.9) 
+       Installing builder (2.1.2) 
+       Installing i18n (0.5.0) 
+       Installing activemodel (3.0.9) 
+       Installing erubis (2.6.6) 
+       Installing rack (1.2.3) 
+       Installing rack-mount (0.6.14) 
+       Installing rack-test (0.5.7) 
+       Installing tzinfo (0.3.29) 
+       Installing actionpack (3.0.9) 
+       Installing mime-types (1.16) 
+       Installing polyglot (0.3.2) 
+       Installing treetop (1.4.10) 
+       Installing mail (2.2.19) 
+       Installing actionmailer (3.0.9) 
+       Installing arel (2.0.10) 
+       Installing activerecord (3.0.9) 
+       Installing activeresource (3.0.9) 
+       Installing addressable (2.2.4) 
+       Installing xml-simple (1.1.0) 
+       Installing aws-s3 (0.6.2) 
+       Installing cocaine (0.1.0) 
+       Installing multipart-post (1.1.3) 
+       Installing faraday (0.6.1) 
+       Installing multi_json (1.0.3) 
+       Installing koala (1.1.0) 
+       Installing multi_xml (0.2.2) 
+       Installing net-ldap (0.2.2) 
+       Installing nokogiri (1.4.2) with native extensions 
+       Installing oa-core (0.2.6) 
+       Installing rest-client (1.6.3) 
+       Installing oa-basic (0.2.6) 
+       Installing pyu-ruby-sasl (0.0.3.3) 
+       Installing rubyntlm (0.1.1) 
+       Installing oa-enterprise (0.2.6) 
+       Installing oa-more (0.2.6) 
+       Installing oauth (0.4.5) 
+       Installing oauth2 (0.4.1) 
+       Installing oa-oauth (0.2.6) 
+       Installing ruby-openid (2.1.8) 
+       Installing rack-openid (1.3.1) 
+       Installing ruby-openid-apps-discovery (1.2.0) 
+       Installing oa-openid (0.2.6) 
+       Installing omniauth (0.2.6) 
+       Using paperclip (2.3.15) from git://github.com/thoughtbot/paperclip.git (at master) 
+       Using bundler (1.0.7) 
+       Installing rdoc (3.9.1) 
+       Installing thor (0.14.6) 
+       Installing railties (3.0.9) 
+       Installing rails (3.0.9) 
+       Installing sqlite3 (1.3.4) with native extensions 
+       Using table_builder (0.2.0) from git://github.com/p8/table_builder.git (at master) 
+       Installing will_paginate (3.0.pre2) 
+       Your bundle is complete! It was installed into ./.bundle/gems/
+-----> Compiled slug size is 6.9MB
+-----> Launching... done, v201
+       http://eventsalsa.com deployed to Heroku
+
+To git@heroku.com:hollow-meadow-242.git
+   2bea56f..e31e1bd  master -> master
+]0;sid123@sidharth-R470: ~/RailsProjects/columbiaeventsappsid123@sidharth-R470:~/RailsProjects/columbiaeventsapp$ rails s
+=> Booting WEBrick
+=> Rails 3.0.9 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2011-08-25 03:12:43] INFO  WEBrick 1.3.1
+[2011-08-25 03:12:43] INFO  ruby 1.9.2 (2011-02-18) [i686-linux]
+[2011-08-25 03:12:43] INFO  WEBrick::HTTPServer#start: pid=14099 port=3000
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:12:47 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:Event> at /home/sid123/RailsProjects/columbiaeventsapp/app/models/event.rb:4)
+  [1m[36mEvent Load (14.1ms)[0m  [1mSELECT "events".* FROM "events" ORDER BY events.created_at DESC[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_95006300_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_95006300_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_95004620_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (906.2ms)
+Completed 200 OK in 1032ms (Views: 909.5ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:13:49 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+  [1m[35mEvent Load (47.9ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94213470_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94213470_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94212080_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (135.6ms)
+Completed 200 OK in 239ms (Views: 139.1ms | ActiveRecord: 49.2ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:13:53 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+  [1m[35mEvent Load (14.2ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_96352760_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_96352760_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_96350220_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (133.5ms)
+Completed 200 OK in 241ms (Views: 134.6ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:14:08 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+  [1m[35mEvent Load (51.2ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94345500_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94345500_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94343560_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (134.6ms)
+Completed 200 OK in 241ms (Views: 137.7ms | ActiveRecord: 52.7ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:15:18 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+  [1m[35mEvent Load (14.6ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_93929420_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_93929420_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_93925380_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (170.4ms)
+Completed 200 OK in 278ms (Views: 173.7ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F11" for 127.0.0.1 at 2011-08-25 03:15:20 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/11"}
+  [1m[35mEvent Load (14.1ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94873590_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94873590_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (4.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94870140_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (132.5ms)
+Completed 200 OK in 240ms (Views: 133.1ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F12" for 127.0.0.1 at 2011-08-25 03:15:21 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/12"}
+  [1m[35mEvent Load (52.0ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94198380_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94198380_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94196780_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (137.7ms)
+Completed 200 OK in 242ms (Views: 141.0ms | ActiveRecord: 53.4ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F11" for 127.0.0.1 at 2011-08-25 03:15:40 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/11"}
+  [1m[35mEvent Load (14.4ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_96364710_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_96364710_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (41.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_96362870_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (132.5ms)
+Completed 200 OK in 237ms (Views: 96.0ms | ActiveRecord: 55.4ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F11" for 127.0.0.1 at 2011-08-25 03:16:31 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/11"}
+  [1m[35mEvent Load (52.6ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94377140_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94377140_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94375740_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (133.2ms)
+Completed 200 OK in 240ms (Views: 136.6ms | ActiveRecord: 54.0ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F11" for 127.0.0.1 at 2011-08-25 03:16:47 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/11"}
+  [1m[35mEvent Load (14.5ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94024810_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94024810_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94022990_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (135.4ms)
+Completed 200 OK in 241ms (Views: 138.7ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F13" for 127.0.0.1 at 2011-08-25 03:16:51 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/13"}
+  [1m[35mEvent Load (14.8ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94921320_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94921320_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94919010_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (130.1ms)
+Completed 200 OK in 233ms (Views: 132.4ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-25 03:17:28 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mUser Load (4.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mEvent Load (7.0ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 6) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 7) ORDER BY events.created_at DESC
+  [1m[36mEvent Load (8.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE ("events".user_id = 8) ORDER BY events.created_at DESC[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE ("events".user_id = 9) ORDER BY events.created_at DESC
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_93826020_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered pages/home.html.erb within layouts/application (110.8ms)
+Completed 200 OK in 313ms (Views: 153.1ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/events/calendar" for 127.0.0.1 at 2011-08-25 03:17:34 -0400
+  Processing by EventsController#calendar as HTML
+  [1m[35mEvent Load (13.9ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94877610_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94877610_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94875580_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (133.5ms)
+Completed 200 OK in 235ms (Views: 136.2ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F05" for 127.0.0.1 at 2011-08-25 03:17:36 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/05"}
+  [1m[35mEvent Load (52.5ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94170560_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94170560_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94168580_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (135.3ms)
+Completed 200 OK in 243ms (Views: 138.7ms | ActiveRecord: 53.9ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F01" for 127.0.0.1 at 2011-08-25 03:17:38 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/01"}
+  [1m[35mEvent Load (14.3ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_96272540_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_96272540_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_96270950_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (131.3ms)
+Completed 200 OK in 235ms (Views: 134.5ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:17:43 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+  [1m[35mEvent Load (53.1ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94327110_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94327110_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94324930_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (135.8ms)
+Completed 200 OK in 243ms (Views: 138.9ms | ActiveRecord: 54.6ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:18:33 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+  [1m[35mEvent Load (14.7ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_93882750_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_93882750_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_93880740_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (172.9ms)
+Completed 200 OK in 281ms (Views: 176.2ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F12" for 127.0.0.1 at 2011-08-25 03:18:37 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/12"}
+  [1m[35mEvent Load (14.6ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94453820_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94453820_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94452240_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (133.5ms)
+Completed 200 OK in 242ms (Views: 136.3ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F12" for 127.0.0.1 at 2011-08-25 03:19:56 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/12"}
+  [1m[35mEvent Load (54.1ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94202370_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94202370_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94200860_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (133.6ms)
+Completed 200 OK in 239ms (Views: 136.8ms | ActiveRecord: 55.5ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F06" for 127.0.0.1 at 2011-08-25 03:19:59 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/06"}
+  [1m[35mEvent Load (13.9ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_96308320_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_96308320_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_96306450_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (129.8ms)
+Completed 200 OK in 232ms (Views: 132.2ms | ActiveRecord: 16.2ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F06" for 127.0.0.1 at 2011-08-25 03:20:48 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/06"}
+  [1m[35mEvent Load (52.7ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94342590_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94342590_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94340110_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (132.0ms)
+Completed 200 OK in 238ms (Views: 135.3ms | ActiveRecord: 54.2ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F10" for 127.0.0.1 at 2011-08-25 03:20:51 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/10"}
+  [1m[35mEvent Load (14.7ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_93935770_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_93935770_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_93933320_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (136.1ms)
+Completed 200 OK in 245ms (Views: 139.3ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F10" for 127.0.0.1 at 2011-08-25 03:21:06 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/10"}
+  [1m[35mEvent Load (14.5ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94895980_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94895980_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94891340_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (133.7ms)
+Completed 200 OK in 238ms (Views: 136.4ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F19" for 127.0.0.1 at 2011-08-25 03:21:09 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/19"}
+  [1m[35mEvent Load (52.0ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94232850_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94232850_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94230770_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (137.3ms)
+Completed 200 OK in 245ms (Views: 140.6ms | ActiveRecord: 53.4ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F25" for 127.0.0.1 at 2011-08-25 03:21:13 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/25"}
+  [1m[35mEvent Load (14.7ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_93841150_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_93841150_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_93919180_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (144.3ms)
+Completed 200 OK in 251ms (Views: 186.8ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F31" for 127.0.0.1 at 2011-08-25 03:21:22 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/31"}
+  [1m[35mEvent Load (52.4ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94406060_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94406060_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94404830_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (134.7ms)
+Completed 200 OK in 243ms (Views: 137.7ms | ActiveRecord: 54.0ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F23" for 127.0.0.1 at 2011-08-25 03:21:24 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/23"}
+  [1m[35mEvent Load (55.4ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94159810_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94159810_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94157000_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (136.0ms)
+Completed 200 OK in 244ms (Views: 139.2ms | ActiveRecord: 56.8ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F14" for 127.0.0.1 at 2011-08-25 03:21:33 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/14"}
+  [1m[35mEvent Load (14.4ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94951260_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94951260_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94949240_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (132.2ms)
+Completed 200 OK in 240ms (Views: 134.3ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F14" for 127.0.0.1 at 2011-08-25 03:22:18 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/14"}
+  [1m[35mEvent Load (53.7ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_94288510_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_94288510_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_94286630_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (133.7ms)
+Completed 200 OK in 240ms (Views: 137.0ms | ActiveRecord: 55.2ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F15" for 127.0.0.1 at 2011-08-25 03:22:20 -0400
+  Processing by EventsController#calendar as HTML
+  Parameters: {"date"=>"2011/08/15"}
+  [1m[35mEvent Load (15.1ms)[0m  SELECT "events".* FROM "events" ORDER BY events.created_at DESC
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _app_views_events_calendar_html_erb__388635671_93807670_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:9)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_events_calendar_html_erb__388635671_93807670_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/events/calendar.html.erb:7)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_layouts_application_html_erb__794500176_93805840_1009398150 at /home/sid123/RailsProjects/columbiaeventsapp/app/views/layouts/application.html.erb:166)
+Rendered events/calendar.html.erb within layouts/application (175.6ms)
+Completed 200 OK in 284ms (Views: 178.9ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/events/calendar?date=2011%2F08%2F24" for 127.0.0.1 at 2011-08-25 03:24:41 -0400
+  Processing by Ev

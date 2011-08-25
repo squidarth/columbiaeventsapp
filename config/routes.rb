@@ -1,6 +1,6 @@
 Sidsapp::Application.routes.draw do
   
-    match '/events/calendar', :to => 'events#calendar'
+    match '/calendar', :to => 'events#calendar'
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
   resources :events do

@@ -7,7 +7,15 @@
 	<% calendar_for @events, :year => @date.year, :month => @date.month do |calendar|%>
 	<%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')%>
 		<% calendar.day(:day_method => :created_at) do |date, events| %>
-			<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d")} %>
+			<% if @new_date %>
+				<% if date == @new_date%>
+					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date}, :id => 'selected' %>
+				<% else %>
+					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
+				<% end %>
+			<%else %>
+			<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
+			<% end %>
 		<% end %>
 	<% end %>
 </div>
