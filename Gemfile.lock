@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/p8/table_builder.git
+  revision: e36c64aa4f77960a1b1ea66de5a610d84d32a32e
+  specs:
+    table_builder (0.2.0)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 31df612d2028a4787bc266f258f07c2ebf94ec45
   specs:
@@ -182,4 +188,5 @@ DEPENDENCIES
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
   sqlite3
+  table_builder!
   will_paginate (= 3.0.pre2)

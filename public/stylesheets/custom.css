@@ -730,3 +730,72 @@ form#new_event ul li p{
 #footer-descrip{
 	float:right;
 }
+
+/* STYLE FOR CALENDAR */
+#calendar{
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	margin: 30px 0 0 250px;
+	width: 400px;
+    
+}
+#calendar table{
+	border-collapse: collapse;
+}
+
+#calendar td,
+#calendar th {
+  font-size: 10px;
+  padding: 6px;
+  border: 1px solid #999;
+}
+
+#calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 40px;
+}
+
+#calendar td {
+  background: #FFF;
+  color: #777;
+  height: 40px;
+  vertical-align: top;
+  font-size: 16px;
+}
+#calendar td a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+}
+
+#calendar .notmonth {
+  color: #CCC;
+}
+
+#calendar #month {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
+}
+
+#calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#calendar li {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  text-align: center;
+}

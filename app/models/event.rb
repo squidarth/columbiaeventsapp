@@ -24,6 +24,15 @@ class Event < ActiveRecord::Base
     find(:all, :conditions => ['name LIKE ? OR description LIKE ? ', search_condition, search_condition])
   end
   
+  def self.find_by_date(date)
+    @events = Event.all
+    @sorted_events = []
+    @events.each do |event|
+      if event.date == date
+        sorted_events << event
+      end
+    end
+  end
   private
   
     def validate_date
@@ -31,4 +40,6 @@ class Event < ActiveRecord::Base
       errors.add("Date", "is invalid.") unless self.date > Date.today || self.date == Date.today
       end
     end
+    
+    
 end

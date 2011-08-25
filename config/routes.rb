@@ -1,12 +1,14 @@
 Sidsapp::Application.routes.draw do
   
+    match '/events/calendar', :to => 'events#calendar'
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
   resources :events do
     resources :comments, :only => [:create]
   end
   
-  match 'users/:id/password', :to => 'users#changepassword'
+
+  match '/users/:id/password', :to => 'users#changepassword'
   match '/users/destroy', :to => 'users#destroy'
   match '/auth/:provider/callback', :to => 'authorizations#create'
   match "comments/create" => "comments#create"

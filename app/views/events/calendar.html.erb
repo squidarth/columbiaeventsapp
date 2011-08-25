@@ -1,0 +1,41 @@
+<div id="calendar">
+	<h2 id="month">
+		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y/%m")%>
+		<%=h @date.strftime("%B %Y") %>
+		<%= link_to ">", :month => (@date.end_of_month + 1).strftime("%Y/%m")%>
+	</h2>
+	<% calendar_for @events, :year => @date.year, :month => @date.month do |calendar|%>
+	<%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')%>
+		<% calendar.day(:day_method => :created_at) do |date, events| %>
+			<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d")} %>
+		<% end %>
+	<% end %>
+</div>
+<% if !@events_by_date.empty? %>
+<ul id="catshowpage">
+
+<% @events_by_date.each do |event| %>
+<li><a href="/events/<%= event.id %>">
+	<% if event.photo.file? %>
+	<%= image_tag event.photo.url(:small) %>
+	<% else %>
+	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
+	<% end %>
+</a>
+
+<div id="eventwords">
+	<p id="event_title"><%= event.name %></p>
+	<% if(event.date && event.time)%>
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <% if(event.time.hour>12)%> <%= (event.time.hour-12) %>:<%= event.time.min %> PM <% else %><%= event.time.hour %>:<%= event.time.min %> AM<% end %><br />
+	<% end %>
+	<%= event.description %> <br />
+	<% if event.facebooklink%>
+	<a href="http://www.facebook.com/event.php?eid=<%= event.facebooklink %>"><b>Link to Facebook Event</b></a>	
+	<% end %>
+</div>
+</li>
+
+
+<% end %>
+</ul>
+<% end %>

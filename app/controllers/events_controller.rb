@@ -4,8 +4,12 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
+    @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
+    @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    
     if params[:search]
       @title = "Search"
+      @header = "Search  + '" + params[:search] + "'"
       @events = Event.search(params[:search])
       @array_of_events = []
       @events.each do |event| #possibly move this into the event model
@@ -15,20 +19,37 @@ class EventsController < ApplicationController
         end
       end
       end
+    elsif params[:date]
+      @array_of_events = Event.find_by_date(Date.parse(params[:date]))
+      @header = @months[Date.parse(params[:date]).month - 1] + ' ' + Date.parse(params[:date]).day.to_s + ', ' + Date.parse(params[:date]).year.to_s 
     else
       @title = "All Events"
+      @header = "All Events"
       @array_of_events = Event.all
     end
-    @times = ['12:00 AM', '1:00 AM','2:00 AM', '3:00 AM','4:00 AM','5:00 AM', '6:00 AM','7:00 AM','8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM']
-          @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
-    @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-      
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @events }
     end
   end
 
+  def calendar
+    @events = Event.all
+    @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
+    @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    @events_by_date = []
+    @date = params[:month] ? Date.parse(params[:month]) : Date.today
+    if params[:date]
+      @events.each do |event|
+        if(event.date == Date.parse(params[:date]))
+          @events_by_date << event
+        end
+      end
+      @new_date = Date.parse(params[:date])
+    end
+    @events_by_date
+  end
   # GET /events/1
   # GET /events/1.xml
   def show
@@ -185,14 +206,6 @@ class EventsController < ApplicationController
     redirect_to current_user
   end
   
-  #GET RID OF THIS ACTION>?
-  def search
-    @array_of_events = Event.search(params[:search][:search])
-    @times = ['12:00 AM', '1:00 AM','2:00 AM', '3:00 AM','4:00 AM','5:00 AM', '6:00 AM','7:00 AM','8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM']
-    @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
-    @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-      
-  end
   
   private
   
