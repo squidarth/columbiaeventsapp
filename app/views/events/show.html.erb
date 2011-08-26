@@ -28,13 +28,11 @@
 	<% end %>
 	</a>
 	<% else %>
-		<a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>">
 	<% if @event.photo.file? %>
 	<%= image_tag @event.photo.url(:small) %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
-	</a>
 	<% end %>
 <ul>
 <li>
@@ -74,30 +72,4 @@
 <fb:comments href="http://www.eventsalsa.com/events/<%= @event.id %>" num_posts="10" width="600"></fb:comments>
 </div>
 
-<!--
-<div id="comment_stuff">
-<div id="commentform">
-<%= form_for([@event, @comment], :url => {:controller => :comments, :action => :create}, :remote => true) do |f| %>
-<% if signed_in? %>
-<p><%= f.label :author %><br />
-     <%= f.text_field :author, :value => current_user.name %></p>
-     <% else %>
-  <p><%= f.label :author %><br />
-     <%= f.text_field :author %></p>
-     <% end %>
-    
-     <p><%= f.label :content %><br />
-     <%= f.text_field :content %></p>
-     <%= f.hidden_field :event_id, :value => @event.id %>
-    
-     <p><%= f.submit %></p>
-<% end %>
-</div>
-<% if(@comments != nil)%>
-<div id="comments">
-	<%= render :partial => @comments, :locals => { :list => true } %>
-</div>
-<% end %>
-</div>
--->
 </div>

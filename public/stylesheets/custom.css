@@ -18,8 +18,8 @@ body{
 	background: #fff;
 	margin-top: 0;
 	padding-top: 0;
-	padding-right: 10px;
-	padding-left: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
 	margin: 0 auto 0 auto;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	-moz-box-shadow: 0px 5px 5px #000;
@@ -233,7 +233,6 @@ section.success .flashnotice{
 	margin-bottom: 30px;
 }
 #mainpagewrapper #main{
-	float: left;
 	margin-top: 15px;
 	padding-top: 0;
 }
@@ -289,13 +288,28 @@ section.success .flashnotice{
 	background: #FF4040;
 	border-radius: 30px;
 	color: #fffeff;
-	margin: 30px 0 0px 200px;
-	padding: 5px 10px 5px 10px;
+	margin: 30px 0 0px 15px;
+	padding: 0px 10px 5px 10px;
 	font-weight: bold;
 	font-size: 2em;
 	width: 240px;
 	padding-top: 10px;
 	padding-left: 15px;
+	float: left;
+}
+
+#no_results_calendar{
+	background: #FF4040;
+	border-radius: 30px;
+	color: #fffeff;
+	margin: 10px 0 0px 140px;
+	padding: 0px 10px 5px 10px;
+	font-weight: bold;
+	font-size: 2em;
+	width: 240px;
+	padding-top: 10px;
+	padding-left: 15px;
+	float: left;
 }
 /*  CODE FOR ABOUT PAGES */
 .pages-text{
@@ -304,11 +318,10 @@ section.success .flashnotice{
 	color: #666;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.2em;
-	font-weight: bold;
-	width: 600px;
-	margin-top: 50px;
+	width: 400px;
+	margin-top: 0px;
 	margin-bottom: 2%;
-	margin-left: 180px;
+	margin-left: 70px;
 	padding-left: 1%;
 	border-radius: 10px;
 	/*border: 1px solid #ddd;*/
@@ -392,8 +405,8 @@ section.success .flashnotice{
 
 #createnewevents{
 	float: left;
-	margin-top: 20px;
-	margin-left: 130px;
+	margin-top: 0px;
+	margin-left: 50px;
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 420px;
@@ -419,16 +432,39 @@ form#new_event ul li p{
 }
 
 .submitter{
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	height: 40px;
-	width: 100px;
-	background: url(/images/green_button_unselected.png) no-repeat;
 	border: none;
+	padding: 0 10px 0 10px;
+	background: #FF7F50;
+	border-radius: 30px;
 	color: #fffeff;
 	font-weight: bold;
+	    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 3px 0 #FFDAB9,
+                0 4px 0 #FFDAB9,
+                0 5px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
 }
 .submitter:hover{
-	background: url(/images/green_button_selected.png) no-repeat;
-	color: #111111;
+	background: #FF7F50;
+	color: #333;
+	position: relative; top: 2px;
+    margin-top: 1px;
+    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 3px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
+}
+.submitter:active{
+	background: #FF7F50;
+	position: relative; top: 2px;
+    margin-top: 1px;
+    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 3px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
 }
 /* SIGN IN STYLE*/
 #signinpage{
@@ -482,7 +518,8 @@ form#new_event ul li p{
 }
 /* USER SHOW PAGE */
 #user{
-	margin-left: 180px;
+	float: left;
+	margin-left: 100px;
 }
 #user #title{
 	margin-top: 0px;
@@ -526,7 +563,6 @@ form#new_event ul li p{
 }
 
 #users_events{
-	clear:both;
 	float: left;
 	padding: 10px 10px 10px;
 	color: #666;
@@ -619,8 +655,10 @@ form#new_event ul li p{
 }
 /*  CATEGORY SHOW PAGES */
 #catshowpage{
-	margin-top: 0px;
-	margin-left: 40px;
+	margin-top: 20px;
+	margin-left: 30px;
+	margin-bottom: 0;
+	float: left;
 }
 
 #catshowpage li img{
@@ -670,7 +708,8 @@ form#new_event ul li p{
 	text-decoration: none;
 	font-size: 1.4em;
 	text-align: center;
-	margin-left: 80px;
+	margin-left: 240px;
+	margin-top: 0;
 }
 #more:hover{
 	background: #ECF1EF;
@@ -678,9 +717,8 @@ form#new_event ul li p{
 /* Event Show Page*/
 
 #event{
-	margin-top: 30px;
+	margin-top: 15px;
 	margin-left: 200px;
-	width: 800px;
 }
 #eventuser{
 	padding: 10px 20px 10px;
@@ -714,17 +752,14 @@ form#new_event ul li p{
 	font-weight: bold;
 }
 #eventshow{
-	clear: both;
+	float: left;
 	color: #666;
 	font-weight: bold;
 	border: solid 1px #ddd;
 	margin-bottom: 20px;
 	padding: 10px 10px 10px;
 	border-radius: 30px;
-	float: left;
-}
-#eventshow{
-	color: #666;
+	width: 550px;
 }
 #eventshow img{
 	margin-top: 12px;
@@ -750,7 +785,6 @@ form#new_event ul li p{
 	color: #666666;
 }
 #comments{
-	clear:both;
 	float: left;
 	margin-top: 20px;
 }
@@ -781,8 +815,9 @@ form#new_event ul li p{
 /* STYLE FOR CALENDAR */
 #calendar{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	margin: 30px 0 20px 130px;
+	margin: 0px 0 20px 70px;
 	width: 400px;
+	float: left;
     
 }
 #calendar table{
