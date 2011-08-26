@@ -738,7 +738,7 @@ form#new_event ul li p{
 #footer{
 	border-top: 1.5px solid #ddd;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	width: 960px;
+	width: 100%;
 	clear: both;
 	text-align: left;
 	margin: 2px auto 0;
