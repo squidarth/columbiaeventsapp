@@ -54,11 +54,7 @@
 				</ul>
 				<% end %>
 				</div>
-  	<section class="success">
-		<% flash.each do |key, value| %>
-		<div class="flash<%= key %>"><%= value %></div>
-		<% end %>
-	</section>
+
 	<div id="mainpagewrapper">
 	<ul id="nav">
 		<% if(@title == "All" || (@title=="Home" && signed_in?)) %>
@@ -169,11 +165,18 @@
 					<% end %>
 					</div>
 					<% end %>
+					
+					<!--
 					<div id="calendar_link">
 						<%= link_to "View Calendar", calendar_path %>
 					</div>
+					-->
 <div id="main">
-
+  	<section class="success">
+		<% flash.each do |key, value| %>
+		<div class="flash<%= key %>"><%= value %></div>
+		<% end %>
+	</section>
   <%= yield %>
   </div>
 </div>
