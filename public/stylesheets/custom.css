@@ -2,23 +2,29 @@
 
 /* STYLE FOR APPLICATION.HTML, nav, logo, 	background-color:#af352a;*/
 
-#wrapper{
-	clear: both;
-	width: 960px;
-	background: #fff;
-	padding-right: 10px;
-	padding-left: 10px;
-	margin: 0 auto 0 auto;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	-moz-box-shadow: 5px 5px 5px #ccc;
-    -webkit-box-shadow: 5px 5px 5px #ccc;
-    box-shadow: 5px 5px 5px #ccc;
-
-}
 body{
 	font-size: small;
 	background: #ddd;
 	color: #333;
+	outline: 0;
+	padding; 0;
+	margin: 0;
+	border: 0;
+}
+
+#wrapper{
+	clear: both;
+	width: 960px;
+	background: #fff;
+	margin-top: 0;
+	padding-top: 0;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin: 0 auto 0 auto;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	-moz-box-shadow: 0px 5px 5px #000;
+    -webkit-box-shadow: 0px 5px 5px #aaa;
+    box-shadow: 0px 5px 5px #aaa;
 }
 
 /* HEADER STYLES */
@@ -49,7 +55,6 @@ body{
 #intropara p#descrip{
 	margin-top: 0;
 	font-size: 1.3em;
-	width: 300px;
 }
 #signup {
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -59,7 +64,7 @@ body{
 #signup a{
 	float: left;
 	margin-right: 30px;
-	background: url(/images/blue_circle_unselected.png) no-repeat;
+	background: #104E8B;
 	vertical-align: middle;
 	-moz-border-radius: 60px;
 	-webkit-border-radius: 60px;
@@ -73,7 +78,8 @@ body{
 	border: none;
 }
 #signup a:hover{
-	background: url(/images/blue_circle_selected.png) no-repeat;
+	background: #6495ED;
+	color: #111;
 }
 
 #signup a#facebook_login{
@@ -92,7 +98,8 @@ body{
 	width: 375px;
 	padding: 5px 0px 5px 10px;
 	list-style: none;
-	background: url(/images/dashboard_full.png) right no-repeat;
+	background: #FF4040;
+	border-radius: 30px;
 }
 #dashboard li{
 	float: left;
@@ -115,10 +122,11 @@ body{
 #dashboard_signin{
 	float:right;
 	margin: 20px 0 0;
-	padding: 5px 0px 10px 0px;
+	padding: 5px 0px 5px 0px;
 	list-style: none;
 	width: 70px;
-	background: url(/images/sign_in_dashboard.png) no-repeat;
+	background: #FF4040;
+	border-radius: 30px;
 }
 #dashboard_signin li{
 	display: block;
@@ -149,17 +157,17 @@ body{
 }
 #nav li{
 	display: block;
-	margin: 0 0 0 0px;
-	background: url(/images/red_nav_bar_unselected.png) no-repeat;
+	margin: 0 0 5px 0px;
+	background: #FF4040;
 	padding: 0;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	/*background-color:#F0463D;*/
+	border-radius: 30px;
 	font-size: 110%;
 	width: 170px;
 	height: 33px;
 }
 #nav li:hover{
-	background: url(/images/red_nav_bar_selected.png) no-repeat;
+	background: #FF7F50;
 }
 #nav a{
 	display: block;
@@ -167,12 +175,12 @@ body{
 	color: #fffeff/*#231F20*/;
 	text-decoration: none;
 	font-weight: bold;
-	/*border-radius: 20px;*/
+	border-radius: 30px;
 	border: none;
 
 }
 #nav li.selected{
-	background: url(/images/red_nav_bar_selected.png) no-repeat;
+	background: #FF7F50;
 }
 #nav li.selected a{
 	padding: 4px 8px;
@@ -183,7 +191,7 @@ body{
 }
 #nav a:hover{
 	color: #333333;
-	background: url(/images/red_nav_bar_selected.png) no-repeat;
+	background: #FF7F50;
 }
 
 /* STYLE FOR THE FLASH */
@@ -237,17 +245,18 @@ section.success .flashnotice{
 #searchbar input#search_select{
 	border: 0;
 	width: 80px;
+	border-radius: 30px;
 	height: 30px;
 	margin-top: 0;
 	padding-top: 0;
 	color: #fffeff;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-weight: bold;
-	background: url(/images/search_bar.png) no-repeat;
+	background: #FF4040;
 }
 #searchbar input#search_select:hover{
 	color: #333;
-	background: url(/images/search_bar_selected.png) no-repeat;
+	background: #FF7F50;
 }
 
 #calendar_link{
@@ -276,14 +285,14 @@ section.success .flashnotice{
 
 
 #no_results{
-	background: url(/images/no_events_found.png) no-repeat;
+	background: #FF4040;
+	border-radius: 30px;
 	color: #fffeff;
 	margin: 30px 0 0px 200px;
 	padding: 5px 10px 5px 10px;
 	font-weight: bold;
 	font-size: 2em;
 	width: 255px;
-	height: 60px;
 	padding-top: 10px;
 	padding-left: 15px;
 }
