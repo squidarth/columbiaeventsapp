@@ -71,6 +71,7 @@ body{
 	padding: 0 0 0;
 	text-align: center;
 	width: 	100px;
+	font-weight: bold;
 	text-decoration: none;
 	color: #fffeff;
 	font-style: bold;
@@ -261,17 +262,17 @@ section.success .flashnotice{
 
 #calendar_link{
 	margin-top: 15px;
-	border: solid 1px #000;
+	border-radius: 30px;
 	padding: 5px 0 5px 0;
 	float: right;
 	font-size: 1.1em;
 	width: 120px;
-	background: url(/images/view_calendar_unselected.png) no-repeat;
+	background: #FF4040;
 	border-radius: 30px;
 	text-align: center;
 }
 #calendar_link:hover{
-	background: url(/images/view_calendar_selected.png) no-repeat;
+	background: #FF7F50;
 }
 #calendar_link a{
 	text-decoration: none;
@@ -292,7 +293,7 @@ section.success .flashnotice{
 	padding: 5px 10px 5px 10px;
 	font-weight: bold;
 	font-size: 2em;
-	width: 255px;
+	width: 240px;
 	padding-top: 10px;
 	padding-left: 15px;
 }
@@ -618,7 +619,7 @@ form#new_event ul li p{
 }
 /*  CATEGORY SHOW PAGES */
 #catshowpage{
-	margin-top: 40px;
+	margin-top: 0px;
 	margin-left: 40px;
 }
 
