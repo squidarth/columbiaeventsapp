@@ -3,7 +3,9 @@
 /* STYLE FOR APPLICATION.HTML, nav, logo, 	background-color:#af352a;*/
 
 #wrapper{
-	min-width: 1100px;
+	clear: both;
+	width: 960px;
+	margin: 0 auto 0 auto;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 body{
@@ -23,8 +25,7 @@ body{
 	clear: both;
 	padding-left: 5px;
 	padding-bottom: 5px;
-	width: 600px;
-	margin: 35px 0 20px 200px;
+	margin: 50px 0 20px 100px;
 	color: #666;
 	border-radius: 10px;
 	font-weight: bold;
@@ -41,7 +42,7 @@ body{
 #signup {
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	margin-top: 30px;
-	margin-left: 170px;
+	margin-left: 130px;
 }
 #signup a{
 	float: left;
@@ -161,8 +162,10 @@ body{
 	border: none;
 
 }
-#nav li.selected a{
+#nav li.selected{
 	background: url(/images/red_nav_bar_selected.png) no-repeat;
+}
+#nav li.selected a{
 	padding: 4px 8px;
 	text-decoration: none;
 	font-weight: bold;
@@ -216,7 +219,7 @@ section.success .flashnotice{
 }
 #mainpagewrapper #main{
 	float: left;
-	
+	width: 600px;
 }
 
 #searchbar{
@@ -267,7 +270,7 @@ section.success .flashnotice{
 #no_results{
 	background: url(/images/no_events_found.png) no-repeat;
 	color: #fffeff;
-	margin: 30px 0 0px 350px;
+	margin: 30px 0 0px 200px;
 	padding: 5px 10px 5px 10px;
 	font-weight: bold;
 	font-size: 2em;
@@ -300,7 +303,7 @@ section.success .flashnotice{
 /* USER SIGN UP STYLE */
 #signuppage{
 	float: left;
-	margin: 15px 0 0 280px;
+	margin: 15px 0 0 130px;
     border-radius: 5px;
     width: 500px;
     color: #111111;
@@ -371,7 +374,7 @@ section.success .flashnotice{
 #createnewevents{
 	float: left;
 	margin-top: 20px;
-	margin-left: 300px;
+	margin-left: 130px;
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 420px;
@@ -414,8 +417,8 @@ form#new_event ul li p{
 	margin-top: 20px;
 }
 #signinpage_facebook_signin{
-	margin: 15px 0 0 280px;
 	padding: 0 15px 10px 0;
+	margin: 15px 0 0 130px;
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 350px;
@@ -432,7 +435,7 @@ form#new_event ul li p{
 }
 #custom_signin{
 	float: left;
-	margin: 15px 0 0 280px;
+	margin: 15px 0 0 130px;
 	padding: 0 15px 0 0;
 	border: solid 1px #ddd;
     border-radius: 5px;
@@ -555,14 +558,15 @@ form#new_event ul li p{
 /* USER INDEX */
 
 #allusers{
-	margin-left: 200px;
+	margin-left: 80px;
 }
 #allusers h1{
 	color: #666;
-	margin: 20px 0 0px 0;
+	margin: 20px 0 0px 40px;
 	padding: 5px 5px 5px;
 	text-align: center;
 	border-bottom: solid 1px #ddd;
+	width: 550px;
 }
 #allusers ul{
 	margin-top: 0;
@@ -598,7 +602,7 @@ form#new_event ul li p{
 /*  CATEGORY SHOW PAGES */
 #catshowpage{
 	margin-top: 40px;
-	margin-left: 140px;
+	margin-left: 40px;
 }
 
 #catshowpage li img{
@@ -759,7 +763,7 @@ form#new_event ul li p{
 /* STYLE FOR CALENDAR */
 #calendar{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	margin: 30px 0 20px 280px;
+	margin: 30px 0 20px 130px;
 	width: 400px;
     
 }
