@@ -242,7 +242,7 @@ section.success .flashnotice{
 	margin-bottom: 0;
 	float: right;
 }
-#searchbar input#search_select{
+#searchbar #search_select{
 	border: 0;
 	width: 80px;
 	border-radius: 30px;
@@ -253,12 +253,27 @@ section.success .flashnotice{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-weight: bold;
 	background: #FF4040;
+	    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 3px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
 }
-#searchbar input#search_select:hover{
+#searchbar #search_select:hover{
 	color: #333;
-	background: #FF7F50;
+	background: #FF4040;
+	position: relative; top: 2px;
+    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
 }
 
+#searchbar #search_select:active{
+	background: #FF4040;
+    position: relative; top: 4px;
+    box-shadow: inset 0 1px 1px #FFDAB9,
+                0 1px 0 #FFDAB9,
+                0 -2px 5px rgba(255, 255, 255, .2);
+}
 #calendar_link{
 	margin-top: 15px;
 	border-radius: 30px;
@@ -269,17 +284,26 @@ section.success .flashnotice{
 	background: #FF4040;
 	border-radius: 30px;
 	text-align: center;
-}
-#calendar_link:hover{
-	background: #FF7F50;
-}
-#calendar_link a{
 	text-decoration: none;
 	color: #FFF;
 	font-weight: bold;
+		    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 3px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
 }
-#calendar_link a:hover{
-	color: #333;
+#calendar_link:hover{
+	background: #FF4040;
+	position: relative; top: 2px;
+    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
+}
+#calendar_link:active{
+	   position: relative; top: 4px;
+    box-shadow: inset 0 1px 1px #FFDAB9,
+                0 1px 0 #FFDAB9,
+                0 -2px 5px rgba(255, 255, 255, .2);
 }
 /* CODE FOR SEARCH ACTION*/
 
@@ -326,7 +350,11 @@ section.success .flashnotice{
 	border-radius: 10px;
 	/*border: 1px solid #ddd;*/
 }
-
+.pages-text .emphasis{
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.4em;
+}
 .pages-text a{
 	color: #666;
 }
@@ -422,7 +450,9 @@ section.success .flashnotice{
 form#new_event ul li{
 	border-radius: 5px;
 	list-style: none;
-	padding: 5px 10px;
+	padding: 0px 10px 0 10px;
+	margin-bottom: 0;
+	margin-top: 0;
 }
 form#new_event ul li p{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -433,14 +463,14 @@ form#new_event ul li p{
 
 .submitter{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	height: 40px;
 	border: none;
-	padding: 0 10px 0 10px;
+	padding: 5px 10px 5px 10px;
+	margin: 10px 0 0 0;
 	background: #FF7F50;
 	border-radius: 30px;
 	color: #fffeff;
 	font-weight: bold;
-	    box-shadow: 0 1px 0 #FFDAB9,
+    box-shadow: 0 1px 0 #FFDAB9,
                 0 2px 0 #FFDAB9,
                 0 3px 0 #FFDAB9,
                 0 4px 0 #FFDAB9,
@@ -451,7 +481,6 @@ form#new_event ul li p{
 	background: #FF7F50;
 	color: #333;
 	position: relative; top: 2px;
-    margin-top: 1px;
     box-shadow: 0 1px 0 #FFDAB9,
                 0 2px 0 #FFDAB9,
                 0 3px 0 #FFDAB9,
@@ -459,12 +488,10 @@ form#new_event ul li p{
 }
 .submitter:active{
 	background: #FF7F50;
-	position: relative; top: 2px;
-    margin-top: 1px;
-    box-shadow: 0 1px 0 #FFDAB9,
-                0 2px 0 #FFDAB9,
-                0 3px 0 #FFDAB9,
-                0 5px 10px rgba(164, 27, 39, .5);
+    position: relative; top: 4px;
+    box-shadow: inset 0 1px 1px #FFDAB9,
+                0 1px 0 #FFDAB9,
+                0 -2px 5px rgba(255, 255, 255, .2);
 }
 /* SIGN IN STYLE*/
 #signinpage{
@@ -884,3 +911,5 @@ form#new_event ul li p{
   font-size: 11px;
   text-align: center;
 }
+/* BUG FIX FOR DATEPICKER*/
+#ui-datepicker-div { display:none }
