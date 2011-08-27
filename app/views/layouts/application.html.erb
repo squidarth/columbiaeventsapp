@@ -156,7 +156,6 @@
 					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
 					<button id="search_select" type="submit">Search!</button>
 					<% end %>
-					<%= link_to "View Calendar", calendar_path, :id => "calendar_link" %>
 					</div>
 					<% else %>
 					<div id="searchbar">
@@ -164,10 +163,9 @@
 					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
 					<button id="search_select" type="submit">Search!</button>
 					<% end %>
-					<%= link_to "View Calendar", calendar_path, :id => "calendar_link" %>
 					</div>
 					<% end %>
-					
+					<%= link_to "View Calendar", calendar_path, :id => "calendar_link" %>
 					<!--
 					<div id="calendar_link">
 						<%= link_to "View Calendar", calendar_path %>

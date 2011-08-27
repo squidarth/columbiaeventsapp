@@ -269,6 +269,7 @@ section.success .flashnotice{
 	margin-top: 15px;
 	border-radius: 30px;
 	padding: 5px 0 5px 0;
+	clear: right;
 	float: right;
 	font-size: 1.1em;
 	width: 120px;
@@ -633,11 +634,12 @@ form#new_event ul li p{
 }
 #allusers h1{
 	color: #666;
-	margin: 20px 0 0px 40px;
+	margin: 0px 0 0px 40px;
 	padding: 5px 5px 5px;
 	text-align: center;
 	border-bottom: solid 1px #ddd;
-	width: 550px;
+	width: 580px;
+	float: left;
 }
 #allusers ul{
 	margin-top: 0;
@@ -685,11 +687,10 @@ form#new_event ul li p{
 	clear:both;
 	float: left;
 	list-style: none;
-	width: 600px;
-	border-bottom: solid 1px #999;
-	margin-right: 20px;
-	padding: 5px 0 5px 10px;
-	padding-right: 10px;
+	width: 570px;
+	border-top: solid 1px #999;
+	padding: 5px 10px 5px 10px;
+	margin: 0 0 0 0;
 }
 #catshowpage li:hover{
 	background-color: #ECF1EF;
@@ -716,16 +717,17 @@ form#new_event ul li p{
 #more{
 	clear:both;
 	float: left;
-	width: 600px;
+	width: 590px;
 	border-bottom: solid 1px #999;
-	padding: 5px 0 5px 10px;
+	border-top: solid 1px #999;
+	padding: 5px 0 5px 0px;
 	padding-right: 10px;	
 	color: #666;
 	font-weight: bold;
 	text-decoration: none;
 	font-size: 1.4em;
 	text-align: center;
-	margin-left: 240px;
+	margin-left: 220px;
 	margin-top: 0;
 }
 #more:hover{
