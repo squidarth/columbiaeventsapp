@@ -158,32 +158,28 @@ body{
 #nav li{
 	display: block;
 	margin: 0 0 5px 0px;
-	background: #FF7F50;
 	padding: 0;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	border-radius: 30px;
 	font-size: 110%;
-	width: 170px;
-	height: 33px;
-}
-#nav li:hover{
-	background: #FF4040;
 }
 #nav a{
 	display: block;
-	padding: 4px 8px;
+	width: 140px;
+	padding: 5px 5px 5px 5px;
 	color: #fffeff/*#231F20*/;
 	text-decoration: none;
+	background: #FF7F50;
 	font-weight: bold;
 	border-radius: 30px;
 	border: none;
 
 }
 #nav li.selected{
-	background: #FF4040;
+	
 }
 #nav li.selected a{
-	padding: 4px 8px;
+	background: #FF4040;
 	text-decoration: none;
 	font-weight: bold;
 	/*background-color: #FF8080;*/
