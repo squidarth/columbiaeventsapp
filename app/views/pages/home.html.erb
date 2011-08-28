@@ -10,11 +10,63 @@
 <div id="signup">
 	<%= link_to "Sign up", signup_path, :id => "email_login" %>
 	<a href="/auth/facebook" id="facebook_login">Log in with Facebook</a>
+	<%= link_to "View Calendar of Events", calendar_path, :id => "calendar_link" %>
 </div>
 </div>
+
+<div id="upcoming_events">Upcoming Events</div>
+<ul id="homeshowpage">
+<% @array_of_events.each do |event| %>
+<li><a href="/events/<%= event.id %>">
+	<% if event.photo.file? %>
+	<%= image_tag event.photo.url(:small) %>
+	<% else %>
+	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
+	<% end %>
+</a>
+
+<div id="eventwords">
+	<p id="event_title"><%= event.name %></p>
+	<% if event.date %>
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <% if(event.time.hour>12)%> <%= (event.time.hour-12) %>:<%= event.time.min %> PM <% else %><%= event.time.hour %>:<%= event.time.min %> AM<% end %><br />
+	<% end %>
+	<%= event.description %> <br />
+	<% if event.facebooklink%>
+	<a href="http://www.facebook.com/event.php?eid=<%= event.facebooklink %>"><b>Link to Facebook Event</b></a>	
+	<% end %>
+</div>
+</li>
+<% end %>
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var from = 0, to = 5, step = 5;
+	
+	function showNext(list) {
+	  list
+	    .find('li').hide().end()
+	    .find('li:lt(' + (to) + '):not(li:lt(' + from + '))')
+	      .show();
+	  to+= step;
+	}
+	
+	showNext($('ul#homeshowpage'));
+	$('#more').click(function(e){
+		e.preventDefault();
+		showNext($('ul#homeshowpage'));
+	});
+
+});
+</script>
+<% if @array_of_events.empty? %>
+<div id="no_results">No events found :(</div>
+<% end %>
+<% if @array_of_events.size > 5%>
+<a href="#" id="more">More</a>
+<% end %>
 <% else %>
 <ul id="catshowpage">
-
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
@@ -66,6 +118,4 @@ $(document).ready(function(){
 <% if @array_of_events.size > 5%>
 <a href="#" id="more">More</a>
 <% end %>
-
 <% end %>
-
