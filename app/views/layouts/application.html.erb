@@ -29,21 +29,40 @@
  </script>
 	<div id="top_part">
 <div id="logo"><a href="/"><%= image_tag ("EventSalsa.png"), :width => 300 %></div>
-				
+					
 				<% if signed_in? %>
 				<ul id="dashboard">
-					
 					<li>
 					<%= link_to "Sign out", signout_path %>
 					</li>
 					<li>
-					<%= link_to "View all users", allusers_path %>
+						<%= link_to "View Calendar", calendar_path %>
+					</li>
+					<li>
+					<%= link_to "View users", allusers_path %>
 					</li>
 					<li>
 					<%= link_to "Profile", current_user %>
 					</li>
 					<li>
-						<%= link_to "Make New Event", new_event_path%>
+						<%= link_to "Create Event", new_event_path%>
+					</li>
+					<li>
+					<% if(@title=="All Users")%>
+					<div id="searchbar">
+					<% form_tag(users_path, {:method => :get}) do%>
+					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
+					<button id="search_select" type="submit">Go!</button>
+					<% end %>
+					</div>
+					<% else %>
+					<div id="searchbar">
+					<% form_tag(events_path, {:method => :get}) do %>
+					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
+					<button id="search_select" type="submit">Go!</button>
+					<% end %>
+					</div>
+					<% end %>
 					</li>
 				</ul>
 				<% else %>
@@ -51,8 +70,26 @@
 					<li id="signin">
 					<%= link_to "Sign in", signin_path %>
 					</li>
+					<li>
+					<% if(@title=="All Users")%>
+					<div id="searchbar">
+					<% form_tag(users_path, {:method => :get}) do%>
+					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
+					<button id="search_select" type="submit">Go!</button>
+					<% end %>
+					</div>
+					<% else %>
+					<div id="searchbar">
+					<% form_tag(events_path, {:method => :get}) do %>
+					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
+					<button id="search_select" type="submit">Go!</button>
+					<% end %>
+					</div>
+					<% end %>
+					</li>
 				</ul>
 				<% end %>
+
 				</div>
 
 	<div id="mainpagewrapper">
@@ -150,22 +187,8 @@
 			</li>
 			<%end %>
 	</ul>
-					<% if(@title=="All Users")%>
-					<div id="searchbar">
-					<% form_tag(users_path, {:method => :get}) do%>
-					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
-					<button id="search_select" type="submit">Search!</button>
-					<% end %>
-					</div>
-					<% else %>
-					<div id="searchbar">
-					<% form_tag(events_path, {:method => :get}) do %>
-					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-					<button id="search_select" type="submit">Search!</button>
-					<% end %>
-					</div>
-					<% end %>
-					<!--<%= link_to "View Calendar", calendar_path, :id => "calendar_link" %>-->
+
+					
 
 <div id="main">
   	<section class="success">

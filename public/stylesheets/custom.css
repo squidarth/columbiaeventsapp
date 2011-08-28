@@ -40,7 +40,6 @@ body{
 	float: left;
 	margin: 10px 0 20px 60px;
 	color: #222;
-	border: solid 1px #ddd;
 	border-radius: 10px;
 }
 #intropara p#emphasis{
@@ -57,7 +56,7 @@ body{
 }
 #signup {
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	margin-top: 30px;
+	margin: 30px 0 0 130px;
 }
 #signup a{
 	float: left;
@@ -166,13 +165,12 @@ body{
 	font-size: 2em;
 	text-align: center;
 	color: #222;
-	margin: 0 0 0 400px;
+	margin: 0 0 0 300px;
 }
 /*DASHBOARD AND NAV CODE */
 #dashboard{
 	float:right;
-	margin: 20px 0 0 0;
-	width: 375px;
+	margin: 30px 0 0 0;
 	padding: 5px 0px 5px 10px;
 	list-style: none;
 	border-radius: 30px;
@@ -180,13 +178,14 @@ body{
 }
 #dashboard li{
 	float: left;
-	margin: 0 10px 0 5px;
+	margin: 0px 10px 0 5px;
 	text-align: center;
 	padding: 0;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-size: 110%;
 }
 #dashboard a{
+	margin-top: 4px;
 	float: left;
 	display: block;
 	color: #fffeff/*#231F20*/;
@@ -198,10 +197,8 @@ body{
 }
 #dashboard_signin{
 	float:right;
-	margin: 20px 0 0;
-	padding: 5px 0px 5px 0px;
+	padding: 5px 5px 5px 0px;
 	list-style: none;
-	width: 70px;
 	background: #FF7F50;
 	border-radius: 30px;
 }
@@ -216,6 +213,7 @@ body{
 }
 #dashboard_signin a{
 	float: left;
+	margin-top: 3px;
 	display: block;
 	padding: 0 0px 0 0;
 	color: #fffeff/*#231F20*/;
@@ -224,6 +222,40 @@ body{
 }
 #dashboard_signin a:hover{
 	color: #333;
+}
+#searchbar{
+	margin: 0 0 0 0;
+}
+#searchbar #search_select{
+	border: 0;
+	width: 30px;
+	border-radius: 30px;
+	margin-top: 0;
+	padding-top: 0;
+	color: #fffeff;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-weight: bold;
+	background: #FF7F50;
+	    /*box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 3px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);*/
+}
+/*#searchbar #search_select:hover{
+	position: relative; top: 2px;
+    box-shadow: 0 1px 0 #FFDAB9,
+                0 2px 0 #FFDAB9,
+                0 5px 10px rgba(164, 27, 39, .5);
+}
+
+#searchbar #search_select:active{
+    position: relative; top: 4px;
+    box-shadow: inset 0 1px 1px #FFDAB9,
+                0 1px 0 #FFDAB9,
+                0 -2px 5px rgba(255, 255, 255, .2);
+}*/
+#search_field{
+	width: 150px;
 }
 #nav{
 	float: left;
@@ -307,40 +339,6 @@ section.success .flashnotice{
 	padding-top: 0;
 }
 
-#searchbar{
-	margin-top: 15px;
-	margin-bottom: 0;
-	float: right;
-}
-#searchbar #search_select{
-	border: 0;
-	width: 80px;
-	border-radius: 30px;
-	height: 30px;
-	margin-top: 0;
-	padding-top: 0;
-	color: #fffeff;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-weight: bold;
-	background: #FF7F50;
-	    box-shadow: 0 1px 0 #FFDAB9,
-                0 2px 0 #FFDAB9,
-                0 3px 0 #FFDAB9,
-                0 5px 10px rgba(164, 27, 39, .5);
-}
-#searchbar #search_select:hover{
-	position: relative; top: 2px;
-    box-shadow: 0 1px 0 #FFDAB9,
-                0 2px 0 #FFDAB9,
-                0 5px 10px rgba(164, 27, 39, .5);
-}
-
-#searchbar #search_select:active{
-    position: relative; top: 4px;
-    box-shadow: inset 0 1px 1px #FFDAB9,
-                0 1px 0 #FFDAB9,
-                0 -2px 5px rgba(255, 255, 255, .2);
-}
 
 /* CODE FOR SEARCH ACTION*/
 
