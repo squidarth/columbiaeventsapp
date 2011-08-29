@@ -118,7 +118,7 @@ body{
 }
 
 #homeshowpage{
-	margin-top: 20px;
+	margin-top: 0px;
 	margin-left: 180px;
 	margin-bottom: 0;
 	float: left;
@@ -132,7 +132,7 @@ body{
 	float: left;
 	list-style: none;
 	width: 570px;
-	border-top: solid 1px #999;
+	border-bottom: solid 1px #999;
 	padding: 5px 10px 5px 10px;
 	margin: 0 0 0 0;
 }
@@ -588,18 +588,16 @@ form#new_event ul li p{
 /* USER SHOW PAGE */
 #user{
 	float: left;
-	margin-left: 100px;
+	margin-left: 70px;
 }
 #user #title{
-	margin-top: 0px;
-	margin-bottom: 20px;
+	margin: 0 0 0 0;
+	text-align: left;
 	clear: both;
 	float: left;
 	color: #222;
 	font-size: 2.4em;
 	font-weight: bold;
-	border-radius: 30px;
-	padding: 10px 10px 10px;
 }
 #userdetails{
 	clear: both;
@@ -632,15 +630,29 @@ form#new_event ul li p{
 
 #users_events{
 	float: left;
-	padding: 10px 10px 10px;
+	padding: 10px 10px 0px;
+	width: 570px;
+	text-align: left;
 	color: #222;
 	font-size: 2em;
 	font-weight: bold;
-	margin: 0 0 20px 180px;
+	margin: 0 0 20px 70px;
+	border-bottom: solid 1px #999;
 }
 
 #edit_user{
+	margin: 0 0 0 0;
+	width: 570px;
+	text-decoration: none;
+	padding: 10px 0 10px 20px;
+	background: #eee;
+	border-radius: 10px;
+	clear: both;
 	float: left;
+	color: #6495ED;
+}
+.events{
+	margin-left: 140px;
 }
 /* NOTE FOR USER SHOW PAGE THE EVENTS PARTIAL USES THE SAME STYLE AS THE CATEGORY PAGE */
 
@@ -648,7 +660,7 @@ form#new_event ul li p{
 /* User Edit Page*/
 #edituser{
 	float: left;
-	margin: 15px 0 0 280px;
+	margin: 15px 0 0 170px;
     border-radius: 5px;
     width: 500px;
     color: #111111;

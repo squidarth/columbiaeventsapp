@@ -1,33 +1,33 @@
 <div id="user">
-	<div id="title"><%= @user.name %></div>
+	
 <div id="userdetails">
 	<% if @user.avatar.file? %>
-	<%= image_tag @user.avatar.url(:small) %>
+	<%= image_tag @user.avatar.url(:normal) %>
 	<% elsif @user.fbnickname %>
-	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=normal"></img>
+	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=large" height="300" width="300"></img>
 	<% elsif @user.facebookid%>
-	<img src="https://graph.facebook.com/<%= @user.facebookid%>/picture?type=normal"></img>
+	<img src="https://graph.facebook.com/<%= @user.facebookid%>/picture?type=large" height="300" width="300"></img>
 	<% else%>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
 	<ul>
-	<li><b>Email:</b> <%= @user.email %></li>
-	<% if(@user.school)%>
-	<li><b>School:</b> <%= @user.school %></li>
-	<% end %>
-	<% if(@user.affiliatedorgs)%>
-	<li><b>Affiliated Organizations:</b> <%= @user.affiliatedorgs %></li>
-	<% end %>
-	<% if(@user.fblink)%>
-	<li><b>Facebook Profile:</b> <a href="<%= @user.fblink %>"><%= @user.fblink %></a></li>
-	<% end %>
+	<li id="title"><%= @user.name %></li>
 	<% if(@user.aboutme) %>
-	<li><b>About Me:</b> <%= @user.aboutme %></li>
+	<li><i><%= @user.aboutme %></i></li>
 	<% end %>
-	<li><%= link_to "Edit", edit_user_path(current_user), :id => "edit_user" %></li>
+	<% if(@user.school)%>
+	<li><%= @user.school %></li>
+	<% end %>
+	<% if(@user.fbnickname)%>
+	<li><a href="http://www.facebook.com/<%= @user.fbnickname %>">Facebook Profile</a></li>
+	<% elsif(@user.facebookid) %>
+	<li><a href="http://www.facebook.com/profile.php?id=<%= @user.facebookid %>">Facebook Profile</a></li>
+	<% end %>
 	</ul>
-	
 </div>
+	<% if @user == current_user %>
+	<%= link_to "Edit Your Profile", edit_user_path(current_user), :id => "edit_user" %>
+	<% end %>
 </div>
 <% if !@user.events.empty? %>
 <div id="users_events">
