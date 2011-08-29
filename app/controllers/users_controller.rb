@@ -8,7 +8,7 @@ class UsersController < ApplicationController
        @users = sort_alphabetically(User.search(params[:search]))
        @title = "Search"
      else
-     @title = "All users"
+     @title = "All Users"
      @users = sort_alphabetically(User.all)
      end
    end  

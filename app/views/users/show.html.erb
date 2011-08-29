@@ -24,8 +24,9 @@
 	<% if(@user.aboutme) %>
 	<li><b>About Me:</b> <%= @user.aboutme %></li>
 	<% end %>
+	<li><%= link_to "Edit", edit_user_path(current_user), :id => "edit_user" %></li>
 	</ul>
-	<%= link_to "Edit", edit_user_path(current_user), :id => "edit_user" %>
+	
 </div>
 </div>
 <% if !@user.events.empty? %>

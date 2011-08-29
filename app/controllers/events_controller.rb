@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     
     if params[:search]
       @title = "Search"
-      @header = "Search  + '" + params[:search] + "'"
+      @header = "Search results for '" + params[:search] + "'"
       @events = Event.search(params[:search])
       @array_of_events = @events.sort!{|a,b| b.date <=> a.date }
     elsif params[:date]
@@ -28,6 +28,10 @@ class EventsController < ApplicationController
   end
 
   def calendar
+    @dates_with_events = []
+    Event.all.each do |event|
+      @dates_with_events << event.date
+    end
     @events = Event.all
     @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
     @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

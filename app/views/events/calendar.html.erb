@@ -10,11 +10,17 @@
 			<% if @new_date %>
 				<% if date == @new_date%>
 					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date}, :id => 'selected' %>
+				<% elsif @dates_with_events.include?(date)%>
+					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date}, :id => 'has_event'%>
 				<% else %>
 					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
 				<% end %>
 			<%else %>
-			<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
+				<% if @dates_with_events.include?(date )%>
+				<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date}, :id => 'has_event' %>
+				<% else %>
+				<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
+				<% end %>
 			<% end %>
 		<% end %>
 	<% end %>

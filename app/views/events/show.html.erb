@@ -40,16 +40,16 @@
 </li>
 <% if(!(@event.location == "")) %>
 <li>
-	Place: <%= @event.location %>
+	<b>Place:</b> <%= @event.location %>
 </li>
 <% end %>
 <li>
 	<% if @event.date && @event.time%>
-	Time: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <% if(@event.time.hour>12)%> <%= (@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
+	<b>Time:</b> <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <% if(@event.time.hour>12)%> <%= (@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
 	<% elsif @event.date %>
-	Date: <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
+	<b>Date:</b> <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
 	<% elsif @event.time %>
-	Time: <% if(@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
+	<b>Time:</b> <% if(@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
 	<% end %>
 </li>
 <% if @event.facebooklink%>

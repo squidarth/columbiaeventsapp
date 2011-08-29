@@ -143,13 +143,13 @@ body{
 	margin-left: 30px;
 	margin-top: 0;
 	color: #222;
-	font-weight: bold;
 	float:left;
 }
 #homeshowpage li #eventwords p#event_title{
 	margin-top: 0;
 	margin-bottom: 10px;
 	font-size: 2em;
+	font-weight: bold;
 }
 #homeshowpage li #eventwords a{
 	text-decoration: none;
@@ -196,6 +196,7 @@ body{
 	color: #333;
 }
 #dashboard_signin{
+	margin: 30px 0 0 0;
 	float:right;
 	padding: 5px 5px 5px 0px;
 	list-style: none;
@@ -342,14 +343,16 @@ section.success .flashnotice{
 
 /* CODE FOR SEARCH ACTION*/
 
-
+#search_results_for{
+	float: left;
+	font-size: 1.5em;
+	margin-left: 70px;
+}
 #no_results{
-	background: #FF7F50;
 	border-radius: 30px;
-	color: #fffeff;
+	color: #666;
 	margin: 30px auto 0px 60px;
 	padding: 0px 10px 5px 10px;
-	font-weight: bold;
 	font-size: 2em;
 	width: 240px;
 	padding-top: 10px;
@@ -358,18 +361,18 @@ section.success .flashnotice{
 }
 
 #no_results_calendar{
-	background: #FF7F50;
 	border-radius: 30px;
-	color: #fffeff;
+	color: #666;
 	margin: 10px 0 0px 140px;
 	padding: 0px 10px 5px 10px;
-	font-weight: bold;
 	font-size: 2em;
 	width: 240px;
 	padding-top: 10px;
 	padding-left: 15px;
 	float: left;
 }
+
+
 /*  CODE FOR ABOUT PAGES */
 .pages-text{
 	padding-top: 0;
@@ -592,7 +595,6 @@ form#new_event ul li p{
 	font-size: 2.4em;
 	font-weight: bold;
 	border-radius: 30px;
-	border: solid 1px #ddd;
 	padding: 10px 10px 10px;
 }
 #userdetails{
@@ -627,12 +629,15 @@ form#new_event ul li p{
 #users_events{
 	float: left;
 	padding: 10px 10px 10px;
-	color: #666;
+	color: #222;
 	font-size: 2em;
 	font-weight: bold;
 	margin: 0 0 20px 180px;
 }
 
+#edit_user{
+	float: left;
+}
 /* NOTE FOR USER SHOW PAGE THE EVENTS PARTIAL USES THE SAME STYLE AS THE CATEGORY PAGE */
 
 
@@ -749,11 +754,12 @@ form#new_event ul li p{
 	margin-left: 30px;
 	margin-top: 0;
 	color: #222;
-	font-weight: bold;
+	
 	float:left;
 }
 #catshowpage li #eventwords p#event_title{
 	margin-top: 0;
+	font-weight: bold;
 	margin-bottom: 10px;
 	font-size: 2em;
 }
@@ -843,7 +849,6 @@ form#new_event ul li p{
 #eventshow{
 	float: left;
 	color: #222;
-	font-weight: bold;
 	border: solid 1px #ddd;
 	margin-bottom: 20px;
 	padding: 10px 10px 10px;
@@ -935,6 +940,9 @@ form#new_event ul li p{
 #calendar td a{
 	color: #666;
 	text-decoration: none;
+}
+#calendar a#has_event{
+	color: #222;
 	font-weight: bold;
 }
 #calendar td #selected{

@@ -1,3 +1,6 @@
+<% if @header %>
+<div id="search_results_for"><%= @header %></div>
+<% end %>
 <ul id="catshowpage">
 
 <% @array_of_events.each do |event| %>
@@ -56,9 +59,6 @@ $(document).ready(function(){
 	});
 });
 </script>
-<% if @array_of_events.empty? %>
-<div id="no_results">No events found :(</div>
-<% end %>
 <% if @array_of_events.size > 5%>
 <a href="#" id="more">More</a>
 <a href='#' id="back_to_top">Back to Top</a>
