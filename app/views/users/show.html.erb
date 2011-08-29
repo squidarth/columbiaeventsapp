@@ -4,11 +4,15 @@
 	<% if @user.avatar.file? %>
 	<%= image_tag @user.avatar.url(:normal) %>
 	<% elsif @user.fbnickname %>
+	<a href="http://www.facebook.com/<%= @user.fbnickname %>">
 	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=large" height="220" width="220"></img>
+	</a>
 	<% elsif @user.facebookid%>
+	<a href="http://www.facebook.com/profile.php?id=<%= @user.facebookid %>">
 	<img src="https://graph.facebook.com/<%= @user.facebookid%>/picture?type=large" height="220" width="220"></img>
+	</a>
 	<% else%>
-	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<%= image_tag ("questionmark.png"), :height => 220, :width => 220 %>
 	<% end %>
 	<ul>
 	<li id="title"><%= @user.name %></li>

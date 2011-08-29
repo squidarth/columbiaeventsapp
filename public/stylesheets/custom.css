@@ -304,7 +304,7 @@ body{
 /* STYLE FOR THE FLASH */
 
 section.success .flasherror{
-	text-align: center;
+	text-align: left;
 	color: #F0463D;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -314,21 +314,21 @@ section.success .flasherror{
 	max-width: 300px;
 }
 section.success .flashsuccess{
-	text-align: center;
+	text-align: left;
 	color: #256AA3;
 	font-size: 1.2em;
 	font-weight: bold;
 	margin: 0px auto 5px 0px;
-	padding: 0px 0 0px 0;
+	padding: 0px 0 0px 20px;
 }
 section.success .flashnotice{
-	text-align: center;
+	text-align: left;
 	color: #F0463D;
 	font-size: 1.2em;
 	font-weight: bold;
 	border-radius: 20px;
 	margin: 0px auto 5px 0px;
-	padding: 0px 0 0px 0;
+	padding: 0px 0 0px 20px;
 }
 /*  STYLE FOR MAINPAGEWRAPPER */
 
@@ -603,8 +603,9 @@ form#new_event ul li p{
 	clear: both;
 	color: #222;
 	border: solid 1px #ddd;
-	margin-bottom: 20px; 
-	padding: 10px 10px 10px;
+	margin: 0 0 20px 0px; 
+	width: 580px;
+	padding: 10px 20px 10px 10px;
 	border-radius: 30px;
 	float: left;
 }
