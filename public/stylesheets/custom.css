@@ -161,11 +161,14 @@ body{
 
 #upcoming_events{
 	float: left;
+	border-bottom: solid 1px #999;
+	width: 570px;
 	font-weight: bold;
 	font-size: 2em;
-	text-align: center;
+	text-align: left;
 	color: #222;
 	margin: 0 0 0 70px;
+	padding: 0 0 5px 0;
 }
 /*DASHBOARD AND NAV CODE */
 #dashboard{
@@ -345,8 +348,10 @@ section.success .flashnotice{
 
 #search_results_for{
 	float: left;
-	font-size: 1.5em;
+	margin-top: 0;
 	margin-left: 70px;
+	border-bottom: solid 1px #999;
+	width: 590px;
 }
 #no_results{
 	border-radius: 30px;
@@ -400,7 +405,7 @@ section.success .flashnotice{
 /* USER SIGN UP STYLE */
 #signuppage{
 	float: left;
-	margin: 0px 0 0 30px;
+	margin: 0px 0 0 170px;
 	padding-top: 0;
     border-radius: 5px;
     width: 450px;
@@ -472,7 +477,7 @@ section.success .flashnotice{
 #createnewevents{
 	float: left;
 	margin-top: 0px;
-	margin-left: 50px;
+	margin-left: 170px;
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 420px;
@@ -517,7 +522,6 @@ form#new_event ul li p{
 }
 .submitter:hover{
 	background: #FF7F50;
-	color: #333;
 	position: relative; top: 2px;
     box-shadow: 0 1px 0 #FFDAB9,
                 0 2px 0 #FFDAB9,
@@ -537,7 +541,7 @@ form#new_event ul li p{
 }
 #signinpage_facebook_signin{
 	padding: 0 15px 10px 0;
-	margin: 0px 0 0 30px;
+	margin: 0px 0 0 170px;
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 400px;
@@ -554,7 +558,7 @@ form#new_event ul li p{
 }
 #custom_signin{
 	float: left;
-	margin: 15px 0 0 30px;
+	margin: 15px 0 0 170px;
 	padding: 0 15px 0 0;
 	border: solid 1px #ddd;
     border-radius: 5px;
@@ -684,12 +688,14 @@ form#new_event ul li p{
 #allusers h1{
 	color: #222;
 	margin: 0px 0 0px 40px;
-	width: 570px;
+	width: 580px;
+	border-bottom: solid 1px #999;
 	float: left;
 }
 #allusers ul{
 	width: 580px;
 	margin-bottom: 0;
+	margin-top: 0;
 	float: left;
 }
 #allusers ul li{
@@ -698,7 +704,7 @@ form#new_event ul li p{
 	margin: 0 0 0 0;
 	list-style: none;
 	width: 580px;
-	border-top: solid 1px #999;
+	border-bottom: solid 1px #999;
 	padding: 5px 10px 5px 0px;
 	
 }
@@ -743,7 +749,7 @@ form#new_event ul li p{
 	float: left;
 	list-style: none;
 	width: 570px;
-	border-top: solid 1px #999;
+	border-bottom: solid 1px #999;
 	padding: 5px 10px 5px 10px;
 	margin: 0 0 0 0;
 }
@@ -775,7 +781,6 @@ form#new_event ul li p{
 	float: left;
 	width: 580px;
 	border-bottom: solid 1px #999;
-	border-top: solid 1px #999;
 	padding: 5px 0 5px 0px;
 	padding-right: 10px;	
 	color: #666;
@@ -795,7 +800,6 @@ form#new_event ul li p{
 	float: left;
 	width: 590px;
 	border-bottom: solid 1px #999;
-	border-top: solid 1px #999;
 	padding: 5px 0 5px 0px;
 	padding-right: 10px;	
 	color: #666;
@@ -909,7 +913,7 @@ form#new_event ul li p{
 /* STYLE FOR CALENDAR */
 #calendar{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	margin: 0px 0 20px 70px;
+	margin: 0px 0 20px 170px;
 	width: 400px;
 	float: left;
     
@@ -942,7 +946,7 @@ form#new_event ul li p{
 	text-decoration: none;
 }
 #calendar a#has_event{
-	color: #222;
+	color: #666;
 	font-weight: bold;
 }
 #calendar td #selected{

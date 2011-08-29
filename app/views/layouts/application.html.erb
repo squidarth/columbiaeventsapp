@@ -8,7 +8,7 @@
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" %>
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
   <%= javascript_include_tag "jquery-rails.js", "jquery.ui.timepicker.js" %>
-  <%= javascript_include_tag 'hoverIntent', 'application', 'scroller_roll.js' %>
+  <%= javascript_include_tag 'application' %>
   
   <%= csrf_meta_tag %>
 <LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
@@ -95,13 +95,13 @@
 			<%= link_to "All", all_path %>
 		</li>
 		<% end %>
-		<% if @title == "Fraternities"%>
+		<% if @title == "Greek Life"%>
 			<li class="selected">
-				<%= link_to "Fraternities", fraternities_path %>
+				<%= link_to "Greek Life", glife_path %>
 			</li>
 		<% else %>
 			<li class="unselected">
-				<%= link_to "Fraternities", fraternities_path %>
+				<%= link_to "Greek Life", glife_path %>
 			</li>
 		<% end %>
 		<% if @title == "Theater" %>

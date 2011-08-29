@@ -18,7 +18,7 @@ Sidsapp::Application.routes.draw do
   match '/about', :to => 'pages#about'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  match '/fraternities', :to => 'categories#fraternities'
+  match '/glife', :to => 'categories#fraternities'
   match '/theater', :to => 'categories#theater'
   match '/sports', :to => 'categories#sports'
   match '/politics', :to => 'categories#politics'

@@ -7,8 +7,10 @@ class UsersController < ApplicationController
      if params[:search]
        @users = sort_alphabetically(User.search(params[:search]))
        @title = "Search"
+       @header = "Search results for '" + params[:search] + "'"
      else
      @title = "All Users"
+     @header = "All Users"
      @users = sort_alphabetically(User.all)
      end
    end  
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
 
     if @user.save
        sign_in @user
-       flash[:success] = "Thank you for joining!"
+       flash[:success] = "You're all signed up! Either start by editing your profile to add some details, or go ahead and start creating events!"
        redirect_to @user
     else
         @title = "Sign up!"
