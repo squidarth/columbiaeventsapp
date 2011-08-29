@@ -4,9 +4,9 @@
 	<% if @user.avatar.file? %>
 	<%= image_tag @user.avatar.url(:normal) %>
 	<% elsif @user.fbnickname %>
-	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=large" height="300" width="300"></img>
+	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=large" height="250" width="250"></img>
 	<% elsif @user.facebookid%>
-	<img src="https://graph.facebook.com/<%= @user.facebookid%>/picture?type=large" height="300" width="300"></img>
+	<img src="https://graph.facebook.com/<%= @user.facebookid%>/picture?type=large" height="250" width="250"></img>
 	<% else%>
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
