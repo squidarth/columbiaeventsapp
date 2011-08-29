@@ -68,7 +68,7 @@ class CategoriesController < ApplicationController
     
     def all
       @title = "All"
-      @array_of_events = Event.all
+      @array_of_events = filter_and_sort_date(Event.all)
       @times = ['12:00 AM', '1:00 AM','2:00 AM', '3:00 AM','4:00 AM','5:00 AM', '6:00 AM','7:00 AM','8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM']
       @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
       @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -86,15 +86,8 @@ class CategoriesController < ApplicationController
     
     def filter_by_date
       events = Event.all
-      filtered_events = []
-      events.each do |event|
-        if event.date
-          if event.date >=Date.today
-            filtered_events << event
-          end
-        end
-      end
-      filtered_events  
+      filtered_events = filter_and_sort_date(events)
+      filtered_events
     end
     
     def compile_categories(category)
@@ -104,21 +97,30 @@ class CategoriesController < ApplicationController
         events = user.events
         events.each do |event|
           if event.category == category
-            if event.date
-              if event.date >= Date.today
-                array_of_events << event
-              end
-            end
+            array_of_events << event
           end
         end
        end
-      array_of_events
+      events = filter_and_sort_date(array_of_events)
+      events
     end
     
     def order_array(category)
        array_to_be_sorted = compile_categories(category)
-       array_to_be_sorted.sort!{|a,b| a.datescore <=> b.datescore}
+       array_to_be_sorted
     end
     
+    def filter_and_sort_date(events)
+    filtered_events = []
+    events.each do |event|
+      if event.date
+        if event.date >= Date.today
+          filtered_events << event
+        end
+      end
+    end
+    filtered_events.sort! {|a,b| b.date <=> a.date}
+    filtered_events
+  end
 
 end

@@ -28,10 +28,10 @@
 	<%= link_to "Edit", edit_user_path(current_user), :id => "edit_user" %>
 </div>
 </div>
+<% if !@user.events.empty? %>
 <div id="users_events">
 	<%= @user.name%>'s Events
 </div>
-<% unless @user.events.empty? %>
 	<div class="events">
 		<%= render 'events' %>
 	</div>

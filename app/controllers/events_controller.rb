@@ -11,14 +11,7 @@ class EventsController < ApplicationController
       @title = "Search"
       @header = "Search  + '" + params[:search] + "'"
       @events = Event.search(params[:search])
-      @array_of_events = []
-      @events.each do |event| #possibly move this into the event model
-        if event.date
-         if event.date > Date.today || event.date == Date.today
-          @array_of_events << event
-        end
-      end
-      end
+      @array_of_events = @events.sort!{|a,b| b.date <=> a.date }
     elsif params[:date]
       @array_of_events = Event.find_by_date(Date.parse(params[:date]))
       @header = @months[Date.parse(params[:date]).month - 1] + ' ' + Date.parse(params[:date]).day.to_s + ', ' + Date.parse(params[:date]).year.to_s 
@@ -223,6 +216,19 @@ class EventsController < ApplicationController
   
   private
   
+    def filter_and_sort_date(events)
+      filtered_events = []
+      events.each do |event|
+        if event.date
+          if event.date >= Date.today
+            filtered_events << event
+          end
+        end
+      end
+      filtered_events.sort! {|a,b| b.date <=> a.date}
+      filtered_events
+    end
+    
     def authorized_user
       @event = current_user.events.find_by_id(params[:id])
       redirect_to root_path if @event.nil?

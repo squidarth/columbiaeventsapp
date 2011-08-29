@@ -165,7 +165,7 @@ body{
 	font-size: 2em;
 	text-align: center;
 	color: #222;
-	margin: 0 0 0 300px;
+	margin: 0 0 0 70px;
 }
 /*DASHBOARD AND NAV CODE */
 #dashboard{
@@ -375,7 +375,7 @@ section.success .flashnotice{
 	padding-top: 0;
 	float: left;
 	text-align: left;
-	color: #666;
+	color: #222;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.2em;
 	width: 700px;
@@ -387,7 +387,6 @@ section.success .flashnotice{
 }
 .pages-text .emphasis{
 	margin-top: 0;
-	text-align: center;
 	font-weight: bold;
 	font-size: 1.4em;
 }
@@ -589,7 +588,7 @@ form#new_event ul li p{
 	margin-bottom: 20px;
 	clear: both;
 	float: left;
-	color: #666;
+	color: #222;
 	font-size: 2.4em;
 	font-weight: bold;
 	border-radius: 30px;
@@ -598,7 +597,7 @@ form#new_event ul li p{
 }
 #userdetails{
 	clear: both;
-	color: #666;
+	color: #222;
 	border: solid 1px #ddd;
 	margin-bottom: 20px; 
 	padding: 10px 10px 10px;
@@ -612,7 +611,7 @@ form#new_event ul li p{
 	float: left;
 }
 #userdetails a{
-	color: #666;
+	color: #222;
 	text-decoration: none;
 }
 #userdetails ul{
@@ -675,31 +674,28 @@ form#new_event ul li p{
 /* USER INDEX */
 
 #allusers{
-	margin-left: 80px;
+	margin-left: 180px;
 }
 #allusers h1{
-	color: #666;
+	color: #222;
 	margin: 0px 0 0px 40px;
-	padding: 5px 5px 5px;
-	text-align: center;
-	border-bottom: solid 1px #ddd;
-	width: 580px;
+	width: 570px;
 	float: left;
 }
 #allusers ul{
-	margin-top: 0;
-	padding-top: 0;
+	width: 580px;
+	margin-bottom: 0;
 	float: left;
 }
 #allusers ul li{
-	margin: 0 0 0 0px;
-	width: 550px;
-	clear: both;
+	clear:both;
 	float: left;
+	margin: 0 0 0 0;
 	list-style: none;
-	padding: 10px 10px 10px 30px;
-	text-align: center;
-	border-bottom: solid 1px #ddd;
+	width: 580px;
+	border-top: solid 1px #999;
+	padding: 5px 10px 5px 0px;
+	
 }
 #allusers ul li:hover{
 	background-color: #ECF1EF; 
@@ -709,20 +705,29 @@ form#new_event ul li p{
 	border: solid 2px #fffeff;
 	border-radius: 15px;
 }
-#allusers ul li p{
+#allusers ul li #user_details{
+	float: left;
 	margin: 10px 0 auto 10px;
-	color: #666;
+	color: #222;
+}
+#allusers ul li #user_details p#user_title{
+	margin: 0 0 0 0;
+	color: #222;
 	font-size: 2em;
 	font-weight: bold;
-	margin-left: 10px;
+	float: left;
+}
+#allusers ul li #user_details p.user_detail{
+	clear: left;
+	font-size: 1em;
+	color: #222;
+	margin: 0 0 0 0;
 	float: left;
 }
 /*  CATEGORY SHOW PAGES */
 #catshowpage{
-	margin-top: 20px;
-	margin-left: 30px;
-	margin-bottom: 0;
 	float: left;
+	margin: 0 0 0 30px;
 }
 
 #catshowpage li img{
@@ -743,7 +748,7 @@ form#new_event ul li p{
 #catshowpage li #eventwords{
 	margin-left: 30px;
 	margin-top: 0;
-	color: #666;
+	color: #222;
 	font-weight: bold;
 	float:left;
 }
@@ -754,7 +759,7 @@ form#new_event ul li p{
 }
 #catshowpage li #eventwords a{
 	text-decoration: none;
-	color: #666;
+	color: #222;
 }
 #catshowpage li a img{
 	border-radius: 5px;
@@ -762,7 +767,7 @@ form#new_event ul li p{
 #more{
 	clear:both;
 	float: left;
-	width: 590px;
+	width: 580px;
 	border-bottom: solid 1px #999;
 	border-top: solid 1px #999;
 	padding: 5px 0 5px 0px;
@@ -778,6 +783,26 @@ form#new_event ul li p{
 #more:hover{
 	background: #ECF1EF;
 }
+#back_to_top{
+	display: none;
+	clear:both;
+	float: left;
+	width: 590px;
+	border-bottom: solid 1px #999;
+	border-top: solid 1px #999;
+	padding: 5px 0 5px 0px;
+	padding-right: 10px;	
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 1.4em;
+	text-align: center;
+	margin-left: 220px;
+	margin-top: 0;
+}
+#back_to_top:hover{
+	background: #ECF1EF;
+}
 /* Event Show Page*/
 
 #event{
@@ -787,7 +812,7 @@ form#new_event ul li p{
 #eventuser{
 	padding: 10px 20px 10px;
 	float:left;
-	color: #666;
+	color: #222;
 	border: solid 1px #ddd;
 	margin-bottom: 10px;
 	border-radius: 30px;
@@ -817,7 +842,7 @@ form#new_event ul li p{
 }
 #eventshow{
 	float: left;
-	color: #666;
+	color: #222;
 	font-weight: bold;
 	border: solid 1px #ddd;
 	margin-bottom: 20px;

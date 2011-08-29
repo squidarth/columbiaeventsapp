@@ -5,11 +5,11 @@ class UsersController < ApplicationController
    
    def index
      if params[:search]
-       @users = User.search(params[:search])
+       @users = sort_alphabetically(User.search(params[:search]))
        @title = "Search"
      else
      @title = "All users"
-     @users = User.all
+     @users = sort_alphabetically(User.all)
      end
    end  
    
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
      @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
      @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
      @title = @user.name
-     @array_of_events = @user.events
+     @array_of_events = filter_and_sort_date(@user.events)
      @event = Event.new if signed_in?
      @authorizations = @user.authorizations
    end
@@ -88,8 +88,27 @@ class UsersController < ApplicationController
     
     private
      
+     
+    def filter_and_sort_date(events)
+        filtered_events = []
+        events.each do |event|
+          if event.date
+            if event.date >= Date.today
+              filtered_events << event
+            end
+          end
+        end
+        filtered_events.sort! {|a,b| b.date <=> a.date}
+        filtered_events
+      end
+      
       def correct_user
           @user = User.find(params[:id])
           redirect_to(root_path) unless current_user?(@user)
+      end
+      
+      def sort_alphabetically(users)
+        users.sort! {|a,b| a.name.downcase <=> b.name.downcase}
+        users
       end
 end

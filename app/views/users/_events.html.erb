@@ -3,7 +3,7 @@
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
-	<%= image_tag event.photo.url(:small) %>
+	<%= image_tag event.photo.url(:small), :height => 100, :width => 100 %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
 	<% end %>
@@ -11,7 +11,7 @@
 
 <div id="eventwords">
 	<p id="event_title"><%= event.name %></p>
-	<% if(event.date && event.time)%>
+	<% if event.date %>
 	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <% if(event.time.hour>12)%> <%= (event.time.hour-12) %>:<%= event.time.min %> PM <% else %><%= event.time.hour %>:<%= event.time.min %> AM<% end %><br />
 	<% end %>
 	<%= event.description %> <br />
@@ -20,7 +20,43 @@
 	<% end %>
 </div>
 </li>
-
-
 <% end %>
 </ul>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var from = 0, to = 5, step = 5, maxSize = <%= @array_of_events.size %>;
+	
+	function showNext(list) {
+	  list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();
+	  $("html, body").animate({ scrollTop: 300*(to/5)}, 1000);
+	  to+= step;
+	  if(to >= maxSize){
+	  	$('#more').hide();
+	  	$('#back_to_top').show();
+	  }
+	}
+	function start(list){
+		list.find('li').hide().end().find('li:lt(' + (to) + '):not(li:lt(' + from + '))').show();
+		
+		if(to >= maxSize){
+		  	$('#more').hide();
+		  	$('#back_to_top').show();
+	  }
+	  to+= step;
+	}
+	start($('ul#catshowpage'));
+	$('#more').click(function(e){
+		e.preventDefault();
+		showNext($('ul#catshowpage'));
+	});
+	$('#back_to_top').click(function(e){
+		e.preventDefault();
+		$("html, body").animate({ scrollTop: 0 }, 700);
+	});
+});
+</script>
+<% if @array_of_events.size > 5%>
+<a href="#" id="more">More</a>
+<a href='#' id="back_to_top">Back to Top</a>
+<% end %>

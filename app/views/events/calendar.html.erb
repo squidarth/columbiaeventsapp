@@ -25,7 +25,7 @@
 <% @events_by_date.each do |event| %>
 <li><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
-	<%= image_tag event.photo.url(:small) %>
+	<%= image_tag event.photo.url(:small), :height => 100, :width => 100 %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
 	<% end %>
@@ -46,6 +46,43 @@
 
 <% end %>
 </ul>
+<script type="text/javascript">
+$(document).ready(function(){
+	var from = 0, to = 5, step = 5, maxSize = <%= @events_by_date.size %>;
+	
+	function showNext(list) {
+	  list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();
+	  $("html, body").animate({ scrollTop: 300*(to/5)}, 1000);
+	  to+= step;
+	  if(to >= maxSize){
+	  	$('#more').hide();
+	  	$('#back_to_top').show();
+	  }
+	}
+	function start(list){
+		list.find('li').hide().end().find('li:lt(' + (to) + '):not(li:lt(' + from + '))').show();
+		
+		if(to >= maxSize){
+		  	$('#more').hide();
+		  	$('#back_to_top').show();
+	  }
+	  to+= step;
+	}
+	start($('ul#catshowpage'));
+	$('#more').click(function(e){
+		e.preventDefault();
+		showNext($('ul#catshowpage'));
+	});
+	$('#back_to_top').click(function(e){
+		e.preventDefault();
+		$("html, body").animate({ scrollTop: 0 }, 700);
+	});
+});
+</script>
+<% if @events_by_date.size > 5%>
+<a href="#" id="more">More</a>
+<a href='#' id="back_to_top">Back to Top</a>
+<% end %>
 <% else %>
 <div id="no_results_calendar">No events found :(</div>
 <% end %>

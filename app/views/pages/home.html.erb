@@ -14,7 +14,7 @@
 </div>
 </div>
 
-<div id="upcoming_events">Upcoming Events</div>
+<div id="upcoming_events">Upcoming Events:</div>
 <ul id="homeshowpage">
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
@@ -41,22 +41,35 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	var from = 0, to = 5, step = 5;
+	var from = 0, to = 5, step = 5, maxSize = <%= @array_of_events.size %>;
 	
 	function showNext(list) {
-	  list
-	    .find('li').hide().end()
-	    .find('li:lt(' + (to) + '):not(li:lt(' + from + '))')
-	      .show();
+	  list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();
+	  $("html, body").animate({ scrollTop: 300 + 300*(to/5)}, 1000);
+	  to+= step;
+	  if(to >= maxSize){
+	  	$('#more').hide();
+	  	$('#back_to_top').show();
+	  }
+	}
+	function start(list){
+		list.find('li').hide().end().find('li:lt(' + (to) + '):not(li:lt(' + from + '))').show();
+		
+		if(to >= maxSize){
+		  	$('#more').hide();
+		  	$('#back_to_top').show();
+	  }
 	  to+= step;
 	}
-	
-	showNext($('ul#homeshowpage'));
+	start($('ul#homeshowpage'));
 	$('#more').click(function(e){
 		e.preventDefault();
 		showNext($('ul#homeshowpage'));
 	});
-
+	$('#back_to_top').click(function(e){
+		e.preventDefault();
+		$("html, body").animate({ scrollTop: 0 }, 700);
+	});
 });
 </script>
 <% if @array_of_events.empty? %>
@@ -64,13 +77,15 @@ $(document).ready(function(){
 <% end %>
 <% if @array_of_events.size > 5%>
 <a href="#" id="more">More</a>
+<a href='#' id="back_to_top">Back to Top</a>
 <% end %>
 <% else %>
+<div id="upcoming_events">Upcoming Events:</div>
 <ul id="catshowpage">
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
-	<%= image_tag event.photo.url(:small) %>
+	<%= image_tag event.photo.url(:small), :height => 100, :width => 100 %>
 	<% else %>
 	<%= image_tag ("questionmark.png"), :height => 100, :width => 100 %>
 	<% end %>
@@ -94,22 +109,35 @@ $(document).ready(function(){
 
 <script type="text/javascript">
 $(document).ready(function(){
-	var from = 0, to = 5, step = 5;
+	var from = 0, to = 5, step = 5, maxSize = <%= @array_of_events.size %>;
 	
 	function showNext(list) {
-	  list
-	    .find('li').hide().end()
-	    .find('li:lt(' + (to) + '):not(li:lt(' + from + '))')
-	      .show();
+	  list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();
+	  $("html, body").animate({ scrollTop: 300*(to/5)}, 1000);
+	  
+	  if(to >= maxSize){
+	  	$('#more').hide();
+	  	$('#back_to_top').show();
+	  }
 	  to+= step;
 	}
-	
-	showNext($('ul#catshowpage'));
+	function start(list){
+		list.find('li').hide().end().find('li:lt(' + (to) + '):not(li:lt(' + from + '))').show();
+		to+= step;
+		if(to >= maxSize){
+		  	$('#more').hide();
+		  	$('#back_to_top').show();
+	  }
+	}
+	start($('ul#catshowpage'));
 	$('#more').click(function(e){
 		e.preventDefault();
 		showNext($('ul#catshowpage'));
 	});
-
+	$('#back_to_top').click(function(e){
+		e.preventDefault();
+		$("html, body").animate({ scrollTop: 0 }, 700);
+	});
 });
 </script>
 <% if @array_of_events.empty? %>
@@ -117,5 +145,6 @@ $(document).ready(function(){
 <% end %>
 <% if @array_of_events.size > 5%>
 <a href="#" id="more">More</a>
+<a href='#' id="back_to_top">Back to Top</a>
 <% end %>
 <% end %>
