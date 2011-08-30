@@ -34,7 +34,7 @@
   	
   	<li><p><label for="event_photo">Picture</label></p>
   	<%= f.file_field :photo %></li>
-  	<% if(!current_user.authorizations.empty?)%>
+  	<% if(!current_user.authorizations.empty? && (@event.facebookevent == 0 || @event.facebookevent.nil?))%>
 	<li><p>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></p></li>
 	<% end %>
     <li>    <button class="submitter" id="session_submit" name="commit" type="submit">Edit Event</button></li>
