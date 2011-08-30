@@ -184,8 +184,6 @@ body{
 	margin: 0px 10px 0 5px;
 	text-align: center;
 	padding: 0;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 110%;
 }
 #dashboard a{
 	margin-top: 4px;
@@ -194,6 +192,8 @@ body{
 	color: #fffeff/*#231F20*/;
 	font-weight: bold;
 	text-decoration: none;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 110%;
 }
 #dashboard a:hover{
 	color: #333;
@@ -304,31 +304,37 @@ body{
 /* STYLE FOR THE FLASH */
 
 section.success .flasherror{
+	float: left;
 	text-align: left;
 	color: #F0463D;
 	font-size: 1.2em;
 	font-weight: bold;
 	border-radius: 20px;
-	margin: 0px auto 5px 0px;
+	margin: 0px auto 5px 70px;
 	padding: 0px 0 0px 0;
-	max-width: 300px;
+	width: 580px;
 }
 section.success .flashsuccess{
+	float: left;
 	text-align: left;
 	color: #256AA3;
 	font-size: 1.2em;
 	font-weight: bold;
-	margin: 0px auto 5px 0px;
-	padding: 0px 0 0px 20px;
+	margin: 0px auto 5px 70px;
+	padding: 0px 0 0px 0;
+	width: 580px;
 }
 section.success .flashnotice{
+	float: left;
 	text-align: left;
 	color: #F0463D;
 	font-size: 1.2em;
 	font-weight: bold;
+	border solid 1px #000;
 	border-radius: 20px;
-	margin: 0px auto 5px 0px;
-	padding: 0px 0 0px 20px;
+	margin: 0px auto 5px 70px;
+	padding: 0px 0 0px 0;
+	width: 580px;
 }
 /*  STYLE FOR MAINPAGEWRAPPER */
 
@@ -354,22 +360,18 @@ section.success .flashnotice{
 	width: 590px;
 }
 #no_results{
-	border-radius: 30px;
-	color: #666;
-	margin: 30px auto 0px 60px;
-	padding: 0px 10px 5px 10px;
+	color: #222;
+	margin: 0px auto 0px 250px;
+	padding: 0 0 0 0;
 	font-size: 2em;
 	width: 240px;
-	padding-top: 10px;
-	padding-left: 15px;
 	float: left;
 }
 
 #no_results_calendar{
 	border-radius: 30px;
-	color: #666;
-	margin: 10px 0 0px 140px;
-	padding: 0px 10px 5px 10px;
+	color: #222;
+	margin: 10px 0 0px 280px;
 	font-size: 2em;
 	width: 240px;
 	padding-top: 10px;
@@ -621,6 +623,7 @@ form#new_event ul li p{
 }
 #userdetails ul{
 	float: left;
+	width: 300px;
 }
 #userdetails ul li{
 	clear:both;
@@ -927,8 +930,8 @@ form#new_event ul li p{
 #calendar{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	margin: 0px 0 20px 170px;
-	width: 400px;
 	float: left;
+	padding: 0 0 0 0;
     
 }
 #calendar table{
@@ -937,7 +940,7 @@ form#new_event ul li p{
 
 #calendar td,
 #calendar th {
-  font-size: 10px;
+  font-size: .8em;
   padding: 6px;
   border: 1px solid #999;
 }
@@ -945,24 +948,28 @@ form#new_event ul li p{
 #calendar th {
   background: #DDD;
   text-align: center;
-  width: 40px;
+  width: 50px;
 }
 
 #calendar td {
   background: #FFF;
-  height: 40px;
+  height: 45px;
   vertical-align: top;
-  font-size: 16px;
+  font-size: 1.2em;
 }
 #calendar td a{
 	color: #666;
 	text-decoration: none;
+	margin: 0 auto 0 auto;
+	padding: 0 0 0 0;
 }
-#calendar a#has_event{
+#calendar td p{
+	padding: 0 0 0 0;
+	margin: 0 auto 0 auto;
+	text-align: left;
 	color: #666;
-	font-weight: bold;
 }
-#calendar td #selected{
+#calendar td .selected{
 	text-decoration: none;
 	color: #FF7F50;
 	font-weight: bold;
@@ -979,12 +986,14 @@ form#new_event ul li p{
   text-align: center;
 }
 
-#calendar #month a, #calendar #month a:hover {
+#calendar #month a{
   text-decoration: none;
   padding: 0 10px;
   color: #999;
 }
-
+#calendar #month a:hover{
+	color: #6495ED;
+}
 #calendar ul {
   margin: 0;
   margin-top: 5px;
@@ -1000,3 +1009,9 @@ form#new_event ul li p{
 }
 /* BUG FIX FOR DATEPICKER*/
 #ui-datepicker-div { display:none }
+/* BUG FIX FOR TEXTAREA*/
+
+textarea, input{
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 1.1em;
+}
