@@ -20,10 +20,9 @@
 					<p class="user_detail"><i><%= user.aboutme %></i></p>
 					<% end %>
 					<% if user.facebookid %>
-					<p class="user_detail"><%= link_to "Facebook Page", "http://www.facebook.com/profile.php?id=" + user.facebookid %></p>
-					<% end %>
-					<% if user.fbnickname %>
 					<p class="user_detail"><%= link_to "Facebook Page", "http://www.facebook.com/" + user.fbnickname %></p>
+					<% elsif user.fbnickname%>
+					<p class="user_detail"><%= link_to "Facebook Page", "http://www.facebook.com/profile.php?id=" + user.facebookid %></p>
 					<% end %>
 				</div>
 				<% if current_user.email == "sps2133@columbia.edu"%>

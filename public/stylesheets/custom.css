@@ -751,6 +751,10 @@ form#new_event ul li p{
 	margin: 0 0 0 0;
 	float: left;
 }
+#allusers ul li #user_details a{
+	text-decoration: none;
+	color: #222;
+}
 /*  CATEGORY SHOW PAGES */
 #catshowpage{
 	float: left;
