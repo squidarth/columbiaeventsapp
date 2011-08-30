@@ -40,8 +40,8 @@ class User < ActiveRecord::Base
    end
    
    def self.search(search)
-    search_condition = "%" + search + "%"
-    find(:all, :conditions => ['name LIKE ? ', search_condition])
+    search_condition = "%" + search.downcase + "%"
+    find(:all, :conditions => ['name.downcase LIKE ? ', search_condition])
    end
    private
    

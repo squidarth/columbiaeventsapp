@@ -48,7 +48,7 @@
 						<%= link_to "Create Event", new_event_path%>
 					</li>
 					<li>
-					<% if(@title=="All Users")%>
+					<% if(@title=="All Users" || @title=="Search Users")%>
 					<div id="searchbar">
 					<% form_tag(users_path, {:method => :get}) do%>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>

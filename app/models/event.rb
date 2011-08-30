@@ -20,8 +20,8 @@ class Event < ActiveRecord::Base
   
   validate :validate_date
   def self.search(search)
-    search_condition = "%" + search + "%"
-    find(:all, :conditions => ['name LIKE ? OR description LIKE ? ', search_condition, search_condition])
+    search_condition = "%" + search.downcase + "%"
+    find(:all, :conditions => ['name.downcase LIKE ? OR description.downcase LIKE ? ', search_condition, search_condition])
   end
   
   def self.find_by_date(date)

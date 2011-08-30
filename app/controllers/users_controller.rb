@@ -6,7 +6,7 @@ class UsersController < ApplicationController
    def index
      if params[:search]
        @users = sort_alphabetically(User.search(params[:search]))
-       @title = "Search"
+       @title = "Search Users"
        @header = "Search results for '" + params[:search] + "'"
      else
      @title = "All Users"
