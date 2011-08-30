@@ -19,6 +19,7 @@ class Event < ActiveRecord::Base
   validates :user_id, :presence => true
   
   validate :validate_date
+  
   def self.search(search)
     search_condition = "%" + search.downcase + "%"
     find(:all, :conditions => ['LOWER(name) LIKE ? OR LOWER(description) LIKE ? ', search_condition, search_condition])

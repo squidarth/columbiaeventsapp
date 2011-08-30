@@ -368,16 +368,7 @@ section.success .flashnotice{
 	float: left;
 }
 
-#no_results_calendar{
-	border-radius: 30px;
-	color: #222;
-	margin: 10px 0 0px 280px;
-	font-size: 2em;
-	width: 240px;
-	padding-top: 10px;
-	padding-left: 15px;
-	float: left;
-}
+
 
 
 /*  CODE FOR ABOUT PAGES */
@@ -933,9 +924,9 @@ form#new_event ul li p{
 /* STYLE FOR CALENDAR */
 #calendar{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	margin: 0px 0 20px 170px;
+	margin: 0px 0 0px 170px;
 	float: left;
-	padding: 0 0 0 0;
+	padding: 0 0 0px 0;
     
 }
 #calendar table{

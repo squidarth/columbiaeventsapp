@@ -1,29 +1,20 @@
 <div id="calendar">
 	<h2 id="month">
-		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y/%m")%>
+		<%= link_to "<", :date => (@date.beginning_of_month-1).strftime("%Y-%m-%d")%>
 		<%=h @date.strftime("%B %Y") %>
-		<%= link_to ">", :month => (@date.end_of_month + 1).strftime("%Y/%m")%>
+		<%= link_to ">", :date => (@date.end_of_month + 1).strftime("%Y-%m-%d")%>
 	</h2>
 	<% calendar_for @events, :year => @date.year, :month => @date.month do |calendar|%>
 	<%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')%>
 		<% calendar.day(:day_method => :created_at) do |date, events| %>
-			<% if @new_date %>
-				<% if date == @new_date%>
-					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date}, :class => 'selected' %>
+				<% if date == @date%>
+					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y-%m-%d")}, :class => 'selected' %>
 				<% elsif @dates_with_events.include?(date)%>
-					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date}%>
+					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y-%m-%d")}%>
 					<p><b>.</b></p>
 				<% else %>
-					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
+					<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y-%m-%d")} %>
 				<% end %>
-			<%else %>
-				<% if @dates_with_events.include?(date )%>
-				<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
-				<p><b>.</b></p>
-				<% else %>
-				<%= link_to date.day.to_s, {:controller => 'events', :action => 'calendar', :date => date.strftime("%Y/%m/%d"), :month => @date} %>
-				<% end %>
-			<% end %>
 		<% end %>
 	<% end %>
 </div>
@@ -91,6 +82,4 @@ $(document).ready(function(){
 <a href="#" id="more">More</a>
 <a href='#' id="back_to_top">Back to Top</a>
 <% end %>
-<% else %>
-<div id="no_results_calendar">No events found.</div>
 <% end %>

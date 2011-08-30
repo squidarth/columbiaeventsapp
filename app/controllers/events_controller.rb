@@ -36,28 +36,19 @@ class EventsController < ApplicationController
     @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
     @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     @events_by_date = []
-    @date = params[:month] ? Date.parse(params[:month]) : Date.today
-    if params[:month]
-      @date = Date.parse(params[:month])
-      @new_date = @date.beginning_of_month
-    else
-      @date = Date.today
-    end
-    if(!params[:month] && !params[:date])
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    if(!params[:date])
       @events.each do |event|
         if(event.date == Date.today)
           @events_by_date << event
         end
       end
-      @new_date = Date.today
-    end
-    if params[:date]
+    elsif params[:date]
       @events.each do |event|
         if(event.date == Date.parse(params[:date]))
           @events_by_date << event
         end
       end
-      @new_date = Date.parse(params[:date])
     end
     @events_by_date
   end
