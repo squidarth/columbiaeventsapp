@@ -14,6 +14,7 @@ body{
 
 #wrapper{
 	clear: both;
+	overflow: hidden;
 	width: 960px;
 	background: #fff;
 	margin-top: 0;
@@ -36,9 +37,9 @@ body{
 	overflow: hidden;
 }
 #intropara{
-	padding: 5px 5px 10px 10px;
+	padding: 0px 5px 10px 10px;
 	float: left;
-	margin: 10px 0 20px 60px;
+	margin: 0px 0 20px 60px;
 	color: #222;
 	border-radius: 10px;
 }
@@ -213,7 +214,6 @@ body{
 	text-align: center;
 	padding: 0 0 0px 10px;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 110%;
 }
 #dashboard_signin a{
 	float: left;
@@ -223,6 +223,7 @@ body{
 	color: #fffeff/*#231F20*/;
 	font-weight: bold;
 	text-decoration: none;
+	font-size: 110%;
 }
 #dashboard_signin a:hover{
 	color: #333;
@@ -905,7 +906,6 @@ form#new_event ul li p{
 /* FOOTER */
 
 #footer{
-	border-top: 1.5px solid #ddd;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	width: 100%;
 	clear: both;
