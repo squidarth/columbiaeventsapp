@@ -35,7 +35,7 @@
 	<% end %>
 	<% end %>
 
-<% if !@event.attendings.empty?%>
+
 <div id="attendees">
 <a href="#"><div id="attendees_count"><%= pluralize(@event.attendings.count, 'Person') %> Attending</div></a>
 <ul id="attendees_list">
@@ -57,8 +57,8 @@ $(document).ready(function(){
 	});
 });
 </script>
-<% end %>
 </div>
+
 <ul>
 <li>
 	<%= @event.description %>	
