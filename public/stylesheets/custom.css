@@ -14,7 +14,6 @@ body{
 
 #wrapper{
 	clear: both;
-	overflow: hidden;
 	width: 960px;
 	background: #fff;
 	margin-top: 0;
@@ -832,8 +831,9 @@ form#new_event ul li p{
 /* Event Show Page*/
 
 #event{
-	margin-top: 15px;
-	margin-left: 200px;
+	margin: 0px 0 0 30px;
+	width: 750px;
+	float: left;
 }
 #eventuser{
 	padding: 10px 20px 10px;
@@ -870,7 +870,7 @@ form#new_event ul li p{
 	float: left;
 	color: #222;
 	border: solid 1px #ddd;
-	margin-bottom: 20px;
+	margin: 0 0 0px 0;
 	padding: 10px 10px 10px;
 	border-radius: 30px;
 	width: 550px;
@@ -897,6 +897,58 @@ form#new_event ul li p{
 #eventshow div#controls a{
 	text-decoration: none;
 	color: #666666;
+}
+#attendees{
+	float: right;
+}
+#attendees_count{
+	text-align: left;
+	float: right;
+	color: #222;
+	margin: 0 10px 0 0;
+}
+#attendees_list{
+	border-radius: 15px;
+	display: none;
+	list-style: none;
+	text-align: right;
+	float: right;
+	clear: right;
+	margin: 0 0 0 0px;
+	padding: 5px 5px 5px 5px;
+	/*position: absolute;*/
+	background: #6495ED;
+}
+#attendees_list li{
+	width: 100%;
+	text-align: left;
+}
+#attendees_list li a{
+	color: #222;
+	text-decoration: none;
+	font-weight: bold;
+}
+#attendees_list li a:hover{
+	text-decoration: underline;
+}
+#attendees_list li #status{
+	margin-left: 5px;
+	float: right;
+	text-align: right;
+}
+#attending_forms{
+	
+	padding: 0 0 0 0;
+	margin: 10px 0px 0 0;
+	clear: left;
+	float: left;
+}
+#attending_forms form{
+	float: left;
+	margin: 0 15px 0 0;
+}
+#attending_forms form button{
+	width: 100px;
 }
 #comments{
 	float: left;

@@ -34,6 +34,31 @@
 	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
 	<% end %>
 	<% end %>
+
+<% if !@event.attendings.empty?%>
+<div id="attendees">
+<a href="#"><div id="attendees_count"><%= pluralize(@event.attendings.count, 'Person') %> Attending</div></a>
+<ul id="attendees_list">
+	<% @event.attendings.each do |attending| %>
+	<li>
+		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> <div id="status"><%= attending.status %></div>
+	</li>
+	<% end %>
+</ul>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#attendees").mouseenter(function(e){
+		e.preventDefault();
+		$("#attendees_list").fadeIn();
+	});
+	$("#attendees").mouseleave(function(e){
+		e.preventDefault();
+		$("#attendees_list").fadeOut();
+	});
+});
+</script>
+<% end %>
+</div>
 <ul>
 <li>
 	<%= @event.description %>	
@@ -67,6 +92,22 @@
 <% end %>
 </div>
 
+<% if signed_in? %>
+<div id="attending_forms">
+	<%= form_for @attending, :url => {:controller => :attendings, :action => :attend }, :html => {:id => "attend"} do |f| %>
+	<%= f.hidden_field :event_id, :value => @event.id %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :status, :value => "Attending"%>
+	<button class="submitter" id="attending_submit" name="commit" type="submit" value="Attending">Attending</button>
+	<% end %>
+	<%= form_for @attending, :url => {:controller => :attendings, :action => :maybe}, :html => {:id => "maybe"} do |f| %>
+	<%= f.hidden_field :event_id, :value => @event.id %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :status, :value => "Maybe"%>
+	<button class="submitter" id="attending_submit" name="commit" type="submit" value="Maybe">Maybe</button>
+	<% end %>
+</div>
+<% end %>
 <div id="comments">
 <fb:like href="www.eventsalsa.com/events/<%= @event.id %>" send="true" width="450" show_faces="true" action="like" font=""></fb:like>
 <fb:comments href="http://www.eventsalsa.com/events/<%= @event.id %>" num_posts="10" width="600"></fb:comments>

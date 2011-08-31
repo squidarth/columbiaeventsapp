@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
    has_many :events, :dependent => :destroy
    has_many :authorizations, :dependent => :destroy
+   has_many :attendings
    
    has_attached_file :avatar, :styles => { :thumb => "75x75>", :small => "150x150>", :normal => "220x220>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
    
