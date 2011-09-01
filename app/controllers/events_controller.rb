@@ -86,6 +86,8 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = current_user.events.build(params[:event])
+    @attending = Attending.create(:event_id => @event.id, :user_id => current_user.id, :status => "Attending")
+    @attending.save
     if @event.save
       flash[:success] = "Event created!"
       if(@event.facebookevent == 1)
