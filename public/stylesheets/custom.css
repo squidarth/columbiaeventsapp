@@ -344,6 +344,7 @@ section.success .flashnotice{
 }
 #mainpagewrapper #main{
 	margin-top: 15px;
+	margin: 15px 0 0 0px;
 	width: 750px;
 	float: left;
 }
@@ -826,8 +827,7 @@ form#new_event ul li p{
 /* Event Show Page*/
 
 #event{
-	margin: 0px 0 0 30px;
-	width: 750px;
+	margin: 0px 0 0 70px;
 	float: left;
 }
 #eventuser{
@@ -835,7 +835,7 @@ form#new_event ul li p{
 	float:left;
 	color: #222;
 	border: solid 1px #ddd;
-	margin-bottom: 10px;
+	margin: 0 0 10px 0px;
 	border-radius: 30px;
 }
 #eventuser img{
@@ -865,7 +865,7 @@ form#new_event ul li p{
 	float: left;
 	color: #222;
 	border: solid 1px #ddd;
-	margin: 0 0 0px 0;
+	margin: 0 0 0px 0px;
 	padding: 10px 10px 10px;
 	border-radius: 30px;
 	width: 550px;
@@ -897,6 +897,7 @@ form#new_event ul li p{
 	float: right;
 }
 #attendees_count{
+	text-decoration: none;
 	font-weight: bold;
 	text-align: left;
 	float: right;
@@ -948,7 +949,7 @@ form#new_event ul li p{
 }
 #comments{
 	float: left;
-	margin-top: 20px;
+	margin: 20px 0 0 0px;
 }
 
 /* FOOTER */
