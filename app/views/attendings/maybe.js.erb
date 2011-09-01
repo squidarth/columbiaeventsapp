@@ -1,6 +1,7 @@
+$(".maybe_notice").fadeOut();
+$("#attend").before('<div class="maybe_notice">You might be attending this event!</div>');
 <% if !@no_change%>
 $(".attend_notice").fadeOut();
-$("#attend").before('<div class="maybe_notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
 $("#attendees_count").html("<%= pluralize(@event.attendings.count, 'Person') %> Attending");
 $("#attendees_list").html('<% @event.attendings.each do |attending| %><li><%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> <div id="status"><%= attending.status %></div></li><% end %>');
 <% end %>
