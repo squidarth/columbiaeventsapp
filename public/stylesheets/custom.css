@@ -118,9 +118,7 @@ body{
 }
 
 #homeshowpage{
-	margin-top: 0px;
-	margin-left: 180px;
-	margin-bottom: 0;
+	margin: 0 0 0 30px;
 	float: left;
 }
 
@@ -899,9 +897,10 @@ form#new_event ul li p{
 	float: right;
 }
 #attendees_count{
+	font-weight: bold;
 	text-align: left;
 	float: right;
-	color: #222;
+	color: #FF7F50;
 	margin: 0 10px 0 0;
 }
 #attendees_list{
