@@ -68,7 +68,16 @@
 				<% else %>
 				<ul id="dashboard_signin">
 					<li id="signin">
-					<%= link_to "Sign in", signin_path %>
+					<%= link_to "Sign in", '#', :id => 'sign_in_clicker' %>
+										<div id="signin_form">
+					<%= form_for(:session, :url => {:controller => :sessions, :action => :create}) do |f|%>
+						    <p><%= f.label :email %><br />
+						    <%= f.text_field :email, :size => 10 %></p>
+						    <p><%= f.label :password %><br />
+						    <%= f.password_field :password, :size => 10 %></p>
+						    <button id="session_submit" name="commit" type="submit">Sign in</button>
+					<% end %>
+					</div>
 					</li>
 					<li>
 					<div id="searchbar">
@@ -81,7 +90,22 @@
 					</li>
 				</ul>
 				<% end %>
-
+				<script type="text/javascript">
+				$(document).ready(function(){
+					var boo = 1
+					$('#sign_in_clicker').click(function(e){
+						if(boo == 1){
+							$('#signin_form').fadeIn();
+							$('#signin_form').animate({height: '60px'}, {queue:false, duration:600});
+							boo = 0;
+						}else{
+							$('#signin_form').animate({height: '5px'}, {queue:false, duration:600});
+							$('#signin_form').fadeOut();
+							boo = 1;
+						}
+					});
+				});
+				</script>
 				</div>
 
 	<div id="mainpagewrapper">

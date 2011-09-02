@@ -143,6 +143,7 @@ body{
 	color: #222;
 	float:left;
 	width: 460px;
+	text-overflow: ellipsis;
 }
 #homeshowpage li #eventwords p#event_title{
 	margin-top: 0;
@@ -225,6 +226,48 @@ body{
 }
 #dashboard_signin a:hover{
 	color: #333;
+}
+#dashboard_signin #signin_form{
+	display: none;
+	height: 5px;
+	overflow: hidden;
+	position: absolute;
+	float: left;
+	text-align: left;
+	background: #FF7F50;
+	border-radius: 15px;
+	color: #fff;
+	margin-top: 25px;
+	margin-left: 0;
+	padding: 0 0 0 10px;
+	font-weight: bold;
+	width: 300px;
+
+}
+#dashboard_signin #signin_form p{
+	float: left;
+	margin-bottom: 0;
+	margin-right: 10px;
+}
+#dashboard_signin #signin_form button{
+	margin-top: 28px;
+	float: left;
+	color: #fff;
+	background: #FF7F50;
+	font-weight: bold;
+	border: none;
+}
+#dashboard_signin #signin_form button:hover{
+	text-decoration: underline;
+}
+#dashboard_signin #signin_form label{
+	width: 50px;
+	margin-right: 10px;
+	float: left;
+}
+#dashboard_signin #signin_form input{
+	float: right;
+	margin: 0 0 5px 0;
 }
 #searchbar{
 	margin: 0 0 0 0;
@@ -779,9 +822,10 @@ form#new_event ul li p{
 	margin-top: 0;
 	color: #222;
 	float:left;
-	width: 460px;
 	height: 100px;
 	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 460px;
 }
 #catshowpage li #eventwords p#event_title{
 	margin-top: 0;

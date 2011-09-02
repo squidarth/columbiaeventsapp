@@ -15,7 +15,7 @@
 </div>
 
 <div id="upcoming_events">Upcoming Events:</div>
-<ul id="homeshowpage">
+<ul id="catshowpage">
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
