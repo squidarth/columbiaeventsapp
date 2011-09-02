@@ -919,20 +919,21 @@ form#new_event ul li p{
 #attendees_list li{
 	width: 100%;
 	text-align: left;
-	display: inline;
+	float: left;
 }
 #attendees_list li a{
 	color: #222;
 	margin-right: 5px;
 	text-decoration: none;
 	font-weight: bold;
+	float: left;
 }
 #attendees_list li a:hover{
 	text-decoration: underline;
 }
 #attendees_list li #status{
 	float: right;
-	text-align: right;
+	text-align: left;
 }
 #attending_forms{
 	

@@ -41,7 +41,8 @@
 <ul id="attendees_list">
 	<% @event.attendings.each do |attending| %>
 	<li>
-		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> <div id="status"><%= attending.status %></div>
+		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> 
+		<div id="status"><%= attending.status %></div>
 	</li>
 	<% end %>
 </ul>
