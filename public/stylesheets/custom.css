@@ -579,8 +579,15 @@ form#new_event ul li p{
                 0 -2px 5px rgba(255, 255, 255, .2);
 }
 #back_to_event{
-	margin: 30px 0 0 0;
-	padding-top: 10px;
+	margin: 20px 0 0 0;
+	padding-top: 0px;
+	margin-left: 50px;
+	color: #666;
+	text-decoration: none;
+	font-weight: bold;
+}
+#back_to_event:hover{
+	text-decoration: underline;
 }
 /* SIGN IN STYLE*/
 #signinpage{
@@ -708,14 +715,14 @@ form#new_event ul li p{
 	float: left;
 	margin: 15px 0 0 170px;
     border-radius: 5px;
-    width: 500px;
+    width: 400px;
     color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #edituser form{
-	border: solid 1px #e3ebc3;
+	border: solid 1px #ddd;
 	border-radius: 5px;
-	width: 400px;	
+	width: 350px;	
 	padding: 5px 10px 0 20px;
 	color: #666;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -737,6 +744,15 @@ form#new_event ul li p{
 	color: #666666;
 	font-weight: bold;
 	margin: 0 0 0 0;
+}
+#edituser a{
+	color: #666;
+	text-decoration: none;
+	font-weight: bold;
+	margin-left: 35px;
+}
+#edituser a:hover{
+	text-decoration: underline;
 }
 /* USER INDEX */
 #allusers{

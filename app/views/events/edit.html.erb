@@ -38,7 +38,7 @@
 	<li><p>Make Facebook event? <%= f.check_box(:facebookevent, {}, 1, 0)%></p></li>
 	<% end %>
     <li>    <button class="submitter" id="session_submit" name="commit" type="submit">Edit Event</button></li>
-    <li id="back_to_event"><%= link_to "Back to event", @event%></li>
     </ul>
+    <%= link_to "Back to event", @event, :id => 'back_to_event'%>
 <% end %>
 </div>
