@@ -919,9 +919,11 @@ form#new_event ul li p{
 #attendees_list li{
 	width: 100%;
 	text-align: left;
+	display: inline;
 }
 #attendees_list li a{
 	color: #222;
+	margin-right: 5px;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -929,7 +931,6 @@ form#new_event ul li p{
 	text-decoration: underline;
 }
 #attendees_list li #status{
-	margin-left: 5px;
 	float: right;
 	text-align: right;
 }
