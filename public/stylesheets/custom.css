@@ -142,6 +142,7 @@ body{
 	margin-top: 0;
 	color: #222;
 	float:left;
+	width: 460px;
 }
 #homeshowpage li #eventwords p#event_title{
 	margin-top: 0;
@@ -534,6 +535,10 @@ form#new_event ul li p{
                 0 1px 0 #FFDAB9,
                 0 -2px 5px rgba(255, 255, 255, .2);
 }
+#back_to_event{
+	margin: 30px 0 0 0;
+	padding-top: 10px;
+}
 /* SIGN IN STYLE*/
 #signinpage{
 	float: left;
@@ -774,11 +779,14 @@ form#new_event ul li p{
 	margin-top: 0;
 	color: #222;
 	float:left;
+	width: 460px;
+	height: 100px;
+	overflow: hidden;
 }
 #catshowpage li #eventwords p#event_title{
 	margin-top: 0;
 	font-weight: bold;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	font-size: 2em;
 }
 #catshowpage li #eventwords a{
@@ -873,19 +881,21 @@ form#new_event ul li p{
 	font-size: 110%;
 }
 #eventshow img{
-	margin-top: 12px;
+	margin-top: 22px;
 	border-radius: 20px;
 	border: solid 3px #fff;
 	float: left;
 }
 #eventshow ul{
+	margin-top: 10px;
 	float: left;
 }
 #eventshow ul li{
 	clear:both;
 	list-style: none;
-	margin-right: 0px;
+	margin: 0 0 0 0;
 	float: left;
+	width: 300px;
 }
 #eventshow div#controls{
 	clear: both;
@@ -1089,4 +1099,8 @@ textarea, input{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-size: 1.1em;
 	border-radius: 5px;
+	border: solid 1px #ddd;
+}
+input.no_border{
+	border: none;
 }

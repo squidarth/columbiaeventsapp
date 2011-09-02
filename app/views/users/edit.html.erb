@@ -36,10 +36,10 @@
   </li>
   <li>
   	<p><%= f.label :avatar, "Profile Picture" %></p>
-  	<%= f.file_field :avatar %>
+  	<%= f.file_field :avatar, :class => 'no_border' %>
   </li>
   <li>
-    <%= f.submit "Update" %>
+    <button class="submitter" id="session_submit" name="commit" type="submit">Update</button>
   </li>
   </ul>
   <%= link_to "Change Password", '/users/' + @user.id.to_s + '/password'%>

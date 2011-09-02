@@ -14,7 +14,6 @@ class Event < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
   
   validates :name, :presence => true, :length => { :maximum => 140 }
-  validates :description, :length => { :maximum => 140 }
   validates :location,  :length => { :maximum => 140 }
   validates :author, :length => { :maximum => 140 }
   validates :user_id, :presence => true
