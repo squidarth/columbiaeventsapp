@@ -605,7 +605,7 @@ form#new_event ul li p{
 	margin: 0 0 20px 0px; 
 	width: 580px;
 	padding: 10px 20px 10px 10px;
-	border-radius: 30px;
+	border-radius: 10px;
 	float: left;
 }
 #userdetails img{
@@ -829,6 +829,7 @@ form#new_event ul li p{
 #event{
 	margin: 0px 0 0 70px;
 	float: left;
+	
 }
 #eventuser{
 	padding: 10px 20px 10px;
@@ -836,7 +837,7 @@ form#new_event ul li p{
 	color: #222;
 	border: solid 1px #ddd;
 	margin: 0 0 10px 0px;
-	border-radius: 30px;
+	border-radius: 10px;
 }
 #eventuser img{
 	clear:both;
@@ -867,12 +868,13 @@ form#new_event ul li p{
 	border: solid 1px #ddd;
 	margin: 0 0 0px 0px;
 	padding: 10px 10px 10px;
-	border-radius: 30px;
+	border-radius: 10px;
 	width: 550px;
+	font-size: 110%;
 }
 #eventshow img{
 	margin-top: 12px;
-	border-radius: 10px;
+	border-radius: 20px;
 	border: solid 3px #fff;
 	float: left;
 }
@@ -908,6 +910,8 @@ form#new_event ul li p{
 	text-decoration: underline;
 }
 #attendees_list{
+	height: 5px;
+	overflow: hidden;
 	border-radius: 15px;
 	display: none;
 	list-style: none;
@@ -951,6 +955,23 @@ form#new_event ul li p{
 }
 #attending_forms form button{
 	width: 100px;
+}
+#attending_invitation{
+	clear: left;
+	float: left;
+	margin: 10px 0 0 0;
+	padding: 10px 10px 10px 10px;
+	background: #eee;
+	color: #333;
+	border-radius: 10px;
+}
+#attending_invitation a{
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+#attending_invitation a:hover{
+	text-decoration: underline;
 }
 #comments{
 	float: left;
@@ -1067,4 +1088,5 @@ form#new_event ul li p{
 textarea, input{
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	font-size: 1.1em;
+	border-radius: 5px;
 }

@@ -51,22 +51,22 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var boo = 1;
-	$("#attendees").click(function(e){
+	$("#attendees_count").click(function(e){
 		e.preventDefault();
+		<% if @event.attendings.empty? %>
+		var length = '22px';
+		<% else %>
+		var length = <%= (@event.attendings.size*22).to_s %>;
+		<% end %>
+
 		if(boo == 1){
-			$("#attendees_list").fadeIn();
+			$("#attendees_list").show();
+			$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
 			boo = 0;
 		}else{
-			$('#attendees_list').fadeOut();
-			boo = 1;
-		}
-		
-	});
-	
-	$("#attendees").mouseleave(function(e){
-		e.preventDefault();
-		if(boo == 1){
+			$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
 			$("#attendees_list").fadeOut();
+			boo = 1;
 		}
 		
 	});
@@ -78,16 +78,16 @@ $(document).ready(function(){
 </li>
 <% if(!(@event.location == "")) %>
 <li>
-	<b>Place:</b> <%= @event.location %>
+	<%= @event.location %>
 </li>
 <% end %>
 <li>
 	<% if @event.date && @event.time%>
-	<b>Time:</b> <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <% if(@event.time.hour>12)%> <%= (@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
+	On <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <% if(@event.time.hour>12)%> <%= (@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
 	<% elsif @event.date %>
-	<b>Date:</b> <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
+	On <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
 	<% elsif @event.time %>
-	<b>Time:</b> <% if(@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
+	At <% if(@event.time.hour-12) %>:<%= @event.time.min %> PM <% else %><%= @event.time.hour %>:<%= @event.time.min %> AM<% end %>
 	<% end %>
 </li>
 <% if @event.facebooklink%>
@@ -120,6 +120,8 @@ $(document).ready(function(){
 	<button class="submitter" id="maybe_submit" name="commit" type="submit" value="Maybe">Maybe</button>
 	<% end %>
 </div>
+<% else %>
+<div id="attending_invitation">Wanna tell the world you're going? <%= link_to "Sign up", signup_path %> to say you're attending!</div>
 <% end %>
 <div id="comments">
 <fb:like href="www.eventsalsa.com/events/<%= @event.id %>" send="true" width="450" show_faces="true" action="like" font=""></fb:like>
