@@ -904,6 +904,9 @@ form#new_event ul li p{
 	color: #FF7F50;
 	margin: 0 10px 0 0;
 }
+#attendees_count:hover{
+	text-decoration: underline;
+}
 #attendees_list{
 	border-radius: 15px;
 	display: none;

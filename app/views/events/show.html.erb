@@ -51,17 +51,18 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var boo = 1;
-	$("#attendees").mouseenter(function(e){
+	$("#attendees").click(function(e){
 		e.preventDefault();
-		$("#attendees_list").fadeIn();
+		if(boo == 1){
+			$("#attendees_list").fadeIn();
+			boo = 0;
+		}else{
+			$('#attendees_list').fadeOut();
+			boo = 1;
+		}
+		
 	});
 	
-	$('#attendees_list').mouseenter(function(e){
-		boo = 0;
-	});
-	$('#attendees_list').mouseleave(function(e){
-		boo = 1;
-	});
 	$("#attendees").mouseleave(function(e){
 		e.preventDefault();
 		if(boo == 1){
