@@ -37,7 +37,7 @@
 
 
 <div id="attendees">
-<a href="#" id="attendees_count"><%= pluralize(@event.attendings.count, 'Person') %> Attending</a>
+<a href="#" id="attendees_count"><%= pluralize(@event.attendings.count, 'Person') %> Attending</a><br />
 <ul id="attendees_list">
 	<% @event.attendings.each do |attending| %>
 	<li>

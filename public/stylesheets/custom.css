@@ -959,6 +959,7 @@ form#new_event ul li p{
 	float: right;
 	color: #FF7F50;
 	margin: 0 10px 0 0;
+	padding: 0 0 0 0;
 }
 #attendees_count:hover{
 	text-decoration: underline;
@@ -970,9 +971,9 @@ form#new_event ul li p{
 	display: none;
 	list-style: none;
 	text-align: right;
+	clear: right;
 	float: right;
-	clear: both;
-	margin: 20px 0 0 0px;
+	margin: 0px 0 0 0px;
 	padding: 5px 5px 5px 5px;
 	background: #6495ED;
 	position: absolute;
