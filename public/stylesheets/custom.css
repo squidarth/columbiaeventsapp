@@ -35,6 +35,53 @@ body{
 	border-bottom: solid 1px #FF4040;
 	overflow: hidden;
 }
+/* STYLE FOR THE SIGN UP FORM AND HIDDEN STUFF */
+#dim{
+	background: url(/images/dim.png);
+	display: none;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: left;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+.highlighted_content{
+	position: absolute;
+	z-index: 200;
+	background: #fff;
+	top: 150px;
+	left: 50%;
+	margin-left: -180px;
+	border: solid 1px #000;
+	width: 430px;
+	height: 5px;
+	overflow: hidden;
+	padding: 0px 5px 5px;
+	border-radius: 10px;
+}
+.highlighted_content a.close{
+	text-decoration: none;
+	font-weight: bold;
+	color: #666;
+	float: right;
+}
+.highlighted_content a.close:hover{
+	text-decoration: underline;
+}
+.highlighted_content #signuppage{
+	margin-left: 0;
+	margin-top: 0;
+	padding-top: 0;
+}
+.highlighted_content #signuppage #facebook_signup{
+	border:none;
+}
+.highlighted_content #signuppage form#flash_form{
+	border: none;
+	margin: 0 0 0 15px;
+}
+/* END */
 #intropara{
 	padding: 0px 5px 10px 10px;
 	float: left;
@@ -451,7 +498,7 @@ section.success .flashnotice{
 }
 #signuppage div#facebook_signup{
 	margin-top: 0px;
-	border: solid 1px #e3ebc3;
+	border: solid 1px #ddd;
 	margin-bottom: 20px;
 	background-color: #fff;
 	border-radius: 5px;
