@@ -51,23 +51,77 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var boo = 1;
+	var clicked = 0;
+	//case that user is already attending
+	$('#maybe').click(function(e){
+		clicked = 1;
+	});
+	$('#attend').click(function(e){
+		clicked = 1;
+	});
 	$("#attendees_count").click(function(e){
-		e.preventDefault();
-		<% if @event.attendings.empty? %>
-		var length = '22px';
+		e.preventDefault();	
+		<% if signed_in? %>
+			<% if current_user.attendings.find_by_event_id(@event.id) %>
+					<% if @event.attendings.empty? %>
+					var length = '22px';
+					<% else %>
+					var length = <%= (@event.attendings.size*22).to_s %>;
+					<% end %>
+					if(boo == 1){
+						$("#attendees_list").show();
+						$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
+						boo = 0;
+					}else{
+						$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+						$("#attendees_list").fadeOut();
+						boo = 1;
+					}
+			<% else%>
+				if(clicked == 1){
+					var length = <%= ((@event.attendings.size + 1)*22).to_s %>;
+					if(boo == 1){
+						$("#attendees_list").show();
+						$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
+						boo = 0;
+					}else{
+						$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+						$("#attendees_list").fadeOut();
+						boo = 1;
+					}					
+				}else{
+					<% if @event.attendings.empty? %>
+					var length = '22px';
+					<% else %>
+					var length = <%= (@event.attendings.size*22).to_s %>;
+					<% end %>
+					if(boo == 1){
+						$("#attendees_list").show();
+						$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
+						boo = 0;
+					}else{
+						$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+						$("#attendees_list").fadeOut();
+						boo = 1;
+					}		
+				}
+			<% end %>
 		<% else %>
-		var length = <%= (@event.attendings.size*22).to_s %>;
+			<% if @event.attendings.empty? %>
+			var length = '22px';
+			<% else %>
+			var length = <%= (@event.attendings.size*22).to_s %>;
+			<% end %>
+			if(boo == 1){
+				$("#attendees_list").show();
+					$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
+				boo = 0;
+			}else{
+				$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+				$("#attendees_list").fadeOut();
+				boo = 1;
+			}
 		<% end %>
-
-		if(boo == 1){
-			$("#attendees_list").show();
-			$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
-			boo = 0;
-		}else{
-			$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
-			$("#attendees_list").fadeOut();
-			boo = 1;
-		}
 		
 	});
 });
