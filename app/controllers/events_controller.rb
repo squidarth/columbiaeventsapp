@@ -238,7 +238,10 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     flash[:success] = "Event deleted!"
-    redirect_to current_user
+    respond_to do |format|
+      format.html {redirect_to current_user}
+      format.js
+    end
   end
   
   

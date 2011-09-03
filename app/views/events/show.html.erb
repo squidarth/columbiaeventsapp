@@ -96,15 +96,12 @@ $(document).ready(function(){
 </li>
 <% end %>
 </ul>
-
+</div>
 <% if current_user?(@event.user)%>
 <div id="controls">
-<%= link_to 'Edit', edit_event_path(@event) %>
-<%= link_to "Delete", @event, :method => :delete, :confirm => "You sure?", :title => @event.name %>
+<%= link_to 'Edit this event', edit_event_path(@event) %>
 </div>
 <% end %>
-</div>
-
 <% if signed_in? %>
 <div id="attending_forms">
 	<%= form_for @attending, :url => {:controller => :attendings, :action => :attend }, :html => {:id => "attend"} do |f| %>
