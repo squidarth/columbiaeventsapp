@@ -14,7 +14,7 @@
 </div>
 </div>
 
-<div id="upcoming_events">Upcoming Events:</div>
+<div id="upcoming_events">Upcoming Events</div>
 <ul id="catshowpage">
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
@@ -80,7 +80,7 @@ $(document).ready(function(){
 <a href='#' id="back_to_top">Back to Top</a>
 <% end %>
 <% else %>
-<div id="upcoming_events">Upcoming Events:</div>
+<div id="block_header">Upcoming Events</div>
 <ul id="catshowpage">
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
