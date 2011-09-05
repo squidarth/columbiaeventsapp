@@ -66,7 +66,7 @@ $(document).ready(function(){
 					<% if @event.attendings.empty? %>
 					var length = '22px';
 					<% else %>
-					var length = <%= (@event.attendings.size*22).to_s %>;
+					var length = <%= (@event.attendings.size*20).to_s %>;
 					<% end %>
 					if(boo == 1){
 						$("#attendees_list").show();
