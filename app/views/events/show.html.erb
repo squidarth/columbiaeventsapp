@@ -8,7 +8,7 @@
 	<% elsif @event.user.facebookid%>
 	<img src="https://graph.facebook.com/<%= @event.user.facebookid%>/picture?type=normal" height="75" width="75"></img>
 	<% else%>
-	<%= image_tag ("questionmark.png"), :height => 75, :width => 75 %>
+	<%= image_tag ("bowl3.jpg"), :height => 75, :width => 75 %>
 	<% end %>
 	</a>
 	<div id="user_details">
@@ -24,14 +24,14 @@
 	<% if @event.photo.file? %>
 	<%= image_tag @event.photo.url(:small) %>
 	<% else %>
-	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<%= image_tag ("bowl3.jpg"), :height => 150, :width => 120 %>
 	<% end %>
 	</a>
 	<% else %>
 	<% if @event.photo.file? %>
 	<%= image_tag @event.photo.url(:small) %>
 	<% else %>
-	<%= image_tag ("questionmark.png"), :height => 150, :width => 120 %>
+	<%= image_tag ("bowl3.jpg"), :height => 150, :width => 120 %>
 	<% end %>
 	<% end %>
 
