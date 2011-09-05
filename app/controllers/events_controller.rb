@@ -238,7 +238,6 @@ class EventsController < ApplicationController
   # DELETE /events/1.xml
   def destroy
     @event.destroy
-    flash[:success] = "Event deleted!"
     respond_to do |format|
       format.html {redirect_to current_user}
       format.js

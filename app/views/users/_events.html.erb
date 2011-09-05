@@ -22,6 +22,11 @@
 </a>
 
 <div id="eventwords">
+	<% if signed_in? %>
+	<% if @user == current_user %>
+	<%= link_to "x", event, :class => "delete"%>
+	<% end %>
+	<% end %>
 	<p id="event_title"><%= event.name %></p>
 	<% if event.user %>
 	<div id="author"><%= event.user.name%></div>
