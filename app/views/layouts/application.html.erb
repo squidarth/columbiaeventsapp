@@ -132,6 +132,9 @@
 				</ul>
 				<% else %>
 				<ul id="dashboard_signin">
+					<li>
+						<%= link_to "View Calendar", calendar_path %>
+					</li>
 					<li id="signin">
 					<%= link_to "Sign in", '#', :id => 'sign_in_clicker' %>
 										<div id="signin_form">
