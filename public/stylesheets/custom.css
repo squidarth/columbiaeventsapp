@@ -896,6 +896,16 @@ form#new_event ul li p{
 	font-weight: bold;
 	margin-bottom: 5px;
 	font-size: 1.3em;
+	float: left;
+}
+#catshowpage li #eventwords #author{
+	font-size: 1em;
+	margin: 3px 0 0 5px;
+	color: #666;
+	float: left;
+}
+#catshowpage li #eventwords #when{
+	clear:both;
 }
 #catshowpage li #eventwords a{
 	text-decoration: none;
