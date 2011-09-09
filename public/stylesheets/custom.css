@@ -274,8 +274,7 @@ body{
 	height: 5px;
 	overflow: hidden;
 	position: absolute;
-	float: left;
-	text-align: left;
+	right: 0px;
 	background: #FF7F50;
 	border-radius: 15px;
 	color: #fff;
@@ -318,7 +317,7 @@ body{
 	border: 0;
 	width: 30px;
 	border-radius: 30px;
-	margin-top: 0;
+	margin-top: 3px;
 	padding-top: 0;
 	color: #fffeff;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -1239,3 +1238,14 @@ textarea, input{
 input.no_border{
 	border: none;
 }
+
+/* BUG FIXES FOR AUTOCOMPLETE */
+.ui-autocomplete {
+max-height: 100px;
+list-style: none;
+overflow: hidden;
+width: 50px;
+}
+/* IE 6 doesn't support max-height
+* we use height instead, but this forces the menu to always be this tall
+*/

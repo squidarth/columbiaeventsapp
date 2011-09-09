@@ -78,8 +78,11 @@
 			$('.highlighted_content').fadeOut();
 			$('#dim').fadeOut();
 		});
+
+
 	});
 	</script>
+
 	<div id="wrapper">
  <div id="fb-root"></div>
  <script src="http://connect.facebook.net/en_US/all.js"></script>
@@ -97,10 +100,9 @@
 					
 				<% if signed_in? %>
 				<ul id="dashboard">
+
 					<li>
-					<%= link_to "Sign out", signout_path %>
-					</li>
-					<li>
+		
 						<%= link_to "View Calendar", calendar_path %>
 					</li>
 					<li>
@@ -129,11 +131,24 @@
 					</div>
 					<% end %>
 					</li>
+					<li>
+					<%= link_to "Sign out", signout_path %>
+					</li>
 				</ul>
 				<% else %>
 				<ul id="dashboard_signin">
 					<li>
 						<%= link_to "View Calendar", calendar_path %>
+					</li>
+
+					<li>
+					<div id="searchbar">
+					<% form_tag(events_path, {:method => :get}) do %>
+					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
+					<button id="search_select" type="submit">Go!</button>
+					<% end %>
+					</div>
+
 					</li>
 					<li id="signin">
 					<%= link_to "Sign in", '#', :id => 'sign_in_clicker' %>
@@ -146,15 +161,6 @@
 						    <button id="session_submit" name="commit" type="submit">Sign in</button>
 					<% end %>
 					</div>
-					</li>
-					<li>
-					<div id="searchbar">
-					<% form_tag(events_path, {:method => :get}) do %>
-					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-					<button id="search_select" type="submit">Go!</button>
-					<% end %>
-					</div>
-
 					</li>
 				</ul>
 				<% end %>
@@ -291,5 +297,16 @@
 	<p id="footer-descrip">Copyright EventSalsa.</p>
   </div>
 </div>
+	<script type="text/javascript">
+				$(function(){
+					var event_obs = [];
+					<% Event.all.each do |event| %>
+					event_obs.push("<%= event.name %>");
+					<% end %>
+					$("#search_field").autocomplete({
+						source: event_obs
+					});	
+				});
+	</script>
 </body>
 </html>
