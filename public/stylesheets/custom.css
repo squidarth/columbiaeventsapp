@@ -56,14 +56,14 @@ body{
 	position: absolute;
 	z-index: 200;
 	background: #fff;
-	top: 150px;
+	top: 50px;
 	left: 50%;
 	margin-left: -180px;
 	border: solid 1px #000;
 	width: 430px;
 	height: 5px;
 	overflow: hidden;
-	padding: 0px 5px 5px;
+	padding: 0px 5px 20px;
 	border-radius: 10px;
 }
 .highlighted_content a.close{
@@ -94,80 +94,43 @@ body{
 	margin: 0px 0 20px 60px;
 	color: #222;
 	border-radius: 10px;
+	border: solid 1px #ddd;
+	background: #eee;
 }
 #intropara p#emphasis{
 	font-weight: bold;
 	margin-top: 0;
 	margin-bottom: 10px;
 	font-size: 2.4em;
+	color: #222;
 	
 }
 #intropara p#descrip{
+	float: left;
 	margin-top: 0;
 	font-size: 1.3em;
-	width: 670px;
+	color: #777;
+	width: 500px;
 }
 #signup {
+	float: right;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	margin: 30px 0 0 130px;
+	margin: 10px 10px 0 0px;
 }
 #signup a{
-	float: left;
-	background: #104E8B;
-	margin-right: 20px;
-	color: #fffeff;
-	text-align: center;
 	text-decoration: none;
-	padding: 0px 5px 5px 5px;
-	width: 100px;
-	height: 30px;
+	background: #FF7F50;
+	border-radius: 10px;
+	padding: 5px 30px 5px 30px;
+	color: #fff;
 	font-weight: bold;
-	border-radius: 30px;
-	vertical-align: middle;
-	box-shadow: 0 1px 0 #6495ED,
-                0 2px 0 #6495ED,
-                0 3px 0 #6495ED,
-                0 5px 10px rgba(164, 27, 39, .5);
-	
-	/*-moz-border-radius: 60px;
-	-webkit-border-radius: 60px;
-	padding: 0 0 0;
-	text-align: center;
-	width: 	100px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #fffeff;
-	font-style: bold;
-	vertical-align: middle;
-	border: none;*/
+	font-size: 1.3em;
 }
 #signup a:hover{
-	position: relative; top: 2px;
-    box-shadow: 0 1px 0 #6495ED,
-                0 2px 0 #6495ED,
-                0 5px 10px rgba(164, 27, 39, .5);
+	background: #FFA07A;
 }
 #signup a:active{
-		   position: relative; top: 4px;
-    box-shadow: inset 0 1px 1px #6495ED,
-                0 1px 0 #6495ED,
-                0 -2px 5px rgba(255, 255, 255, .2);
-}
-#signup a#facebook_login{
-	padding-top: 5px;
-	padding-bottom: 10px;	
-	/*width: 	100px;
-	height: 70px;*/
-}
-#signup a#email_login{
-	padding-top: 10px;
-	/*padding-top: 35px;
-	width: 	100px;
-	height: 65px;*/
-}
-#signup a#calendar_link{
-	padding-top: 5px;
-	padding-bottom: 10px;
+
 }
 
 #homeshowpage{
@@ -282,13 +245,17 @@ body{
 	margin-left: 0;
 	padding: 0 0 0 10px;
 	font-weight: bold;
-	width: 300px;
+	width: 320px;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 
 }
 #dashboard_signin #signin_form p{
 	float: left;
 	margin-bottom: 0;
 	margin-right: 10px;
+}
+#dashboard_signin #signin_form img{
+	margin-top: 25px;	
 }
 #dashboard_signin #signin_form button{
 	margin-top: 28px;
@@ -297,6 +264,7 @@ body{
 	background: #FF7F50;
 	font-weight: bold;
 	border: none;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #dashboard_signin #signin_form button:hover{
 	text-decoration: underline;
@@ -317,7 +285,7 @@ body{
 	border: 0;
 	width: 30px;
 	border-radius: 30px;
-	margin-top: 3px;
+	margin-top: 1px;
 	padding-top: 0;
 	color: #fffeff;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -1241,6 +1209,7 @@ input.no_border{
 
 /* BUG FIXES FOR AUTOCOMPLETE */
 .ui-autocomplete {
+	position: absolute;
 max-height: 100px;
 list-style: none;
 overflow: hidden;

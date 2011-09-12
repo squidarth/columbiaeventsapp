@@ -9,9 +9,15 @@ class EventsController < ApplicationController
     
     if params[:search]
       @title = "Search"
-      @header = "Search results for '" + params[:search] + "'"
+
       @events = Event.search(params[:search])
-      @array_of_events = @events.sort!{|a,b| b.date <=> a.date }
+      if params[:search].eql?("")
+        @header = "No results"
+        @array_of_events = []
+      else
+        @header = "Search results for '" + params[:search] + "'"
+        @array_of_events = @events.sort!{|a,b| b.date <=> a.date }
+      end
     elsif params[:date]
       @array_of_events = Event.find_by_date(Date.parse(params[:date]))
       @header = @months[Date.parse(params[:date]).month - 1] + ' ' + Date.parse(params[:date]).day.to_s + ', ' + Date.parse(params[:date]).year.to_s 

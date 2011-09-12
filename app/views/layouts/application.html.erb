@@ -159,7 +159,8 @@
 						    <p><%= f.label :password %><br />
 						    <%= f.password_field :password, :size => 10 %></p>
 						    <button id="session_submit" name="commit" type="submit">Sign in</button>
-					<% end %>
+							<a href="/auth/facebook" id="facebook_login"><%= image_tag "Facebook_logo.png", :width => 20, :height => 20%></a>
+					<% end %>		
 					</div>
 					</li>
 				</ul>
@@ -286,6 +287,17 @@
 		<div class="flash<%= key %>"><%= value %></div>
 		<% end %>
 	</section>
+	<% if !signed_in?%>
+		<div id="intropara">
+		<p id="emphasis">Welcome to EventSalsa, an event catalogue.</p>
+		<p id="descrip">EventSalsa is the best place to find out what awesome events are happening
+			at Columbia University.  To start, simply click on a category on the left.  If you 
+			want to post events, it takes two seconds to sign up and start posting!</p>
+		<div id="signup">
+			<%= link_to "Sign up", '#', :id => "email_login" %>
+		</div>
+		</div>
+	<% end %>
   <%= yield %>
   </div>
 </div>
