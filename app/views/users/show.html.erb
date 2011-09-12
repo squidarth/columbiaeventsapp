@@ -5,11 +5,11 @@
 	<%= image_tag @user.avatar.url(:normal) %>
 	<% elsif @user.fbnickname %>
 	<a href="http://www.facebook.com/<%= @user.fbnickname %>">
-	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=large" height="220" width="220"></img>
+	<img src="http://graph.facebook.com/<%= @user.fbnickname %>/picture?type=large"></img>
 	</a>
 	<% elsif @user.facebookid%>
 	<a href="http://www.facebook.com/profile.php?id=<%= @user.facebookid %>">
-	<img src="https://graph.facebook.com/<%= @user.facebookid%>/picture?type=large" height="220" width="220"></img>
+	<img src="https://graph.facebook.com/<%= @user.facebookid%>/picture?type=large"></img>
 	</a>
 	<% else%>
 	<%= image_tag ("bowl3.jpg"), :height => 147, :width => 230 %>

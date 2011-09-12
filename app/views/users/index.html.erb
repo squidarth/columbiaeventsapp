@@ -5,11 +5,11 @@
 		<li>
 				<a href="/users/<%= user.id %>">
 				<% if user.avatar.file? %>
-				<%= image_tag user.avatar.url(:small), :height => 100, :width => 100 %>
+				<%= image_tag user.avatar.url(:small) %>
 				<% elsif user.fbnickname %>
-				<img src="http://graph.facebook.com/<%= user.fbnickname %>/picture?type=normal" height="100" width="100"></img>
+				<img src="http://graph.facebook.com/<%= user.fbnickname %>/picture?type=normal"></img>
 				<% elsif user.facebookid%>
-				<img src="https://graph.facebook.com/<%= user.facebookid%>/picture?type=normal" height="100" width="100"></img>
+				<img src="https://graph.facebook.com/<%= user.facebookid%>/picture?type=normal"></img>
 				<% else%>
 				<%= image_tag ("bowl3.jpg"), :height => 70, :width => 100 %>
 				<% end %>

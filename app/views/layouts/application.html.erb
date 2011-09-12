@@ -53,7 +53,7 @@
 
   <li>
   	<p><label for="avatar">Profile Picture</label></p>
-  	<%= f.file_field :avatar, :class => 'no_border' %>
+  	<%= f.file_field :avatar, :class => 'file_field' %>
   </li>
   
   <li>
@@ -132,6 +132,9 @@
 					<% end %>
 					</li>
 					<li>
+
+					</li>
+					<li>
 					<%= link_to "Sign out", signout_path %>
 					</li>
 				</ul>
@@ -145,10 +148,9 @@
 					<div id="searchbar">
 					<% form_tag(events_path, {:method => :get}) do %>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-					<button id="search_select" type="submit">Go!</button>
+					<button id="search_select" type="submit">Go!</button>	
 					<% end %>
 					</div>
-
 					</li>
 					<li id="signin">
 					<%= link_to "Sign in", '#', :id => 'sign_in_clicker' %>

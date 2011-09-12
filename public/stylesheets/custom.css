@@ -279,13 +279,14 @@ body{
 	margin: 0 0 5px 0;
 }
 #searchbar{
-	margin: 0 0 0 0;
+	margin: 0px 0 0 0;
 }
-#searchbar #search_select{
+#search_select{
+	font-size: 1.1em;
 	border: 0;
-	width: 30px;
+	width: 32px;
 	border-radius: 30px;
-	margin-top: 1px;
+	margin-top: 3px;
 	padding-top: 0;
 	color: #fffeff;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -1206,7 +1207,9 @@ textarea, input{
 input.no_border{
 	border: none;
 }
-
+input.file_field{
+	
+}
 /* BUG FIXES FOR AUTOCOMPLETE */
 .ui-autocomplete {
 	position: absolute;
