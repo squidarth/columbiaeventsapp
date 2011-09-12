@@ -20,9 +20,11 @@ class Event < ActiveRecord::Base
   
   validate :validate_date
   
-  def self.make_from_facebook(name, description, time, date, location, facebooklink, category)
-     Event.create!(:name => name, :description => description, :time => time, :date => date, :location => location, :facebooklink => facebooklink, :category => category)
-      
+  def self.make_from_facebook(event_id)
+      @me = Event.find(31)
+      @graph = Koala::Facebook::GraphAPI.new(@me.authorizations[0].token)
+      @event_deets = @graph.get_object(event_id)
+      puts @event_deets
   end
   
   def self.search(search)

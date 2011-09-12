@@ -16,7 +16,7 @@
 	<% end %>
 	<div id="when">
 	<% if event.date %>
-	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <% if(event.time.hour>12)%> <%= (event.time.hour-12) %>:<%= event.time.min %> PM <% else %><%= event.time.hour %>:<%= event.time.min %> AM<% end %><br />
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <% if(event.time.hour>12)%> <%= (event.time.hour-12) %>:<%if(event.time.min < 10) %>0<%= event.time.min%><% else %><%= event.time.min%><% end%> PM <% else %><%= event.time.hour %>:<%if(event.time.min < 10) %>0<%= event.time.min%><% else %><%= event.time.min%><% end%> AM<% end %><br />
 	<% end %>
 	<i><%= event.description %></i> <br />
 	<% if event.facebooklink%>
