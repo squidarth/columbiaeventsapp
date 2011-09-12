@@ -536,7 +536,7 @@ section.success .flashnotice{
 	margin-left: 170px;
 	border: solid 1px #ddd;
     border-radius: 5px;
-    width: 420px;
+    width: 380px;
     color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
@@ -1208,7 +1208,10 @@ input.no_border{
 	border: none;
 }
 input.file_field{
-	
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+	font-size: 1.1em;
+	border-radius: 5px;
+	border: solid 1px #ddd;
 }
 /* BUG FIXES FOR AUTOCOMPLETE */
 .ui-autocomplete {
@@ -1216,7 +1219,9 @@ input.file_field{
 max-height: 100px;
 list-style: none;
 overflow: hidden;
-width: 50px;
+width: -20px;
+padding-left: +10px;
+border: none;
 }
 /* IE 6 doesn't support max-height
 * we use height instead, but this forces the menu to always be this tall
