@@ -22,6 +22,8 @@ class Event < ActiveRecord::Base
   
   def self.make_from_facebook(event_id)
       @me = User.find(31)
+      puts @me.name
+      puts ("token" + @me.authorizations[0].token)
       @graph = Koala::Facebook::GraphAPI.new(@me.authorizations[0].token)
       @event_deets = @graph.get_object(event_id)
       puts @event_deets
