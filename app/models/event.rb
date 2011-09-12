@@ -20,6 +20,11 @@ class Event < ActiveRecord::Base
   
   validate :validate_date
   
+  def self.make_from_facebook(name, description, time, date, location, facebooklink, category)
+     Event.create!(:name => name, :description => description, :time => time, :date => date, :location => location, :facebooklink => facebooklink, :category => category)
+      
+  end
+  
   def self.search(search)
     search_condition = "%" + search.downcase + "%"
     find(:all, :conditions => ['LOWER(name) LIKE ? OR LOWER(description) LIKE ? ', search_condition, search_condition])
