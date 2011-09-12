@@ -20,6 +20,9 @@ class Event < ActiveRecord::Base
   
   validate :validate_date
   
+  def self.test_function
+    puts "hi"
+  end
   def self.make_from_facebook(event_id)
       @me = User.find(31)
       puts @me.name
