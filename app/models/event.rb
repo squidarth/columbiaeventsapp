@@ -25,6 +25,7 @@ class Event < ActiveRecord::Base
       @graph = Koala::Facebook::GraphAPI.new(@me.authorizations[0].token)
       @event_deets = @graph.get_object(event_id)
       puts @event_deets
+      puts "Monkey"
   end
   
   def self.search(search)
