@@ -74,20 +74,20 @@ $(document).ready(function(){
 		clicked = 1;
 		
 		<% if signed_in? %>
-			        var facebooklink = <%= @event.facebooklink %>;
+			        var facebooklink = "<%= @event.facebooklink %>";
 					alert('script entered');
 					var post = {
-				     "name": <%= current_user.name %>,
+				     "name": "<%= current_user.name %>",
 				     "id": facebooklink,
 				     "rsvp_status": "attending"
 				   };
-					//FB.api('/' + facebooklink + '/attending', 'post', post, function(response){
-					//	if(!response || response.error){
-					//		alert('Something went wrong!');
-					//	}else{
-					//		alert('You are now attending this event!');
-					//	}	
-					//});
+					FB.api('/' + facebooklink + '/attending', 'post', post, function(response){
+						if(!response || response.error){
+							alert('Something went wrong!');
+						}else{
+							alert('You are now attending this event!');
+						}	
+					});
 		<% end %>		
 	});
 	
