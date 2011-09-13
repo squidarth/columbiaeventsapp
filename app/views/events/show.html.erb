@@ -190,9 +190,10 @@ $(document).ready(function(){
 <% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
 <script type="text/javascript">
 $(document).ready(function(){
-	var facebooklink = <%= @event.facebooklink %>;
+	//var facebooklink = <%= @event.facebooklink %>;
 	$('#attend_submit').click(function(e){
 		alert('script entered');
+		return false;
 		//var post = {
 	     // "name": <%= current_user.name %>,
 	     // "id": facebooklink,
