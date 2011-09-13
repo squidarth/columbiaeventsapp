@@ -74,7 +74,6 @@ $(document).ready(function(){
 		clicked = 1;
 		
 		<% if signed_in? %>
-		<% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
 			        var facebooklink = <%= @event.facebooklink %>;
 					alert('script entered');
 					var post = {
@@ -89,9 +88,9 @@ $(document).ready(function(){
 							alert('You are now attending this event!');
 						}	
 					});
-		<% end %>
 		<% end %>		
 	});
+	
 	$("#attendees_count").click(function(e){
 		e.preventDefault();	
 		<% if signed_in? %>
