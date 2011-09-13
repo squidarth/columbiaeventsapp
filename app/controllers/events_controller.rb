@@ -144,7 +144,7 @@ class EventsController < ApplicationController
               :location => @event.location,
              }
           end
-          @event.facebooklink  = @graph.put_object('me', 'events', params)
+          @event.facebooklink  = @graph.put_object('me', 'events', params)[:id]
           @event.save
         end
       end
