@@ -13,7 +13,7 @@ body{
 }
 #top{
 	width: 100%;
-	height: 43px;
+	height: 54px;
 	background: #FF7F50;
 	position: fixed;
 }
@@ -39,7 +39,7 @@ body{
 	position: fixed;
 	width: 960px;
 	background: #FF7F50;
-	height: 43px;
+	height: 54px;
 }
 /* STYLE FOR THE SIGN UP FORM AND HIDDEN STUFF */
 #dim{
