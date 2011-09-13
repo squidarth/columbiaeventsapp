@@ -28,9 +28,12 @@
     </li>
     <li><p><label for="event_location">Where?</label></p>
     <%= f.text_field :location %></li>
-
+	
+    <li><p><label for="event_author">Student Group(if applicable)</label></p>
+    <%= f.text_field :author %></li>
+    
     <li><p><%= f.label :category %></p>
-    <%= f.select(:category, [['Greek Life', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8], ['Other', 9]]) %></li>
+    <%= f.select(:category, [['Greek Life', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8], ['Cultural', 10], ['Other', 9]]) %></li>
   	
   	<li><p><label for="event_photo">Picture</label></p>
   	<%= f.file_field :photo, :class => 'file_field' %></li>

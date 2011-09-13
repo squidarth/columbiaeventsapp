@@ -26,6 +26,7 @@ Sidsapp::Application.routes.draw do
   match '/politics', :to => 'categories#politics'
   match '/careernetworking', :to => 'categories#careernetworking'
   match '/arts', :to => 'categories#arts'
+  match '/culture', :to => 'categories#cultural'
   match '/communityservice', :to => 'categories#communityservice'
   match '/stuco', :to => 'categories#studentcouncil'
   match '/all', :to => 'categories#all'

@@ -29,7 +29,7 @@ class UsersController < ApplicationController
      @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
      @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
      @title = @user.name
-     @array_of_events = @user.events.sort! {|a,b| b.date <=> a.date }
+     @array_of_events = @user.events.sort! {|a,b| a.date <=> b.date }
      @event = Event.new if signed_in?
      @authorizations = @user.authorizations
    end
@@ -108,7 +108,7 @@ class UsersController < ApplicationController
             end
           end
         end
-        filtered_events.sort! {|a,b| b.date <=> a.date}
+        filtered_events.sort! {|a,b| a.date <=> b.date}
         filtered_events
       end
       

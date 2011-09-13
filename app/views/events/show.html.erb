@@ -13,7 +13,11 @@
 	</a>
 	<div id="user_details">
 		<p id="title"><%= @event.name %></p>
+		<% if @event.author%>
+		<p id="name">By: <%= @event.author %></p>
+		<% else %>
 		<p id="name">By: <%= @event.user.name %></p>
+		<% end %>
 	</div>	
 </div>
 
@@ -23,6 +27,8 @@
 	<a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>">
 	<% if @event.photo.file? %>
 	<%= image_tag @event.photo.url(:small) %>
+	<% elsif %>
+	<img src="https://graph.facebook.com/<%= @event.facebooklink%>/picture?type=large"></img>
 	<% else %>
 	<%= image_tag ("bowl3.jpg"), :height => 100, :width => 130 %>
 	<% end %>
@@ -128,7 +134,7 @@ $(document).ready(function(){
 </script>
 <ul>
 <li>
-	<i><%= @event.description %></i>	
+	<p><i><%= @event.description %></i></p>	
 </li>
 <% if(!(@event.location == "")) %>
 <li>
@@ -137,11 +143,11 @@ $(document).ready(function(){
 <% end %>
 <li>
 	<% if @event.date && @event.time%>
-	On <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <% if(@event.time.hour>12)%> <%= (@event.time.hour-12) %>:<%if(@event.time.min < 10) %>0<%= @event.time.min%><% else %><%= @event.time.min%><% end%> PM <% else %><%= @event.time.hour %>:<%if(@event.time.min < 10) %>0<%= @event.time.min%><% else %><%= @event.time.min%><% end%> AM<% end %>
+	On <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <%= @event.time.strftime("%I:%M %p")%> 
 	<% elsif @event.date %>
 	On <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
 	<% elsif @event.time %>
-	At <% if(@event.time.hour-12) %>:<%if(@event.time.min < 10) %>0<%= @event.time.min%><% else %><%= @event.time.min%><% end%> PM <% else %><%= @event.time.hour %>:<%if(@event.time.min < 10) %>0<%= @event.time.min%><% else %><%= @event.time.min%><% end%> AM<% end %>
+	At <%= @event.time.strftime("%I:%M %p")%> 
 	<% end %>
 </li>
 <% if @event.facebooklink%>

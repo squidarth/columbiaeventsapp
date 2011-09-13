@@ -994,6 +994,12 @@ form#new_event ul li p{
 	float: left;
 	width: 300px;
 }
+#eventshow ul li a{
+	color: #256AA3;
+	text-decoration: none;
+	font-size: .85em;
+}
+
 #controls{
 	clear: both;
 	float: left;

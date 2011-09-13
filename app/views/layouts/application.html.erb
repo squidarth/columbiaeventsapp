@@ -232,6 +232,15 @@
 			<%= link_to "Arts", arts_path %>
 		</li>
 		<% end %>
+		<%if @title == "Cultural"%>
+		<li class="selected">
+			<%= link_to "Cultural", culture_path %>
+		</li>
+		<% else %>
+		<li class="unselected">
+			<%= link_to "Cultural", culture_path %>
+		</li>
+		<% end %>
 		<% if @title == "Career Networking" %>
 		<li class="selected">
 			<%= link_to "Career Networking", careernetworking_path %>
