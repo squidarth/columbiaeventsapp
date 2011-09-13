@@ -191,7 +191,7 @@ $(document).ready(function(){
 <script type="text/javascript">
 $(document).ready(function(){
 	var facebooklink = <%= @event.facebooklink %>;
-	$('#attend').submit(function(e){
+	$('#attend_submit').click(function(e){
 		alert('script entered');
 		//var post = {
 	     // "name": <%= current_user.name %>,
@@ -206,7 +206,7 @@ $(document).ready(function(){
 		//	}
 		});
 	
-	$('#maybe').submit(function(e){
+	$('#maybe_submit').click(function(e){
 		alert('script entered');
 		//var post = {
 	      //"name": <%= current_user.name %>,
