@@ -81,7 +81,7 @@ $(document).ready(function(){
 				     id: facebooklink,
 				     rsvp_status: "attending"
 				   };
-					FB.api('/' + facebooklink + '/attending', 'post', post, function(response){
+					FB.api('/' + facebooklink + '/attending', 'post', function(response){
 						if(!response || response.error){
 							alert('Something went wrong!');
 						}else{
