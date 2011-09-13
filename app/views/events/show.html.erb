@@ -13,7 +13,7 @@
 	</a>
 	<div id="user_details">
 		<p id="title"><%= @event.name %></p>
-		<% if @event.author%>
+		<% if !@event.author.eql?("")%>
 		<p id="name">By: <%= @event.author %></p>
 		<% else %>
 		<p id="name">By: <%= @event.user.name %></p>

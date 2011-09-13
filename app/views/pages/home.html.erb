@@ -13,7 +13,7 @@
 
 <div id="eventwords">
 	<p id="event_title"><%= event.name %></p>
-	<% if event.author%>
+	<% if event.author.eql?("")%>
 	<div id="author"><%= event.author%></div>
 	<% elsif event.user %>
 	<div id="author"><%= event.user.name%></div>
