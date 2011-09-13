@@ -2,7 +2,9 @@
 <ul id="catshowpage">
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
-	<% if event.photo.file? %>
+	<% if event.facebooklink %>
+	<img src="https://graph.facebook.com/<%= event.facebooklink%>/picture?type=normal"></img>
+	<% elsif event.photo.file? %>
 	<%= image_tag event.photo.url(:small), :width => 100 %>
 	<% else %>
 	<%= image_tag ("bowl3.jpg"), :height => 70, :width => 100 %>

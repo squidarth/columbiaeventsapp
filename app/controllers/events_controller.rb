@@ -109,9 +109,9 @@ class EventsController < ApplicationController
           OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
           OpenURI::Buffer.const_set 'StringMax', 0
           #NEED TO HAVE SEPARATE SEND OPTIONS FOR PICTURE, NO PICTURE, DATE&TIME, NO DATE&TIME
-          
+
           #CASE THAT PICTURE, DATE, TIME EXIST
-          if(!@event.photo.url.nil? && @event.date && @event.time)
+          if(!@event.photo.url.eql?("/photos/original/missing.png") && @event.date && @event.time)
             picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
             datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
             params = {
@@ -121,7 +121,7 @@ class EventsController < ApplicationController
               :location => @event.location,
               :start_time => datetime,
              }
-          elsif(!@event.photo.url.nil?) #CASE THAT PHOTO EXISTS, NO DATETIME
+          elsif(!@event.photo.url.eql?("/photos/original/missing.png")) #CASE THAT PHOTO EXISTS, NO DATETIME
             picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
             params = {
               :picture => picture,
