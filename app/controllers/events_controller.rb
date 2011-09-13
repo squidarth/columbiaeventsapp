@@ -145,9 +145,9 @@ class EventsController < ApplicationController
              }
           end
           require 'json'
-          id_hash = (JSON.parse(@graph.put_object('me', 'events', params)))
-          puts id_hash
-          @event.facebooklink = id_hash[:id]
+          answer = @graph.put_object('me', 'events', params)
+          JSON.parse(answer)
+          @event.facebooklink = answer[:id]
           @event.save
         end
       end
