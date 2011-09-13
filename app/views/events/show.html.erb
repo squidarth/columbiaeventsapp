@@ -81,13 +81,16 @@ $(document).ready(function(){
 				     "id": facebooklink,
 				     "rsvp_status": "attending"
 				   };
-					FB.api('/' + facebooklink + '/attending', 'post', post, function(response){
+				   FB.api('/me', function(response){
+				   		alert(response.name);
+				   });
+					/*FB.api('/' + facebooklink + '/attending', 'post', post, function(response){
 						if(!response || response.error){
 							alert('Something went wrong!');
 						}else{
 							alert('You are now attending this event!');
 						}	
-					});
+					});*/
 		<% end %>		
 	});
 	
