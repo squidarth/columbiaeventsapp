@@ -43,6 +43,9 @@ class Event < ActiveRecord::Base
     puts @graph.get_connections(event_id, 'attending')
   end
   
+  def self.printer
+    puts 'thing'
+  end
   def self.find_by_date(date)
     @events = Event.all
     @sorted_events = []
