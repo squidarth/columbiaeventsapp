@@ -42,25 +42,103 @@
 	<% end %>
 
 
+<!-- CASE FACEBOOK -->
+<% if @event.facebooklink %>
 <div id="attendees">
-<a href="#" id="attendees_count"><%= pluralize(@event.attendings.count, 'Person') %> Attending</a><br />
+<a href="#" id="attendees_count"><%= pluralize(@attendings.count, 'Person') %> Attending</a><br />
+<a href="#" id="maybe_count"><%= pluralize(@maybes.count, 'Person')%> might be attending</a>
 <ul id="attendees_list">
-	<% @event.attendings.each do |attending| %>
+	<% @attendings.each do |attending| %>
 	<li>
-		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> 
-		<div id="status"><%= attending.status %></div>
+		<%= link_to attending[:name], '#' %> 
+	</li>
+	<% end %>
+</ul>
+<ul id="maybe_list">
+	<% @attendings.each do |attending| %>
+	<li>
+		<%= link_to attending[:name], '#' %> 
 	</li>
 	<% end %>
 </ul>
 
 </div>
+
+<!-- CASE NO FACEBOOK -->
+<% else %>
+
+
+
+<div id="attendees">
+<% if @event.attendings.find_by_status("Attending").kind_of?(Array) %>
+<a href="#" id="attendees_count"><%= pluralize(@event.attendings.find_by_status('Attending').count, 'Person') %> Attending</a><br />
+<% elsif @event.attendings.find_by_status("Attending").nil? %>
+<a href="#" id="attendees_count">0 People Attending</a><br />
+<% else%>
+<a href="#" id="attendees_count">1 Person Attending</a><br />
+<% end %>
+
+<% if @event.attendings.find_by_status("Maybe").kind_of?(Array) %>
+<a href="#" id="maybe_count"><%= pluralize(@event.attendings.find_by_status('Maybe').count, 'Person')%> Might Be Attending</a>
+<% elsif @event.attendings.find_by_status("Maybe").nil? %>
+<a href="#" id="maybe_count">0 People Might Be Attending</a><br />
+<% else%>
+<a href="#" id="maybe_count">1 Person Might Be Attending</a><br />
+<% end %>
+
+<!-- CASE ATTENDING -->
+<% if @event.attendings.find_by_status("Attending").nil? %>
+<ul id="attendees_list">
+</ul>
+<% elsif @event.attendings.find_by_status("Attending").kind_of?(Array) %>
+<ul id="attendees_list">
+	<% @event.attendings.find_by_status("Attending").each do |attending| %>
+	<li>
+		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> 
+	</li>
+	<% end %>
+</ul>
+<% else%>
+<ul id="attendees_list">
+	<li>
+		<%= link_to User.find(@event.attendings.find_by_status("Attending").user_id).name, User.find(@event.attendings.find_by_status("Attending").user_id) %> 
+	</li>
+</ul>
+<% end %>
+
+<!-- CASE MAYBE -->
+<% if @event.attendings.find_by_status("Maybe").nil?%>
+<ul id="maybe_list">
+</ul>
+<% elsif @event.attendings.find_by_status("Maybe").kind_of?(Array) %>
+<ul id="maybe_list">
+	<% @event.attendings.find_by_status("Maybe").each do |attending| %>
+	<li>
+		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> 
+	</li>
+	<% end %>
+</ul>
+<% else%>
+<ul id="maybe_list">
+	<li>
+		<%= link_to User.find(@event.attendings.find_by_status("Maybe").user_id).name, User.find(@event.attendings.find_by_status("Maybe").user_id) %> 
+	</li>
+</ul>
+
+<% end %>
+</div>
+
+
+
+<% end %>
 <script type="text/javascript">
 $(document).ready(function(){
 	var boo = 1;
 	var clicked = 0;
+	var maybe_counter = 1;
 	//case that user is already attending
 	$('#maybe').click(function(e){
-		clicked = 1;
+		//clicked = 1;
 		
 		<% if signed_in? %>
 		<% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
@@ -74,7 +152,7 @@ $(document).ready(function(){
 		<% end %>
 	});
 	$('#attend').click(function(e){
-		clicked = 1;
+		//clicked = 1;
 		
 		<% if signed_in? %>
 		<% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
@@ -155,6 +233,70 @@ $(document).ready(function(){
 		<% end %>
 		
 	});
+	$('#maybe_count').click(function(e){
+		e.preventDefault();	
+		<% if signed_in? %>
+			<% if current_user.attendings.find_by_event_id(@event.id) %>
+					<% if @event.attendings.empty? %>
+					var length = '22px';
+					<% else %>
+					var length = <%= (@event.attendings.size*20).to_s %>;
+					<% end %>
+					if(maybe_counter == 1){
+						$("#maybe_list").show();
+						$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
+						maybe_counter = 0;
+					}else{
+						$("#maybe_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+						$("#maybe_list").fadeOut();
+						maybe_counter = 1;
+					}
+			<% else%>
+				if(clicked == 1){
+					var length = <%= ((@event.attendings.size + 1)*22).to_s %>;
+					if(maybe_counter == 1){
+						$("#maybe_list").show();
+						$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
+						maybe_counter = 0;
+					}else{
+						$("#maybe_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+						$("#maybe_list").fadeOut();
+						maybe_counter = 1;
+					}					
+				}else{
+					<% if @event.attendings.empty? %>
+					var length = '22px';
+					<% else %>
+					var length = <%= (@event.attendings.size*22).to_s %>;
+					<% end %>
+					if(maybe_counter == 1){
+						$("#maybe_list").show();
+						$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
+						maybe_counter = 0;
+					}else{
+						$("#maybe_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+						$("#maybe_list").fadeOut();
+						maybe_counter = 1;
+					}		
+				}
+			<% end %>
+		<% else %>
+			<% if @event.attendings.empty? %>
+			var length = '22px';
+			<% else %>
+			var length = <%= (@event.attendings.size*22).to_s %>;
+			<% end %>
+			if(maybe_counter == 1){
+				$("#maybe_list").show();
+					$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
+				maybe_counter = 0;
+			}else{
+				$("#maybe_list").stop().animate({height: '5px'}, {queue:false, duration:600});
+				$("#maybe_list").fadeOut();
+				maybe_counter = 1;
+			}
+		<% end %>
+	});
 });
 </script>
 <ul>
@@ -211,8 +353,3 @@ $(document).ready(function(){
 </div>
 
 </div>
-<% if signed_in? %>
-<% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
-
-<% end %>
-<% end %>

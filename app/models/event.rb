@@ -36,15 +36,20 @@ class Event < ActiveRecord::Base
     find(:all, :conditions => ['LOWER(name) LIKE ? OR LOWER(description) LIKE ? ', search_condition, search_condition])
   end
   
-  def self.test(event_id)
+  def get_fb_attendings
     @me = User.find(31)
     @token = @me.authorizations.find_by_provider('facebook').token
     @graph = Koala::Facebook::GraphAPI.new(@token)
-    puts @graph.get_connections(event_id, 'attending')
+    @people = @graph.get_connections(id, 'attending')
+    return @people
   end
   
-  def self.printer
-    puts 'thing'
+  def get_fb_maybes
+    @me = User.find(31)
+    @token = @me.authorizations.find_by_provider('facebook').token
+    @graph = Koala::Facebook::GraphAPI.new(@token)
+    @people = @graph.get_connections(id, 'maybe')
+    return @people    
   end
   def self.find_by_date(date)
     @events = Event.all

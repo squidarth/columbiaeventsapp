@@ -978,13 +978,14 @@ form#new_event ul li p{
 	font-size: 110%;
 }
 #eventshow img{
-	margin-top: 22px;
+	margin-top: 35px;
 	border-radius: 20px;
 	border: solid 3px #fff;
 	float: left;
 }
 #eventshow ul{
-	margin-top: 10px;
+	padding-bottom: 0;
+	margin-top: 0px;
 	float: left;
 }
 #eventshow ul li{
@@ -1015,8 +1016,10 @@ form#new_event ul li p{
 }
 #attendees{
 	float: right;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
-#attendees_count{
+#attendees a{
 	text-decoration: none;
 	font-weight: bold;
 	text-align: left;
@@ -1025,10 +1028,11 @@ form#new_event ul li p{
 	margin: 0 10px 0 0;
 	padding: 0 0 0 0;
 }
-#attendees_count:hover{
+#attendees a:hover{
 	text-decoration: underline;
 }
-#attendees_list{
+#attendees ul{
+	min-width: 50px;
 	height: 5px;
 	overflow: hidden;
 	border-radius: 15px;
@@ -1037,27 +1041,31 @@ form#new_event ul li p{
 	text-align: right;
 	clear: right;
 	float: right;
-	margin: 0px 0 0 0px;
+	margin: 0px 0 0 130px;
 	padding: 5px 5px 5px 5px;
 	background: #6495ED;
 	position: absolute;
 }
-#attendees_list li{
+#attendees ul#maybe_list{
+	margin: 0px 0 0 130px;
+}
+#attendees ul li{
 	width: 100%;
 	text-align: left;
-	float: left;
+	float: right;
 }
-#attendees_list li a{
+#attendees ul li a{
+	text-align: left;
 	color: #222;
 	margin-right: 5px;
 	text-decoration: none;
 	font-weight: bold;
 	float: left;
 }
-#attendees_list li a:hover{
+#attendees ul li a:hover{
 	text-decoration: underline;
 }
-#attendees_list li #status{
+#attendees ul li #status{
 	float: right;
 	text-align: left;
 }
