@@ -70,29 +70,29 @@
 
 
 <div id="attendees">
-<% if @event.attendings.find_by_status("Attending").kind_of?(Array) %>
-<a href="#" id="attendees_count"><%= pluralize(@event.attendings.find_by_status('Attending').count, 'Person') %> Attending</a><br />
-<% elsif @event.attendings.find_by_status("Attending").nil? %>
+<% if @event.attendings.find_all_by_status("Attending").kind_of?(Array) %>
+<a href="#" id="attendees_count"><%= pluralize(@event.attendings.find_all_by_status('Attending').count, 'Person') %> Attending</a><br />
+<% elsif @event.attendings.find_all_by_status("Attending").nil? %>
 <a href="#" id="attendees_count">0 People Attending</a><br />
 <% else%>
 <a href="#" id="attendees_count">1 Person Attending</a><br />
 <% end %>
 
-<% if @event.attendings.find_by_status("Maybe").kind_of?(Array) %>
-<a href="#" id="maybe_count"><%= pluralize(@event.attendings.find_by_status('Maybe').count, 'Person')%> Might Be Attending</a>
-<% elsif @event.attendings.find_by_status("Maybe").nil? %>
+<% if @event.attendings.find_all_by_status("Maybe").kind_of?(Array) %>
+<a href="#" id="maybe_count"><%= pluralize(@event.attendings.find_all_by_status('Maybe').count, 'Person')%> Might Be Attending</a>
+<% elsif @event.attendings.find_all_by_status("Maybe").nil? %>
 <a href="#" id="maybe_count">0 People Might Be Attending</a><br />
 <% else%>
 <a href="#" id="maybe_count">1 Person Might Be Attending</a><br />
 <% end %>
 
 <!-- CASE ATTENDING -->
-<% if @event.attendings.find_by_status("Attending").nil? %>
+<% if @event.attendings.find_all_by_status("Attending").nil? %>
 <ul id="attendees_list">
 </ul>
-<% elsif @event.attendings.find_by_status("Attending").kind_of?(Array) %>
+<% elsif @event.attendings.find_all_by_status("Attending").kind_of?(Array) %>
 <ul id="attendees_list">
-	<% @event.attendings.find_by_status("Attending").each do |attending| %>
+	<% @event.attendings.find_all_by_status("Attending").each do |attending| %>
 	<li>
 		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> 
 	</li>
@@ -101,18 +101,18 @@
 <% else%>
 <ul id="attendees_list">
 	<li>
-		<%= link_to User.find(@event.attendings.find_by_status("Attending").user_id).name, User.find(@event.attendings.find_by_status("Attending").user_id) %> 
+		<%= link_to User.find(@event.attendings.find_all_by_status("Attending").user_id).name, User.find(@event.attendings.find_all_by_status("Attending").user_id) %> 
 	</li>
 </ul>
 <% end %>
 
 <!-- CASE MAYBE -->
-<% if @event.attendings.find_by_status("Maybe").nil?%>
+<% if @event.attendings.find_all_by_status("Maybe").nil?%>
 <ul id="maybe_list">
 </ul>
-<% elsif @event.attendings.find_by_status("Maybe").kind_of?(Array) %>
+<% elsif @event.attendings.find_all_by_status("Maybe").kind_of?(Array) %>
 <ul id="maybe_list">
-	<% @event.attendings.find_by_status("Maybe").each do |attending| %>
+	<% @event.attendings.find_all_by_status("Maybe").each do |attending| %>
 	<li>
 		<%= link_to User.find(attending.user_id).name, User.find(attending.user_id) %> 
 	</li>
@@ -121,7 +121,7 @@
 <% else%>
 <ul id="maybe_list">
 	<li>
-		<%= link_to User.find(@event.attendings.find_by_status("Maybe").user_id).name, User.find(@event.attendings.find_by_status("Maybe").user_id) %> 
+		<%= link_to User.find(@event.attendings.find_all_by_status("Maybe").user_id).name, User.find(@event.attendings.find_all_by_status("Maybe").user_id) %> 
 	</li>
 </ul>
 
@@ -138,7 +138,7 @@ $(document).ready(function(){
 	var maybe_counter = 1;
 	//case that user is already attending
 	$('#maybe').click(function(e){
-		//clicked = 1;
+		clicked = 1;
 		
 		<% if signed_in? %>
 		<% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
@@ -152,7 +152,7 @@ $(document).ready(function(){
 		<% end %>
 	});
 	$('#attend').click(function(e){
-		//clicked = 1;
+		clicked = 1;
 		
 		<% if signed_in? %>
 		<% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
