@@ -28,7 +28,7 @@ class Event < ActiveRecord::Base
       #figure out how to change timezones
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)-5), @time_to_change.min) #this hack used to offset time differences
       @date = Date.parse(@event_deets["start_time"])
-      create!(:user_id => @me.id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"], :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
+      create!(:user_id => @me.id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
   end
   
   def self.search(search)
