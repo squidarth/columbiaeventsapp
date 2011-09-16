@@ -50,14 +50,14 @@
 <ul id="attendees_list">
 	<% @attendings.each do |attending| %>
 	<li>
-		<%= link_to attending[:name], '#' %> 
+		<%= link_to attending["name"], '#' %> 
 	</li>
 	<% end %>
 </ul>
 <ul id="maybe_list">
 	<% @attendings.each do |attending| %>
 	<li>
-		<%= link_to attending[:name], '#' %> 
+		<%= link_to attending["name"], '#' %> 
 	</li>
 	<% end %>
 </ul>

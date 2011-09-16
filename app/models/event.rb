@@ -40,7 +40,7 @@ class Event < ActiveRecord::Base
     @me = User.find(31)
     @token = @me.authorizations.find_by_provider('facebook').token
     @graph = Koala::Facebook::GraphAPI.new(@token)
-    @people = @graph.get_connections(id, 'attending')
+    @people = @graph.get_connections(id.to_s, 'attending')
     return @people
   end
   
@@ -48,7 +48,7 @@ class Event < ActiveRecord::Base
     @me = User.find(31)
     @token = @me.authorizations.find_by_provider('facebook').token
     @graph = Koala::Facebook::GraphAPI.new(@token)
-    @people = @graph.get_connections(id.to_s, 'maybe')
+    @people = @graph.get_connections(id, 'maybe')
     return @people    
   end
   def self.find_by_date(date)
