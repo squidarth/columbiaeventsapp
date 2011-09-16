@@ -133,11 +133,11 @@
 <% end %>
 <script type="text/javascript">
 $(document).ready(function(){
-
+	var attending_clicked = false;
+	var maybe_clicked = false;
 	
 	$('#maybe').click(function(e){
-		var attending_clicked = false;
-		var maybe_clicked = false;
+
 		<% if signed_in? %>
 		<% if @event.facebooklink && (current_user.fbnickname || current_user.facebookid) %>
 				    var facebooklink = "<%= @event.facebooklink %>";
