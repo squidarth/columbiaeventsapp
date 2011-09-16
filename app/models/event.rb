@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   validate :validate_date
   
   def self.make_from_facebook(event_id, author, category)
-      @me = User.find(8) #find the EventSalsa user
+      @me = User.find(44) #find the EventSalsa user
       @graph = Koala::Facebook::GraphAPI.new
       @event_deets = @graph.get_object(event_id)
       @time_to_change = Time.parse(@event_deets["start_time"])
