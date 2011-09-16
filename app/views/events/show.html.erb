@@ -192,11 +192,11 @@ $(document).ready(function(){
 		if(!attending_clicked && !maybe_clicked){
 			$("#maybe_list").show();
 			$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
-			attending_clicked = true;
+			maybe_clicked = true;
 		}else if(maybe_clicked){
 			$("#maybe_list").stop().animate({height: '5px'}, {queue:false, duration:600});
 			$("#maybe_list").fadeOut();
-			attending_clicked = false;
+			maybe_clicked = false;
 		}else if(attending_clicked){
 			$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
 			$("#attendees_list").fadeOut();
