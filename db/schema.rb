@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110831180043) do
+ActiveRecord::Schema.define(:version => 20110916034637) do
 
   create_table "attendings", :force => true do |t|
     t.integer  "user_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20110831180043) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description",        :limit => 255
     t.string   "author"
     t.string   "facebooklink"
     t.string   "location"
