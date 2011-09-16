@@ -200,10 +200,10 @@ $(document).ready(function(){
 		}else if(attending_clicked){
 			$("#attendees_list").stop().animate({height: '5px'}, {queue:false, duration:600});
 			$("#attendees_list").fadeOut();
-			maybe_clicked = false;
+			maybe_clicked = true;
 			$("#maybe_list").show();
 			$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
-			attending_clicked = true;
+			attending_clicked = false;
 		} 	
 
 	});
