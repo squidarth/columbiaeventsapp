@@ -1028,6 +1028,7 @@ form#new_event ul li p{
 	padding: 5px 5px 5px 5px;
 	background: #6495ED;
 	position: absolute;
+	z-index: 100;
 }
 #attendees ul#maybe_list{
 	margin: 0px 0 0 130px;
