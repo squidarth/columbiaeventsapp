@@ -2,6 +2,7 @@
 <div id="allusers">
 	<ul id="userlist">
 	<% @users.each do |user| %>
+		<% if !user.name.eql?("EventSalsa")%>
 		<li>
 				<a href="/users/<%= user.id %>">
 				<% if user.avatar.file? %>
@@ -31,6 +32,7 @@
 				</p>
 				<% end %>
 		</li>
+		<% end %>
 	<% end %>
 	</ul>
 	<script type="text/javascript">
