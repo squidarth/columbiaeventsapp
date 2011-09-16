@@ -178,7 +178,7 @@ body{
 /*DASHBOARD AND NAV CODE */
 #dashboard{
 	float:right;
-	margin: 5px 0 0 0;
+	margin: 8px 0 0 0;
 	padding: 5px 0px 5px 10px;
 	list-style: none;
 	border-radius: 30px;
@@ -204,7 +204,7 @@ body{
 	color: #333;
 }
 #dashboard_signin{
-	margin: 5px 0 0 0;
+	margin: 8px 0 0 0;
 	float:right;
 	padding: 5px 5px 5px 0px;
 	list-style: none;
@@ -280,36 +280,17 @@ body{
 }
 #searchbar{
 	margin: 0px 0 0 0;
+	padding: 0 0 0 0;
 }
 #search_select{
-	font-size: 1.1em;
-	border: 0;
-	width: 32px;
-	border-radius: 30px;
-	margin-top: 3px;
-	padding-top: 0;
-	color: #fffeff;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-weight: bold;
-	background: #FF7F50;
-	    /*box-shadow: 0 1px 0 #FFDAB9,
-                0 2px 0 #FFDAB9,
-                0 3px 0 #FFDAB9,
-                0 5px 10px rgba(164, 27, 39, .5);*/
-}
-/*#searchbar #search_select:hover{
-	position: relative; top: 2px;
-    box-shadow: 0 1px 0 #FFDAB9,
-                0 2px 0 #FFDAB9,
-                0 5px 10px rgba(164, 27, 39, .5);
+	border: none;
+	width: 20px;
+	height: 29px;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	background: url(/images/search_icon.png) no-repeat;
 }
 
-#searchbar #search_select:active{
-    position: relative; top: 4px;
-    box-shadow: inset 0 1px 1px #FFDAB9,
-                0 1px 0 #FFDAB9,
-                0 -2px 5px rgba(255, 255, 255, .2);
-}*/
 #search_field{
 	width: 150px;
 }
@@ -331,7 +312,7 @@ body{
 #nav a{
 	display: block;
 	width: 140px;
-	padding: 5px 5px 5px 5px;
+	padding: 5px 5px 7px 7px;
 	color: #fffeff/*#231F20*/;
 	text-decoration: none;
 	background: #FF7F50;
@@ -344,13 +325,15 @@ body{
 	
 }
 #nav li.selected a{
-	background: #FF4040;
+	color: #222;
+	background: #FEF0C9;
 	text-decoration: none;
 	font-weight: bold;
 	/*background-color: #FF8080;*/
 }
 #nav a:hover{
-	background: #FF4040;
+	color: #222;
+	background: #FEF0C9;
 }
 
 /* STYLE FOR THE FLASH */
@@ -993,7 +976,7 @@ form#new_event ul li p{
 	list-style: none;
 	margin: 0 0 0 0;
 	float: left;
-	width: 300px;
+	width: 360px;
 }
 #eventshow ul li a{
 	color: #256AA3;

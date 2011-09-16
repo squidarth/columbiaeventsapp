@@ -119,14 +119,14 @@
 					<div id="searchbar">
 					<% form_tag(users_path, {:method => :get}) do%>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
-					<button id="search_select" type="submit">Go!</button>
+					<button id="search_select" type="submit"></button>
 					<% end %>
 					</div>
 					<% else %>
 					<div id="searchbar">
 					<% form_tag(events_path, {:method => :get}) do %>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-					<button id="search_select" type="submit">Go!</button>
+					<button id="search_select" type="submit"></button>
 					<% end %>
 					</div>
 					<% end %>
@@ -148,7 +148,7 @@
 					<div id="searchbar">
 					<% form_tag(events_path, {:method => :get}) do %>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-					<button id="search_select" type="submit">Go!</button>	
+					<button id="search_select" type="submit"></button>	
 					<% end %>
 					</div>
 					</li>

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
    
    has_attached_file :avatar, :styles => { :thumb => "75x75>", :small => "150x150>", :normal => "220x220>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
    
-   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+   email_regex = /\A[\w+\-.]+@columbia.edu/
    
 
   validates_attachment_size :avatar, :less_than => 5.megabytes
