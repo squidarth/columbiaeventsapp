@@ -36,7 +36,7 @@ class UsersController < ApplicationController
          @array_of_events << event
        end
      end
-     @array_of_events.sort! {|a,b| a.date <=> b.date } #sort the events with dates
+     @array_of_events.sort! {|a,b| b.date <=> a.date } #sort the events with dates
      @events.each do |event| #add on the events with no date
        if !event.date
          @array_of_events << event

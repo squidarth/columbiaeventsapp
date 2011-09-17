@@ -134,7 +134,7 @@ class CategoriesController < ApplicationController
         end
       end
     end
-    filtered_events.sort! {|a,b| a.date <=> b.date}
+    filtered_events.sort! {|a,b| b.date <=> a.date}
     filtered_events
   end
 
