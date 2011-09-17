@@ -19,7 +19,7 @@ Sidsapp::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
 
-ActionMailer::Base.smtp_settings = {
+ActionMailer::Base.server_settings = {
   :address  => "smtpout.eventsalsa.com",
   :domain => 'www.eventsalsa.com',
   :port  => 80,
