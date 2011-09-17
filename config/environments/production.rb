@@ -11,20 +11,6 @@ Sidsapp::Application.configure do
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-
-ActionMailer::Base.server_settings = {
-  :tls => true,
-  :address  => "smtp.gmail.com",
-  :domain => 'www.eventsalsa.com',
-  :port  => 587,
-  :user_name  => "info@eventsalsa.com",
-  :password  => "virtus12",
-  :authentication  => :plain
-}
-
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
