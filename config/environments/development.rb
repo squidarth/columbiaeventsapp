@@ -20,7 +20,7 @@ Sidsapp::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
 ActionMailer::Base.smtp_settings = {
-  :address  => "smtp.eventsalsa.com",
+  :address  => "smtpout.eventsalsa.com",
   :domain => 'www.eventsalsa.com',
   :port  => 80,
   :user_name  => "info@eventsalsa.com",
