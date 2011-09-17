@@ -22,7 +22,7 @@ Sidsapp::Application.configure do
 ActionMailer::Base.smtp_settings = {
   :address  => "smtp.eventsalsa.com",
   :domain => 'www.eventsalsa.com',
-  :port  => 25,
+  :port  => 80,
   :user_name  => "info@eventsalsa.com",
   :password  => "virtus12",
   :authentication  => :plain
