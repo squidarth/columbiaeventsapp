@@ -3,9 +3,9 @@ class UserMailer < ActionMailer::Base
   
   def registration_confirmation(user)
     recipients user.email
-    from "info@eventsalsa.com"
-    subject "Thank you for registering"
-    body :user => user
+    from       "info@eventsalsa.com"
+    subject    "Thank you for registering"
+    body       :user => user
     
   end
 end
