@@ -51,19 +51,37 @@ class UsersController < ApplicationController
      @user = User.new
    end
    
+   def confirm
+     @user = User.find(params[:id])
+     if(params[:confirmcode].eql?(@user.confirmcode))
+      @user.confirmed = true
+      @user.save
+      sign_in @user
+      flash[:success] = "You're all signed up! Either start by editing your profile to add some details, or go ahead and start creating events!"
+      redirect_to @user
+    else
+      redirect_to :root
+     end
+   end
+   
+   def wait
+   end
    
    def create
     @user = User.create(params[:user])
-
+    @user.confirmcode = rand(99999999).to_s
+    @user.confirmed = false
     if @user.save
-       sign_in @user
-       flash[:success] = "You're all signed up! Either start by editing your profile to add some details, or go ahead and start creating events!"
-       redirect_to @user
+       #sign_in @user
+       #flash[:success] = "You're all signed up! Either start by editing your profile to add some details, or go ahead and start creating events!"
+       #redirect_to @user
+        UserMailer.registration_confirmation(@user).deliver
+        redirect_to verify_path
     else
         @title = "Sign up!"
         render 'new'
-      end
     end
+   end
     
     def destroy
       @user = User.find(params[:id])
@@ -86,7 +104,7 @@ class UsersController < ApplicationController
       if(params[:user][:password])
         @user.update_attributes(params[:user])
         flash[:success] = "Password Updated"
-        redirect_to contact_path
+        redirect_to @user
       else
           #if @user.update_attributes!(:name => params[:user]["name"], :email => params[:user]["email"])
           email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

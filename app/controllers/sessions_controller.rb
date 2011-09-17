@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
         @title = "Sign in!"
         @invalid = "Invalid Username/Password combination."
         render 'new'
+      elsif !user.confirmed
+        redirect_to verify_path
       else
       #sign in user
         flash[:success] = "Signed in!"

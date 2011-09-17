@@ -1,1 +1,10 @@
-Hi <%= @user.name %>
+Hi <%= @user.name %>!
+
+Thank you for registering for EventSalsa! To verify your account, go to the following link: 
+	
+http://www.eventsalsa.com/users/<%= @user.id %>/confirm/<%= @user.confirmcode %>
+	
+Now go ahead and start posting events! We hope you have a great experience on EventSalsa.  Contact us at info@eventsalsa.com if you have any questions or comments about the site!
+	
+Best,
+The EventSalsa Team

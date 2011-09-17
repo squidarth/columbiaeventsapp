@@ -8,6 +8,8 @@ Sidsapp::Application.routes.draw do
     resources :comments, :only => [:create]
   end
   
+  match '/users/:id/confirm/:confirmcode', :to => 'users#confirm'
+  match '/verify', :to => 'users#wait'
   match '/attendings/attend', :to => 'attendings#attend'
   match '/attendings/maybe', :to => 'attendings#maybe'
   match '/users/:id/password', :to => 'users#changepassword'

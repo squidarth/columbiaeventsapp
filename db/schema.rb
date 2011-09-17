@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916034637) do
+ActiveRecord::Schema.define(:version => 20110917205936) do
 
   create_table "attendings", :force => true do |t|
     t.integer  "user_id"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20110916034637) do
     t.datetime "avatar_updated_at"
     t.string   "fbnickname"
     t.string   "facebookid"
+    t.string   "confirmcode"
+    t.boolean  "confirmed"
   end
 
 end
