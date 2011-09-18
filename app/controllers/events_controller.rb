@@ -263,9 +263,7 @@ class EventsController < ApplicationController
       filtered_events = []
       events.each do |event|
         if event.date
-          if event.date >= Date.today
             filtered_events << event
-          end
         end
       end
       filtered_events.sort! {|a,b| b.date <=> a.date}
