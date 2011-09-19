@@ -831,6 +831,7 @@ form#new_event ul li p{
 	padding: 5px 10px 5px 5px;
 	margin: 0 0 0 0;
 	overflow: hidden;
+	max-height: 200px;
 }
 #catshowpage li:hover{
 	background-color: #ECF1EF;
