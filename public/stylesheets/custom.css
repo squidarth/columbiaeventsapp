@@ -939,6 +939,7 @@ form#new_event ul li p{
 #eventuser div#user_details{
 	float: left;
 	margin-left: 10px;
+	width: 400px;
 }
 
 #eventuser p#title{
