@@ -20,15 +20,18 @@ class PagesController < ApplicationController
   private
   
       def filter_and_sort_date(events)
+        temp_events = events
     filtered_events = []
-    events.each do |event|
+    temp_events.each do |event|
       if((event.date < (Date.today +3)) && (event.date >= Date.today) )
         filtered_events << event  
       end
     end
     filtered_events.sort! {|a,b| b.date <=> a.date}
-    events.delete_if{|event| (event.date < (Date.today +3)) && (event.date >= Date.today)}
-    events.each do |event|
+    
+    temp_events.delete_if{|event| (event.date < (Date.today +3)) && (event.date >= Date.today)}
+    
+    temp_events.each do |event|
       if event.date
           filtered_events << event
       end
