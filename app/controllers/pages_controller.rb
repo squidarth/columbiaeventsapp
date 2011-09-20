@@ -22,7 +22,7 @@ class PagesController < ApplicationController
       def filter_and_sort_date(events)
     filtered_events = []
     events.each do |event|
-      if (event.date < (Date.today +3) && event.date >= Date.today )
+      if((event.date < (Date.today +3)) && (event.date >= Date.today) )
         filtered_events << event  
       end
     end
