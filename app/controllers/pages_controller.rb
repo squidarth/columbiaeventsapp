@@ -26,6 +26,7 @@ class PagesController < ApplicationController
         filtered_events << event  
       end
     end
+    filtered_events.sort! {|a,b| b.date <=> a.date}
     events.delete_if{|event| event.date < ((Date.today +3) && event.date >= Date.today )}
     events.each do |event|
       if event.date
