@@ -60,6 +60,14 @@ class Event < ActiveRecord::Base
       end
     end
   end
+  
+  def self.get_events()
+    @me = User.find(45)
+    @token = @me.authorizations.find_by_provider('facebook').token
+    @graph = Koala::Facebook::GraphAPI.new(@token)
+    events = @graph.get_connections('me', 'events')
+    events
+  end
   private
   
     def validate_date
