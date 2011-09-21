@@ -61,13 +61,29 @@ class Event < ActiveRecord::Base
     end
   end
   
-  def self.get_events()
-    @me = User.find(45)
-    @token = @me.authorizations.find_by_provider('facebook').token
+  def self.get_events(token)
+    @me = User.find(44)
+    @token = token
     @graph = Koala::Facebook::GraphAPI.new(@token)
     events = @graph.get_connections('me', 'events')
-    events
+    event_ids = []
+    Event.all.each do |event|
+      if(event.facebooklink)
+        event_ids << event.facebooklink
+      end
+    end
+    events.each do |event|
+      if(!event_ids.include?(event['id']))
+      @time_to_change = Time.parse(event["start_time"])
+      #figure out how to change timezones
+      @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)-8), @time_to_change.min) #this hack used to offset time differences
+      @date = Date.parse(event["start_time"])
+     create!(:user_id => @me.id, :facebooklink => event['id'], :name => event['id'], :description => event['description'].to_s, :location => event['location'], :time => @time, :date => @date, :category => 9)
+     end
+    end
   end
+  
+  def 
   private
   
     def validate_date
