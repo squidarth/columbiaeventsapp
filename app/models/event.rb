@@ -83,7 +83,6 @@ class Event < ActiveRecord::Base
     end
   end
   
-  def 
   private
   
     def validate_date
