@@ -2,10 +2,11 @@
 <div id="block_header"><%= @header %></div>
 <% end %>
 <ul id="catshowpage">
-
 <% @array_of_events.each do |event| %>
 <li><a href="/events/<%= event.id %>">
-	<% if event.photo.file? %>
+	<% if event.facebooklink %>
+	<img src="https://graph.facebook.com/<%= event.facebooklink%>/picture?type=normal" width="100"></img>
+	<% elsif event.photo.file? %>
 	<%= image_tag event.photo.url(:small), :width => 100 %>
 	<% else %>
 	<%= image_tag ("bowl3.jpg"), :height => 70, :width => 100 %>
@@ -14,12 +15,14 @@
 
 <div id="eventwords">
 	<p id="event_title"><%= event.name %></p>
-	<% if event.user %>
+	<% if !event.author.eql?("")%>
+	<div id="author"><%= event.author%></div>
+	<% elsif event.user %>
 	<div id="author"><%= event.user.name%></div>
 	<% end %>
 	<div id="when">
 	<% if event.date %>
-	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%><br />
+	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%> <br />
 	<% end %>
 	<i><%= event.description %></i> <br />
 	<% if event.facebooklink%>
