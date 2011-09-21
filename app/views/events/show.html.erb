@@ -1,4 +1,5 @@
 <div id="event">
+<% if !@event.user.id == 44 %>
 <div id="eventuser">
 	<a href="/users/<%= @event.user.id %>">
 	<% if @event.user.avatar.file? %>
@@ -20,6 +21,8 @@
 		<% end %>
 	</div>	
 </div>
+<% else %>
+<% end %>
 
 
 <div id="eventshow">
