@@ -21,14 +21,14 @@ class Event < ActiveRecord::Base
   validate :validate_date
   
   def self.make_from_facebook(event_id, author, category)
-      @me = User.find(44) #find the EventSalsa user
-      @graph = Koala::Facebook::GraphAPI.new
+      @me = User.find(45) #find the EventSalsa user
+      @graph = Koala::Facebook::GraphAPI.new(@me.authorizations.find_by_provider("facebook").token)
       @event_deets = @graph.get_object(event_id)
       @time_to_change = Time.parse(@event_deets["start_time"])
       #figure out how to change timezones
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)-8), @time_to_change.min) #this hack used to offset time differences
       @date = Date.parse(@event_deets["start_time"])
-      create!(:user_id => @me.id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
+      create!(:user_id => User.find(44).id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
   end
   
   def self.search(search)
