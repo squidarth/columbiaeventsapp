@@ -70,6 +70,11 @@ class Event < ActiveRecord::Base
     event
   end
   
+  def self.get_my_token
+    @me = User.find(45)
+    @token = @me.authorizations.find_by_provider('facebook').token
+    @token
+  end
   def self.get_events(token)
     @me = User.find(44)
     @token = token
@@ -91,6 +96,11 @@ class Event < ActiveRecord::Base
        else
        end
      end
+    end
+    events.each do |event|
+      if(!event_ids.include?(event["id"]))
+        event
+      end 
     end
   end
   
