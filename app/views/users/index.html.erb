@@ -41,7 +41,7 @@ $(document).ready(function(){
 	
 	function showNext(list) {
 	  list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();
-	  $("html, body").animate({ scrollTop: 300*(to/5)}, 1000);
+	  $("html, body").animate({ scrollTop: $(document).height()-$(window).height()}, 1000);
 	  to+= step;
 	  if(to >= maxSize){
 	  	$('#more').hide();
