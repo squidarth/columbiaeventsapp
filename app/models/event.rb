@@ -61,6 +61,15 @@ class Event < ActiveRecord::Base
     end
   end
   
+  def self.test(id)
+    @me = User.find(44)
+    @token = token
+    @graph = Koala::Facebook::GraphAPI.new(@token)
+    
+    event = @graph.get_object(id)
+    event
+  end
+  
   def self.get_events(token)
     @me = User.find(44)
     @token = token
