@@ -77,8 +77,7 @@ class Event < ActiveRecord::Base
   end
   def self.get_events(token)
     @me = User.find(44)
-    @token = token
-    @graph = Koala::Facebook::GraphAPI.new(@token)
+    @graph = Koala::Facebook::GraphAPI.new(token)
     events = @graph.get_connections('me', 'events')
     event_ids = []
     Event.all.each do |event|
@@ -87,20 +86,16 @@ class Event < ActiveRecord::Base
       end
     end
     events.each do |event|
-      if(!event_ids.include?(event['id']) && event["privacy"].to_s.eql?("OPEN"))
-      @time_to_change = Time.parse(event["start_time"])
+      the_event = @graph.get_object(event['id'])
+      if(!event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
+      @time_to_change = Time.parse(the_event["start_time"])
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)), @time_to_change.min) #this hack used to offset time differences
       @time = @time-28800
-      @date = Date.parse(event["start_time"])
-       if create(:user_id => @me.id, :facebooklink => event['id'], :name => event['name'], :author => '', :description => event["description"].to_s, :location => event['location'], :time => @time, :date => @date, :category => 9)
+      @date = Date.parse(the_event["start_time"])
+       if create(:user_id => @me.id, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date, :category => 9)
        else
        end
      end
-    end
-    events.each do |event|
-      if(!event_ids.include?(event["id"]))
-        event
-      end 
     end
   end
   
