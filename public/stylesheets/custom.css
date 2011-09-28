@@ -854,10 +854,10 @@ form#new_event ul li p{
 	float: left;
 }
 #catshowpage li #eventwords #author{
-	font-size: 1em;
-	margin: 3px 0 0 5px;
+	font-size: .7em;
+	font-weight: normal;
+	margin: 0px 0 0 5px;
 	color: #666;
-	float: left;
 }
 #catshowpage li #eventwords #when{
 	clear:both;

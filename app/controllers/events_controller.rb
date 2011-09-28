@@ -41,22 +41,22 @@ class EventsController < ApplicationController
     @events = Event.all
     @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
     @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    @events_by_date = []
+    @array_of_events = []
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     if(!params[:date])
       @events.each do |event|
         if(event.date == Date.today)
-          @events_by_date << event
+          @array_of_events << event
         end
       end
     elsif params[:date]
       @events.each do |event|
         if(event.date == Date.parse(params[:date]))
-          @events_by_date << event
+          @array_of_events << event
         end
       end
     end
-    @events_by_date
+    @array_of_events
   end
   # GET /events/1
   # GET /events/1.xml
