@@ -73,6 +73,7 @@ class Event < ActiveRecord::Base
       end
     end
     events.each do |event|
+      if event["privacy"].eql?("OPEN")
       if(!event_ids.include?(event['id']))
       @time_to_change = Time.parse(event["start_time"])
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)), @time_to_change.min) #this hack used to offset time differences
@@ -81,6 +82,7 @@ class Event < ActiveRecord::Base
        if create(:user_id => @me.id, :facebooklink => event['id'], :name => event['name'], :author => '', :description => event['description'].to_s, :location => event['location'], :time => @time, :date => @date, :category => 9)
        else
        end
+     end
      end
     end
   end
