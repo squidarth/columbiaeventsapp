@@ -21,7 +21,7 @@
 	<% end %>
 
 <div id="eventwords">
-	
+	<%= link_to 'x', event, :class => 'delete'%>
 	<% if !event.author.eql?("")%>
 	<p id="event_title"><%= event.name %><span id="author"><%= event.author%></span></p>
 	<% elsif event.user %>
@@ -31,7 +31,7 @@
 	<p id="event_title"><%= event.name %></p>
 	<% end %>
 	<% end %>
-	<%= link_to 'x', event, :class => 'delete'%>
+
 	<div id="when">
 	<% if event.date && event.time %>
 	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%> <br />
