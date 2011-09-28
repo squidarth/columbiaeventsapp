@@ -62,8 +62,8 @@ class Event < ActiveRecord::Base
   end
   
   def self.test(id)
-    @me = User.find(44)
-    @token = token
+    @me = User.find(45)
+    @token = @me.authorizations.find_by_provider('facebook').token
     @graph = Koala::Facebook::GraphAPI.new(@token)
     
     event = @graph.get_object(id)
