@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
    attr_accessor :password
-   attr_accessible :id, :name, :email, :password, :password_confirmation, :aboutme, :affiliatedorgs, :school, :fblink, :avatar, :fbnickname, :facebookid 
+   attr_accessible :id, :name, :email, :password, :password_confirmation, :aboutme, :affiliatedorgs, :school, :fblink, :avatar, :fbnickname, :facebookid, :confirmed 
 
    has_many :events, :dependent => :destroy
    has_many :authorizations, :dependent => :destroy
@@ -43,6 +43,12 @@ class User < ActiveRecord::Base
    def self.search(search)
     search_condition = "%" + search.downcase + "%"
     find(:all, :conditions => ['LOWER(name) LIKE ? ', search_condition])
+   end
+   
+   def self.confirm(id)
+     user = find(id)
+     user.update_attributes!(:confirmed => true, :password => 'foobar', :password_confirmation => 'foobar')
+     user.save!
    end
    private
    
