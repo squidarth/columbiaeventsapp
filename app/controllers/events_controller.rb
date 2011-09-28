@@ -259,26 +259,27 @@ class EventsController < ApplicationController
   
   private
   
-    def filter_and_sort_date(events)
+def filter_and_sort_date(events)
         temp_events = events
         filtered_events = []
         temp_events.each do |event|
           if event.date
-          if((event.date < (Date.today+3)) && (event.date >= Date.today) )
-            filtered_events << event  
-          end
+            if((event.date < (Date.today+3)) && (event.date >= Date.today) )
+              filtered_events << event  
+              temp_events.delete(event)
+            end
           end
         end
-        filtered_events.sort! {|a,b| b.date <=> a.date}
+        filtered_events.sort! {|a,b| a.date <=> b.date}
         
-        temp_events.delete_if{|event| (event.date) && (event.date < (Date.today+3)) && (event.date >= Date.today)}
-        
+        other_events = []
         temp_events.each do |event|
           if event.date
-              filtered_events << event
+             other_events << event
           end
         end
-        filtered_events.sort! {|a,b| b.date <=> a.date}
+        other_events.sort! {|a,b| b.date <=> a.date}
+        filtered_events += other_events
         temp_events.each do |event|
           if !event.date
             filtered_events << event
@@ -286,7 +287,7 @@ class EventsController < ApplicationController
         
         end
         filtered_events
-    end
+  end
     
     def authorized_user
       @event = current_user.events.find_by_id(params[:id])
