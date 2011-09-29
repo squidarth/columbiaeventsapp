@@ -16,7 +16,7 @@
 <% form_tag({:controller => 'admin', :action => 'update'}) do%>
 <p>Event ID</p>
 <%= text_field_tag :id, params[:id]%>
-<p>Category (Type in a number, see above)</p>
+<p>Category</p>
 <%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11, 'Other' => 9})%>
 <%= submit_tag 'Submit'%>
 <% end %>
