@@ -8,6 +8,13 @@ Sidsapp::Application.routes.draw do
     resources :comments, :only => [:create]
   end
   
+  
+  match '/admin', :to => 'admin#main'
+  match 'admin/delete', :to => 'admin#destroy'
+  match '/admin/addevent', :to => 'admin#add'
+  match '/admin/changeevent', :to => 'admin#change'
+  match '/admin/update', :to => 'admin#update'
+  match '/admin/create', :to => 'admin#create'
   match '/users/:id/confirm/:confirmcode', :to => 'users#confirm'
   match '/verify', :to => 'users#wait'
   match '/attendings/attend', :to => 'attendings#attend'

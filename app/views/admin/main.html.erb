@@ -1,0 +1,8 @@
+<%= link_to "Add events", :controller => 'admin', :action => 'add' %>
+<%= link_to "Change event", :controller => 'admin', :action => 'change'%>
+
+<% @events.each do |event|%>
+<p><%= event.name %> <%= link_to "delete", event, :method => 'delete' %><p>
+
+
+<% end %>
