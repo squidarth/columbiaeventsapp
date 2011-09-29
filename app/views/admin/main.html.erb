@@ -22,13 +22,6 @@
 <% end %>
 
 
-<h4>Delete an Event</h4>
-<p>Just type in the ID of the event that you want to delete!</p>
-<% form_tag({:controller => 'admin', :action => 'destroy'}) do %>
-<%= text_field_tag :id, params[:id]%>
-<%= submit_tag 'Submit'%>
-<% end %>
-
 
 <% @events.each do |event| %>
 <p><%= event.name%>   ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
