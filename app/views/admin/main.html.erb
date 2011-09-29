@@ -1,8 +1,36 @@
-<%= link_to "Add events", :controller => 'admin', :action => 'add' %>
-<%= link_to "Change event", :controller => 'admin', :action => 'change'%>
+<p>Type in the Facebook Event ID</p>
 
-<% @events.each do |event|%>
-<p><%= event.name %> <%= link_to "delete", event, :method => 'delete' %><p>
+<h3>Categories for Events</h3>
+<p>['Greek Life', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8], ['Cultural', 10], ['Special Interest', 11], ['Other', 9]]</p>
 
+<h4>Make a new event from Facebook!</h4>
+<p>Type in the Facebook ID and hit submit</p>
+<% form_tag({:controller => 'admin', :action => 'create'}) do %>
+<%= text_field_tag :id, params[:id]%>
+<%= submit_tag 'Submit' %>
+	
+<% end %>
+
+<h4>Change category of an event!</h4>
+<p>Just type in the ID of the event (listed below) and then select a category!</p>
+<% form_tag({:controller => 'admin', :action => 'update'}) do%>
+<p>Event ID</p>
+<%= text_field_tag :id, params[:id]%>
+<p>Category (Type in a number, see above)</p>
+<%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11, 'Other' => 9})%>
+<%= submit_tag 'Submit'%>
+<% end %>
+
+
+<h4>Delete an Event</h4>
+<p>Just type in the ID of the event that you want to delete!</p>
+<% form_tag({:controller => 'admin', :action => 'destroy'}) do %>
+<%= text_field_tag :id, params[:id]%>
+<%= submit_tag 'Submit'%>
+<% end %>
+
+
+<% @events.each do |event| %>
+<p><%= event.name%>   ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
 
 <% end %>

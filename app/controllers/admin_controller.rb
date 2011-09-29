@@ -4,19 +4,12 @@ class AdminController < ApplicationController
     @events = Event.all
   end
   
-  def change
-    @events = Event.all
-  end
-  
   def update
     @event = Event.find(params[:id])
     @event.update_attributes!(:category => params[:category])
     redirect_to admin_path
   end
-  
-  def add
-    @events = Event.all
-  end
+ 
   
   def create
     @id = params[:id]
