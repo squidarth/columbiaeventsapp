@@ -1,5 +1,6 @@
 <ul id="catshowpage">
 <% @array_of_events.each do |event| %>
+<% if !event.deleted %>
 <li><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small), :width => 100 %>
@@ -31,6 +32,7 @@
 </div>
 </a>
 </li>
+<% end %>
 <% end %>
 </ul>
 <script type="text/javascript">

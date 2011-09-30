@@ -24,6 +24,6 @@
 
 
 <% @events.each do |event| %>
-<p><%= event.name%>   ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
+<p><%= link_to event.name, event %>  ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
 
 <% end %>

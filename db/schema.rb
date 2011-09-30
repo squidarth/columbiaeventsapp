@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110917205936) do
+ActiveRecord::Schema.define(:version => 20110930193716) do
 
   create_table "attendings", :force => true do |t|
     t.integer  "user_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20110917205936) do
     t.date     "date"
     t.time     "time"
     t.integer  "facebookevent"
+    t.boolean  "deleted"
   end
 
   create_table "users", :force => true do |t|

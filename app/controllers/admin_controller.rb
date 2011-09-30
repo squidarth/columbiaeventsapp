@@ -19,7 +19,9 @@ class AdminController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
+    @event.deleted = true
+    @event.date = nil
+    @event.save!
     redirect_to admin_path
   end
   
