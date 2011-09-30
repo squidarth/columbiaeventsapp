@@ -2,6 +2,7 @@ class AdminController < ApplicationController
   before_filter :authorize
   def main
     @events = Event.all
+    @categories = [' ', 'Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other', 'Cultural', 'Special Interest']
   end
   
   def update

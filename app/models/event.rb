@@ -102,8 +102,10 @@ class Event < ActiveRecord::Base
   private
   
     def validate_date
-      if self.date
-      errors.add("Date", "is invalid.") unless self.date > Date.today || self.date == Date.today
+      if !self.facebooklink
+        if self.date
+        errors.add("Date", "is invalid.") unless self.date > Date.today || self.date == Date.today
+        end
       end
     end
     
