@@ -20,16 +20,17 @@ class Event < ActiveRecord::Base
   
   validate :validate_date
   
-  
-    def strip_events
-    @users = User.all
-      @users.each do |user|
-        if user.fbnickname || user.facebookid
-          token = user.authorizations.find_by_provider('facebook').token
-          Event.get_events(token)
-        end 
-      end
+
+  def self.strip_events()
+  @users = User.all
+    @users.each do |user|
+      if user.fbnickname || user.facebookid
+        token = user.authorizations.find_by_provider('facebook').token
+        Event.get_events(token)
+      end 
     end
+  end
+  
   def self.make_from_facebook(event_id, author, category)
       @me = User.find(45) #find the EventSalsa user
       @graph = Koala::Facebook::GraphAPI.new(@me.authorizations.find_by_provider("facebook").token)
