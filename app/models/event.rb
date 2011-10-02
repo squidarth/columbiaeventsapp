@@ -26,7 +26,9 @@ class Event < ActiveRecord::Base
     @users.each do |user|
       if user.fbnickname || user.facebookid
         token = user.authorizations.find_by_provider('facebook').token
-        Event.get_events(token)
+        if Event.get_events(token)
+          puts 'hi'
+        end
       end 
     end
   end
