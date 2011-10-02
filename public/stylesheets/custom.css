@@ -60,10 +60,10 @@ body{
 	left: 50%;
 	margin-left: -180px;
 	border: solid 1px #000;
-	width: 430px;
+	width: 340px;
 	height: 5px;
 	overflow: hidden;
-	padding: 0px 5px 20px;
+	padding: 0px 25px 0px 10px;
 	border-radius: 10px;
 }
 .highlighted_content a.close{
@@ -451,57 +451,44 @@ section.success .flashnotice{
 	margin: 0px 0 0 170px;
 	padding-top: 0;
     border-radius: 5px;
-    width: 450px;
+    width: 250px;
     color: #111111;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #signuppage div#facebook_signup{
 	margin-top: 0px;
 	border: solid 1px #ddd;
+	margin: 10px auto 20px 40px;
 	margin-bottom: 20px;
 	background-color: #fff;
 	border-radius: 5px;
-	width: 400px;
-	padding: 5px 10px 10px 20px;
+	width: 250px;
 	text-align: center;
 	
 }
-#signuppage div#facebook_signup p#facebook_signup_title{
-	font-size: 2em;
-	color: #666666;
-	font-weight: bold;
-	margin: 0 0 5px 0px;
-}
-#signuppage div#facebook_signup p#facebook_signup_descrip{
-	font-size: 1em;
-	color: #666666;
-	font-weight: bold;
-	margin: 0 0 0 0;
-}
+
 #signuppage #facebook_signup #facebooklogin{
-	margin: 10px auto auto 0;
+
 	
 }
 #signuppage form{
-	border: solid 1px #ddd;
+	border: solid 1px #000;
 	border-radius: 5px;
-	width: 400px;	
-	padding: 5px 10px 0 20px;
+	width: 250px;	
+	padding: 0 0px 0 0;
+	margin-top: 0;
 }
 #signuppage form div#signup_form_intro{
-	width: 300px;
+	font-size: 2em;
 	font-weight: bold;
-	color: #666666;
-	border-radius: 5px;
-	background-color: #fff;
-	margin-left: 35px;
+	margin-left: 125px;
+	margin-bottom: 0;
 }
 #signuppage form ul li{
-	border-radius: 5px;
 	list-style: none;
 	margin-bottom: 2px;
 	margin-left: 0;
-	width: 300px;
+	width: 250px;
 	background-color: #fff;
 }
 #signuppage form ul li p{

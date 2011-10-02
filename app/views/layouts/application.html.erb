@@ -25,14 +25,11 @@
 			<%= link_to 'x', '#', :class => 'close' %>
 <div id="signuppage">
 	<div id="facebook_signup">
-		<p id="facebook_signup_title">Sign up with Facebook!</p>
-		<p id="facebook_signup_descrip">Signing up with Facebook is super easy, all it takes is one click!  </p>
-		<div id="facebooklogin"><a href="/auth/facebook"><fb:login-button>Sign up with Facebook!</fb:login-button></a></div>
+	<div id="facebooklogin"><a href="/auth/facebook"><%= image_tag ("Facebook_logo.png") %></a></div>
 	</div>
 <%= form_for User.new, :html => { :multipart => true, :id => 'flash_form' } do |f| %>
   	<div id="signup_form_intro">
-		If you are abnormal (or born before 1980) and don't have a Facebook, don't worry, I have you
-		covered too! Simply sign up with your email below!
+		-OR-
 	</div>
 	<ul>
 		
@@ -73,7 +70,7 @@
 		$('#email_login').click(function(e){
 			$("#dim").fadeIn();
 			$(".highlighted_content").fadeIn();
-			$(".highlighted_content").animate({height: '480px'}, {queue:false, duration:1500});
+			$(".highlighted_content").animate({height: '425px'}, {queue:false, duration:1500});
 			return false;
 		});
 		$('.close').click(function(e){
