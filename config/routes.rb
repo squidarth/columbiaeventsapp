@@ -8,7 +8,7 @@ Sidsapp::Application.routes.draw do
     resources :comments, :only => [:create]
   end
   
-  
+  match '/events/pull', :to => 'events#pull'
   match '/admin', :to => 'admin#main'
   match 'admin/delete', :to => 'admin#destroy'
   match '/admin/addevent', :to => 'admin#add'

@@ -506,8 +506,7 @@ section.success .flashnotice{
 
 #createnewevents{
 	float: left;
-	margin-top: 0px;
-	margin-left: 170px;
+	margin: 0 0 20px 170px;
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 380px;
@@ -526,6 +525,9 @@ form#new_event ul li{
 	padding: 0px 10px 0 10px;
 	margin-bottom: 0;
 	margin-top: 0;
+}
+form#new_event ul li p#select{
+	margin-top: 10px;
 }
 form#new_event ul li a{
 	margin: 10px 0 0 0;

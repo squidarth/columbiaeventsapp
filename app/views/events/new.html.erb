@@ -1,5 +1,25 @@
-<div id="createnewevents">
+<div id="createnewevents">	
+		<div id="make_new_event">
+			Pull a Facebook Event!
+		</div>
+	<%= form_tag({:controller => 'events', :action => 'pull'}, {:id => 'new_event'}) do%>
+	<ul>
+		<li>
+			<label><p>Facebook Event URL</p></label>
+			<%= text_field_tag :url%></p>
+		</li>
+		<li><p id="select">
+			<label></label>
+			<%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11, 'Other' => 9})%>
+			</p>
+		</li>
+		<li><button class="submitter" id="session_submit" name="commit" type="submit">Create Event</button></li>
+	</ul>
+	<% end %>
+</div>	
 
+<div id="createnewevents">
+	
 	<%= form_for(@event, :html => { :multipart => true, :id => "new_event" }) do |f| %>
 		<div id="make_new_event">
 			<%= @title %>

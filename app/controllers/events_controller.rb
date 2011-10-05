@@ -33,6 +33,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def pull
+    event_id = params[:url].split("eid=")[1].to_i
+    category = params[:category]
+    Event.make_from_facebook(event_id, category, '')
+    redirect_to 'events/new'
+  end
+  
   def calendar
     @dates_with_events = []
     Event.all.each do |event|
