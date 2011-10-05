@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   def pull
     event_id = params[:url].split("eid=")[1]
     category = params[:category][0].to_i
-    Event.make_from_facebook(event_id, category, '')
+    Event.make_from_facebook(event_id, '', category)
     flash[:success] = "Event Successfully Pulled!"
     redirect_to '/events/new/'
   end
