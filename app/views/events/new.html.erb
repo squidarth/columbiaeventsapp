@@ -10,7 +10,7 @@
 		</li>
 		<li><p id="select">
 			<label></label>
-			<%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11, 'Other' => 9})%>
+			<%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11, 'Other' => 9}), :multiple => true%>
 			</p>
 		</li>
 		<li><button class="submitter" id="session_submit" name="commit" type="submit">Create Event</button></li>

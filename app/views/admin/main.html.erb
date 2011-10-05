@@ -13,7 +13,7 @@
 
 <h4>Change category of an event!</h4>
 <p>Just type in the ID of the event (listed below) and then select a category!</p>
-<% form_tag({:controller => 'admin', :action => 'update'}) do%>
+<%= form_tag({:controller => 'admin', :action => 'update'}) do%>
 <p>Event ID</p>
 <%= text_field_tag :id, params[:id]%>
 <p>Category</p>
