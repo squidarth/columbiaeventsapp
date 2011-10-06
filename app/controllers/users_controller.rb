@@ -130,15 +130,32 @@ class UsersController < ApplicationController
      
      
     def filter_and_sort_date(events)
+        temp_events = events
         filtered_events = []
-        events.each do |event|
+        temp_events.each do |event|
           if event.date
             if event.date >= Date.today
-              filtered_events << event
+              filtered_events << event  
+              temp_events.delete(event)
             end
           end
         end
         filtered_events.sort! {|a,b| a.date <=> b.date}
+        
+        other_events = []
+        temp_events.each do |event|
+          if event.date
+             other_events << event
+          end
+        end
+        other_events.sort! {|a,b| b.date <=> a.date}
+        filtered_events += other_events
+        temp_events.each do |event|
+          if !event.date
+            filtered_events << event
+          end
+        
+        end
         filtered_events
       end
       

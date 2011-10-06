@@ -130,7 +130,7 @@ class CategoriesController < ApplicationController
         filtered_events = []
         temp_events.each do |event|
           if event.date
-            if((event.date < (Date.today+3)) && (event.date >= Date.today) )
+            if event.date >= Date.today
               filtered_events << event  
               temp_events.delete(event)
             end
