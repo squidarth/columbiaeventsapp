@@ -782,6 +782,7 @@ form#new_event ul li p{
 	float: left;
 	margin: 10px 0 auto 10px;
 	color: #222;
+	width: 300px;
 }
 #allusers ul li #user_details p#user_title{
 	margin: 0 0 0 0;
