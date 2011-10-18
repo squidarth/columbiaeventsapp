@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
 
   def self.strip_events(user_id)
     @user = User.find(user_id)
-    if(@user.fbnickname || user.facebookid)
+    if(@user.fbnickname || @user.facebookid)
       token = @user.authorizations.find_by_provider('facebook').token
       Event.get_events(token)
     end
