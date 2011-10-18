@@ -21,27 +21,14 @@ class Event < ActiveRecord::Base
   validate :validate_date
   
 
-  def self.strip_events()
-  @users = User.all
-    @users.each do |user|
-      if user.fbnickname || user.facebookid
-        token = user.authorizations.find_by_provider('facebook').token
-        if Event.get_events(token)
-          puts 'hi'
-        end
-      end 
+  def self.strip_events(user_id)
+    @user = User.find(user_id)
+    if(@user.fbnickname || user.facebookid)
+      token = user.authorizations.find_by_provider('facebook').token
+      Event.get_events(token)
     end
   end
   
-  def self.remove_dumb_event
-    
-    name = "Women's Soccer vs. Penn"
-    Event.all.each do |event|
-      if event.name.eql?(name)
-        event.destroy
-      end
-    end
-  end
   def self.make_from_facebook(event_id, author, category)
       event_ids = []
       Event.all.each do |event|
