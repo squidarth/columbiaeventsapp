@@ -46,10 +46,10 @@ class UsersController < ApplicationController
      @authorizations = @user.authorizations
    end
    
-   def new
-     @title = "Sign up"
-     @user = User.new
-   end
+  # def new
+   #  @title = "Sign up"
+    # @user = User.new
+   #end
    
    def confirm
      @user = User.find(params[:id])
