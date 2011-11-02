@@ -27,8 +27,13 @@ class Event < ActiveRecord::Base
       if(user.id >= 39)
         if(user.fbnickname || user.facebookid)
           token = user.authorizations.find_by_provider('facebook').token
-          Event.get_events(token)
-        end
+         begin
+			 Event.get_events(token)
+         end
+		 rescue Koala::Facebook::APIError: OAuthException
+			puts "blah"
+		 end
+		end
       end
     end
   end
