@@ -4,7 +4,7 @@
 
 body{
 	font-size: small;
-	background: #FCF8DC;
+	background: #ADD8E6;
 	color: #333;
 	outline: 0;
 	padding; 0;
@@ -13,8 +13,8 @@ body{
 }
 #top{
 	width: 100%;
-	height: 54px;
-	background: #FF7F50;
+	height: 80px;
+	background: #FCF6CF;
 	position: fixed;
 }
 #wrapper{
@@ -38,8 +38,8 @@ body{
 #top_part{
 	position: fixed;
 	width: 960px;
-	background: #FF7F50;
-	height: 54px;
+	background: #FCF6CF;
+	height: 80px;
 }
 /* STYLE FOR THE SIGN UP FORM AND HIDDEN STUFF */
 #dim{
@@ -182,37 +182,37 @@ body{
 /*DASHBOARD AND NAV CODE */
 #dashboard{
 	float:right;
-	margin: 8px 0 0 0;
-	padding: 5px 0px 5px 10px;
+	margin: 20px 0 0 0;
+	padding: 0 0px 0 0px;
 	list-style: none;
-	border-radius: 30px;
-	background: #FF7F50;
+	background: #FCF6CF;
+
 }
 #dashboard li{
 	float: left;
-	margin: 0px 10px 0 5px;
+	margin: 0px 0 0 0;
 	text-align: center;
-	padding: 0;
+	padding: 5px 5px 5px 5px;
 }
 #dashboard a{
 	margin-top: 4px;
 	float: left;
 	display: block;
-	color: #fffeff/*#231F20*/;
+	color: #333/*#231F20*/;
 	font-weight: bold;
 	text-decoration: none;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 110%;
+	font-size: 120%;
 }
 #dashboard a:hover{
-	color: #333;
+	color: #888;
 }
 #dashboard_signin{
-	margin: 8px 0 0 0;
+	margin: 20 0 0 0;
 	float:right;
 	padding: 5px 5px 5px 0px;
 	list-style: none;
-	background: #FF7F50;
+	background: #FCF6CF;
 	border-radius: 30px;
 }
 #dashboard_signin li{
@@ -220,21 +220,21 @@ body{
 	float: left;
 	margin: 0 0 0 0;
 	text-align: center;
-	padding: 0 0 0px 10px;
+	padding: 5px 5px 5px 5px;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #dashboard_signin a{
 	float: left;
-	margin-top: 3px;
+	margin-top: 4px;
 	display: block;
 	padding: 0 0px 0 0;
-	color: #fffeff/*#231F20*/;
+	color: #333/*#231F20*/;
 	font-weight: bold;
 	text-decoration: none;
-	font-size: 110%;
+	font-size: 120%;
 }
 #dashboard_signin a:hover{
-	color: #333;
+	color: #888;
 }
 #dashboard_signin #signin_form{
 	display: none;
@@ -242,10 +242,10 @@ body{
 	overflow: hidden;
 	position: absolute;
 	right: 0px;
-	background: #FF7F50;
+	background: #FCF6CF;
 	border-radius: 15px;
-	color: #fff;
-	margin-top: 25px;
+	color: #333;
+	margin-top: 30px;
 	margin-left: 0;
 	padding: 0 0 0 10px;
 	font-weight: bold;
@@ -264,8 +264,8 @@ body{
 #dashboard_signin #signin_form button{
 	margin-top: 28px;
 	float: left;
-	color: #fff;
-	background: #FF7F50;
+	color: #333;
+	background: #FCF6CF;
 	font-weight: bold;
 	border: none;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -382,7 +382,7 @@ section.success .flashnotice{
 	float: left;
 	width: 960px;
 	margin-bottom: 0px;
-	margin-top: 60px;
+	margin-top: 85px;
 	padding: 10px 0 20px 10px;
 	background: #fff;
 	-moz-box-shadow: 0px 5px 5px #000;
