@@ -29,7 +29,7 @@ class Event < ActiveRecord::Base
           token = user.authorizations.find_by_provider('facebook').token
          begin
 			 Event.get_events(token)
-		 rescue Koala::Facebook::OauthException
+		 rescue 
 			puts "hi"
 		 end
 		end
