@@ -33,18 +33,12 @@ class PagesController < ApplicationController
         
         other_events = []
         temp_events.each do |event|
-          if event.date
+          if event.date && event.date > (Date.today - 20)
              other_events << event
           end
         end
         other_events.sort! {|a,b| b.date <=> a.date}
         filtered_events += other_events
-        temp_events.each do |event|
-          if !event.date
-            filtered_events << event
-          end
-        
-        end
         filtered_events
   end
 end
