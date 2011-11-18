@@ -1,5 +1,4 @@
 class ApiController < ApplicationController
-	:before_filter authenticate
 	def	events 
 		@events = Event.all 
 	end
