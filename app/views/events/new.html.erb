@@ -10,7 +10,7 @@
 		</li>
 		<li><p id="select">
 			<label></label>
-			<%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11, 'Other' => 9}), :multiple => true%>
+			<%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11,'Academics'=> 14, 'NYC Events' => 13, 'Academics' => 12, 'Other' => 9}), :multiple => true%>
 			</p>
 		</li>
 		<li><button class="submitter" id="session_submit" name="commit" type="submit">Create Event</button></li>
@@ -53,7 +53,7 @@
     <%= f.text_field :author %></li>
     
     <li><p><%= f.label :category %></p>
-    <%= f.select(:category, [['Greek Life', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8], ['Cultural', 10], ['Special Interest', 11], ['Other', 9]]) %></li>
+    <%= f.select(:category, [['Greek Life', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8], ['Cultural', 10],['Academics', 14],['Music', 12], ['NYC Events', 13], ['Special Interest', 11], ['Other', 9]]) %></li>
   	
   	<li><p><label for="photo">Profile Picture</label></p>
   	<%= f.file_field :photo, :class => 'file_field' %></li>

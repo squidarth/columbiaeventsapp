@@ -285,6 +285,17 @@
 				<%= link_to "Student Council", stuco_path %>
 			</li>
 			<%end %>
+					<% if @title == "NYC Events"%>
+			<li class="selected">
+				<%= link_to "NYC Events", nycevents_path %>
+			</li>
+			<% else %>
+			<li class="unselected">
+				<%= link_to "NYC Events", nycevents_path %>
+			</li>
+			<%end %>
+
+
 			<% if @title == "Other"%>
 			<li class="selected">
 				<%= link_to "Other", other_path %>

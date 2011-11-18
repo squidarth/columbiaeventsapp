@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   # def new
    #  @title = "Sign up"
     # @user = User.new
-   #end
+   #hoend
    
    def confirm
      @user = User.find(params[:id])
