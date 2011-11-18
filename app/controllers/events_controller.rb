@@ -16,7 +16,7 @@ class EventsController < ApplicationController
         @array_of_events = []
       else
         @header = "Search results for '" + params[:search] + "'"
-    	filter_and_sort_by_date(@array_of_events)  
+    	filter_and_sort_date(@array_of_events)  
 	
 		end
     elsif params[:date]
