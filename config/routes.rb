@@ -7,7 +7,7 @@ Sidsapp::Application.routes.draw do
   resources :events do
     resources :comments, :only => [:create]
   end
-	
+  match '/api/topevents', :to => 'api#events'	
   match '/academics', :to => 'categories#academics'
   match '/nycevents', :to => 'categories#nycevents'
   match '/music', :to => 'categories#music'  

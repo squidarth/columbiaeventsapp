@@ -1,6 +1,11 @@
 class ApiController < ApplicationController
 	def	events 
-		@events = Event.all 
+		@events = Event.getTopEvents()
+
+		respond_to do |format|
+			format.html
+			format.json
+		end 
 	end
 
 

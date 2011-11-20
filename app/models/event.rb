@@ -95,15 +95,28 @@ class Event < ActiveRecord::Base
     event
   end
   
-  def self.get_my_token
-    @me = User.find(45)
-    @token = @me.authorizations.find_by_provider('facebook').token
-    @token
+  def self.check_token_valid(user)
+    	@token = user.authorizations.find_by_provider('facebook').token
+		
+		begin
+			@graph = Koala::Facebook::GraphAPI.new(token)
+		rescue 
+			return nil
+		ensure
+	    	return nil
+		end
   end
   def self.get_events(token)
-    @me = User.find(44)
-    @graph = Koala::Facebook::GraphAPI.new(token)
-    events = @graph.get_connections('me', 'events')
+    
+	begin
+		@graph = Koala::Facebook::GraphAPI.new(token)
+    rescue
+
+	ensure 
+		return nil
+	end
+	
+	events = @graph.get_connections('me', 'events')
     event_ids = []
     Event.all.each do |event|
       if(event.facebooklink)
@@ -116,14 +129,30 @@ class Event < ActiveRecord::Base
       @time_to_change = Time.parse(the_event["start_time"])
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)), @time_to_change.min) #this hack used to offset time differences
       @time = @time-28800
+	  @numAttending = Event.get_fb_attendings(event['id'])
       @date = Date.parse(the_event["start_time"])
-       if create(:user_id => @me.id, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date, :category => 9)
+       if create(:numAttending => @numAttending, :user_id => @me.id, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date, :category => 9)
        else
        end
      end
     end
   end
-  
+ 
+	def self.update_attendings()
+		Event.all.each do |event|
+			if(event.facebooklink)
+				@attendings = Event.get_fb_attendings(event.facebooklink)
+				event.numAttending = @attendings
+				event.save
+			end
+		end
+	end
+	def self.getTopEvents()
+		return Event.all
+	end
+
+
+ 
   private
   
     def validate_date
