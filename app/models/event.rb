@@ -142,10 +142,10 @@ class Event < ActiveRecord::Base
 		Event.all.each do |event|
 			if(event.facebooklink)
 				@attendings = Event.get_fb_attendings(event.facebooklink)
-				attending = 0
+				numAttending = 0
 
 				@attendings.each do |attending|
-					attending+=1
+					numAttending+=1
 
 				end
 				event.numAttending = attending
