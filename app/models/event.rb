@@ -145,7 +145,7 @@ class Event < ActiveRecord::Base
 				attending = 0
 
 				@attendings.each do |attending|
-					attending++
+					attending+=1
 
 				end
 				event.numAttending = attending
