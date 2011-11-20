@@ -153,6 +153,7 @@ class Event < ActiveRecord::Base
 			end
 		end
 	end
+
 	def self.getTopEvents()
 		return Event.all
 	end
@@ -170,4 +171,3 @@ class Event < ActiveRecord::Base
     end
     
     
-end
