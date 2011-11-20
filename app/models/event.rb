@@ -148,7 +148,7 @@ class Event < ActiveRecord::Base
 					numAttending+=1
 
 				end
-				event.numAttending = attending
+				event.numAttending =numAttending
 				event.save
 			end
 		end
