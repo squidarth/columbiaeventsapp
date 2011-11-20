@@ -156,16 +156,23 @@ class Event < ActiveRecord::Base
 
 	def self.getTopEvents()
 		@events = Event.all
+		@filtered_events = []
 		@returned_events = []
+		
 		@events.each do |event|
 		
-			if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && !event.deleted)
-				
-				if(@returned_events.length < 10)
+			if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && !event.deleted)	
 					@returned_events << event
-				end
 			end
-		end	
+		end
+	
+		@filtered_events.sort! {|a,b| b.numAttending <=> a.numAttending}
+		@filtered_events.each do |event|
+			if(@returned_events <10)
+				@returned_events << event
+			end
+
+		end
 		return @returned_events
 	end
 
