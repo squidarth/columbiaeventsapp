@@ -166,7 +166,7 @@ class Event < ActiveRecord::Base
 				end
 			end
 		end	
-		return Event.all
+		return @returned_events
 	end
 
 
