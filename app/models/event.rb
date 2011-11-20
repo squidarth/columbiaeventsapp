@@ -158,7 +158,8 @@ class Event < ActiveRecord::Base
 		@events = Event.all
 		@returned_events = []
 		@events.each do |event|
-			if((event.date >= Date.today && event.date < (Date.today + 30)) && event.deleted = false)
+		
+			if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && event.deleted = false)
 				
 				if(@returned_events.length < 10)
 					@returned_events << event
