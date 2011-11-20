@@ -1,11 +1,7 @@
 class ApiController < ApplicationController
 	def	events 
 		@events = Event.getTopEvents()
-
-		respond_to do |format|
-			format.html
-			format.json
-		end 
+		render :json => @events
 	end
 
 
