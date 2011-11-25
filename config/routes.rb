@@ -27,9 +27,9 @@ Sidsapp::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'authorizations#create'
   match "comments/create" => "comments#create"
   match '/allusers', :to => 'users#index'
-  match '/signup', :to => 'users#new'
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
+  match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/glife', :to => 'categories#fraternities'

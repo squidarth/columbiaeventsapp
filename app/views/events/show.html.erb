@@ -264,7 +264,7 @@ $(document).ready(function(){
 	<% end %>
 </div>
 <% else %>
-<div id="attending_invitation">Wanna tell the world you're going? <%= link_to "Sign up", signup_path %> to say you're attending!</div>
+<div id="attending_invitation">Wanna tell the world you're going? <%= link_to "Sign up", '#', :id => 'javasign' %> to say you're attending!</div>
 <% end %>
 <div id="comments">
 <fb:like href="www.eventsalsa.com/events/<%= @event.id %>" send="true" width="450" show_faces="true" action="like" font=""></fb:like>
@@ -272,3 +272,24 @@ $(document).ready(function(){
 </div>
 
 </div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#dim').css("height", $(document).height());
+		$('#javasign').click(function(e){
+			$("#dim").fadeIn();
+			$(".highlighted_content").fadeIn();
+			$(".highlighted_content").animate({height: '150px'}, {queue:false, duration:1500});
+			return false;
+		});
+		$('.close').click(function(e){
+			$('.highlighted_content').animate({height: '5px'}, {queue:false, duration:1500});
+			$('.highlighted_content').fadeOut();
+			$('#dim').fadeOut();
+		});
+
+
+	});
+	</script>
+
+

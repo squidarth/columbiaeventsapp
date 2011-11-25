@@ -4,7 +4,6 @@ class ApiController < ApplicationController
 		render :json => @events
 	end
 
-
 	private
 
 	def get_top

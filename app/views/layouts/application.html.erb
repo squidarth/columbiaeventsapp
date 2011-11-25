@@ -27,41 +27,9 @@
 	<div id="facebook_signup">
 	<div id="facebooklogin"><a href="/auth/facebook"><%= image_tag ("Facebook_logo.png") %></a></div>
 	</div>
-<%= form_for User.new, :html => { :multipart => true, :id => 'flash_form' } do |f| %>
-  	<div id="signup_form_intro">
-		-OR-
-	</div>
-	<ul>
-		
-		<li>
-    <p><label for="name">Name</label></p>
-    <%= f.text_field :name %>
-  </li>
-  
-  <li>
-    <p><label for="email">Email</label></p>
-    <%= f.text_field :email %>
-  </li>
-    <li>
-    <p><label for="password">Password</label></p>
-    <%= f.password_field :password %>
-  </li>
-  <li>
-   <p><label for="password_confirmation">Password Confirmation</label></p>
-    <%= f.password_field :password_confirmation %>
-  </li>
-
-  <li>
-  	<p><label for="avatar">Profile Picture</label></p>
-	<%= f.file_field :avatar, :class => 'file_field' %>
-  </li>
-  
-  <li>
-     <button class="submitter" id="session_submit" name="commit" type="submit">Sign up</button>
-  </li>
-  </ul>
-<% end %>
 </div>
+
+<p id="signup_with_fb">Sign up with Facebook! </p>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -70,7 +38,7 @@
 		$('#email_login').click(function(e){
 			$("#dim").fadeIn();
 			$(".highlighted_content").fadeIn();
-			$(".highlighted_content").animate({height: '425px'}, {queue:false, duration:1500});
+			$(".highlighted_content").animate({height: '150px'}, {queue:false, duration:1500});
 			return false;
 		});
 		$('.close').click(function(e){

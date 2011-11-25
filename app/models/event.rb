@@ -162,17 +162,38 @@ class Event < ActiveRecord::Base
 		@events.each do |event|
 		
 			if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && !event.deleted)	
-					@returned_events << event
+					@filtered_events << event
 			end
 		end
 	
 		@filtered_events.sort! {|a,b| b.numAttending <=> a.numAttending}
 		@filtered_events.each do |event|
-			if(@returned_events <10)
+		
+        new_array = []
+
+        p = .85  #constant
+
+
+        while new_array.size < 10:
+          @filtered_events.each do |event|
+              num = rand.unif(0,1)
+
+              if num < p: new_array.push(event)
+              if new_array.size > 10: break
+          end
+        end 
+        #Check to make sure that new_array has at least 10 elements. If not, repeat the iteration
+        
+        
+        if(@returned_events <10)
 				@returned_events << event
 			end
 
 		end
+      
+        
+
+
 		return @returned_events
 	end
 

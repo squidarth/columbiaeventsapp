@@ -56,14 +56,14 @@ body{
 	position: absolute;
 	z-index: 200;
 	background: #fff;
-	top: 50px;
-	left: 50%;
-	margin-left: -180px;
+	top: 120px;
+	left: 45%;
+	margin-left: 0px;
 	border: solid 1px #000;
-	width: 340px;
+	width: 110px;
 	height: 5px;
 	overflow: hidden;
-	padding: 0px 25px 0px 10px;
+	padding: 0px 10px 0px 10px;
 	border-radius: 10px;
 }
 .highlighted_content a.close{
@@ -82,10 +82,21 @@ body{
 }
 .highlighted_content #signuppage #facebook_signup{
 	border:none;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: auto;
 }
 .highlighted_content #signuppage form#flash_form{
 	border: none;
 	margin: 0 0 0 15px;
+}
+
+.highlighted_content #signup_with_fb{
+	font-size: 1.3em;
+	font-weight: bold;
+	float: left;
+	margin: auto;
+	margin-left: 10px;
 }
 /* END */
 #intropara{
@@ -446,62 +457,7 @@ section.success .flashnotice{
 }
 /*sign up/sign-in code for home page */
 /* USER SIGN UP STYLE */
-#signuppage{
-	float: left;
-	margin: 0px 0 0 170px;
-	padding-top: 0;
-    border-radius: 5px;
-    width: 250px;
-    color: #111111;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
-#signuppage div#facebook_signup{
-	margin-top: 0px;
-	border: solid 1px #ddd;
-	margin: 10px auto 20px 40px;
-	margin-bottom: 20px;
-	background-color: #fff;
-	border-radius: 5px;
-	width: 250px;
-	text-align: center;
-	
-}
 
-#signuppage #facebook_signup #facebooklogin{
-
-	
-}
-#signuppage form{
-	border: solid 1px #000;
-	border-radius: 5px;
-	width: 250px;	
-	padding: 0 0px 0 0;
-	margin-top: 0;
-}
-#signuppage form div#signup_form_intro{
-	font-size: 2em;
-	font-weight: bold;
-	margin-left: 125px;
-	margin-bottom: 0;
-}
-#signuppage form ul li{
-	list-style: none;
-	margin-bottom: 2px;
-	margin-left: 0;
-	width: 250px;
-	background-color: #fff;
-}
-#signuppage form ul li p{
-	width: 160px;
-	margin-bottom: 0;
-	margin-top: 0;
-	font-weight: bold;
-	color: #666666;
-}
-#error_explanation{
-	color: #F0463D;
-	font-weight: bold;
-}
 /* NEW EVENT STYLE/ EDIT EVENT */
 
 #createnewevents{
