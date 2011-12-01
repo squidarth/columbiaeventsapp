@@ -108,14 +108,7 @@ class Event < ActiveRecord::Base
   end
   def self.get_events(token)
     
-	begin
-		@graph = Koala::Facebook::GraphAPI.new(token)
-    rescue
-
-	ensure 
-		return nil
-	end
-	
+  	@graph = Koala::Facebook::GraphAPI.new(token)
 	events = @graph.get_connections('me', 'events')
     event_ids = []
     Event.all.each do |event|
