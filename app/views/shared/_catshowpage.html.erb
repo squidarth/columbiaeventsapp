@@ -22,7 +22,7 @@
 	<% end %>
 	<div id="when">
 	<% if event.date && event.time %>
-	On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%> <br />
+	<b>On <%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%> </b><br />
 	<% end %>
 	<i><%= event.description %></i> <br />
 	<% if event.facebooklink%>
