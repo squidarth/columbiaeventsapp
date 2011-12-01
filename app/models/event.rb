@@ -27,11 +27,8 @@ class Event < ActiveRecord::Base
       if(user.id >= 39)
         if(user.fbnickname || user.facebookid)
           token = user.authorizations.find_by_provider('facebook').token
-         begin
-			 Event.get_events(token)
-		 rescue 
+			Event.get_events(token)
 			puts "hi"
-		 end
 		end
       end
     end
