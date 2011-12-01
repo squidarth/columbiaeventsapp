@@ -9,13 +9,15 @@ class ApiController < ApplicationController
       @emails = []
       User.all.each do |user|
         if user.email
-          user.email << @emails
+          @emails << user.email
         end
 
       end
 
       if signed_in?
-      render :json => @emails
+        render :json => @emails
+      else
+        render :json => []
       end
     end
 
