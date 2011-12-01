@@ -9,7 +9,7 @@ class ApiController < ApplicationController
       @emails = []
       User.all.each do |user|
         if user.email
-          user.email >> @emails
+          user.email << @emails
         end
 
       end
