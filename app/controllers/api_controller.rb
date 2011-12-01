@@ -4,6 +4,21 @@ class ApiController < ApplicationController
 		render :json => @events
 	end
 
+
+    def emails
+      @emails = []
+      User.all.each do |user|
+        if user.email
+          user.email >> @emails
+        end
+
+      end
+
+      if signed_in?
+      render :json => @emails
+      end
+    end
+
 	private
 
 	def get_top
@@ -16,7 +31,5 @@ class ApiController < ApplicationController
 		else
 			return true
 		end
-
-	
 	end
 end
