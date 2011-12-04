@@ -25,7 +25,7 @@ class Event < ActiveRecord::Base
     
     User.all.each do |user|
       if(user.id >= 39)
-        if(user.fbnickname || user.facebookid)
+        if((user.fbnickname || user.facebookid) && check_valid_token(user))
           token = user.authorizations.find_by_provider('facebook').token
 			Event.get_events(token)
 			puts "hi"
@@ -97,7 +97,8 @@ class Event < ActiveRecord::Base
 		
 		begin
 			@graph = Koala::Facebook::GraphAPI.new(token)
-		rescue 
+		    return true
+        rescue 
 			return nil
 		ensure
 	    	return nil
@@ -121,7 +122,7 @@ class Event < ActiveRecord::Base
       @time = @time-28800
 	  @numAttending = Event.get_fb_attendings(event['id'])
       @date = Date.parse(the_event["start_time"])
-       if create(:numAttending => @numAttending, :user_id => @me.id, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date, :category => 9)
+       if create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date, :category => 9)
        else
        end
      end
