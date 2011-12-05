@@ -167,7 +167,7 @@ class Event < ActiveRecord::Base
 
         while new_array.size < 10
           @filtered_events.each do |event|
-              num = rand.unif(0,1)
+              num = rand
 
               if num < p
                 new_array << event
