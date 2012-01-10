@@ -55,6 +55,8 @@
 <div id="attendees">
 <a href="#" id="attendees_count"><%= pluralize(@attendings.count, 'Person') %> Attending</a><br />
 <a href="#" id="maybe_count"><%= pluralize(@maybes.count, 'Person')%> might be attending</a>
+<%= link_to(pluralize(@friends.count, 'Friend') + "are attending", "#", :id => "friend_count") %>
+
 <ul id="attendees_list">
 	<% @attendings.each do |attending| %>
 	<li>
@@ -69,6 +71,14 @@
 	</li>
 	<% end %>
 </ul>
+<ul id="friend_list">
+  <%= @friends.each do |friend| %>
+    <li>
+      <%= link_to friend, "#" %>
+    </li>
+  <% end %>
+</ul>
+
 
 </div>
 
@@ -143,7 +153,8 @@
 $(document).ready(function(){
 	var attending_clicked = false;
 	var maybe_clicked = false;
-	
+    var friend_clicked = false;
+
 	$('#maybe').click(function(e){
 
 		<% if signed_in? %>
@@ -175,7 +186,7 @@ $(document).ready(function(){
 	
 	$("#attendees_count").click(function(e){
 		var length = $("#attendees_list li").size()*20;
-		if(!attending_clicked && !maybe_clicked){
+		if(!attending_clicked && !maybe_clicked && !friend_clicked){
 			$("#attendees_list").show();
 			$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
 			attending_clicked = true;
@@ -190,14 +201,50 @@ $(document).ready(function(){
 			$("#attendees_list").show();
 			$("#attendees_list").stop().animate({height: length}, {queue:false, duration:600});
 			attending_clicked = true;
-		} 	
+		}else if(friend_clicked){
+          $("#friend_list").stop().animate({height: 5}, {queue:false, duration: 600});
+          $("#friend_list").fadeOut();
+          friend_clicked = false;
+          $("#attendees_list").show();
+          $("#attendees_list").animate({height: length}, {queue: false, duration: 600});
+          attending_clicked = true;
+        }
+
 	
 	});
-	
+  
+    $("#friend_count").click(function(e){
+      var length = $("#friend_list li").size()*20;
+      if(!attending_clicked && !maybe_clicked && !friend_clicked){
+        $("#friend_list").show();
+        $("#friend_list").stop().animate({height: length}, {queue: false, duration: 600});
+        friend_clicked = true;
+      }else if (attending_clicked){
+        $("#attending_list").stop().animate(height: 5}, {queue: false, duration: 600});
+        $("#attendees_list").fadeOut();
+        attending_clicked = false;
+        $("#friend_list").show();
+        $("#friend_list").animate({height: length}, {queue: false, duration: 600});
+        friend_clicked = true;
+      }else if(maybe_clicked){
+        $("#maybe_list").stop().animate({height: 5}, {queue: false, duration: 600});
+        $("#maybe_list").fadeOut();
+        maybe_clicked = false;
+        $("#friend_list").show();
+        $("#friend_list").animate({height: length}, {queue: false, duration: 600});
+        friend_clicked = true;
+      }else if(friend_clicked){
+        $("#friend_list").animate({height: 5}, {queue: false, duration: 600});
+        $("#friend_list").fadeOut();
+        friend_clicked = false;
+      }
+      
+    });
+
 	$('#maybe_count').click(function(e){
 		var length = $("#maybe_list li").size()*20;
 
-		if(!attending_clicked && !maybe_clicked){
+		if(!attending_clicked && !maybe_clicked && !friend_clicked){
 			$("#maybe_list").show();
 			$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
 			maybe_clicked = true;
@@ -212,8 +259,14 @@ $(document).ready(function(){
 			$("#maybe_list").show();
 			$("#maybe_list").stop().animate({height: length}, {queue:false, duration:600});
 			attending_clicked = false;
-		} 	
-
+		}else if(friend_clicked){
+          $("#friend_list").stop().animate({height: 5}, {queue: false, duration: 600});
+          $("#friend_list").fadeOut();
+          friend_clicked = false;
+          $("#maybe_list").show();
+          $("#maybe_list").stop().animate({height: length}, {queue: false, duration: 600});
+          maybe_clicked = true;
+        }       
 	});
 
 });

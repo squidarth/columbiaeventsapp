@@ -5,7 +5,8 @@ class Event < ActiveRecord::Base
   
   has_many :comments, :dependent => :destroy
   has_many :attendings, :dependent => :destroy
-  
+  has_many :tags, :dependent => :destroy
+
   belongs_to :user
   
   default_scope :order => 'events.created_at DESC'
@@ -49,7 +50,8 @@ class Event < ActiveRecord::Base
         #figure out how to change timezones
         @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)-8), @time_to_change.min) #this hack used to offset time differences
         @date = Date.parse(@event_deets["start_time"])
-        create!(:user_id => User.find(44).id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
+        event = create!(:user_id => User.find(44).id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
+        event.segregate_by_category
       end
   end
   
@@ -122,7 +124,8 @@ class Event < ActiveRecord::Base
       @time = @time-28800
 	  @numAttending = Event.get_fb_attendings(event['id'])
       @date = Date.parse(the_event["start_time"])
-       if create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date, :category => 9)
+       if new_event = create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date)
+        new_event.segregate_by_category
        else
        end
      end
@@ -183,7 +186,82 @@ class Event < ActiveRecord::Base
 		return new_array
 	end
 
+    def check_for_food
+      description = self.description.downcase
+      if description.include? "free food"
+        return true
+      else 
+        return false
+      end
 
+    end
+
+    def segregate_by_category
+      glife = ["pike", "sigep", "frat", "fraternity", "greek life", "sorority", "sigma kai","sigma nu"]
+      check_category(glife, "Fraternities")
+      #Sports array
+      sports = ["sports", "football", "rowing", "basketball", "swimming", "volleyball", "fencing", "archery", "lacrosse", "golf", "cross country","soccer", "skiing", "ski", "softball", "baseball", "wrestling", "tennis", "track", "compete", "dartmouth", ]
+      check_category(sports, "Sports")
+      #Theater array
+      theater = ["theater", "miller", "shakespeare", "oedipus", "perform"]
+      check_category(theater, "Theater")
+      #Arts Array
+      arts = []
+      check_category(arts, "Arts")
+      #Cultural Array
+      cultural = ["cultural", "chinese", "taiwanese", "muslim", "indian", "pakistani", "indonesian", "asian"]
+      check_category(cultural, "Cultural")
+      #Special Interest
+      spec_interest = ["adi"]
+      check_category(spec_interest, "Special Interest")
+      #Career Networking
+      careers = ["cce", "career", "law", "banking", "medicine", "premed", "pre-med", "pre-law", "prelaw","cce", "application", "goldman", "mckinsey", "jp morgan", "merill lynch", "ubs"]
+      check_category(careers, "Career Networking")
+      #Politics
+      politics = ["politics", "activism", "democrats", "republicans", "debate", "mitt romney", "george bush", "obama"]
+      check_category(politics, "Politics")
+      #Community Service
+      service = ["giving", "service","charity", "outreach"]
+      check_category(service, "Community Service")
+      #Student Council
+      stuco = ["student council"]
+      check_category(stuco, "Student Council")
+      #NYC Events
+      nyc = []
+      check_category(nyc, "NYC Events")
+    end
+
+    def check_category(array, tagname)
+      array.each do |keyword|
+        if(self.description.downcase.include? keyword)
+          Tag.create(:event_id => self.id, :name => tagname)
+          return true
+        end
+      end
+      return false
+    end
+
+    def check_friends
+     if(current_user.fblink || current_user.fbnickname) 
+        @me = User.find(45)
+        @token = @me.authorizations.find_by_provider('facebook').token
+        @graph = Koala::Facebook::GraphAPI.new(@token)
+        @attendees = @graph.get_connections(self.facebooklink, 'attending')
+        
+
+        @current_graph = Koala::Facebook::GraphAPI.new(current_user.authorizations.find_by_provider('facebook').token)
+        @friends = @current_graph.get_connections("me", "friends")
+        #return all the people who are both attendees and friends
+      
+        @attendees_names = @attendees.collect{|f| f["name"]}
+        @friends_names = @friends.collect {|f| f["name"]}
+     
+        @friends_and_attendees = @friends_names & @attendees_names
+        return @friends_and_attendees
+     else 
+      return []
+     end
+    end
  
   private
   

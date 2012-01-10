@@ -12,7 +12,7 @@
 
 <div id="eventwords">
 
-<p id="event_title"><%= event.name %><span id="author"><%= event.author%></span></p>
+<p id="event_title"><%= event.name %> <% if event.check_for_food %><span id="free_food">Free food! </span><% end %></p>
     <div id="when">
 	<% if event.date && event.time %>
 	<b><%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%> </b><br />

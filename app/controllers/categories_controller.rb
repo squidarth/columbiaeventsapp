@@ -1,5 +1,13 @@
 class CategoriesController < ApplicationController
-    
+    def free_food
+      @title = "Free Food"
+      @array_of_events = []
+      Event.all.each do |event|
+        if(event.check_for_food)
+          @array_of_events << event
+        end
+      end
+    end
     def fraternities
       @title = "Greek Life"
       @array_of_events = order_array(1)
@@ -131,6 +139,7 @@ class CategoriesController < ApplicationController
     end
     
     def compile_categories(category)
+      categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
       users = User.all
       array_of_events = []
       users.each do |user|
@@ -138,6 +147,14 @@ class CategoriesController < ApplicationController
         events.each do |event|
           if event.category == category
             array_of_events << event
+            added = true
+          end
+          if(!added)
+            event.tags.each do |tag|
+              if(tag.name == categories[category])
+                array_of_events << event    
+              end
+            end
           end
         end
        end
