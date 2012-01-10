@@ -19,7 +19,10 @@
 		<% else %>
 		<p id="name">By: <%= @event.user.name %></p>
 		<% end %>
-	</div>	
+	    <% if @event.check_for_food %>
+        <p id="free-food">FREE FOOD! </p>
+        <% end %>
+    </div>	
 </div>
 <% else %>
 <div id="eventuser">
