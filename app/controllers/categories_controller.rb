@@ -2,6 +2,8 @@ class CategoriesController < ApplicationController
     def free_food
       @title = "Free Food"
       @array_of_events = []
+      @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
       Event.all.each do |event|
         if(event.check_for_food)
           @array_of_events << event

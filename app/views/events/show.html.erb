@@ -216,7 +216,6 @@ $(document).ready(function(){
 
 	
 	});
-  
     $("#friend_count").click(function(e){
       var length = $("#friend_list li").size()*20;
       if(!attending_clicked && !maybe_clicked && !friend_clicked){
@@ -224,7 +223,7 @@ $(document).ready(function(){
         $("#friend_list").stop().animate({height: length}, {queue: false, duration: 600});
         friend_clicked = true;
       }else if (attending_clicked){
-        $("#attending_list").stop().animate(height: 5}, {queue: false, duration: 600});
+        $("#attending_list").stop().animate({height: 5}, {queue: false, duration: 600});
         $("#attendees_list").fadeOut();
         attending_clicked = false;
         $("#friend_list").show();
@@ -244,7 +243,6 @@ $(document).ready(function(){
       }
       
     });
-
 	$('#maybe_count').click(function(e){
 		var length = $("#maybe_list li").size()*20;
 
