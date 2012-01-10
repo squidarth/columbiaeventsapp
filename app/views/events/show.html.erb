@@ -19,16 +19,17 @@
 		<% else %>
 		<p id="name">By: <%= @event.user.name %></p>
 		<% end %>
-	    <% if @event.check_for_food %>
-        <p id="free-food">FREE FOOD! </p>
-        <% end %>
-    </div>	
+	        </div>	
 </div>
 <% else %>
 <div id="eventuser">
 		<div id="user_details">
 			<p id="title"><%= @event.name %></p>
 		</div>	
+        <% if @event.check_for_food %>
+        <p id="free-food">FREE FOOD! </p>
+        <% end %>
+
 </div>
 <% end %>
 
