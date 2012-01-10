@@ -7,7 +7,7 @@ Sidsapp::Application.routes.draw do
   resources :events do
     resources :comments, :only => [:create]
   end
-
+  
   match 'api/emails', :to => 'api#emails'
   match '/api/topevents', :to => 'api#events'	
   match '/academics', :to => 'categories#academics'
@@ -46,7 +46,8 @@ Sidsapp::Application.routes.draw do
   match '/stuco', :to => 'categories#studentcouncil'
   match '/all', :to => 'categories#all'
   match '/other', :to => 'categories#other'
-  
+  match '/freefood', :to => 'categories#free_food'
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:
