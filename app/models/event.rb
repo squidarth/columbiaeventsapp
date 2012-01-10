@@ -241,15 +241,15 @@ class Event < ActiveRecord::Base
       return false
     end
 
-    def check_friends
-     if(current_user.fblink || current_user.fbnickname) 
+    def check_friends(user)
+     if(user.fblink || user.fbnickname) 
         @me = User.find(45)
         @token = @me.authorizations.find_by_provider('facebook').token
         @graph = Koala::Facebook::GraphAPI.new(@token)
         @attendees = @graph.get_connections(self.facebooklink, 'attending')
         
 
-        @current_graph = Koala::Facebook::GraphAPI.new(current_user.authorizations.find_by_provider('facebook').token)
+        @current_graph = Koala::Facebook::GraphAPI.new(user.authorizations.find_by_provider('facebook').token)
         @friends = @current_graph.get_connections("me", "friends")
         #return all the people who are both attendees and friends
       
