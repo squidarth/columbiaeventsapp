@@ -27,7 +27,7 @@
 			<p id="title"><%= @event.name %></p>
 		</div>	
         <% if @event.check_for_food %>
-        <p id="free_food">FREE FOOD! </p>
+        <p><%= link_to("Free Food!", "#", :id => "free_food") %></p>
         <% end %>
 
 </div>

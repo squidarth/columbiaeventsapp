@@ -24,7 +24,7 @@
 
 
 <% @events.each do |event| %>
-<% if !event.deleted && event.name && event.category %>
-<p><%= link_to event.name, event %>  Category: <%= @categories[event.category] %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
+<% if !event.deleted && event.name %>
+<p><%= link_to event.name, event %>  Tags: <% event.tags.each do |tag| %><%= tag.name<% end %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
 <% end %>
 <% end %>
