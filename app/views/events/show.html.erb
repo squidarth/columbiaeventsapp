@@ -27,7 +27,7 @@
 			<p id="title"><%= @event.name %></p>
 		</div>	
         <% if @event.check_for_food %>
-        <p id="free-food">FREE FOOD! </p>
+        <p id="free_food">FREE FOOD! </p>
         <% end %>
 
 </div>
@@ -59,7 +59,7 @@
 <div id="attendees">
 <a href="#" id="attendees_count"><%= pluralize(@attendings.count, 'Person') %> Attending</a><br />
 <a href="#" id="maybe_count"><%= pluralize(@maybes.count, 'Person')%> might be attending</a>
-<%= link_to(pluralize(@friends.count, 'Friend') + "are attending", "#", :id => "friend_count") %>
+<%= link_to(pluralize(@friends.count, 'Friend') + " are attending", "#", :id => "friend_count") %>
 
 <ul id="attendees_list">
 	<% @attendings.each do |attending| %>
@@ -76,7 +76,7 @@
 	<% end %>
 </ul>
 <ul id="friend_list">
-  <%= @friends.each do |friend| %>
+  <% @friends.each do |friend| %>
     <li>
       <%= link_to friend, "#" %>
     </li>
