@@ -58,7 +58,7 @@
 <% if @event.facebooklink %>
 <div id="attendees">
 <a href="#" id="attendees_count"><%= pluralize(@attendings.count, 'Person') %> Attending</a><br />
-<a href="#" id="maybe_count"><%= pluralize(@maybes.count, 'Person')%> might be attending</a>
+<a href="#" id="maybe_count"><%= pluralize(@maybes.count, 'Person')%> might be attending</a><br />
 <%= link_to(pluralize(@friends.count, 'Friend') + " are attending", "#", :id => "friend_count") %>
 
 <ul id="attendees_list">

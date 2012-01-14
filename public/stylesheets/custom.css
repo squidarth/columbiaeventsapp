@@ -809,9 +809,8 @@ form#new_event ul li p{
   padding: 3px 5px 3px 5px;
   background: #6495ED;
   font-weight: bold;
-
-
-}
+  clear: both;
+} 
 
 /* Code for delete thing */
 
