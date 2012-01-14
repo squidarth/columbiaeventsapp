@@ -141,7 +141,7 @@ class CategoriesController < ApplicationController
     end
     
     def compile_categories(category)
-      categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
+      categories = [' ', 'Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
       users = User.all
       array_of_events = []
       users.each do |user|
