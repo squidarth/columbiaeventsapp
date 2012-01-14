@@ -72,6 +72,9 @@ class EventsController < ApplicationController
   def show
     @attending = Attending.new
     @event = Event.find(params[:id])
+    if(@event.deleted)
+      redirect_to root_path
+    end
     if(@event.facebooklink)
       @attendings = Event.get_fb_attendings(@event.facebooklink)
       @maybes = Event.get_fb_maybes(@event.facebooklink)
