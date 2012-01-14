@@ -64,7 +64,7 @@
    });
  </script>
 	<div id="top_part">
-<div id="logo"><a href="/"><%= image_tag ("new_logo.png"), :width => 194, :height => 80 %></div>
+<div id="logo"><a href="/"><%= image_tag ("new_logo.png"), :height => 35 %></div>
 					
 				<% if signed_in? %>
 				<ul id="dashboard">
@@ -119,16 +119,9 @@
 					</li>
 					<li id="signin">
 					<%= link_to "Sign in", '#', :id => 'sign_in_clicker' %>
-										<div id="signin_form">
-					<%= form_for(:session, :url => {:controller => :sessions, :action => :create}) do |f|%>
-						    <p><%= f.label :email %><br />
-						    <%= f.text_field :email, :size => 10 %></p>
-						    <p><%= f.label :password %><br />
-						    <%= f.password_field :password, :size => 10 %></p>
-						    <button id="session_submit" name="commit" type="submit">Sign in</button>
-							<a href="/auth/facebook" id="facebook_login"><%= image_tag "Facebook_logo.png", :width => 20, :height => 20%></a>
-					<% end %>		
-					</div>
+					  <div id="signin_form">
+						<a href="/auth/facebook" id="facebook_login"><%= image_tag "Facebook_logo.png", :width => 20, :height => 20%></a>
+					  </div>
 					</li>
 				</ul>
 				<% end %>

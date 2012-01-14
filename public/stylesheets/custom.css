@@ -13,7 +13,7 @@ body{
 }
 #top{
 	width: 100%;
-	height: 80px;
+	height: 40px;
 	background: #FCF6CF;
 	position: fixed;
 }
@@ -39,7 +39,7 @@ body{
 	position: fixed;
 	width: 960px;
 	background: #FCF6CF;
-	height: 80px;
+	height: 40px;
 }
 /* STYLE FOR THE SIGN UP FORM AND HIDDEN STUFF */
 #dim{
@@ -201,7 +201,7 @@ body{
 /*DASHBOARD AND NAV CODE */
 #dashboard{
 	float:right;
-	margin: 20px 0 0 0;
+	margin: 0px 0 0 0;
 	padding: 0 0px 0 0px;
 	list-style: none;
 	background: #FCF6CF;
@@ -211,13 +211,13 @@ body{
 	float: left;
 	margin: 0px 0 0 0;
 	text-align: center;
-	padding: 5px 5px 5px 5px;
+	padding: 0px 5px 0px 5px;
 }
 #dashboard a{
-	margin-top: 4px;
+	margin-top: 7px;
 	float: left;
 	display: block;
-	color: #333/*#231F20*/;
+	color: #333;
 	font-weight: bold;
 	text-decoration: none;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -227,24 +227,23 @@ body{
 	color: #888;
 }
 #dashboard_signin{
-	margin: 20 0 0 0;
+	margin: 0 0 0 0;
 	float:right;
-	padding: 5px 5px 5px 0px;
+	padding: 0px 5px 0px 0px;
 	list-style: none;
 	background: #FCF6CF;
-	border-radius: 30px;
 }
 #dashboard_signin li{
 	display: block;
 	float: left;
 	margin: 0 0 0 0;
 	text-align: center;
-	padding: 5px 5px 5px 5px;
+	padding: 0px 5px 0px 5px;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #dashboard_signin a{
 	float: left;
-	margin-top: 4px;
+	margin-top: 7px;
 	display: block;
 	padding: 0 0px 0 0;
 	color: #333/*#231F20*/;
@@ -268,7 +267,7 @@ body{
 	margin-left: 0;
 	padding: 0 0 0 10px;
 	font-weight: bold;
-	width: 320px;
+	width: 30px;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 
 }
@@ -278,31 +277,11 @@ body{
 	margin-right: 10px;
 }
 #dashboard_signin #signin_form img{
-	margin-top: 25px;	
+	margin: 25px 10px 0 0;	
 }
-#dashboard_signin #signin_form button{
-	margin-top: 28px;
-	float: left;
-	color: #333;
-	background: #FCF6CF;
-	font-weight: bold;
-	border: none;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
-#dashboard_signin #signin_form button:hover{
-	text-decoration: underline;
-}
-#dashboard_signin #signin_form label{
-	width: 50px;
-	margin-right: 10px;
-	float: left;
-}
-#dashboard_signin #signin_form input{
-	float: right;
-	margin: 0 0 5px 0;
-}
+
 #searchbar{
-	margin: 0px 0 0 0;
+	margin: 6px 0 0 0;
 	padding: 0 0 0 0;
 }
 #search_select{
@@ -823,6 +802,17 @@ form#new_event ul li p{
 #catshowpage li a img{
 	border-radius: 5px;
 }
+
+#free-food{
+  font-size: .7em;
+  color: #fff;
+  padding: 3px 5px 3px 5px;
+  background: #6495ED;
+  font-weight: bold;
+
+
+}
+
 /* Code for delete thing */
 
 #catshowpage li #eventwords a.delete{
