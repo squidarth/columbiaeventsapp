@@ -118,7 +118,8 @@ class Event < ActiveRecord::Base
     end
     events.each do |event|
       the_event = @graph.get_object(event['id'])
-      if(!event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
+      puts the_event
+      if(the_event && !event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
       @time_to_change = Time.parse(the_event["start_time"])
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)), @time_to_change.min) #this hack used to offset time differences
       @time = @time-28800
