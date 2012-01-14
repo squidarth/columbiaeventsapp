@@ -97,13 +97,14 @@ class Event < ActiveRecord::Base
   def self.check_token_valid(user)
     	token = user.authorizations.find_by_provider('facebook').token
 		@graph = Koala::Facebook::GraphAPI.new(token)
-		events =  @graph.get_connections("me", "events")
-        if(events)
+		begin
+          events =  @graph.get_connections("me", "events")
           return true
-        else
+        rescue
           return false
         end
-    end
+  end
+
   def self.get_events(token)
     
   	@graph = Koala::Facebook::GraphAPI.new(token)
