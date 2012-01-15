@@ -1,1 +1,7 @@
-EventSalsa is an event-listing site for Columbia University
+To-Do
+------------
+-Figure out and debug the tag situation.
+-Figure out a way to filter out bad events.
+-Include a recommender that counts the number of people at your events
+-Include infinite scroll and ajax loading instead of loading
+everything at once.

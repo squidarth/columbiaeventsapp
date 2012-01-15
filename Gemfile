@@ -10,6 +10,8 @@ gem 'table_builder', :git => 'git://github.com/p8/table_builder.git'
 gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+
+
 gem 'aws-s3'
 gem 'nokogiri', '1.4.2'
 gem 'omniauth', '0.2.6'

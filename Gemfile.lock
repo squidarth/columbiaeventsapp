@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/jpoz/APNS.git
+  revision: 704ae5823de8751aa1759e2b675bffe83a9f1434
+  specs:
+    apns (0.9.0)
+
+GIT
   remote: git://github.com/p8/table_builder.git
   revision: e36c64aa4f77960a1b1ea66de5a610d84d32a32e
   specs:
@@ -176,6 +182,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate-models (= 1.0.4)
+  apns!
   aws-s3
   factory_girl_rails (= 1.0)
   faker (= 0.3.1)

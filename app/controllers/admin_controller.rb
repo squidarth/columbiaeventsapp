@@ -8,7 +8,7 @@ class AdminController < ApplicationController
   def update
     categories = [' ', 'Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other', 'Cultural', 'Special Interest']
     @event = Event.find(params[:id])
-    Tag.create!(:event_id => @event.id, :name => categories[params[:category]])
+    Tag.create!(:event_id => @event.id, :name => categories[params[:category].to_i])
     @event.update_attributes!(:category => params[:category])
     redirect_to admin_path
   end
