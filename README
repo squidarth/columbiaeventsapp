@@ -1,7 +1,20 @@
 To-Do
 ------------
--Figure out and debug the tag situation.
 -Figure out a way to filter out bad events.
 -Include a recommender that counts the number of people at your events
 -Include infinite scroll and ajax loading instead of loading
 everything at once.
+
+-Fix logo
+-Make admin page more user friendly
+-Tagging-make it work!
+
+-Write up of new features:
+
+	-New Features
+		:friends_attending
+		:free_food
+		:automated_tagging
+-Link to free food events()
+-What can we do to make this a really cool event
+

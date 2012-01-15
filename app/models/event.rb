@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
       end
     end
   end
-  
+
   def self.make_from_facebook(event_id, author, category)
       event_ids = []
       Event.all.each do |event|
@@ -75,6 +75,7 @@ class Event < ActiveRecord::Base
     @people = @graph.get_connections(id, 'maybe')
     return @people    
   end
+  
   def self.find_by_date(date)
     @events = Event.all
     @sorted_events = []
@@ -105,6 +106,24 @@ class Event < ActiveRecord::Base
         end
   end
 
+  def self.check_if_user(id, token)
+    @graph = Koala::Facebook::GraphAPI.new(token)
+    attendings = @graph.get_connections(id.to_s, 'attending')
+    user_count = 0
+    attendings.each do |attending|
+      user = User.find_by_name(attending["name"])
+      if(user)
+        user_count = user_count +1
+      end
+    end
+  
+    if(user_count > 1)
+     return true
+    else
+      return false
+    end
+  end
+
   def self.get_events(token)
     
   	@graph = Koala::Facebook::GraphAPI.new(token)
@@ -118,12 +137,13 @@ class Event < ActiveRecord::Base
     events.each do |event|
       the_event = @graph.get_object(event['id'])
       puts the_event
-      if(the_event && !event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
+      if(the_event && Event.check_if_user(event['id'], token) && !event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
       @time_to_change = Time.parse(the_event["start_time"])
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)), @time_to_change.min) #this hack used to offset time differences
       @time = @time-28800
 	  @numAttending = Event.get_fb_attendings(event['id'])
       @date = Date.parse(the_event["start_time"])
+       
        if new_event = create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date)
         new_event.segregate_by_category
        else
@@ -209,10 +229,10 @@ class Event < ActiveRecord::Base
       arts = []
       check_category(arts, "Arts")
       #Cultural Array
-      cultural = ["cultural", "chinese", "taiwanese", "muslim", "indian", "pakistani", "indonesian", "asian"]
+      cultural = ["cultural", "chinese", "taiwanese", "muslim", "indian", "pakistani", "indonesian", "asian", "korean", "mexican", "african", "bso", "zamana"]
       check_category(cultural, "Cultural")
       #Special Interest
-      spec_interest = ["adi"]
+      spec_interest = ["adi", "mun"]
       check_category(spec_interest, "Special Interest")
       #Career Networking
       careers = ["cce", "career", "law", "banking", "medicine", "premed", "pre-med", "pre-law", "prelaw","cce", "application", "goldman", "mckinsey", "jp morgan", "merill lynch", "ubs"]
@@ -224,7 +244,7 @@ class Event < ActiveRecord::Base
       service = ["giving", "service","charity", "outreach"]
       check_category(service, "Community Service")
       #Student Council
-      stuco = ["student council"]
+      stuco = ["student council", "ccsc", "esc"]
       check_category(stuco, "Student Council")
       #NYC Events
       nyc = []
