@@ -11,6 +11,8 @@ gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
+gem "nokogiri", "~> 1.4.7"
+gem 'aws-sdk'
 gem 'omniauth'
 gem 'aws-s3'
 group :development do
