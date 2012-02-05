@@ -11,13 +11,10 @@ gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
-
+gem 'omniauth'
 gem 'aws-s3'
-gem 'nokogiri', '1.4.2'
-gem 'omniauth', '0.2.6'
 group :development do
   gem 'rspec-rails', '2.5.0'
-  gem 'annotate-models', '1.0.4'
   gem 'faker', '0.3.1'
 end
 

@@ -175,7 +175,7 @@ class Event < ActiveRecord::Base
 		
 		@events.each do |event|
 		
-			if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && !event.deleted)	
+			if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && !event.deleted && event.numAttending)	
 					@filtered_events << event
 			end
 		end

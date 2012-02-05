@@ -79,7 +79,7 @@ class EventsController < ApplicationController
       @attendings = Event.get_fb_attendings(@event.facebooklink)
       @maybes = Event.get_fb_maybes(@event.facebooklink)
     end
-    if current_user
+    if current_user && current_user.facebookid
     	@friends = @event.check_friends(current_user)
     end
     session[:event_id] = @event.id

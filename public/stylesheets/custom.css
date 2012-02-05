@@ -11,12 +11,6 @@ body{
 	margin: 0;
 	border: 0;
 }
-#top{
-	width: 100%;
-	height: 40px;
-	background: #FCF6CF;
-	position: fixed;
-}
 #wrapper{
 	clear: both;
 	width: 960px;
@@ -31,81 +25,41 @@ body{
     box-shadow: 0px 5px 5px #aaa;*/
 }
 
+#top{
+  height: 40px;
+  width: 100%;
+  background: #FCF6CF;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+
 /* HEADER STYLES */
 #logo a{
-	float: left;
+  display: inline;
+  text-align: center;
 }
+
+#logo{
+  width: 960px;
+  margin: auto;
+}
+
+#logo img{
+  display: block;
+  margin: auto;
+}
+
+
+
 #top_part{
-	position: fixed;
-	width: 960px;
+	width: 100%;
 	background: #FCF6CF;
 	height: 40px;
-}
-/* STYLE FOR THE SIGN UP FORM AND HIDDEN STUFF */
-#dim{
-	background: url(/images/dim.png);
-	display: none;
-	position: absolute;
-	left: 0;
-	width: 100%;
-	z-index: 100;
-	text-align: left;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
-.highlighted_content{
-	position: absolute;
-	z-index: 200;
-	background: #fff;
-	top: 120px;
-	left: 45%;
-	margin-left: 0px;
-	border: solid 1px #000;
-	width: 110px;
-	height: 5px;
-	overflow: hidden;
-	padding: 0px 10px 0px 10px;
-	border-radius: 10px;
-}
-.highlighted_content a.close{
-	text-decoration: none;
-	font-weight: bold;
-	color: #666;
-	float: right;
-}
-.highlighted_content a.close:hover{
-	text-decoration: underline;
-}
-.highlighted_content #signuppage{
-	margin-left: 0;
-	margin-top: 0;
-	padding-top: 0;
-}
-.highlighted_content #signuppage #facebook_signup{
-	border:none;
-	margin-top: 10px;
-	margin-left: 10px;
-	margin-right: auto;
-}
-.highlighted_content #signuppage form#flash_form{
-	border: none;
-	margin: 0 0 0 15px;
-}
-
-.highlighted_content #signup_with_fb{
-	font-size: 1.3em;
-	font-weight: bold;
-	float: left;
-	margin: auto;
-	margin-left: 10px;
+  z-index: 50;
 }
 /* END */
-
-#tedcolumbia{
-  float:right;
-
-
-}
-
 
 #intropara{
 	padding: 0px 5px 10px 10px;
@@ -142,7 +96,7 @@ body{
 }
 #signup a{
 	text-decoration: none;
-	background: #FF7F50;
+	background: #6495ED;
 	border-radius: 10px;
 	padding: 5px 30px 5px 30px;
 	color: #fff;
@@ -150,7 +104,7 @@ body{
 	font-size: 1.3em;
 }
 #signup a:hover{
-	background: #FFA07A;
+	background: #104E8B;
 }
 #signup a:active{
 
@@ -199,14 +153,19 @@ body{
 }
 
 /*DASHBOARD AND NAV CODE */
-#dashboard{
-	float:right;
+
+#top-part-nav{
 	margin: 0px 0 0 0;
 	padding: 0 0px 0 0px;
 	list-style: none;
-	background: #FCF6CF;
-
+  color: #333;
 }
+
+#dashboard{
+  background: #FCF6CF;
+  width: 500px;
+}
+
 #dashboard li{
 	float: left;
 	margin: 0px 0 0 0;
@@ -227,11 +186,13 @@ body{
 	color: #888;
 }
 #dashboard_signin{
-	margin: 0 0 0 0;
-	float:right;
-	padding: 0px 5px 0px 0px;
-	list-style: none;
-	background: #FCF6CF;
+  overflow: auto;
+  background: #FCF6CF;
+  width: 380px;
+  margin: auto; 
+  padding: 0 0 0 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 #dashboard_signin li{
 	display: block;
@@ -380,7 +341,7 @@ section.success .flashnotice{
 	float: left;
 	width: 960px;
 	margin-bottom: 0px;
-	margin-top: 45px;
+	margin-top: 5px;
 	padding: 10px 0 20px 10px;
 	background: #fff;
 	-moz-box-shadow: 0px 5px 5px #000;

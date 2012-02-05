@@ -18,38 +18,11 @@
 	
 </head>
 <body>
-	<div id="top"></div>
-	<div id="dim">
-		
-		<div class="highlighted_content">
-			<%= link_to 'x', '#', :class => 'close' %>
-<div id="signuppage">
-	<div id="facebook_signup">
-	<div id="facebooklogin"><a href="/auth/facebook"><%= image_tag ("Facebook_logo.png") %></a></div>
-	</div>
-</div>
-
-<p id="signup_with_fb">Sign up with Facebook! </p>
-		</div>
-	</div>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#dim').css("height", $(document).height());
-		$('#email_login').click(function(e){
-			$("#dim").fadeIn();
-			$(".highlighted_content").fadeIn();
-			$(".highlighted_content").animate({height: '150px'}, {queue:false, duration:1500});
-			return false;
-		});
-		$('.close').click(function(e){
-			$('.highlighted_content').animate({height: '5px'}, {queue:false, duration:1500});
-			$('.highlighted_content').fadeOut();
-			$('#dim').fadeOut();
-		});
-
-
-	});
-	</script>
+  <div id="top">
+  
+<div id="logo"><a href="/"><%= image_tag ("new_logo.png"), :height => 35 %></div>
+  
+  </div>
 
 	<div id="wrapper">
  <div id="fb-root"></div>
@@ -64,8 +37,11 @@
    });
  </script>
 	<div id="top_part">
-<div id="logo"><a href="/"><%= image_tag ("new_logo.png"), :height => 35 %></div>
-					
+								</div>
+
+
+  <div id="top-part-nav">
+	
 				<% if signed_in? %>
 				<ul id="dashboard">
 
@@ -118,30 +94,22 @@
 					</div>
 					</li>
 					<li id="signin">
-					<%= link_to "Sign in", '#', :id => 'sign_in_clicker' %>
+					<%= link_to "Sign in", '/auth/facebook', :id => 'sign_in_clicker' %>
 					  <div id="signin_form">
 						<a href="/auth/facebook" id="facebook_login"><%= image_tag "Facebook_logo.png", :width => 20, :height => 20%></a>
 					  </div>
 					</li>
 				</ul>
 				<% end %>
-				<script type="text/javascript">
-				$(document).ready(function(){
-					var boo = 1
-					$('#sign_in_clicker').click(function(e){
-						if(boo == 1){
-							$('#signin_form').fadeIn();
-							$('#signin_form').animate({height: '60px'}, {queue:false, duration:600});
-							boo = 0;
-						}else{
-							$('#signin_form').animate({height: '5px'}, {queue:false, duration:600});
-							$('#signin_form').fadeOut();
-							boo = 1;
-						}
-					});
-				});
-				</script>
-				</div>
+
+  </div>
+
+
+
+
+
+
+
 
 	<div id="mainpagewrapper">
 	<ul id="nav">
@@ -283,7 +251,7 @@
 			at Columbia University.  To start, simply click on a category on the left.  If you 
 			want to post events, it takes two seconds to sign up and start posting!<br /><br /> </p>
 		<div id="signup">
-			<%= link_to "Sign up", '#', :id => "email_login" %>
+			<%= link_to "Sign up", '/auth/facebook', :id => "email_login" %>
 		</div>
 		</div>
 	<% end %>
@@ -295,12 +263,34 @@
 		<%= link_to "About", about_path %> |
 		<%= link_to "Contact", contact_path %>
 	</p>
-	<a id="fblike"><fb:like href="www.eventsalsa.com" send="true" width="450" show_faces="false" action="like" font=""></fb:like></a>
+	<a id="fblike"><fb:like href="www.eventsalsa.com" send="true" width="450" layout="button_count" show_faces="false" action="like" font=""></fb:like></a>
 	<p id="footer-descrip">A Sid Shanker Project</p>
   </div>
 </div>
 	<script type="text/javascript">
-				$(function(){
+    $(document).ready(function(){
+      var height = 45;
+
+      $(window).scroll(function(){
+        if($(window).scrollTop() > height){
+          $("#top-part-nav").css('position','fixed').css('top',0).next().css("padding-top", "60px");
+
+        }else{
+
+
+
+        }
+        
+        
+      });
+
+        
+        
+     });
+    
+    
+    
+    $(function(){
 					var event_obs = [];
 					<% Event.all.each do |event| %>
 					event_obs.push("<%= event.name %>");
