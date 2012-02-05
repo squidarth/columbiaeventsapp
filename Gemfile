@@ -14,6 +14,7 @@ gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem "nokogiri", "~> 1.4.7"
 gem 'aws-sdk'
 gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'aws-s3'
 group :development do
   gem 'rspec-rails', '2.5.0'
