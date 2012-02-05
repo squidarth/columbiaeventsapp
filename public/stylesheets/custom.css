@@ -164,11 +164,12 @@ body{
 #dashboard{
   overflow: auto;
   background: #FCF6CF;
-  width: 500px;
+  width: 600px;
   margin: auto; 
   padding: 0 0 0 0;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  list-style: none;
 }
 
 #dashboard li{
@@ -198,6 +199,7 @@ body{
   padding: 0 0 0 0;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  list-style: none;
 }
 #dashboard_signin li{
 	display: block;
