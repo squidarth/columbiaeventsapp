@@ -66,6 +66,7 @@ class Event < ActiveRecord::Base
     @me = User.find(45)
     @token = @me.authorizations.find_by_provider('facebook').token
     @graph = Koala::Facebook::GraphAPI.new(@token)
+    puts id.to_s
     @people = @graph.get_connections(id.to_s, 'attending')
     return @people
   end
