@@ -5,7 +5,10 @@ class AuthorizationsController < ApplicationController
   
   def create
    auth  = request.env["omniauth.auth"]
-    authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
+   
+   render :yaml => auth
+=begin   
+   authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
     if authorization #case that an authorizaiton is found, sign in user
       user = authorization.user
       authorization.destroy
@@ -36,7 +39,7 @@ class AuthorizationsController < ApplicationController
         redirect_to sign_up
       end
     end
-
+=end
   end
   
   def destroy
