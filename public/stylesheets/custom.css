@@ -426,6 +426,13 @@ section.success .flashnotice{
 	padding-left: 1%;
 	border-radius: 10px;
 }
+
+.about-link{
+  color: #222;
+  font-weight: bold;
+}
+
+
 .pages-text .emphasis{
 	margin-top: 0;
 	font-weight: bold;
