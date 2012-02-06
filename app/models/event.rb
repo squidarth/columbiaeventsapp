@@ -23,10 +23,6 @@ class Event < ActiveRecord::Base
   
 
 
-  def as_json
-
-
-  end
 
   def self.strip_events(user_id)
     
