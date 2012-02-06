@@ -11,6 +11,11 @@ body{
 	margin: 0;
 	border: 0;
 }
+
+a{
+  text-decoration: none;
+}
+
 #wrapper{
 	clear: both;
 	width: 960px;
@@ -60,6 +65,14 @@ body{
   z-index: 50;
 }
 /* END */
+
+.spec-link{
+  color: #777;
+
+}
+
+
+
 
 #intropara{
 	padding: 0px 5px 10px 10px;
@@ -306,6 +319,16 @@ body{
 	color: #222;
 	background: #FEF0C9;
 }
+#spec-image a{
+  background: none;
+  padding: 0 0 0 0;
+}
+
+#spec-image a:hover{
+  background: none;
+
+}
+
 
 /* STYLE FOR THE FLASH */
 

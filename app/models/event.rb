@@ -22,6 +22,12 @@ class Event < ActiveRecord::Base
   validate :validate_date
   
 
+
+  def as_json
+
+
+  end
+
   def self.strip_events(user_id)
     
     User.all.each do |user|
