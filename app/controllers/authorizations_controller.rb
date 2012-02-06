@@ -6,8 +6,6 @@ class AuthorizationsController < ApplicationController
   def create
    auth  = request.env["omniauth.auth"]
    
-   render :json => auth
-=begin   
    authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
     if authorization #case that an authorizaiton is found, sign in user
       user = authorization.user
@@ -22,10 +20,10 @@ class AuthorizationsController < ApplicationController
       redirect_to current_user
     else #case that new user needs to be created
       random_id = rand(99999999)
-      user = User.create(:name => auth['user_info']['first_name'] + " " + auth['user_info']['last_name'], 
-          :email => auth['extra']['user_hash']['email'], 
-          :fblink => auth['user_info']['urls']['Facebook'], 
-          :fbnickname => auth['user_info']['nickname'],
+      user = User.create(:name => auth['raw_info']['first_name'] + " " + auth['raw_info']['last_name'], 
+          :email => auth['info']['email'], 
+          :fblink => auth['raw_info']['link'], 
+          :fbnickname => auth['info']['nickname'],
           :password => random_id, :password_confirmation => random_id, 
           :facebookid => auth['uid'])
       if user.save!
@@ -39,7 +37,6 @@ class AuthorizationsController < ApplicationController
         redirect_to sign_up
       end
     end
-=end
   end
   
   def destroy
