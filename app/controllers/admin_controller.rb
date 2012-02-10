@@ -32,7 +32,7 @@ class AdminController < ApplicationController
   
   def authorize
     if signed_in?
-      if(!current_user.email.eql?('sps2133@columbia.edu') && !current_user.email.eql?('akshay_shah91@hotmail.com'))
+      if(!current_user.admin)
         redirect_to :root
       end
     else
