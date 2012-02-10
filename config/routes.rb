@@ -2,7 +2,7 @@ Sidsapp::Application.routes.draw do
   
   get "tags/create"
 
-  match "tags/:id/destroy", :to => "tags#destroy", :as => :cdestroy_tag
+  match "tags/:id/destroy", :to => "tags#destroy", :as => :destroy_tag
 
     match '/calendar', :to => 'events#calendar'
   resources :attendings
