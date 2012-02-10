@@ -22,6 +22,6 @@
 
 <% @events.each do |event| %>
 <% if !event.deleted && event.name %>
-  <p><%= link_to event.name, event %>  Tags: <% event.tags.each do |tag| %><%= tag.name %><%= link_to "Delete #{tag.name}", destroy_tag_path(tag) %><% end %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
+  <p><%= link_to event.name, event %>  Tags: <% event.tags.each do |tag| %><%= tag.name %><%= link_to "Delete #{tag.name}", destroy_tag_path(tag), :remote => true %><% end %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
 <% end %>
 <% end %>
