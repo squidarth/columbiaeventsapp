@@ -1,8 +1,5 @@
 <p>Type in the Facebook Event ID</p>
 
-<h3>Categories for Events</h3>
-<p>['Greek Life', 1], ['Theater', 2], ['Sports', 3], ['Politics', 4], ['Career Networking', 5], ['Arts', 6], ['Community Service', 7], ['Student Council', 8], ['Cultural', 10], ['Special Interest', 11], ['Other', 9]]</p>
-
 <h4>Make a new event from Facebook!</h4>
 <p>Type in the Facebook ID and hit submit</p>
 <% form_tag({:controller => 'admin', :action => 'create'}) do %>
@@ -25,6 +22,6 @@
 
 <% @events.each do |event| %>
 <% if !event.deleted && event.name %>
-<p><%= link_to event.name, event %>  Tags: <% event.tags.each do |tag| %><%= tag.name %><% end %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
+  <p><%= link_to event.name, event %>  Tags: <% event.tags.each do |tag| %><%= tag.name %><%= link_to "Delete #{tag.name}", destroy_tag_path(tag) %><% end %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
 <% end %>
 <% end %>
