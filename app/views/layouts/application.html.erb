@@ -114,7 +114,15 @@
 		<li class="unselected">
 			<%= link_to "All", all_path %>
 		</li>
-		<% end %>
+  <% end %>
+
+    <% if @title = "Free Food" %>
+      <li class="selected"><%= link_to "Free Food", free_food_path %></li>
+
+    <% else %>
+      <li class="unselected"><%= link_to "Free Food", 
+    <% end %>
+
 		<% if @title == "Greek Life"%>
 			<li class="selected">
 				<%= link_to "Greek Life", glife_path %>

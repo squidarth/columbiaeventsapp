@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
         end
       end
     end
+    
     def fraternities
       @title = "Greek Life"
       @array_of_events = order_array(1)

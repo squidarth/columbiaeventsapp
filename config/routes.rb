@@ -50,7 +50,7 @@ Sidsapp::Application.routes.draw do
   match '/stuco', :to => 'categories#studentcouncil'
   match '/all', :to => 'categories#all'
   match '/other', :to => 'categories#other'
-  match '/freefood', :to => 'categories#free_food'
+  match '/freefood', :to => 'categories#free_food', :as => :free_food
 
   root :to => 'pages#home'
 

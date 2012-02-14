@@ -1,13 +1,4 @@
-<p>Type in the Facebook Event ID</p>
-
-<h4>Make a new event from Facebook!</h4>
-<p>Type in the Facebook ID and hit submit</p>
-<% form_tag({:controller => 'admin', :action => 'create'}) do %>
-<%= text_field_tag :id, params[:id]%>
-<%= submit_tag 'Submit' %>
-	
-<% end %>
-
+<div id="admin-change-categories">
 <h4>Change category of an event!</h4>
 <p>Just type in the ID of the event (listed below) and then select a category!</p>
 <%= form_tag({:controller => 'admin', :action => 'update'}) do%>
@@ -17,11 +8,23 @@
 <%= select_tag :category, options_for_select({'Greek Life' => 1, 'Theater' => 2, 'Sports' => 3, 'Politics' => 4, 'Career Networking' => 5, 'Arts' => 6, 'Community Service' => 7, 'Student Council' => 8, 'Cultural' => 10, 'Special Interest' => 11,'Academics'=> 14, 'NYC Events' => 13, 'Academics' => 12, 'Other' => 9})%>
 <%= submit_tag 'Submit'%>
 <% end %>
+</div>
 
 
 
 <% @events.each do |event| %>
 <% if !event.deleted && event.name %>
-  <p><%= link_to event.name, event %>  Tags: <% event.tags.each do |tag| %><%= tag.name %><%= link_to "Delete #{tag.name}", destroy_tag_path(tag), :remote => true %><% end %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
+  <p><%= link_to event.name, event %>  Tags: <% event.tags.each do |tag| %><span class="tag"><%= tag.name %><%= link_to "Delete #{tag.name}", destroy_tag_path(tag), :remote => true, :class => "kill-tag" %></span><% end %> ID:<%= event.id%> <%= link_to 'Delete', {:controller => 'admin', :action => 'destroy', :id => event.id.to_s}%></p>
 <% end %>
 <% end %>
+
+
+
+<script>
+  $(".kill-tag").click(function(){
+     $(this).parent("span.tag").fadeOut();
+  });
+
+
+</script>
+

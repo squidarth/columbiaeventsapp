@@ -11,7 +11,7 @@ class AuthorizationsController < ApplicationController
       authorization.destroy
       user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
       flash[:success] = "Signed in!"
-      #Event.get_events(auth['credentials']['token'])
+      Event.get_events(auth['credentials']['token'])
       sign_in(user)
       redirect_to(user)
     elsif signed_in? #case that user is already signed into eventsalsa
@@ -28,7 +28,7 @@ class AuthorizationsController < ApplicationController
       if user.save
         user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
         sign_in user
-        #Event.get_events(auth['credentials']['token'])
+        Event.get_events(auth['credentials']['token'])
         flash[:success] = "Thanks for joining! To get started either edit your profile or start creating events!"
         redirect_to user
       else
