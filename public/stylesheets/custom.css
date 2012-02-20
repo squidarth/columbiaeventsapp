@@ -208,7 +208,10 @@ a{
 #dashboard_signin{
   overflow: auto;
   background: #FCF6CF;
-  width: 380px;
+  /*border-bottom: 1px #000 solid;
+  border-left: 1px #000 solid;
+  border-right: 1px #000 solid;*/
+  width: 500px;
   margin: auto; 
   padding: 0 0 0 0;
   border-bottom-right-radius: 10px;
@@ -1059,7 +1062,7 @@ form#new_event ul li p{
 a#fblike{
 	float: left;
 	padding-top: 0px;
-	margin: 10px 0 0 185px;
+	margin: 10px 0 0 0;
 }
 #footer-descrip{
 	float:right;
