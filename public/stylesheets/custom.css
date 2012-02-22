@@ -3,7 +3,6 @@
 /* STYLE FOR APPLICATION.HTML, nav, logo, 	background-color:#af352a;*/
 
 body{
-	font-size: small;
 	background: #ADD8E6;
 	color: #333;
 	outline: 0;
@@ -18,13 +17,9 @@ a{
 
 #wrapper{
 	clear: both;
-	width: 960px;
 	margin-top: 0;
 	padding-top: 0;
-	padding-right: 15px;
-	padding-left: 15px;
 	margin: 0 auto 0 auto;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	/*-moz-box-shadow: 0px 5px 5px #000;
     -webkit-box-shadow: 0px 5px 5px #aaa;
     box-shadow: 0px 5px 5px #aaa;*/
@@ -47,7 +42,6 @@ a{
 }
 
 #logo{
-  width: 960px;
   margin: auto;
 }
 
@@ -85,26 +79,21 @@ a{
 }
 #verify{
 	margin: 0 0 20px 60px;
-	font-size: 1.3em;
 }
 #intropara p#emphasis{
-	font-weight: bold;
 	margin-top: 0;
 	margin-bottom: 10px;
-	font-size: 2.4em;
 	color: #222;
 	
 }
 #intropara p#descrip{
 	float: left;
 	margin-top: 0;
-	font-size: 1.3em;
 	color: #777;
 	width: 500px;
 }
 #signup {
 	float: right;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	margin: 10px 10px 0 0px;
 }
 #signup a{
@@ -113,8 +102,6 @@ a{
 	border-radius: 10px;
 	padding: 5px 30px 5px 30px;
 	color: #fff;
-	font-weight: bold;
-	font-size: 1.3em;
 }
 #signup a:hover{
 	background: #104E8B;
@@ -154,8 +141,6 @@ a{
 #homeshowpage li #eventwords p#event_title{
 	margin-top: 0;
 	margin-bottom: 10px;
-	font-size: 2em;
-	font-weight: bold;
 }
 #homeshowpage li #eventwords a{
 	text-decoration: none;
@@ -172,7 +157,6 @@ a{
 	padding: 0 0px 0 0px;
 	list-style: none;
   color: #333;
-  width: 960px;
 }
 
 #dashboard{
@@ -197,10 +181,7 @@ a{
 	float: left;
 	display: block;
 	color: #333;
-	font-weight: bold;
 	text-decoration: none;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 120%;
 }
 #dashboard a:hover{
 	color: #888;
@@ -224,7 +205,6 @@ a{
 	margin: 0 0 0 0;
 	text-align: center;
 	padding: 0px 5px 0px 5px;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #dashboard_signin a{
 	float: left;
@@ -232,9 +212,7 @@ a{
 	display: block;
 	padding: 0 0px 0 0;
 	color: #333/*#231F20*/;
-	font-weight: bold;
 	text-decoration: none;
-	font-size: 120%;
 }
 #dashboard_signin a:hover{
 	color: #888;
@@ -251,9 +229,7 @@ a{
 	margin-top: 30px;
 	margin-left: 0;
 	padding: 0 0 0 10px;
-	font-weight: bold;
 	width: 30px;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 
 }
 #dashboard_signin #signin_form p{
@@ -292,9 +268,7 @@ a{
 	display: block;
 	margin: 0 0 5px 0px;
 	padding: 0;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	border-radius: 30px;
-	font-size: 110%;
 }
 #nav a{
 	display: block;
@@ -303,7 +277,6 @@ a{
 	color: #fffeff/*#231F20*/;
 	text-decoration: none;
 	background: #FF7F50;
-	font-weight: bold;
 	border-radius: 30px;
 	border: none;
 
@@ -315,7 +288,6 @@ a{
 	color: #222;
 	background: #FEF0C9;
 	text-decoration: none;
-	font-weight: bold;
 	/*background-color: #FF8080;*/
 }
 #nav a:hover{
@@ -339,8 +311,6 @@ section.success .flasherror{
 	float: left;
 	text-align: left;
 	color: #F0463D;
-	font-size: 1.2em;
-	font-weight: bold;
 	border-radius: 20px;
 	margin: 0px auto 5px 70px;
 	padding: 0px 0 0px 0;
@@ -350,8 +320,6 @@ section.success .flashsuccess{
 	float: left;
 	text-align: left;
 	color: #256AA3;
-	font-size: 1.2em;
-	font-weight: bold;
 	margin: 0px auto 5px 70px;
 	padding: 0px 0 0px 0;
 	width: 580px;
@@ -360,8 +328,6 @@ section.success .flashnotice{
 	float: left;
 	text-align: left;
 	color: #256AA3;
-	font-size: 1.2em;
-	font-weight: bold;
 	border solid 1px #000;
 	border-radius: 20px;
 	margin: 0px auto 5px 70px;
@@ -373,21 +339,14 @@ section.success .flashnotice{
 #mainpagewrapper{
 	clear: both;
 	float: left;
-	width: 960px;
 	margin-bottom: 0px;
 	margin-top: 5px;
 	padding: 10px 0 20px 10px;
-	background: #fff;
-	-moz-box-shadow: 0px 5px 5px #000;
-    -webkit-box-shadow: 0px 5px 5px #aaa;
-    box-shadow: 0px 5px 5px #aaa;
-    border-radius: 10px;
     
 }
 #mainpagewrapper #main{
 	margin-top: 15px;
 	margin: 15px 0 0 0px;
-	width: 750px;
 	float: left;
 }
 
@@ -400,13 +359,11 @@ section.success .flashnotice{
 	margin-left: 70px;
 	border-bottom: solid 1px #999;
 	width: 590px;
-	font-size: 1.6em;
 }
 #no_results{
 	color: #222;
 	margin: 0px auto 0px 250px;
 	padding: 0 0 0 0;
-	font-size: 2em;
 	width: 240px;
 	float: left;
 }
@@ -420,8 +377,6 @@ section.success .flashnotice{
 	float: left;
 	text-align: left;
 	color: #222;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 1.2em;
 	width: 700px;
 	margin-top: 0px;
 	margin-bottom: 2%;
@@ -432,14 +387,11 @@ section.success .flashnotice{
 
 .about-link{
   color: #222;
-  font-weight: bold;
 }
 
 
 .pages-text .emphasis{
 	margin-top: 0;
-	font-weight: bold;
-	font-size: 1.4em;
 }
 .pages-text a{
 	color: #666;
@@ -456,12 +408,9 @@ section.success .flashnotice{
     border-radius: 5px;
     width: 380px;
     color: #111111;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #createnewevents div#make_new_event{
-	font-size: 2em;
 	text-align: center;
-	font-weight: bold;
 	color: #666666;
 }
 form#new_event ul li{
@@ -481,21 +430,17 @@ form#new_event ul li a{
 	text-decoration: none;
 }
 form#new_event ul li p{
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	color: #666666;
-	font-weight: bold;
 	margin: 0 0 0 0;
 }
 
 .submitter{
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	border: none;
 	padding: 5px 10px 5px 10px;
 	margin: 10px 0 0 0;
 	background: #FF7F50;
 	border-radius: 30px;
 	color: #fffeff;
-	font-weight: bold;
     box-shadow: 0 1px 0 #FFDAB9,
                 0 2px 0 #FFDAB9,
                 0 3px 0 #FFDAB9,
@@ -524,7 +469,6 @@ form#new_event ul li p{
 	margin-left: 50px;
 	color: #666;
 	text-decoration: none;
-	font-weight: bold;
 }
 #back_to_event:hover{
 	text-decoration: underline;
@@ -539,12 +483,9 @@ form#new_event ul li p{
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 400px;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	text-align: center;
 }
 #signinpage_facebook_signin p#facebook_signin_title{
-	font-size: 2em;
-	font-weight: bold;
 	color: #666666;
 	text-align: center;
 	padding: 0 15px 0 0;
@@ -557,11 +498,8 @@ form#new_event ul li p{
 	border: solid 1px #ddd;
     border-radius: 5px;
     width: 400px;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #custom_signin div#signinpage_title{
-	font-size: 2em;
-	font-weight: bold;
 	color: #666666;
 	text-align: center;
 	padding: 0 15px 0 0;
@@ -573,7 +511,6 @@ form#new_event ul li p{
 }
 #custom_signin form ul li p{
 	margin: 0 0 0 0;
-	font-weight: bold;
 	color: #666666;
 }
 #custom_signin p{
@@ -590,8 +527,6 @@ form#new_event ul li p{
 	clear: both;
 	float: left;
 	color: #222;
-	font-size: 2.4em;
-	font-weight: bold;
 }
 #userdetails{
 	clear: both;
@@ -630,8 +565,6 @@ form#new_event ul li p{
 	width: 570px;
 	text-align: left;
 	color: #222;
-	font-size: 2em;
-	font-weight: bold;
 	margin: 0 0 0px 70px;
 	border-bottom: solid 1px #999;
 }
@@ -657,7 +590,6 @@ form#new_event ul li p{
     border-radius: 5px;
     width: 400px;
     color: #111111;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #edituser form{
 	border: solid 1px #ddd;
@@ -665,30 +597,23 @@ form#new_event ul li p{
 	width: 350px;	
 	padding: 5px 10px 0 20px;
 	color: #666;
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 #edituser form #edit_user_title{
-	font-size: 2em;
 	text-align: center;
-	font-weight: bold;
 	
 }
 #edituser form ul li{
 	list-style: none;
 	color: #666;
-	font-weight: bold;
 	margin-bottom: 2px;
 }
 #edituser ul li p{
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	color: #666666;
-	font-weight: bold;
 	margin: 0 0 0 0;
 }
 #edituser a{
 	color: #666;
 	text-decoration: none;
-	font-weight: bold;
 	margin-left: 35px;
 }
 #edituser a:hover{
@@ -732,13 +657,10 @@ form#new_event ul li p{
 #allusers ul li #user_details p#user_title{
 	margin: 0 0 0 0;
 	color: #222;
-	font-size: 1.3em;
-	font-weight: bold;
 	float: left;
 }
 #allusers ul li #user_details p.user_detail{
 	clear: left;
-	font-size: 1em;
 	color: #222;
 	margin: 0 0 0 0;
 	float: left;
@@ -783,14 +705,10 @@ form#new_event ul li p{
 }
 #catshowpage li #eventwords p#event_title{
 	margin-top: 0;
-	font-weight: bold;
 	margin-bottom: 5px;
-	font-size: 1.3em;
 	float: left;
 }
 #catshowpage li #eventwords #author{
-	font-size: .7em;
-	font-weight: normal;
 	margin: 0px 0 0 5px;
 	color: #666;
 }
@@ -806,11 +724,9 @@ form#new_event ul li p{
 }
 
 #free_food{
-  font-size: .7em;
   color: #fff;
   padding: 3px 5px 3px 5px;
   background: #6495ED;
-  font-weight: bold;
   clear: both;
 } 
 
@@ -832,9 +748,7 @@ form#new_event ul li p{
 	border-bottom: solid 1px #999;
 	padding: 5px 10px 5px 0px;
 	color: #666;
-	font-weight: bold;
 	text-decoration: none;
-	font-size: 1.4em;
 	text-align: center;
 	margin-left: 70px;
 	margin-top: 0;
@@ -851,9 +765,7 @@ form#new_event ul li p{
 	padding: 5px 0 5px 0px;
 	padding-right: 10px;	
 	color: #666;
-	font-weight: bold;
 	text-decoration: none;
-	font-size: 1.4em;
 	text-align: center;
 	margin-left: 70px;
 	margin-top: 0;
@@ -890,15 +802,12 @@ form#new_event ul li p{
 
 #eventuser p#title{
 	float: left;
-	font-size: 2.4em;
-	font-weight: bold;
 	margin: 0 0 0 0;
 }
 #eventuser p#name{
 	margin: 0 0 0 0;
 	clear: both;
 	float: left;
-	font-weight: bold;
 }
 #eventshow{
 	float: left;
@@ -908,7 +817,6 @@ form#new_event ul li p{
 	padding: 10px 10px 10px;
 	border-radius: 10px;
 	width: 550px;
-	font-size: 110%;
 }
 #eventshow img{
 	margin-top: 40px;
@@ -931,7 +839,6 @@ form#new_event ul li p{
 #eventshow ul li a{
 	color: #256AA3;
 	text-decoration: none;
-	font-size: .85em;
 }
 
 #controls{
@@ -954,7 +861,6 @@ form#new_event ul li p{
 }
 #attendees a{
 	text-decoration: none;
-	font-weight: bold;
 	text-align: left;
 	float: right;
 	color: #FF7F50;
@@ -993,7 +899,6 @@ form#new_event ul li p{
 	color: #222;
 	margin-right: 5px;
 	text-decoration: none;
-	font-weight: bold;
 	float: left;
 }
 #attendees ul li a:hover{
@@ -1027,7 +932,6 @@ form#new_event ul li p{
 	border-radius: 10px;
 }
 #attending_invitation a{
-	font-weight: bold;
 	text-decoration: none;
 	color: #333;
 }
@@ -1041,36 +945,14 @@ form#new_event ul li p{
 
 /* FOOTER */
 
-#footer{
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	width: 100%;
-	clear: both;
-	text-align: left;
-	margin: 2px auto 0;
-	color: #666;
-}
-#footer-nav{
-	float: left;
-}
-#footer-nav a{
-	text-decoration: none;
-	font-weight: bold;
-	color: #666;
-	margin-top: 0;
-	padding-top: 0;
-}
 a#fblike{
 	float: left;
 	padding-top: 0px;
 	margin: 10px 0 0 0;
 }
-#footer-descrip{
-	float:right;
-}
 
 /* STYLE FOR CALENDAR */
 #calendar{
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 	margin: 0px 0 10px 70px;
 	float: left;
 	padding: 0 0 0px 0;
@@ -1082,7 +964,6 @@ a#fblike{
 
 #calendar td,
 #calendar th {
-  font-size: .8em;
   padding: 6px;
   border: 1px solid #999;
 }
@@ -1097,7 +978,6 @@ a#fblike{
   background: #FFF;
   height: 45px;
   vertical-align: top;
-  font-size: 1.2em;
 }
 #calendar td a{
 	color: #666;
@@ -1114,7 +994,6 @@ a#fblike{
 #calendar td .selected{
 	text-decoration: none;
 	color: #FF7F50;
-	font-weight: bold;
 }
 
 #calendar .notmonth {
@@ -1146,7 +1025,6 @@ a#fblike{
 #calendar li {
   margin: 0;
   padding: 0;
-  font-size: 11px;
   text-align: center;
 }
 /* BUG FIX FOR DATEPICKER*/
@@ -1154,8 +1032,6 @@ a#fblike{
 /* BUG FIX FOR TEXTAREA*/
 
 textarea, input{
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 1.1em;
 	border-radius: 5px;
 	border: solid 1px #ddd;
 }
@@ -1163,8 +1039,6 @@ input.no_border{
 	border: none;
 }
 input.file_field{
-	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-	font-size: 1.1em;
 	border-radius: 5px;
 	border: solid 1px #ddd;
 }
