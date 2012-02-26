@@ -1,0 +1,155 @@
+/* USER SHOW PAGE */
+#user{
+	float: left;
+	margin-left: 70px;
+}
+#user #title{
+	margin: 0 0 0 0;
+	text-align: left;
+	clear: both;
+	float: left;
+	color: #222;
+}
+#userdetails{
+	clear: both;
+	color: #222;
+	border: solid 1px #ddd;
+	margin: 0 0 20px 0px; 
+	width: 580px;
+	padding: 10px 20px 10px 10px;
+	border-radius: 10px;
+	float: left;
+}
+#userdetails img{
+	margin-top: 12px;
+	border-radius: 10px;
+	border: solid 3px #fffeff;
+	float: left;
+}
+#userdetails a{
+	color: #256AA3;
+	text-decoration: none;
+}
+#userdetails ul{
+	float: left;
+	width: 300px;
+}
+#userdetails ul li{
+	clear:both;
+	list-style: none;
+	margin-right: 0px;
+	float: left;
+}
+
+#users_events{
+	float: left;
+	padding: 10px 10px 0px;
+	width: 570px;
+	text-align: left;
+	color: #222;
+	margin: 0 0 0px 70px;
+	border-bottom: solid 1px #999;
+}
+
+#edit_user{
+	margin: 0 0 0 0;
+	width: 570px;
+	text-decoration: none;
+	padding: 10px 0 10px 20px;
+	background: #eee;
+	border-radius: 10px;
+	clear: both;
+	float: left;
+	color: #6495ED;
+}
+/* NOTE FOR USER SHOW PAGE THE EVENTS PARTIAL USES THE SAME STYLE AS THE CATEGORY PAGE */
+
+
+/* User Edit Page*/
+#edituser{
+	float: left;
+	margin: 15px 0 0 170px;
+    border-radius: 5px;
+    width: 400px;
+    color: #111111;
+}
+#edituser form{
+	border: solid 1px #ddd;
+	border-radius: 5px;
+	width: 350px;	
+	padding: 5px 10px 0 20px;
+	color: #666;
+}
+#edituser form #edit_user_title{
+	text-align: center;
+	
+}
+#edituser form ul li{
+	list-style: none;
+	color: #666;
+	margin-bottom: 2px;
+}
+#edituser ul li p{
+	color: #666666;
+	margin: 0 0 0 0;
+}
+#edituser a{
+	color: #666;
+	text-decoration: none;
+	margin-left: 35px;
+}
+#edituser a:hover{
+	text-decoration: underline;
+}
+/* USER INDEX */
+#allusers{
+	margin-left: 30px;
+}
+
+#allusers ul{
+	width: 580px;
+	margin-bottom: 0;
+	margin-top: 0;
+	float: left;
+}
+#allusers ul li{
+	clear:both;
+	float: left;
+	margin: 0 0 0 0;
+	list-style: none;
+	width: 580px;
+	border-bottom: solid 1px #999;
+	padding: 5px 10px 5px 0px;
+	
+}
+#allusers ul li:hover{
+	background-color: #ECF1EF; 
+}
+#allusers ul li img{
+	float: left;
+	border: solid 2px #fffeff;
+	border-radius: 15px;
+}
+#allusers ul li #user_details{
+	float: left;
+	margin: 10px 0 auto 10px;
+	color: #222;
+	width: 300px;
+}
+#allusers ul li #user_details p#user_title{
+	margin: 0 0 0 0;
+	color: #222;
+	float: left;
+}
+#allusers ul li #user_details p.user_detail{
+	clear: left;
+	color: #222;
+	margin: 0 0 0 0;
+	float: left;
+}
+#allusers ul li #user_details a{
+	text-decoration: none;
+	color: #256AA3;
+}
+
+

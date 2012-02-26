@@ -1,7 +1,23 @@
-<ul id="catshowpage">
+<div class="progress">
+  <div class="bar" style="width: 60%;"></div>
+
+</div>
+
+
+
+<div class="alert alert-success">
+  Test alert
+
+</div>
+
+
+
+<ul class="thumbnails">
 <% @array_of_events.each do |event| %>
 <% if !event.deleted %>
-<li><a href="/events/<%= event.id %>">
+  <li class="span3">
+  <div class="thumbnail">
+  <a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small), :width => 100 %>
 	<% elsif event.facebooklink %>
@@ -10,7 +26,7 @@
 	<%= image_tag ("bowl3.jpg"), :height => 70, :width => 100 %>
 	<% end %>
 
-<div id="eventwords">
+<div id="eventwords" class="caption">
 
 <p id="event_title"><%= event.name %> <% if event.check_for_food %><span id="free_food">Free food! </span><% end %></p>
     <div id="when">
@@ -24,6 +40,7 @@
 	</div>
 </div>
 </a>
+</div>
 </li>
 <% end %>
 <% end %>

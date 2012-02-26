@@ -3,13 +3,12 @@
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title><%= title %></title>
-  <%= stylesheet_link_tag 'custom', 'jquery-ui-timepicker.css' %>
+  <%= stylesheet_link_tag 'custom','admin','catshow','events', 'users', 'jquery-ui-timepicker.css', 'bootstrap.min.css' %>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
-  <%= stylesheet_link_tag "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" %>
-  <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js" %>
+  <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" %>
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
   <%= javascript_include_tag "jquery-rails.js", "jquery.ui.timepicker.js" %>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application', 'bootstrap' %>
   <link rel="image_src" href="http://www.eventsalsa.com/images/monkey.png" />
 <meta property=og:image content="http://www.eventsalsa.com/images/monkey.png"/>
 
@@ -19,14 +18,8 @@
 	
 </head>
 <body>
-  <div id="top">
   
-<div id="logo"><a href="/"><%= image_tag ("new_logo.png"), :height => 35 %></div>
-  
-  </div>
-
-	<div id="wrapper">
- <div id="fb-root"></div>
+  <div id="fb-root"></div>
  <script src="http://connect.facebook.net/en_US/all.js"></script>
  <script>
    FB.init({
@@ -37,79 +30,83 @@
      oauth : true // enables OAuth 2.0
    });
  </script>
-	<div id="top_part">
-								</div>
 
-
-  <div id="top-part-nav">
-	
-				<% if signed_in? %>
-				<ul id="dashboard">
-
-					<li>
-		
-						<%= link_to "View Calendar", calendar_path %>
-					</li>
-					<li>
-					<%= link_to "View users", allusers_path %>
-					</li>
-					<li>
-					<%= link_to "Profile", current_user %>
-					</li>
-					<li>
-						<%= link_to "Create Event", new_event_path%>
-					</li>
-					<li>
-					<% if(@title=="All Users" || @title=="Search Users")%>
-					<div id="searchbar">
-					<% form_tag(users_path, {:method => :get}) do%>
-					<%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
-					<button id="search_select" type="submit"></button>
-					<% end %>
-					</div>
-					<% else %>
-					<div id="searchbar">
-					<% form_tag(events_path, {:method => :get}) do %>
-					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-					<button id="search_select" type="submit"></button>
-					<% end %>
-					</div>
-					<% end %>
-					</li>
-					<li>
-					<%= link_to "Sign out", signout_path %>
-					</li>
-				</ul>
-				<% else %>
-				<ul id="dashboard_signin">
-					<li>
-						<%= link_to "View Calendar", calendar_path %>
-					</li>
-
-					<li>
-					<div id="searchbar">
-					<% form_tag(events_path, {:method => :get}) do %>
-					<%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-					<button id="search_select" type="submit"></button>	
-					<% end %>
-					</div>
-					</li>
-					<li id="signin">
-					<%= link_to "Sign in", '/auth/facebook', :id => 'sign_in_clicker' %>
-					  <div id="signin_form">
-						<a href="/auth/facebook" id="facebook_login"><%= image_tag "Facebook_logo.png", :width => 20, :height => 20%></a>
-					  </div>
-            </li>
-          <li>
-
-	<a id="fblike"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font=""></fb:like></a>
-            </li>
-
-          
-          </ul>
+  <div id="top-filler">
+  <div id="top">
+  		<div id="searchbar">
+			  <% form_tag(events_path, {:method => :get}) do %>
+          <%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
+					<div id="search_select" class="icon-search" type="submit"></div>
 				<% end %>
-  </div>
+			</div>
 
+      <div id="logo"><a href="/"><%= image_tag ("new_logo.png"), :height => 35 %></div>
+        <a></a>
+        <ul id="about-menu" class="nav nav-pills">
+          <li>
+          <% if signed_in? %>
+          <%= link_to "Login", "/auth/facebook", :class => "title" %>
+        <% else %>
+
+          <%= link_to "Log Out",session_path(current_user), :method => :delete %>
+        <% end %>
+          </li>
+          
+          <li class="dropdown">
+  
+    <a class="dropdown-toggle title"
+       data-toggle="dropdown"
+       href="#">
+        About
+        <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+      <!-- links -->
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+    </ul>
+  </li>
+
+</ul>
+  </div>
+</div>
+<div id="level-2">
+<div id="fixed-nav">
+    <div id="nav-menu">
+    <ul class="nav nav-pills">
+      <li><%= link_to "Most Popular", "#", :class => "title" %></li>
+
+      <li><%= link_to "Featured", "#", :class => "title" %></li>
+
+      <li class="dropdown">
+      <a class="dropdown-toggle title"
+       data-toggle="dropdown"
+       href="#">
+       Filter
+       <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li></li>
+        <li><%= link_to "Greek Life", "#" %></li>
+
+        <li><%= link_to "Theater", "#" %></li>
+        <li><%= link_to "Arts", "%" %></li>
+        <li><%= link_to "NYC Events", "#" %></li>
+      </ul>
+
+      
+      
+      </li>
+
+
+    </ul>
+    </div>
+
+  </div>
+</div>
+
+
+	<div id="wrapper" class="container-fluid">
 
 	<div id="mainpagewrapper">
 					
@@ -138,22 +135,18 @@
 </div>
 	<script type="text/javascript">
     $(document).ready(function(){
-      var height = 45;
+      var height = 55;
 
       $(window).scroll(function(){
         if($(window).scrollTop() > height){
-          $("#top-part-nav").css('position','fixed').css('top',0).next().css("padding-top", "60px");
+          $("#level-2").css('position','fixed').css('top',0).next().css("padding-top", "60px");
           
         }else{
 
-          $("#top-part-nav").css('position', 'static').next().css("padding-top", "none");
+          $("#level-2").css('position', 'static').next().css("padding-top", "none");
 
         }
-        
-        
       });
-
-        
         
      });
     
