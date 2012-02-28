@@ -129,7 +129,7 @@ class Event < ActiveRecord::Base
 
   def self.get_events(token)
     
-  	@graph = Koala::Facebook::GraphAPI.new(token)
+  	@graph = Koala::Facebook::API.new(token)
 	events = @graph.get_connections('me', 'events')
     event_ids = []
     Event.all.each do |event|
@@ -138,6 +138,7 @@ class Event < ActiveRecord::Base
       end
     end
     events.each do |event|
+      begin
       the_event = @graph.get_object(event['id'])
       puts the_event
       if(the_event && Event.check_if_user(event['id'], token) && !event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
@@ -152,9 +153,12 @@ class Event < ActiveRecord::Base
        else
        end
      end
-    end
+     rescue Koala::Facebook::APIError
+        put "found error"
+     end
+
   end
- 
+  end
 	def self.update_attendings()
 		Event.all.each do |event|
 			if(event.facebooklink)
