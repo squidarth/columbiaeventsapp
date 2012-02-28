@@ -51,6 +51,7 @@
   background: #efefff;
   height: 40px;
   border-bottom: solid 1px #aaa;
+  z-index: 400;
 }
 
 
@@ -72,5 +73,18 @@
 
 #fixed-nav #nav-menu a.title{
   color: #444;
+}
+
+
+/* Styles for intropara */
+
+#intropara{
+
+  border: dashed 5px #aaa;
+  margin: 5px auto 0 auto;
+  width: 900px;
+  padding: 15px 15px 15px 15px;
+
+
 }
 

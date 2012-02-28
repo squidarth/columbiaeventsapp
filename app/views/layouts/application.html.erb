@@ -3,11 +3,11 @@
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title><%= title %></title>
-  <%= stylesheet_link_tag 'custom','admin','catshow','events', 'users', 'jquery-ui-timepicker.css', 'bootstrap.min.css' %>
+  <%= stylesheet_link_tag 'custom','admin','catshow','events', 'users', 'jquery-ui-timepicker.css', "jquery.fancybox-1.3.4.css", 'bootstrap.min.css' %>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" %>
   <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
-  <%= javascript_include_tag "jquery-rails.js", "jquery.ui.timepicker.js" %>
+  <%= javascript_include_tag "jquery-rails.js", "jquery.ui.timepicker.js", "jquery.masonry.min.js", "jquery.fancybox-1.3.4.js" %>
   <%= javascript_include_tag 'application', 'bootstrap' %>
   <link rel="image_src" href="http://www.eventsalsa.com/images/monkey.png" />
 <meta property=og:image content="http://www.eventsalsa.com/images/monkey.png"/>
@@ -44,11 +44,11 @@
         <a></a>
         <ul id="about-menu" class="nav nav-pills">
           <li>
-          <% if signed_in? %>
+          <% if !signed_in? %>
           <%= link_to "Login", "/auth/facebook", :class => "title" %>
         <% else %>
 
-          <%= link_to "Log Out",session_path(current_user), :method => :delete %>
+          <%= link_to "Log Out",signout_path, :method => :delete, :class => "title" %>
         <% end %>
           </li>
           
@@ -112,21 +112,18 @@
 					
 
 <div id="main">
-  	<section class="success">
-		<% flash.each do |key, value| %>
-		<div class="flash<%= key %>"><%= value %></div>
-		<% end %>
-	</section>
-	<% if !signed_in?%>
-		<div id="intropara">
-		<p id="emphasis">Welcome to EventSalsa, an event catalogue.</p>
-		<p id="descrip">EventSalsa is the best place to find out what awesome events are happening
+  <% if !signed_in?%>
+
+    <div id="intropara" class="hero-unit">
+      <a class="close" data-dismiss="hero-unit">×</a>
+      <h2>Welcome to EventSalsa, an event catalogue. </h2>
+      <p id="descrip">EventSalsa is the best place to find out what awesome events are happening
 			at Columbia University.  To start, simply click on a category on the left.  If you 
       want to post events, it takes two seconds to sign up and start posting! <br /><br />  We are now partnered with
-      the <a href="http://www.columbiaspectator.com/" class="spec-link"><b>Columbia Daily Spectator</b></a> and it's blog, <a href="http://spectrum.columbiaspectator.com/" class="spec-link"><b>Spectrum</b></a> to best serve the Columbia community.<br /><br /> </p>
-		<div id="signup">
-			<%= link_to "Sign up", '/auth/facebook', :id => "email_login" %>
-		</div>
+      the <a href="http://www.columbiaspectator.com/" class="spec-link"><b>Columbia Daily Spectator</b></a> and its blog, <a href="http://spectrum.columbiaspectator.com/" class="spec-link"><b>Spectrum</b></a> to best serve the Columbia community.<br /><br /> </p>
+      <%= link_to "Sign up", '/auth/facebook', :id => "fb-signup", :class => "btn btn-primary btn-large" %>
+
+    </div>
 		</div>
 	<% end %>
   <%= yield %>
@@ -134,12 +131,21 @@
 </div>
 </div>
 	<script type="text/javascript">
+    
+    $("#intropara .close").click(function(){
+        $("#intropara").animate({
+            height: 0
+            }, 200, function(){
+              $("#intropara").fadeOut(); 
+            });
+        
+        });
     $(document).ready(function(){
       var height = 55;
 
       $(window).scroll(function(){
         if($(window).scrollTop() > height){
-          $("#level-2").css('position','fixed').css('top',0).next().css("padding-top", "60px");
+          $("#level-2").css('position','fixed').css('top',0).next();
           
         }else{
 

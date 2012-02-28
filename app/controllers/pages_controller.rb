@@ -5,7 +5,25 @@ class PagesController < ApplicationController
     @times = ['12:00 AM', '1:00 AM','2:00 AM', '3:00 AM','4:00 AM','5:00 AM', '6:00 AM','7:00 AM','8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM']
     @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council']
     @months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    @array_of_events = filter_and_sort_date(Event.all)
+    @events = filter_and_sort_date(Event.all)
+  
+    @master_array = Event.paginate(@events)
+
+    if params[:page]
+      if params[:page].to_i > @master_array.length
+        @array_of_events = []
+      else
+        @array_of_events = @master_array[params[:page].to_i]  
+      end
+    else
+      @array_of_events = @master_array[0] 
+    end
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def contact

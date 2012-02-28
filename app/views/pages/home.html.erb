@@ -1,2 +1,25 @@
 <%= render 'shared/catshowpage'%>
 
+
+<%= link_to "More", "#", :id => "more" %>
+<script type="text/javascript">
+
+var page = 1;
+var loading = false;
+$("#more").click(function(e){
+  e.preventDefault();
+  $("#loading").html('<div class="progress progress-info progress-striped active"><div class="bar"style="width: 100%;"></div></div>');
+  $.ajax({
+    url: '?page=' + page,
+    type: 'get',
+    dataType: 'script',
+    success: function(){
+      page++; 
+     }
+    });
+    page++;  
+  });
+
+</script>
+
+

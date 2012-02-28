@@ -1,15 +1,18 @@
-<div class="progress">
-  <div class="bar" style="width: 60%;"></div>
-
+<div id="fancybox-hidden">
+  <% @array_of_events.each do |event| %>
+    <div class="span5">
+  <div class="event-big thumbnail" id="event-<%= event.id %>">
+    <img src="https://graph.facebook.com/<%= event.facebooklink%>/picture?type=large"></img>
+    
+    <div class="caption"> 
+    <h2><%= event.name %></h2>
+    <p><!--- ATTENDING DETAILS --></p>
+    <p><%= event.description %></p>
+    </div>
+  </div>
+  </div>
+<% end %>
 </div>
-
-
-
-<div class="alert alert-success">
-  Test alert
-
-</div>
-
 
 
 <ul class="thumbnails">
@@ -17,27 +20,27 @@
 <% if !event.deleted %>
   <li class="span3">
   <div class="thumbnail">
-  <a href="/events/<%= event.id %>">
+  <a class="single-event" href="#event-<%= event.id %>">
 	<% if event.photo.file? %>
-	<%= image_tag event.photo.url(:small), :width => 100 %>
+	<%= image_tag event.photo.url(:small), :width => 260 %>
 	<% elsif event.facebooklink %>
-	<img src="https://graph.facebook.com/<%= event.facebooklink%>/picture?type=normal" width="100"></img>
+	<img src="https://graph.facebook.com/<%= event.facebooklink%>/picture?type=large" width="260"></img>
 	<% else %>
 	<%= image_tag ("bowl3.jpg"), :height => 70, :width => 100 %>
 	<% end %>
 
 <div id="eventwords" class="caption">
 
-<p id="event_title"><%= event.name %> <% if event.check_for_food %><span id="free_food">Free food! </span><% end %></p>
-    <div id="when">
+  <h4><%= event.name %></h4>
+  <% if event.check_for_food %>
+    <span class="label label-success">Free Food!</span>
+  <% end %>
+
+    <p class="when">
 	<% if event.date && event.time %>
-	<b><%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%> </b><br />
+	<%= @months[event.date.month - 1] %> <%= event.date.day %>, <%= event.date.year %> at <%= event.time.strftime("%I:%M %p")%><br />
 	<% end %>
-	<i><%= event.description %></i> <br />
-	<% if event.facebooklink%>
-	<a href="http://www.facebook.com/event.php?eid=<%= event.facebooklink %>"><b>Link to Facebook Event</b></a>	
-	<% end %>
-	</div>
+	</p>
 </div>
 </a>
 </div>
@@ -45,40 +48,14 @@
 <% end %>
 <% end %>
 </ul>
+
+<div id="loading"></div>
 <script type="text/javascript">
+  $(".thumbnails").masonry({
+      itemSelector: '.span3'
+      });
+
 $(document).ready(function(){
-	var from = 0, to = 5, step = 5, maxSize = <%= @array_of_events.size %>;
-	
-	function showNext(list) {
-	  list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();
-	  $("html, body").animate({ scrollTop: $(document).height()-$(window).height()}, 1000);
-	  to+= step;
-	  if(to >= maxSize){
-	  	$('#more').hide();
-	  	$('#back_to_top').show();
-	  }
-	}
-	function start(list){
-		list.find('li').hide().end().find('li:lt(' + (to) + '):not(li:lt(' + from + '))').show();
-		
-		if(to >= maxSize){
-		  	$('#more').hide();
-		  	$('#back_to_top').show();
-	  }
-	  to+= step;
-	}
-	start($('ul#catshowpage'));
-	$('#more').click(function(e){
-		e.preventDefault();
-		showNext($('ul#catshowpage'));
-	});
-	$('#back_to_top').click(function(e){
-		e.preventDefault();
-		$("html, body").animate({ scrollTop: 0 }, 700);
-	});
+  $(".single-event").fancybox();
 });
 </script>
-<% if @array_of_events.size > 5%>
-<a href="#" id="more">More</a>
-<a href='#' id="back_to_top">Back to Top</a>
-<% end %>

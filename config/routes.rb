@@ -11,12 +11,15 @@ Sidsapp::Application.routes.draw do
   resources :events do
     resources :comments, :only => [:create]
   end
-  
+ 
+
+  #route for getting attendings for each event
+  match '/attendings', :to => "attendings#list"
+
+
+
   match 'api/emails', :to => 'api#emails'
   match '/api/topevents', :to => 'api#events'	
-  match '/academics', :to => 'categories#academics'
-  match '/nycevents', :to => 'categories#nycevents'
-  match '/music', :to => 'categories#music'  
   match '/events/pull', :to => 'events#pull'
   match '/admin', :to => 'admin#main'
   match 'admin/delete', :to => 'admin#destroy'
@@ -38,19 +41,9 @@ Sidsapp::Application.routes.draw do
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  match '/glife', :to => 'categories#fraternities'
-  match '/theater', :to => 'categories#theater'
-  match '/sports', :to => 'categories#sports'
-  match '/politics', :to => 'categories#politics'
-  match '/careernetworking', :to => 'categories#careernetworking'
-  match '/arts', :to => 'categories#arts'
-  match '/interest', :to => 'categories#specinterest'
-  match '/culture', :to => 'categories#cultural'
-  match '/communityservice', :to => 'categories#communityservice'
-  match '/stuco', :to => 'categories#studentcouncil'
-  match '/all', :to => 'categories#all'
-  match '/other', :to => 'categories#other'
-  match '/freefood', :to => 'categories#free_food', :as => :free_food
+  
+  match '/category', :to => 'categories#category'
+  match '/freefood', :to => 'categories#free_food'
 
   root :to => 'pages#home'
 

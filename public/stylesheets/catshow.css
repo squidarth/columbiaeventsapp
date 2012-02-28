@@ -1,0 +1,36 @@
+.thumbnails{
+  margin: 10px 0 0 0;
+}
+
+.when{
+ color: #444; 
+
+}
+
+#fancybox-hidden{
+  display: none;
+
+}
+
+.event-big{
+
+
+}
+
+.event-big img{
+  border: none;
+
+}
+
+.event-big .caption{
+  width: 260px;
+}
+
+.event-big .caption p{
+  max-height: 100px;
+  overflow: scroll;
+
+}
+
+
+

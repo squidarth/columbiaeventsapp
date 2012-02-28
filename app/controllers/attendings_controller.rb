@@ -1,5 +1,31 @@
 class AttendingsController < ApplicationController
-  
+
+
+  def list
+    @event = Event.find(params[:event_id])
+    if(@event.facebooklink)
+      @attendings = Event.get_fb_attendings(@event.facebooklink)
+      @maybes = Event.get_fb_maybes(@event.facebooklink)
+    else
+      @attendings = @event.attendings.find_all_by_status("Attending")
+      @maybes = @event.attendings.find_all_by_status("Maybe")
+
+    end
+
+    if current_user && current_user.facebookid && @event.facebooklink
+    	@friends = @event.check_friends(current_user)
+    end
+    
+    respond_to do |format|
+      format.html
+      format.js
+    
+    end
+
+    
+
+  end
+
   def attend
     @no_change = false
     Attending.all.each do |attending|

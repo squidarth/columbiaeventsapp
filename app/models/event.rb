@@ -24,6 +24,23 @@ class Event < ActiveRecord::Base
 
 
 
+
+
+  def self.paginate(events, chunksize=10)
+    new_array = []
+
+    index_at = 0
+
+    len = events.length
+    while index_at < events.length - chunksize - 1
+      new_array << events[index_at...index_at + chunksize]
+      index_at = index_at + chunksize
+    end
+    new_array << events[index_at...len]
+    new_array
+
+  end
+
   def self.strip_events(user_id)
     
     User.all.each do |user|
