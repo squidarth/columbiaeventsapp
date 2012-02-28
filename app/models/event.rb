@@ -154,7 +154,7 @@ class Event < ActiveRecord::Base
        end
      end
      rescue Koala::Facebook::APIError
-        put "found error"
+        puts "found error"
      end
 
   end
