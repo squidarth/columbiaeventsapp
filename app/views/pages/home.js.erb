@@ -2,8 +2,10 @@ var $newEl;
 <% @array_of_events.each do |event| %>
 
   $newEl = $('<%= escape_javascript(render("shared/event", :event => event)) %>');
-  $(".thumbnails").append($newEl).masonry('appended', $newEl, true);
   
+  $newEl.imagesLoaded(function(){
+    $(".thumbnails").append($newEl).masonry('appended', $newEl, true);
+  });
 <% end %>
 
-$("#loading").html("");
+$("#loading").hide();
