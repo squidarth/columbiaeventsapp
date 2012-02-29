@@ -102,6 +102,32 @@ a{
 	color: #777;
 	width: 500px;
 }
+
+#featured-title{
+  margin: 0 0 0 75px;
+  font-size: 1.6em;
+
+
+}
+#featured-event{
+  width: 575px;
+  margin: 5px 0 7px 75px;
+  padding: 4px 0 4px 0;
+  border-top: solid 1px #aaa;
+  border-bottom: solid 1px #aaa;
+  overflow: auto;
+}
+
+#featured-event img{
+  float: left;
+}
+
+#featured-event #feature{
+  float: left;
+  width: 300px;
+  margin: 0 0 0 40px;
+}
+
 #signup {
 	float: right;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";

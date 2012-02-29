@@ -270,7 +270,22 @@
 		<div id="signup">
 			<%= link_to "Sign up", '/auth/facebook', :id => "email_login" %>
 		</div>
-		</div>
+  </div>
+
+  
+    <p id="featured-title">Featured Event</p>
+  <div id="featured-event">
+    <%= image_tag "tedxad.jpeg", :height => 200 %>
+    <div id="feature">
+    <h2>TEDxTeachersCollege</h2>
+    <p>
+    <b>March 23rd, 2012. 8:30 AM to 7:00 PM.</b>
+    TEDxTeachersCollege is the first independently organized TEDx event at Teachers College. It will focus on innovation in international education through different perspectives: education policy, peace and justice, technology and education, and gender and equity. For more information, please visit www.tedxteacherscollege.com. </p>
+    <p>Location: Milbank Chapel, Teachers College.
+    </div>
+    
+  </div>
+
 	<% end %>
   <%= yield %>
   </div>
