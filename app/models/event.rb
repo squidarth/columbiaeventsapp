@@ -46,7 +46,7 @@ class Event < ActiveRecord::Base
       end
       if(!event_ids.include?(event_id))
         @me = User.find(45) #find the EventSalsa user
-        @graph = Koala::Facebook::GraphAPI.new(@me.authorizations.find_by_provider("facebook").token)
+        @graph = Koala::Facebook::API.new(@me.authorizations.find_by_provider("facebook").token)
         @event_deets = @graph.get_object(event_id)
         @time_to_change = Time.parse(@event_deets["start_time"])
         #figure out how to change timezones
