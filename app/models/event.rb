@@ -137,6 +137,7 @@ class Event < ActiveRecord::Base
         event_ids << event.facebooklink
       end
     end
+    events = events.sample(10)
     events.each do |event|
       begin
       the_event = @graph.get_object(event['id'])
