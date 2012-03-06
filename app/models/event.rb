@@ -147,8 +147,9 @@ class Event < ActiveRecord::Base
   def self.get_events(token)
     
   	@graph = Koala::Facebook::GraphAPI.new(token)
-	events = @graph.get_connections('me', 'events')
-    event_ids = []
+	 events = @graph.get_connections('me', 'events')
+   events = events.sample(10) 
+  event_ids = []
     Event.all.each do |event|
       if(event.facebooklink)
         event_ids << event.facebooklink
