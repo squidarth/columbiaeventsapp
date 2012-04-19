@@ -25,7 +25,7 @@ ActionMailer::Base.smtp_settings = {
   :domain => 'www.eventsalsa.com',
   :port  => 587,
   :user_name  => "info@eventsalsa.com",
-  :password  => "virtus12",
+  :password  => 
   :authentication  => :plain
 }
 
