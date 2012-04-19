@@ -53,10 +53,12 @@
 <script type="text/javascript">
  
 $(document).ready(function(){
-    $(".thumbnails").masonry({
-      itemSelector: '.span3'
+    $(".thumbnails").imagesLoaded(function(){
+       $(".thumbnails").masonry({
+        itemSelector: '.span3'
+      });
     });
-
+   
     $(".single-event").fancybox();
 });
 </script>
