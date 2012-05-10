@@ -12,6 +12,8 @@ Sidsapp::Application.routes.draw do
     resources :comments, :only => [:create]
   end
   
+  match '/auth/:provider/callback', :to => 'authorizations#create'
+  
   match 'api/emails', :to => 'api#emails'
   match '/api/topevents', :to => 'api#events'	
   match '/academics', :to => 'categories#academics'
@@ -30,7 +32,6 @@ Sidsapp::Application.routes.draw do
   match '/attendings/maybe', :to => 'attendings#maybe'
   match '/users/:id/password', :to => 'users#changepassword'
   match '/users/destroy', :to => 'users#destroy'
-  match '/auth/:provider', :to => 'authorizations#create'
   match "comments/create" => "comments#create"
   match '/allusers', :to => 'users#index'
   match '/contact', :to => 'pages#contact'
