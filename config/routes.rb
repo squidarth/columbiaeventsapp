@@ -1,7 +1,6 @@
 Sidsapp::Application.routes.draw do
   
   get "tags/create"
-
   match "tags/:id/destroy", :to => "tags#destroy", :as => :destroy_tag
 
     match '/calendar', :to => 'events#calendar'
@@ -33,7 +32,7 @@ Sidsapp::Application.routes.draw do
   match '/attendings/maybe', :to => 'attendings#maybe'
   match '/users/:id/password', :to => 'users#changepassword'
   match '/users/destroy', :to => 'users#destroy'
-  match '/auth/:provider/callback', :to => 'authorizations#create'
+  match '/auth/:provider/', :to => 'authorizations#create'
   match "comments/create" => "comments#create"
   match '/allusers', :to => 'users#index'
   match '/contact', :to => 'pages#contact'
