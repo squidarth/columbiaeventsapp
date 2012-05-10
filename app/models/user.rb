@@ -23,8 +23,19 @@ class User < ActiveRecord::Base
                         :length => { :within => 6..40 }
                         
    before_save :encrypt_password
+  
    
 
+  def check_token_valid()
+    	  token = self.authorizations.find_by_provider('facebook').token
+		    @graph = Koala::Facebook::GraphAPI.new(token)
+		    begin
+          events =  @graph.get_connections("me", "events")
+          return true
+        rescue
+          return false
+        end
+  end
 
 
    def has_password?(submitted_password)
@@ -41,7 +52,7 @@ class User < ActiveRecord::Base
      user = find_by_id(id)
      (user && user.salt == cookie_salt) ? user : nil
    end
-   
+  
    def self.search(search)
     search_condition = "%" + search.downcase + "%"
     find(:all, :conditions => ['LOWER(name) LIKE ? ', search_condition])

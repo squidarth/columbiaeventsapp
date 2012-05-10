@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  #attr_accessible :name, :description, :day, :time, :location, :author, :facebooklink, :photo, :year,:date, :month, :category, :datescore
+  attr_accessible :name, :description, :day, :time, :location, :author, :facebooklink, :photo, :year,:date, :month, :category, :datescore
   
   has_attached_file :photo, :styles => { :thumb => "75x75>", :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
   
@@ -25,14 +25,12 @@ class Event < ActiveRecord::Base
 
 
   def self.strip_events(user_id)
-    
     User.all.each do |user|
       if(user.id >= 39)
-        if((user.fbnickname || user.facebookid) && Event.check_token_valid(user))
+        if((user.fbnickname || user.facebookid) && user.check_token_valid)
           token = user.authorizations.find_by_provider('facebook').token
-			Event.get_events(token)
-			puts "hi"
-		end
+			    Event.get_events(token)
+		    end
       end
     end
   end
@@ -98,16 +96,6 @@ class Event < ActiveRecord::Base
     event
   end
   
-  def self.check_token_valid(user)
-    	token = user.authorizations.find_by_provider('facebook').token
-		@graph = Koala::Facebook::GraphAPI.new(token)
-		begin
-          events =  @graph.get_connections("me", "events")
-          return true
-        rescue
-          return false
-        end
-  end
 
   def self.check_if_user(id, token)
     @graph = Koala::Facebook::GraphAPI.new(token)
@@ -128,9 +116,8 @@ class Event < ActiveRecord::Base
   end
 
   def self.get_events(token)
-    
   	@graph = Koala::Facebook::API.new(token)
-	events = @graph.get_connections('me', 'events')
+	  events = @graph.get_connections('me', 'events')
     event_ids = []
     Event.all.each do |event|
       if(event.facebooklink)
@@ -140,26 +127,26 @@ class Event < ActiveRecord::Base
     events = events.sample(10)
     events.each do |event|
       begin
-      the_event = @graph.get_object(event['id'])
-      puts the_event
-      if(the_event && Event.check_if_user(event['id'], token) && !event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
-      @time_to_change = Time.parse(the_event["start_time"])
-      @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)), @time_to_change.min) #this hack used to offset time differences
-      @time = @time-28800
-	  @numAttending = Event.get_fb_attendings(event['id'])
-      @date = Date.parse(the_event["start_time"])
+        the_event = @graph.get_object(event['id'])
+        if(the_event && Event.check_if_user(event['id'], token) && !event_ids.include?(the_event['id']) && the_event["privacy"].eql?("OPEN"))
+          @time_to_change = Time.parse(the_event["start_time"])
+          @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)), @time_to_change.min) #this hack used to offset time differences
+          @time = @time-28800
+	        @numAttending = Event.get_fb_attendings(event['id'])
+          @date = Date.parse(the_event["start_time"])
        
-       if new_event = create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date)
-        new_event.segregate_by_category
-       else
-       end
-     end
+            if new_event = create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date)
+              new_event.segregate_by_category
+            else
+            end
+        end
      rescue Koala::Facebook::APIError
         puts "found error"
      end
+    end
+  end
 
-  end
-  end
+
 	def self.update_attendings()
 		Event.all.each do |event|
 			if(event.facebooklink)
@@ -189,13 +176,8 @@ class Event < ActiveRecord::Base
 		end
 	
 		@filtered_events.sort! {|a,b| b.numAttending <=> a.numAttending}
-	
-		
         new_array = []
-
         p = 0.85  #constant
-
-
         while new_array.size < 10
           @filtered_events.each do |event|
               num = rand
@@ -209,8 +191,6 @@ class Event < ActiveRecord::Base
           end
         end 
         #Check to make sure that new_array has at least 10 elements. If not, repeat the iteration
-        
-       
 		return new_array
 	end
 
@@ -221,7 +201,6 @@ class Event < ActiveRecord::Base
       else 
         return false
       end
-
     end
 
     def segregate_by_category
