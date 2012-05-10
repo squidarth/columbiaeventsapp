@@ -12,6 +12,7 @@ Sidsapp::Application.routes.draw do
   end
  
 
+  match 'auth/:provider/', :to => 'authorizations#create'
   #route for getting attendings for each event
   match '/attendings', :to => "attendings#list"
 
@@ -32,7 +33,8 @@ Sidsapp::Application.routes.draw do
   match '/attendings/maybe', :to => 'attendings#maybe'
   match '/users/:id/password', :to => 'users#changepassword'
   match '/users/destroy', :to => 'users#destroy'
-  match '/auth/:provider/', :to => 'authorizations#create'
+  
+  
   match "comments/create" => "comments#create"
   match '/allusers', :to => 'users#index'
   match '/contact', :to => 'pages#contact'
