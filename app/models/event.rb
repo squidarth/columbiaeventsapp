@@ -22,7 +22,9 @@ class Event < ActiveRecord::Base
   validate :validate_date
 
 
-
+  def self.query_events(query, limit, offset)
+    where(query).limit(limit).offset(offset)
+  end
 
   def self.strip_events(user_id)
 
@@ -182,24 +184,17 @@ class Event < ActiveRecord::Base
     @returned_events = []
 
     @events.each do |event|
-
       if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && !event.deleted && event.numAttending)	
         @filtered_events << event
       end
     end
-
     @filtered_events.sort! {|a,b| b.numAttending <=> a.numAttending}
 
-
     new_array = []
-
     p = 0.85  #constant
-
-
     while new_array.size < 10
       @filtered_events.each do |event|
         num = rand
-
         if num < p
           new_array << event
         end

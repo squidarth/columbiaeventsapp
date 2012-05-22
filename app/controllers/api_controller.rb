@@ -4,6 +4,12 @@ class ApiController < ApplicationController
     render :json => @events
   end
 
+  def query
+    limit = request.GET[:limit]
+    offset = request.GET[:offset]
+    query = request.GET.reject{ |k| k == :limit || k == :offset || !Event.column_names.include?(k) }
+    render :json => Event.query_events( query, limit, offset )
+  end
 
   def emails
     @emails = []

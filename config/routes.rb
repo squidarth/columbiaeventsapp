@@ -14,6 +14,7 @@ Sidsapp::Application.routes.draw do
   
   match 'api/emails', :to => 'api#emails'
   match '/api/topevents', :to => 'api#events'	
+  match '/api/query', :to => 'api#query'	
   match '/academics', :to => 'categories#academics'
   match '/nycevents', :to => 'categories#nycevents'
   match '/music', :to => 'categories#music'  
