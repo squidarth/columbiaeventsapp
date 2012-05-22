@@ -14,3 +14,4 @@
 /log/*.log
 /tmp
 tags
+.rvmrc
