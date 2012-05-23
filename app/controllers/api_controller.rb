@@ -7,6 +7,7 @@ class ApiController < ApplicationController
   def query
     limit = request.GET[:limit]
     offset = request.GET[:offset]
+    # filter query for Event attributes
     query = request.GET.reject{ |k| k == :limit || k == :offset || !Event.column_names.include?(k) }
     render :json => Event.query_events( query, limit, offset )
   end

@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
 
 
   def self.query_events(query, limit, offset)
-    where(query).limit(limit).offset(offset)
+    where(query).limit(limit).offset(offset).all
   end
 
   def self.strip_events(user_id)
