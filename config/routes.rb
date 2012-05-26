@@ -13,16 +13,30 @@ Sidsapp::Application.routes.draw do
   end
   
   match '/auth/:provider/callback', :to => 'authorizations#create'
-  
-  match 'api/emails', :to => 'api#emails'
   match '/api/topevents', :to => 'api#events'	
   match '/api/query', :to => 'api#query'	
+  match '/api/emails', :to => 'api#emails'
+  match '/events/pull', :to => 'events#pull'
+  
   match '/academics', :to => 'categories#academics'
   match '/nycevents', :to => 'categories#nycevents'
   match '/music', :to => 'categories#music'  
-  match '/events/pull', :to => 'events#pull'
+  match '/glife', :to => 'categories#fraternities'
+  match '/theater', :to => 'categories#theater'
+  match '/sports', :to => 'categories#sports'
+  match '/politics', :to => 'categories#politics'
+  match '/careernetworking', :to => 'categories#careernetworking'
+  match '/arts', :to => 'categories#arts'
+  match '/interest', :to => 'categories#specinterest'
+  match '/culture', :to => 'categories#cultural'
+  match '/communityservice', :to => 'categories#communityservice'
+  match '/stuco', :to => 'categories#studentcouncil'
+  match '/all', :to => 'categories#all'
+  match '/other', :to => 'categories#other'
+  match '/freefood', :to => 'categories#free_food', :as => :free_food
+
   match '/admin', :to => 'admin#main'
-  match 'admin/delete', :to => 'admin#destroy'
+  match '/admin/delete', :to => 'admin#destroy'
   match '/admin/addevent', :to => 'admin#add'
   match '/admin/changeevent', :to => 'admin#change'
   match '/admin/update', :to => 'admin#update'
@@ -40,19 +54,6 @@ Sidsapp::Application.routes.draw do
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  match '/glife', :to => 'categories#fraternities'
-  match '/theater', :to => 'categories#theater'
-  match '/sports', :to => 'categories#sports'
-  match '/politics', :to => 'categories#politics'
-  match '/careernetworking', :to => 'categories#careernetworking'
-  match '/arts', :to => 'categories#arts'
-  match '/interest', :to => 'categories#specinterest'
-  match '/culture', :to => 'categories#cultural'
-  match '/communityservice', :to => 'categories#communityservice'
-  match '/stuco', :to => 'categories#studentcouncil'
-  match '/all', :to => 'categories#all'
-  match '/other', :to => 'categories#other'
-  match '/freefood', :to => 'categories#free_food', :as => :free_food
 
   root :to => 'pages#home'
 
