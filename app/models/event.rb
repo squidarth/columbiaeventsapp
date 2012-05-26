@@ -7,6 +7,9 @@ class Event < ActiveRecord::Base
   has_many :attendings, :dependent => :destroy
   has_many :tags, :dependent => :destroy
 
+  has_many :categorizations
+  has_many :categories, :through => :categorizations
+
   belongs_to :user
 
   default_scope :order => 'events.created_at DESC'

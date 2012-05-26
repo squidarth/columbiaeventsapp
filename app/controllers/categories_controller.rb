@@ -133,7 +133,7 @@ class CategoriesController < ApplicationController
   end
 
 
-  private
+  #private
 
   def filter_by_date
     events = Event.all
@@ -145,22 +145,7 @@ class CategoriesController < ApplicationController
     categories = [' ', 'Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
     users = User.all
     array_of_events = []
-    users.each do |user|
-      events = user.events
-      events.each do |event|
-        if event.category == category
-          array_of_events << event
-          added = true
-        end
-        if(!added)
-          event.tags.each do |tag|
-            if(tag.name == categories[category])
-              array_of_events << event    
-            end
-          end
-        end
-      end
-    end
+    array_of_events = Event.where(:category => category)
     filter_and_sort_date(array_of_events)
   end
 
@@ -168,11 +153,9 @@ class CategoriesController < ApplicationController
     temp_events = events
     filtered_events = []
     temp_events.each do |event|
-      if event.date
-        if event.date >= Date.today
-          filtered_events << event  
-          temp_events.delete(event)
-        end
+      if event.date and event.date >= Date.today
+        filtered_events << event  
+        temp_events.delete(event)
       end
     end
     filtered_events.sort! {|a,b| a.date <=> b.date}
