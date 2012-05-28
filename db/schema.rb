@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526210541) do
+ActiveRecord::Schema.define(:version => 20120528021314) do
 
   create_table "attendings", :force => true do |t|
     t.integer   "user_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120526210541) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -52,29 +53,24 @@ ActiveRecord::Schema.define(:version => 20120526210541) do
   end
 
   create_table "events", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.string    "author"
-    t.string    "facebooklink"
-    t.string    "location"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "user_id"
-    t.string    "photo_file_name"
-    t.string    "photo_content_type"
-    t.integer   "photo_file_size"
-    t.timestamp "photo_updated_at"
-    t.integer   "category"
-    t.integer   "day"
-    t.integer   "month"
-    t.integer   "year"
-    t.float     "datescore"
-    t.date      "date"
-    t.time      "time"
-    t.integer   "facebookevent"
-    t.boolean   "deleted"
-    t.boolean   "freeFood"
-    t.integer   "numAttending"
+    t.string   "name"
+    t.text     "description"
+    t.string   "author"
+    t.string   "facebooklink"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "category"
+    t.date     "date"
+    t.time     "time"
+    t.integer  "facebookevent"
+    t.boolean  "deleted"
+    t.integer  "numAttending"
   end
 
   create_table "tags", :force => true do |t|

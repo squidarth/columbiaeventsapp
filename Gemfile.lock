@@ -70,6 +70,7 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     hashie (1.2.0)
+    hirb (0.6.2)
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -153,6 +154,7 @@ DEPENDENCIES
   aws-sdk
   factory_girl_rails (= 1.0)
   faker (= 0.3.1)
+  hirb
   koala
   nokogiri (~> 1.4.7)
   omniauth

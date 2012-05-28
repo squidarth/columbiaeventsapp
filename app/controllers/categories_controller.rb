@@ -144,7 +144,6 @@ class CategoriesController < ApplicationController
   def compile_categories(category)
     categories = [' ', 'Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
     users = User.all
-    array_of_events = []
     array_of_events = Event.where(:category => category)
     filter_and_sort_date(array_of_events)
   end
