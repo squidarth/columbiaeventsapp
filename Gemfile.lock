@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/p8/table_builder.git
-  revision: e36c64aa4f77960a1b1ea66de5a610d84d32a32e
-  specs:
-    table_builder (0.2.0)
-
-GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 772c8e96d8fdd8293e3745138287e3a4e9181e20
   specs:
@@ -13,6 +7,12 @@ GIT
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
+
+GIT
+  remote: git://github.com/watu/table_builder.git
+  revision: 56d962a533bc41f376201d49185bf4f63e2a6431
+  specs:
+    watu_table_builder (0.3.0)
 
 GEM
   remote: http://rubygems.org/
@@ -100,6 +100,7 @@ GEM
     omniauth-oauth2 (1.0.0)
       oauth2 (~> 0.5.0)
       omniauth (~> 1.0)
+    pg (0.12.2)
     polyglot (0.3.3)
     rack (1.2.5)
     rack-mount (0.6.14)
@@ -160,10 +161,11 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   paperclip!
+  pg
   rails (= 3.0.9)
   rake (= 0.8.7)
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
   sqlite3
-  table_builder!
+  watu_table_builder!
   will_paginate (= 3.0.pre2)

@@ -6,11 +6,13 @@ gem 'rake', '0.8.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'koala' #koala gem for dealing with graph api
-gem 'table_builder', :git => 'git://github.com/p8/table_builder.git'
+gem 'watu_table_builder', :git => 'git://github.com/watu/table_builder.git'
+#gem 'table_builder', :git => 'git://github.com/p8/table_builder.git'
 gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'hirb'
+gem 'pg'
 
 gem "nokogiri", "~> 1.4.7"
 gem 'aws-sdk'

@@ -17,3 +17,6 @@
 
 tags
 .rvmrc
+Gemfile.local
+Gemfile.local.lock
+/config/database_local.yml
