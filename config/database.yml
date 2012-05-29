@@ -19,5 +19,5 @@ production:
   pool: 5
   timeout: 5000
 
-<%= file = Rails.root.join("config/local.yml")
+<%= file = Rails.root.join("config/database_local.yml")
     IO.read(file) if File.exist?(file) %>
