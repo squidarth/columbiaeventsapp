@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :authorizations, :dependent => :destroy
   has_many :attendings, :dependent => :destroy
 
-  has_attached_file :avatar, :styles => { :thumb => "75x75>", :small => "150x150>", :normal => "220x220>" }, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
+  has_attached_file :avatar, :styles => { :thumb => "75x75>", :small => "150x150>", :normal => "220x220>" }, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
 
   email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
 

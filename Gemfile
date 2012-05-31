@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.0'
 gem 'rake', '0.8.7'
 
 # Bundle edge Rails instead:
@@ -19,6 +19,14 @@ gem 'aws-sdk'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'aws-s3'
+
+group :assets do
+  gem 'sass-rails', '  ~> 3.1.0'
+  gem 'coffee-rails', '~> 3.1.0'
+  gem 'uglifier'
+end
+gem 'jquery-rails'
+
 group :development do
   gem 'rspec-rails', '2.5.0'
   gem 'faker', '0.3.1'
