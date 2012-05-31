@@ -137,8 +137,7 @@ class CategoriesController < ApplicationController
 
   def filter_by_date
     events = Event.all
-    filtered_events = filter_and_sort_date(events)
-    filtered_events
+    filter_and_sort_date(events)
   end
 
   def compile_categories(category)

@@ -13,20 +13,20 @@
 ActiveRecord::Schema.define(:version => 20120528021314) do
 
   create_table "attendings", :force => true do |t|
-    t.integer   "user_id"
-    t.integer   "event_id"
-    t.string    "status"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "authorizations", :force => true do |t|
-    t.string    "provider"
-    t.string    "uid"
-    t.integer   "user_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "token"
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
   end
 
   create_table "categories", :force => true do |t|
@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(:version => 20120528021314) do
   end
 
   create_table "comments", :force => true do |t|
-    t.string    "author"
-    t.string    "content"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "event_id"
+    t.string   "author"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
   create_table "events", :force => true do |t|
@@ -74,33 +74,33 @@ ActiveRecord::Schema.define(:version => 20120528021314) do
   end
 
   create_table "tags", :force => true do |t|
-    t.integer   "user_id"
-    t.string    "name"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "event_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "email"
-    t.string    "aboutme"
-    t.string    "affiliatedorgs"
-    t.string    "school"
-    t.string    "fblink"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "encrypted_password"
-    t.string    "salt"
-    t.boolean   "admin",               :default => false
-    t.string    "avatar_file_name"
-    t.string    "avatar_content_type"
-    t.integer   "avatar_file_size"
-    t.timestamp "avatar_updated_at"
-    t.string    "fbnickname"
-    t.string    "facebookid"
-    t.string    "confirmcode"
-    t.boolean   "confirmed"
+    t.string   "name"
+    t.string   "email"
+    t.string   "aboutme"
+    t.string   "affiliatedorgs"
+    t.string   "school"
+    t.string   "fblink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.boolean  "admin",               :default => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "fbnickname"
+    t.string   "facebookid"
+    t.string   "confirmcode"
+    t.boolean  "confirmed"
   end
 
 end
