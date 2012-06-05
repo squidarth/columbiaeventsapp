@@ -2,7 +2,7 @@
   <% @array_of_events.each do |event| %>
     <% if !event.deleted %>
       <li>
-        <a href="/events/<%= event.id %>">
+        <%= link_to event_path(event) do %>
           <% if event.photo.file? %>
             <%= image_tag event.photo.url(:small), :width => 100 %>
           <% elsif event.facebooklink %>
@@ -24,7 +24,7 @@
               <% end %>
             </div>
           </div>
-        </a>
+        <% end %>
       </li>
     <% end %>
   <% end %>

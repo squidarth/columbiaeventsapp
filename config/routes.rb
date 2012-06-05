@@ -1,10 +1,6 @@
 Sidsapp::Application.routes.draw do
   
-  get "tags/create"
-
-  match "tags/:id/destroy", :to => "tags#destroy", :as => :destroy_tag
-
-    match '/calendar', :to => 'events#calendar'
+  match '/calendar', :to => 'events#calendar'
   resources :attendings
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
@@ -19,7 +15,6 @@ Sidsapp::Application.routes.draw do
   match '/api/topevents', :to => 'api#events'	
   match '/api/query', :to => 'api#query'	
   match '/api/emails', :to => 'api#emails'
-  match '/events/pull', :to => 'events#pull'
   
   match '/admin', :to => 'admin#main'
   match '/admin/delete', :to => 'admin#destroy'

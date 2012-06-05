@@ -31,6 +31,7 @@ class EventsController < ApplicationController
       format.xml { render :xml => @events }
     end
   end
+
   def pull
     event_id = params[:url].split("eid=")[1]
     category = params[:category][0].to_i
@@ -63,8 +64,7 @@ class EventsController < ApplicationController
     end
     @array_of_events
   end
-  # GET /events/1
-  # GET /events/1.xml
+
   def show
     @attending = Attending.new
     @event = Event.find(params[:id])
@@ -95,7 +95,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(params[:event])
-
     if @event.save
       @attending = @event.attendings.build(:event_id => @event.id, :user_id => current_user.id, :status => "Attending")
       @attending.save
@@ -112,7 +111,6 @@ class EventsController < ApplicationController
           OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
           OpenURI::Buffer.const_set 'StringMax', 0
           #NEED TO HAVE SEPARATE SEND OPTIONS FOR PICTURE, NO PICTURE, DATE&TIME, NO DATE&TIME
-
           #CASE THAT PICTURE, DATE, TIME EXIST
           if(!@event.photo.url.eql?("/photos/original/missing.png") && @event.date && @event.time)
             picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
@@ -169,7 +167,6 @@ class EventsController < ApplicationController
       if(@event.facebookevent == 0 || @event.facebookevent.nil?)
         if @event.update_attributes(params[:event])
           #how do i check that an event has been turned into a Facebook event?
-
           if(@event.facebookevent == 1) #CASE THAT EVENT HAS BEEN MADE FACEBOOK EVENT
             #SAVE THE EVENT AS A FACEBOOK EVENT
             if(!current_user.authorizations.empty?)
@@ -183,7 +180,6 @@ class EventsController < ApplicationController
               OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
               OpenURI::Buffer.const_set 'StringMax', 0
               #NEED TO HAVE SEPARATE SEND OPTIONS FOR PICTURE, NO PICTURE, DATE&TIME, NO DATE&TIME
-
               #CASE THAT PICTURE, DATE, TIME EXIST
               if(!@event.photo.nil? && @event.date && @event.time)
                 picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
@@ -224,7 +220,6 @@ class EventsController < ApplicationController
           end
           format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
           format.xml { head :ok }
-
         else
           format.html { render :action => "edit" }
           format.xml { render :xml => @event.errors, :status => :unprocessable_entity }
@@ -238,7 +233,6 @@ class EventsController < ApplicationController
           format.xml { render :xml => @event.errors, :status => :unprocessable_entity }
         end
       end
-
     end
   end
 
@@ -250,7 +244,7 @@ class EventsController < ApplicationController
     end
   end
 
-  private
+  protected
 
   def authorized_user
     @event = current_user.events.find_by_id(params[:id])
@@ -258,6 +252,9 @@ class EventsController < ApplicationController
   end
 
   def determine_scope
+    unless params[:category_id]
+      return @scope = Event
+    end
     @category = Category.find(params[:category_id])
     @scope = if @category
       @title = @category.name
