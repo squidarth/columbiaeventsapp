@@ -12,7 +12,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
 
-  default_scope :order => 'events.created_at DESC'
+  #default_scope :order => 'events.created_at DESC'
+  default_scope :order => 'events.date ASC'
 
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
@@ -25,8 +26,10 @@ class Event < ActiveRecord::Base
   validate :validate_date
 
 
-  def self.query_events(query, limit, offset)
-    where(query).limit(limit).offset(offset).all
+  def self.find_all_upcoming(options = {})
+    with_scope :find => options do
+      where('date > ?', Date.today)
+    end
   end
 
   def self.strip_events(user_id)

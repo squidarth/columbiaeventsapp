@@ -110,147 +110,17 @@
 
 	<div id="mainpagewrapper">
 	<ul id="nav">
-		<% if(@title == "All" || (@title=="Home" && signed_in?)) %>
-		<li class="selected">
-			<%= link_to "All", all_path %>
-		</li>
-		<%else%>
-		<li class="unselected">
-			<%= link_to "All", all_path %>
-		</li>
-  <% end %>
-
-    <% if @title == "Free Food" %>
-      <li class="selected"><%= link_to "Free Food", free_food_path %></li>
-
-    <% else %>
-      <li class="unselected"><%= link_to "Free Food",free_food_path %></li> 
+    <% Category.all.each do |c| %>
+    <li class='unselected'>
+      <%= link_to c.name, category_events_path(c) %>
+    </li>
     <% end %>
-
-		<% if @title == "Greek Life"%>
-			<li class="selected">
-				<%= link_to "Greek Life", glife_path %>
-			</li>
-		<% else %>
-			<li class="unselected">
-				<%= link_to "Greek Life", glife_path %>
-			</li>
-		<% end %>
-		<% if @title == "Theater" %>
-		<li class="selected">
-			<%= link_to "Theater", theater_path %>
-		</li>
-		<% else %>
-		<li class="unselected">
-			<%= link_to "Theater", theater_path %>
-		</li>
-		<% end %>
-		<% if @title == "Sports"%>
-		<li class="selected">
-			<%= link_to "Sports", sports_path %>
-		</li>
-		<% else %>
-		<li class="unselected">
-			<%= link_to "Sports", sports_path %>
-		</li>
-		<% end %>
-		<% if @title == "Arts"%>
-		<li class="selected">
-			<%= link_to "Arts", arts_path %>
-		</li>
-		<% else %>
-		<li class="unselected">
-			<%= link_to "Arts", arts_path %>
-		</li>
-		<% end %>
-		<%if @title == "Cultural"%>
-		<li class="selected">
-			<%= link_to "Cultural", culture_path %>
-		</li>
-		<% else %>
-		<li class="unselected">
-			<%= link_to "Cultural", culture_path %>
-		</li>
-		<% end %>
-		<%if @title == "Special Interest"%>
-		<li class="selected">
-			<%= link_to "Special Interest", interest_path %>
-		</li>
-		<% else %>
-		<li class="unselected">
-			<%= link_to "Special Interest", interest_path %>
-		</li>
-		<% end %>
-		<% if @title == "Career Networking" %>
-		<li class="selected">
-			<%= link_to "Career Networking", careernetworking_path %>
-		</li>
-		<% else %>
-		<li class="unselected">
-			<%= link_to "Career Networking", careernetworking_path %>
-		</li>
-		<% end %>
-		
-		<% if @title == "Politics"%>
-				<li class="selected">
-			<%= link_to "Politics", politics_path %>
-		</li>
-		<% else %>
-		<li class="unselected">
-			<%= link_to "Politics", politics_path %>
-		</li>
-		
-		<% end %>
-		<% if @title == "Community Service"%>
-			<li class="selected">
-				<%= link_to "Community Service", communityservice_path %>
-			</li>
-			<% else %>
-			<li class="unselected">
-				<%= link_to "Community Service", communityservice_path %>
-			</li>
-			<% end %>
-			<% if @title == "Student Council"%>
-			<li class="selected">
-				<%= link_to "Student Council", stuco_path %>
-			</li>
-			<% else %>
-			<li class="unselected">
-				<%= link_to "Student Council", stuco_path %>
-			</li>
-			<%end %>
-					<% if @title == "NYC Events"%>
-			<li class="selected">
-				<%= link_to "NYC Events", nycevents_path %>
-			</li>
-			<% else %>
-			<li class="unselected">
-				<%= link_to "NYC Events", nycevents_path %>
-			</li>
-			<%end %>
-
-
-			<% if @title == "Other"%>
-			<li class="selected">
-				<%= link_to "Other", other_path %>
-			</li>
-			<% else %>
-			<li class="unselected">
-				<%= link_to "Other", other_path %>
-			</li>
-    <%end %>
     <div id="spec-image">
-
       <%= link_to "http://www.columbiaspectator.com/" do %>
         <%= image_tag "spec_logos.png", :width => 150 %>
       <% end %>
-
     </div>
-
-
 	</ul>
-
-					
 
 <div id="main">
   	<section class="success">
