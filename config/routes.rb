@@ -15,6 +15,7 @@ Sidsapp::Application.routes.draw do
   match '/api/topevents', :to => 'api#events'	
   match '/api/query', :to => 'api#query'	
   match '/api/emails', :to => 'api#emails'
+  match '/events/pull', :to => 'events#pull'
   
   match '/admin', :to => 'admin#main'
   match '/admin/delete', :to => 'admin#destroy'

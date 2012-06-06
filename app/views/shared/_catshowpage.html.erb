@@ -13,7 +13,7 @@
 
           <div id="eventwords">
 
-            <p id="event_title"><%= event.name %> <% if event.check_for_food %><span id="free_food">Free food! </span><% end %></p>
+            <p id="event_title"><%= event.name %> <% if event.has_free_food? %><span id="free_food">Free food! </span><% end %></p>
             <div id="when">
               <% if event.date && event.time %>
                 <b><%= l event.date, format: :long %> at <%= l event.time, format: '%I:%M %p' %> </b><br />

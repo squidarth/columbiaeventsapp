@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
-  before_filter :determine_scope, only: :index
+  before_filter :determine_scope, only: [:index]
   
   def index
     if params[:search]
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
         @array_of_events = []
       else
         @header = "Search results for '" + params[:search] + "'"
-        (@array_of_events)  
+        @array_of_events
       end
     elsif params[:date]
       date = Date.parse(params[:date])
@@ -23,7 +23,7 @@ class EventsController < ApplicationController
     else
       @title = "All Events"
       @header = "All Events"
-      @array_of_events = @scope.all
+      @array_of_events = @scope.all limit: 10
     end
 
     respond_to do |format|
@@ -259,7 +259,6 @@ class EventsController < ApplicationController
     @scope = if @category
       @title = @category.name
       flash[:notice] = 'Searching for events tagged: ' + @category.name
-      #@array_of_events = @category.events :limit => 10
       @category.events
     else
       flash[:error] = 'Category does not exist!'

@@ -32,6 +32,10 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def has_free_food?
+    categories.find_by_name("Free Food")
+  end
+
   def self.strip_events(user_id)
 
     User.all.each do |user|
@@ -61,7 +65,7 @@ class Event < ActiveRecord::Base
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)-8), @time_to_change.min) #this hack used to offset time differences
       @date = Date.parse(@event_deets["start_time"])
       event = create!(:user_id => User.find(44).id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
-      event.segregate_by_category
+      event.categorize_by_keywords
     end
   end
 
@@ -158,7 +162,7 @@ class Event < ActiveRecord::Base
           @date = Date.parse(the_event["start_time"])
 
           if new_event = create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date)
-            new_event.segregate_by_category
+            new_event.categorize_by_keywords
           else
           end
         end
@@ -215,17 +219,7 @@ class Event < ActiveRecord::Base
     return new_array
   end
 
-  def check_for_food
-    description = self.description.downcase
-    if description.include? "free food"
-      return true
-    else 
-      return false
-    end
-
-  end
-
-  def segregate_by_category
+  def categorize_by_keywords
     glife = ["pike", "sigep", "frat", "fraternity", "greek life", "sorority", "sigma kai","sigma nu"]
     check_category(glife, "Fraternities")
     #Sports array
@@ -258,12 +252,17 @@ class Event < ActiveRecord::Base
     #NYC Events
     nyc = []
     check_category(nyc, "NYC Events")
+
+    #Free Food
+    free_food = ["free food"]
+    check_category(free_food, "Free Food")
   end
 
-  def check_category(array, tagname)
-    array.each do |keyword|
+  def check_category(keywords, category)
+    keywords.each do |keyword|
       if(self.description.downcase.include? keyword)
-        Tag.create(:event_id => self.id, :name => tagname)
+        category = Category.find_or_create_by_name(:name => category)
+        Categorization.create(:event_id => self.id, :category_id => category.id)
         return true
       end
     end

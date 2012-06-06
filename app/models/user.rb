@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
 
   email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
 
-
-    validates_attachment_size :avatar, :less_than => 5.megabytes
+  validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
 
   validates :name, :presence => true,
