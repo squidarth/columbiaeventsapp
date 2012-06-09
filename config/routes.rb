@@ -9,20 +9,22 @@ Sidsapp::Application.routes.draw do
   end
   resources :events do
     resources :comments, :only => [:create]
+    get 'pull'
   end
-  
+  namespace 'api' do
+    get 'events'
+    get 'query'
+    get 'emails'
+  end
   match '/auth/:provider/callback', :to => 'authorizations#create'
-  match '/api/topevents', :to => 'api#events'	
-  match '/api/query', :to => 'api#query'	
-  match '/api/emails', :to => 'api#emails'
-  match '/events/pull', :to => 'events#pull'
-  
-  match '/admin', :to => 'admin#main'
-  match '/admin/delete', :to => 'admin#destroy'
-  match '/admin/addevent', :to => 'admin#add'
-  match '/admin/changeevent', :to => 'admin#change'
-  match '/admin/update', :to => 'admin#update'
-  match '/admin/create', :to => 'admin#create'
+  namespace :admin do
+    get '/', action: 'main'
+    get '/delete', action: 'destroy'
+    get '/addevent', action: 'add'
+    get '/changeevent', action: 'change'
+    get 'update'
+    get 'create'
+  end
   match '/users/:id/confirm/:confirmcode', :to => 'users#confirm'
   match '/verify', :to => 'users#wait'
   match '/attendings/attend', :to => 'attendings#attend'

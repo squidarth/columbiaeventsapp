@@ -8,6 +8,7 @@
     <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js" %>
     <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
     <%= javascript_include_tag 'application' %>
+    <%= yield :head %>
     <%= csrf_meta_tag %>
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="image_src" href="http://www.eventsalsa.com/images/monkey.png" />
@@ -43,14 +44,14 @@
             <li>
               <% if(@title=="All Users" || @title=="Search Users")%>
                 <div id="searchbar">
-                  <% form_tag(users_path, {:method => :get}) do%>
+                  <%= form_tag users_path, {:method => :get} do %>
                     <%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
                     <button id="search_select" type="submit"></button>
                   <% end %>
                 </div>
               <% else %>
                 <div id="searchbar">
-                  <% form_tag(events_path, {:method => :get}) do %>
+                  <%= form_tag events_path, {:method => :get} do %>
                     <%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
                     <button id="search_select" type="submit"></button>
                   <% end %>
@@ -69,7 +70,7 @@
 
             <li>
               <div id="searchbar">
-                <% form_tag(events_path, {:method => :get}) do %>
+                <%= form_tag events_path, {:method => :get}  do %>
                   <%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
                   <button id="search_select" type="submit"></button>	
                 <% end %>

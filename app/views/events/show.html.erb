@@ -1,7 +1,10 @@
+<% content_for :head do %>
+    <%= javascript_include_tag 'events/show' %>
+<% end %>
 <div id="event">
   <% if !@event.user.id == 44 %>
     <div id="eventuser">
-      <a href="/users/<%= @event.user.id %>">
+      <%= link_to user_path(@event.user) do %>
         <% if @event.user.avatar.file? %>
           <%= image_tag @event.user.avatar.url(:thumb) %>
         <% elsif @event.user.fbnickname %>
@@ -11,7 +14,7 @@
         <% else%>
           <%= image_tag ("bowl3.jpg"), :height => 75, :width => 75 %>
         <% end %>
-      </a>
+      <% end %>
       <div id="user_details">
         <p id="title"><%= @event.name %></p>
         <% if !@event.author.eql?("")%>
@@ -319,26 +322,4 @@
     <fb:like href="www.eventsalsa.com/events/<%= @event.id %>" send="true" width="450" show_faces="true" action="like" font=""></fb:like>
     <fb:comments href="http://www.eventsalsa.com/events/<%= @event.id %>" num_posts="10" width="600"></fb:comments>
   </div>
-
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-      $('#dim').css("height", $(document).height());
-      $('#javasign').click(function(e){
-        $("#dim").fadeIn();
-        $(".highlighted_content").fadeIn();
-        $(".highlighted_content").animate({height: '150px'}, {queue:false, duration:1500});
-        return false;
-        });
-      $('.close').click(function(e){
-        $('.highlighted_content').animate({height: '5px'}, {queue:false, duration:1500});
-        $('.highlighted_content').fadeOut();
-        $('#dim').fadeOut();
-        });
-
-
-      });
-</script>
-
-

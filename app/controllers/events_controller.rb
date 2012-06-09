@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
   before_filter :determine_scope, only: [:index]
-  
+
   def index
     if params[:search]
       @title = "Search"
@@ -252,18 +252,15 @@ class EventsController < ApplicationController
   end
 
   def determine_scope
-    unless params[:category_id]
+    return @scope = Event unless params[:category_id]
+    if not Category.exists?(params[:category_id])
+      flash[:error] = 'Category does not exist!'
       return @scope = Event
     end
     @category = Category.find(params[:category_id])
-    @scope = if @category
-      @title = @category.name
-      flash[:notice] = 'Searching for events tagged: ' + @category.name
-      @category.events
-    else
-      flash[:error] = 'Category does not exist!'
-      Event
-    end
+    @title = @category.name
+    flash[:notice] = 'Searching for events tagged: ' + @category.name
+    @scope = @category.events
   end
 
 end
