@@ -121,6 +121,9 @@
           <% end %>
 
           <%= yield %>
+          <% if content_for?(:catshowpage) %>
+            <%= yield :catshowpage %>
+          <% end %>
 
         </div>
       </div>

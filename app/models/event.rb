@@ -12,9 +12,6 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
 
-  #default_scope :order => 'events.created_at DESC'
-  default_scope :order => 'events.date ASC'
-
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
 
@@ -28,7 +25,13 @@ class Event < ActiveRecord::Base
 
   def self.find_all_upcoming(options = {})
     with_scope :find => options do
-      where('date > ?', Date.today)
+      where('start_time > ?', DateTime.now).order('date DESC')
+    end
+  end
+
+  def self.find_all_recent(options = {})
+    with_scope :find => options do
+      where('start_time < ?', DateTime.now).order('date ASC')
     end
   end
 

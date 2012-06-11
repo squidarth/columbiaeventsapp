@@ -39,7 +39,7 @@ Sidsapp::Application.routes.draw do
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
 
-  root :to => 'pages#home'
+  root :to => 'events#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

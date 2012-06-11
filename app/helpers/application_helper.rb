@@ -15,18 +15,5 @@ module ApplicationHelper
       "#{base_title} | #{@title}"
     end
   end
-  
-  def filter_and_sort_date(events)
-    filtered_events = []
-    events.each do |event|
-      if event.date
-        if event.date >= Date.today
-          filtered_events << event
-        end
-      end
-    end
-    filtered_events.sort! {|a,b| b.date <=> a.date}
-    filtered_events
-  end
 
 end
