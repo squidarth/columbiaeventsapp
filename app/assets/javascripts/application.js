@@ -58,6 +58,8 @@ $(document).ready(function(){
         }
     });
 });
+
+/*
 $(function(){
     var event_obs = [];
     <% Event.all.each do |event| %>
@@ -67,3 +69,4 @@ $(function(){
         source: event_obs
     });	
 });
+*/
