@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  #attr_accessible :name, :description, :day, :time, :location, :author, :facebooklink, :photo, :year,:date, :month, :category, :datescore
+  attr_accessible :name, :description, :day, :time, :location, :author, :facebooklink, :photo, :year,:date, :month, :category, :datescore
 
   has_attached_file :photo, :styles => { :thumb => "75x75>", :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
 
@@ -23,15 +23,15 @@ class Event < ActiveRecord::Base
   validate :validate_date
 
 
-  def self.find_all_upcoming(options = {})
+  def self.find_all_upcoming(datetime = DateTime.now, options = {})
     with_scope :find => options do
-      where('start_time > ?', DateTime.now).order('date DESC')
+      where('start_time > ?', datetime).order('date ASC')
     end
   end
 
-  def self.find_all_recent(options = {})
+  def self.find_all_recent(datetime = DateTime.now, options = {})
     with_scope :find => options do
-      where('start_time < ?', DateTime.now).order('date ASC')
+      where('start_time < ?', datetime).order('date DESC')
     end
   end
 
@@ -40,8 +40,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.strip_events(user_id)
-
-    User.all.each do |user|
+    User.all.include([:authorizations]).each do |user|
       if(user.id >= 39)
         if((user.fbnickname || user.facebookid) && Event.check_token_valid(user))
           token = user.authorizations.find_by_provider('facebook').token
@@ -83,34 +82,15 @@ class Event < ActiveRecord::Base
     @graph = Koala::Facebook::GraphAPI.new(@token)
     puts id.to_s
     @people = @graph.get_connections(id.to_s, 'attending')
-    return @people
   end
 
   def self.get_fb_maybes(id)
     @me = User.find(45)
     @token = @me.authorizations.find_by_provider('facebook').token
     @graph = Koala::Facebook::GraphAPI.new(@token)
+    # event = @graph.get_object(id), test
+    #
     @people = @graph.get_connections(id, 'maybe')
-    return @people    
-  end
-
-  def self.find_by_date(date)
-    @events = Event.all
-    @sorted_events = []
-    @events.each do |event|
-      if event.date == date
-        sorted_events << event
-      end
-    end
-  end
-
-  def self.test(id)
-    @me = User.find(45)
-    @token = @me.authorizations.find_by_provider('facebook').token
-    @graph = Koala::Facebook::GraphAPI.new(@token)
-
-    event = @graph.get_object(id)
-    event
   end
 
   def self.check_token_valid(user)
@@ -172,9 +152,9 @@ class Event < ActiveRecord::Base
       rescue Koala::Facebook::APIError
         puts "found error"
       end
-
     end
   end
+
   def self.update_attendings()
     Event.all.each do |event|
       if(event.facebooklink)
@@ -189,37 +169,6 @@ class Event < ActiveRecord::Base
         event.save
       end
     end
-  end
-
-  def self.getTopEvents()
-    @events = Event.all
-    @filtered_events = []
-    @returned_events = []
-
-    @events.each do |event|
-      if(event.date && (event.date >= Date.today && event.date < (Date.today + 30)) && !event.deleted && event.numAttending)	
-        @filtered_events << event
-      end
-    end
-    @filtered_events.sort! {|a,b| b.numAttending <=> a.numAttending}
-
-    new_array = []
-    p = 0.85  #constant
-    while new_array.size < 10
-      @filtered_events.each do |event|
-        num = rand
-        if num < p
-          new_array << event
-        end
-        if new_array.size > 10
-          break
-        end
-      end
-    end 
-    #Check to make sure that new_array has at least 10 elements. If not, repeat the iteration
-
-
-    return new_array
   end
 
   def categorize_by_keywords

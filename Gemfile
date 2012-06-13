@@ -13,6 +13,7 @@ gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'hirb'
 gem 'pg'
+gem 'rabl'
 
 gem "nokogiri", "~> 1.4.7"
 gem 'aws-sdk'

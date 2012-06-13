@@ -59,14 +59,12 @@ $(document).ready(function(){
     });
 });
 
-/*
-$(function(){
-    var event_obs = [];
-    <% Event.all.each do |event| %>
-    event_obs.push("<%= event.name %>");
-<% end %>
-    $("#search_field").autocomplete({
-        source: event_obs
-    });	
-});
-*/
+//$(function(){
+  //var event_obs = [];
+  //<% Event.all.each do |event| %>
+    //event_obs.push("<%= event.name %>");
+//<% end %>
+  //$("#search_field").autocomplete({
+    //source: event_obs
+  //});	
+//});

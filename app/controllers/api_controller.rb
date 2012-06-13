@@ -1,7 +1,24 @@
 class ApiController < ApplicationController
-  def	events 
-    @events = Event.getTopEvents()
-    render :json => @events
+
+  def emails
+    @emails = []
+    if authenticated
+      User.all.each do |user|
+        if user.email
+          @emails << user.email
+        end
+      end
+    end
+    respond_to do |format|
+      format.html { render :json => @emails }
+      format.any(:xml, :json) { render request.format.to_sym => @emails }
+    end
+  end
+
+  private
+
+  def authenticated
+    return signed_in?
   end
 
   def query
@@ -9,35 +26,9 @@ class ApiController < ApplicationController
     offset = request.GET[:offset]
     # filter query for Event attributes
     query = request.GET.reject{ |k| k == :limit || k == :offset || !Event.column_names.include?(k) }
-    render :json => Event.where(query, limit: limit, offset: offset)
-  end
-
-  def emails
-    @emails = []
-    User.all.each do |user|
-      if user.email
-        @emails << user.email
-      end
-
-    end
-
-    if signed_in?
-      render :json => @emails
-    else
-      render :json => []
-    end
-  end
-
-  private
-
-  def get_top
-  end
-
-  def authenticate
-    if(!signed_in?)
-      return false
-    else
-      return true
+    results = Event.where(query, limit: limit, offset: offset)
+    respond_to do |format|
+      format.any(:xml, :json) { render request.format.to_sym => results }
     end
   end
 end

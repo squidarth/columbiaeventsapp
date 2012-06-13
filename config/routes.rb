@@ -1,5 +1,6 @@
 Sidsapp::Application.routes.draw do
-  
+
+
   match '/calendar', :to => 'events#calendar'
   resources :attendings
   resources :sessions, :only => [:new, :create, :destroy]
@@ -12,8 +13,12 @@ Sidsapp::Application.routes.draw do
     get 'pull'
   end
   namespace 'api' do
-    get 'events'
-    get 'query'
+    namespace 'events' do
+      get 'upcoming'
+      get 'recent'
+      get ':id', action: 'show'
+    end
+
     get 'emails'
   end
   match '/auth/:provider/callback', :to => 'authorizations#create'

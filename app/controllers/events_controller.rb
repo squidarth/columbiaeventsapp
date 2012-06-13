@@ -4,31 +4,29 @@ class EventsController < ApplicationController
   before_filter :determine_scope, only: [:index]
 
   def index
-    if params[:search]
-      @title = "Search"
-
-      @array_of_events = @scope.search(params[:search])
-      if params[:search].eql?("")
-        @header = "No results"
-        @array_of_events = []
-      else
-        @header = "Search results for '" + params[:search] + "'"
-        @array_of_events
-      end
-    elsif params[:date]
+    if params[:date]
       date = Date.parse(params[:date])
-      @array_of_events = @scope.find_by_date(date)
-      @header = I18n.l date, format: :long
-      @header = @months[Date.parse(params[:date]).month - 1] + ' ' + Date.parse(params[:date]).day.to_s + ', ' + Date.parse(params[:date]).year.to_s 
+      @header = "Events from #{I18n.l date, format: :long}"
+      @array_of_events = @scope.where(:date => date)
     else
-      @title = "All Events"
-      @header = "All Events"
+      @title = "Events"
+      @header = "Upcoming Events"
       @array_of_events = @scope.all limit: 10
     end
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml { render :xml => @events }
+    end
+  end
+
+  def search
+    @title = "Search"
+    if params[:search].empty?
+      redirect_to events_path
+    else
+      @header = "Search results for '" + params[:search] + "'"
+      @array_of_events = @scope.search(params[:search])
     end
   end
 
