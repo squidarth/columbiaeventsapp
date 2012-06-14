@@ -20,7 +20,7 @@ class Api::EventsController < ApplicationController
   protected
 
   def determine_scope
-    @options = params.symbolize_keys.reject { |k| not ['limit', :limit, :offset].include?(k) }
+    @options = params.symbolize_keys.reject { |k| not [:limit, :offset].include?(k) }
     @options[:limit] ||= 10
     puts @options
     @datetime = params[:datetime] || DateTime.now
