@@ -3,6 +3,7 @@
   xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
     <title><%= title %></title>
+    <link href='http://fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
     <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js" %>
@@ -15,125 +16,76 @@
     <meta property=og:image content="http://www.eventsalsa.com/images/monkey.png"/>
   </head>
   <body>
-    <div id="top">
+    <header>
       <div id="logo">
-        <%= link_to root_path do %>
-          <%= image_tag ("new_logo.png"), :height => 35 %>
-        <% end %>
+        <span class="logo-event">Event</span><span class="logo-salsa">Salsa</span>
       </div>
-    </div>
-    <div id="wrapper">
-      <div id="fb-root"></div>
-      <div id="top_part">
-      </div>
-      <div id="top-part-nav">
+        <a id="fblike"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font=""></fb:like></a>
+      <nav>
         <% if signed_in? %>
-          <ul id="dashboard">
-            <li>
-              <%= link_to "View Calendar", calendar_path %>
-            </li>
-            <li>
-              <%= link_to "View users", allusers_path %>
-            </li>
-            <li>
-              <%= link_to "Profile", current_user %>
-            </li>
-            <li>
-              <%= link_to "Create Event", new_event_path%>
-            </li>
-            <li>
-              <% if(@title=="All Users" || @title=="Search Users")%>
-                <div id="searchbar">
-                  <%= form_tag users_path, {:method => :get} do %>
-                    <%= text_field_tag :search, params[:search], :placeholder => "Search users", :id => :search_field%>
-                    <button id="search_select" type="submit"></button>
-                  <% end %>
-                </div>
-              <% else %>
-                <div id="searchbar">
-                  <%= form_tag events_path, {:method => :get} do %>
-                    <%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-                    <button id="search_select" type="submit"></button>
-                  <% end %>
-                </div>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "Sign out", signout_path %>
-            </li>
-          </ul>
+          <%= link_to "Users", allusers_path %>
+          <%= link_to "Profile", current_user %>
+          <%= link_to "New Event", new_event_path %>
+          <%= link_to "Sign out", signout_path %>
         <% else %>
-          <ul id="dashboard_signin">
-            <li>
-              <%= link_to "View Calendar", calendar_path %>
-            </li>
-
-            <li>
-              <div id="searchbar">
-                <%= form_tag events_path, {:method => :get}  do %>
-                  <%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
-                  <button id="search_select" type="submit"></button>	
-                <% end %>
-              </div>
-            </li>
-            <li id="signin">
-              <%= link_to "Sign in", '/auth/facebook', :id => 'sign_in_clicker' %>
-              <div id="signin_form">
-                <a href="/auth/facebook" id="facebook_login"><%= image_tag "Facebook_logo.png", :width => 20, :height => 20%></a>
-              </div>
-            </li>
-            <li>
-              <a id="fblike"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font=""></fb:like></a>
-            </li>
-          </ul>
+          <%= link_to "Sign in", '/auth/facebook', :id => 'sign_in_clicker' %>
         <% end %>
-      </div>
-      <div id="mainpagewrapper">
-        <ul id="nav">
-          <% Category.all.each do |c| %>
-            <li class='unselected'>
-              <%= link_to c.name, category_events_path(c) %>
-            </li>
+        <%= link_to "Calendar", calendar_path %>
+      </nav>
+    </header>
+    <div id="container">
+        <aside>
+          <%= form_tag events_path, {:method => :get} do %>
+            <%= text_field_tag :search, params[:search], :placeholder => "Search events", :id => :search_field %>
+            <button id="search_select" type="submit"></button>
           <% end %>
+    
+          <nav>
+            <% Category.all.each do |c| %>
+              <%= link_to c.name, category_events_path(c) %>
+            <% end %>
+          </nav>
           <div id="spec-image">
             <%= link_to "http://www.columbiaspectator.com/" do %>
               <%= image_tag "spec_logos.png", :width => 150 %>
             <% end %>
           </div>
-        </ul>
-        <div id="main">
-          <section class="success">
+        </aside>
+        <section>
+          <div id="fb-root"></div>
+          <div id="main">
+    
             <% flash.each do |key, value| %>
               <div class="flash<%= key %>"><%= value %></div>
             <% end %>
-          </section>
-          <% if !signed_in?%>
-            <div id="intropara">
-              <p id="emphasis">Welcome to EventSalsa, an event catalogue.</p>
-              <p id="descrip">EventSalsa is the best place to find out what awesome events are happening
-                at Columbia University.  To start, simply click on a category on the left.  If you 
-                want to post events, it takes two seconds to sign up and start posting! <br /><br />  We are now partnered with
-                the <a href="http://www.columbiaspectator.com/" class="spec-link"><b>Columbia Daily Spectator</b></a> and its blog, <a href="http://spectrum.columbiaspectator.com/" class="spec-link"><b>Spectrum</b></a> to best serve the Columbia community.<br /><br /> </p>
-              <div id="signup">
-                <%= link_to "Sign up", '/auth/facebook', :id => "email_login" %>
+    
+            <% if !signed_in?%>
+              <div id="intropara">
+                <h1>Welcome to EventSalsa, an event catalogue.</h1>
+                <p>EventSalsa is the best place to find out what awesome events are happening
+                  at Columbia University.  To start, simply click on a category on the left.  If you 
+                  want to post events, it takes two seconds to sign up and start posting!
+                </p>
+                <p>
+                  We are now partnered with the <a href="http://www.columbiaspectator.com/" class="spec-link"><b>Columbia Daily Spectator</b></a> and its blog, <a href="http://spectrum.columbiaspectator.com/" class="spec-link"><b>Spectrum</b></a> to best serve the Columbia community.
+                </p>
+                <div id="signup">
+                  <%= link_to "Sign up", '/auth/facebook', :id => "email_login" %>
+                </div>
               </div>
-            </div>
-          <% end %>
-
-          <%= yield %>
-          <% if content_for?(:catshowpage) %>
-            <%= yield :catshowpage %>
-          <% end %>
-
-        </div>
-      </div>
-      <div id="footer">
-        <p id="footer-nav">
-          <%= link_to "About", about_path %> |
-          <%= link_to "Contact", contact_path %>
-        </p>
-        <p id="footer-descrip">A Sid Shanker Project</p>
-      </div>
+            <% end %>
+    
+            <%= yield %>
+            <% if content_for?(:catshowpage) %>
+              <%= yield :catshowpage %>
+            <% end %>
+    
+          </div>
+          <footer>
+            <%= link_to "About", about_path %>
+            <%= link_to "Contact", contact_path %>
+          </footer>
+        </section>
     </div>
   </body>
 </html>
