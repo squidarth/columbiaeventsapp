@@ -3,7 +3,7 @@ class Api::EventsController < ApplicationController
   before_filter :determine_scope, only: [:upcoming, :recent]
 
   def show
-    @event = Event.find(params[:id]) || []
+    @event = Event.find_by_id(params[:id], conditions: { deleted: [nil, false] }) || []
   end
 
   def upcoming

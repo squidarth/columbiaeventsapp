@@ -10,7 +10,7 @@
 </script>
 
 <ul id="catshowpage">
-<% @array_of_events.each do |event| %>
+<% @events.each do |event| %>
 <li id="<%= event.id %>"><a href="/events/<%= event.id %>">
 	<% if event.photo.file? %>
 	<%= image_tag event.photo.url(:small), :width => 100 %>
@@ -48,7 +48,7 @@
 </ul>
 <script type="text/javascript">
 $(document).ready(function(){
-	var from = 0, to = 5, step = 5, maxSize = <%= @array_of_events.size %>;
+	var from = 0, to = 5, step = 5, maxSize = <%= @events.size %>;
 	
 	function showNext(list) {
 	  list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();
@@ -79,7 +79,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-<% if @array_of_events.size > 5%>
+<% if @events.size > 5%>
 <a href="#" id="more">More</a>
 <a href='#' id="back_to_top">Back to Top</a>
 <% end %>

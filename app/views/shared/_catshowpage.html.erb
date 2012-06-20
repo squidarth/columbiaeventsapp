@@ -1,35 +1,31 @@
-<ul id="catshowpage">
-  <% @array_of_events.each do |event| %>
-    <% if !event.deleted %>
-      <li>
-        <%= link_to event_path(event) do %>
-          <% if event.photo.file? %>
-            <%= image_tag event.photo.url(:small), :width => 100 %>
-          <% elsif event.facebooklink %>
-            <img src="https://graph.facebook.com/<%= event.facebooklink%>/picture?type=normal" width="100"></img>
-          <% else %>
-            <%= image_tag ("bowl3.jpg"), :height => 70, :width => 100 %>
-          <% end %>
+<ul class="timeline">
+  <% @events.each do |e| %>
+    <li>
+      <% if e.photo.file? %>
+        <%= image_tag e.photo.url(:small), :width => 100 %>
+      <% elsif e.facebooklink %>
+        <img src="https://graph.facebook.com/<%= e.facebooklink%>/picture?type=normal" width="100"></img>
+      <% else %>
+        <%= image_tag ("bowl3.jpg"), :height => 70, :width => 100 %>
+      <% end %>
 
-          <div id="eventwords">
-
-            <p id="event_title"><%= event.name %> <% if event.has_free_food? %><span id="free_food">Free food! </span><% end %></p>
-            <div id="when">
-              <% if event.date && event.time %>
-                <b><%= l event.date, format: :long %> at <%= l event.time, format: '%I:%M %p' %> </b><br />
-              <% end %>
-              <i><%= event.description %></i> <br />
-              <% if event.facebooklink%>
-                <a href="http://www.facebook.com/event.php?eid=<%= event.facebooklink %>"><b>Link to Facebook Event</b></a>	
-              <% end %>
-            </div>
-          </div>
+      <p class="date-time">
+        <% if e.start_time %>
+          <%= l e.start_time, format: '%m/%d/%y %I:%M%p' %>
         <% end %>
-      </li>
-    <% end %>
+      </p>
+      <p class="event-name">
+        <%= truncate e.name, length: 30 %>        
+      </p>
+      <p class="facebook">
+        <% if e.facebooklink%>
+          <a href="http://www.facebook.com/e.php?eid=<%= e.facebooklink %>"><b>Link to Facebook Event</b></a>  
+        <% end %>
+      </p>
+    </article>
   <% end %>
 </ul>
-<% if @array_of_events.size > 5%>
+<% if @events.size > 5%>
   <a href="#" id="more">More</a>
   <a href='#' id="back_to_top">Back to Top</a>
 <% end %>

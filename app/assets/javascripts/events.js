@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var from = 0, to = 5, step = 5, maxSize = 50;
-    //var from = 0, to = 5, step = 5, maxSize = <%= @array_of_events.size ;%>
+    //var from = 0, to = 5, step = 5, maxSize = <%= @events.size ;%>
 
     function showNext(list) {
         list.find('li:lt(' + (to) + '):not(li:lt(' + (to-step) + '))').fadeIn();

@@ -4,15 +4,15 @@ class EventsController < ApplicationController
   before_filter :determine_scope, only: [:index]
 
   def index
-    if params[:date]
-      date = Date.parse(params[:date])
-      @header = "Events from #{I18n.l date, format: :long}"
-      @array_of_events = @scope.where(:date => date)
-    else
-      @title = "Events"
-      @header = "Upcoming Events"
-      @array_of_events = @scope.all limit: 10
-    end
+    #if params[:date]
+      #date = Date.parse(params[:date])
+      #@header = "Events from #{I18n.l date, format: :long}"
+      #@events = @scope.where(:date => date)
+    #else
+      #@title = "Events"
+      #@header = "Upcoming Events"
+      #@events = @scope.all limit: 10
+    #end
 
     respond_to do |format|
       format.html
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       @header = "Search results for '" + params[:search] + "'"
-      @array_of_events = @scope.search(params[:search])
+      @events = @scope.search(params[:search])
     end
   end
 
@@ -45,45 +45,41 @@ class EventsController < ApplicationController
     end
     @events = Event.all
     @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
-    @array_of_events = []
+    @events = []
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     if(!params[:date])
       @events.each do |event|
         if(event.date == Date.today)
-          @array_of_events << event
+          @events << event
         end
       end
     elsif params[:date]
       @events.each do |event|
         if(event.date == Date.parse(params[:date]))
-          @array_of_events << event
+          @events << event
         end
       end
     end
-    @array_of_events
+    @events
   end
 
   def show
-    @attending = Attending.new
     @event = Event.find(params[:id])
-    if(@event.deleted)
-      redirect_to root_path
-    end
-    if(@event.facebooklink)
+    flash[:error] = "This event has been deleted!" if @event.deleted
+    if @event.facebooklink && false
       @attendings = Event.get_fb_attendings(@event.facebooklink)
       @maybes = Event.get_fb_maybes(@event.facebooklink)
+      if current_user && current_user.facebookid
+        @friends = @event.check_friends(current_user)
+      end
     end
-    if current_user && current_user.facebookid && @event.facebooklink
-      @friends = @event.check_friends(current_user)
-    end
-    session[:event_id] = @event.id
     @title = @event.name
   end
 
   def new
     @event = Event.new
     @user = current_user
-    @title = "Make New Event!"
+    @title = "Create Event"
   end
 
   def edit

@@ -27,6 +27,7 @@ group :assets do
   gem 'uglifier'
 end
 gem 'jquery-rails'
+gem 'rails-backbone'
 
 group :development do
   gem 'rspec-rails', '2.6.1'

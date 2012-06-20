@@ -58,7 +58,7 @@
 
 
     <!-- CASE FACEBOOK -->
-    <% if @event.facebooklink %>
+    <% if @attendings && @maybes %>
       <div id="attendees">
         <a href="#" id="attendees_count"><%= pluralize(@attendings.count, 'Person') %> Attending</a><br />
         <a href="#" id="maybe_count"><%= pluralize(@maybes.count, 'Person')%> might be attending</a><br />
@@ -279,15 +279,11 @@
           <%= @event.location %>
         </li>
       <% end %>
-      <li>
-        <% if @event.date && @event.time%>
-          On <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %> at <%= @event.time.strftime("%I:%M %p")%> 
-        <% elsif @event.date %>
-          On <%= @months[@event.date.month-1] %> <%= @event.date.day %>, <%= @event.date.year %>
-        <% elsif @event.time %>
-          At <%= @event.time.strftime("%I:%M %p")%> 
-        <% end %>
-      </li>
+      <% if @event.start_time %>
+        <li>
+          <%= l @event.start_time, format: '%m/%d/%y %I:%M%p' %>
+        </li>
+      <% end %>
       <% if @event.facebooklink%>
         <li>
           <a href="http://www.facebook.com/event.php?eid=<%= @event.facebooklink %>"><b>Facebook Event</b></a>	

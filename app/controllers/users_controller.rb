@@ -25,17 +25,17 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.name
-    @array_of_events = [] #initialize array_of events
+    @events = [] #initialize array_of events
     @events = @user.events
     @events.each do |event| #get all events with dates
       if event.date
-        @array_of_events << event
+        @events << event
       end
     end
-    @array_of_events.sort! {|a,b| b.date <=> a.date } #sort the events with dates
+    @events.sort! {|a,b| b.date <=> a.date } #sort the events with dates
     @events.each do |event| #add on the events with no date
       if !event.date
-        @array_of_events << event
+        @events << event
       end
     end
     @event = Event.new if signed_in?
