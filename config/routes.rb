@@ -1,4 +1,4 @@
-Sidsapp::Application.routes.draw do
+EventSalsa::Application.routes.draw do
 
 
   match '/calendar', :to => 'events#calendar'
