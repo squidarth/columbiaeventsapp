@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Sidsapp::Application.load_tasks
+EventSalsa::Application.load_tasks

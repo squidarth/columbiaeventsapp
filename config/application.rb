@@ -9,7 +9,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Sidsapp
+module EventSalsa
   class Application < Rails::Application
     # Enable the asset pipeline
     config.assets.enabled = true
