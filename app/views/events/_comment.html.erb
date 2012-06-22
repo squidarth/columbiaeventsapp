@@ -1,8 +1,0 @@
-<%= div_for comment do %>
-   <span class="dateandoptions">
-   	Posted <%= time_ago_in_words(comment.created_at) %> ago<br />
-   </span>
-   		<p><b><%= comment.author %></b> wrote: </p>
-   		<br />
-   	<%= content_tag(:p, comment.content, :class => "comment-content") %>
-<% end %>

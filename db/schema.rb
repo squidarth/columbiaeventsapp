@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610035433) do
+ActiveRecord::Schema.define(:version => 20120621210353) do
 
   create_table "attendings", :force => true do |t|
     t.integer   "user_id"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20120610035433) do
     t.string   "name"
     t.text     "description"
     t.string   "author"
-    t.string   "facebooklink"
+    t.string   "facebook_id"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(:version => 20120610035433) do
     t.integer  "category"
     t.date     "date"
     t.time     "time"
-    t.integer  "facebookevent"
     t.boolean  "deleted"
     t.integer  "numAttending"
     t.datetime "start_time"

@@ -1,0 +1,26 @@
+<% if (photo_content_type) { %>
+  <img src="<%= photo_url_small %>" width=100></img>
+<% } else if (facebook_id) { %>
+  <img src="https://graph.facebook.com/<%= facebook_id %>/picture?type=normal" width=100></img>
+<% } else { %>
+  <img width=100></img>
+<% } %>
+
+<% if (start_time) { %>
+  <p class="date-time">
+    <%= new Date(Date.parse(start_time)).toString('M/d/yy h:mmtt') %>
+  </p>
+<% } %>
+<p class="event-name">
+  <%= name %>        
+</p>
+<% if (facebook_id) { %>
+  <p class="facebook">
+    <a href="http://www.facebook.com/event.php?eventid=<%= facebook_id %>"><b>Link to Facebook Event</b></a>
+  </p>
+<% } %>
+<p>
+  <a href="#/<%= id %>">Show</a>
+  <a href="#/<%= id %>/edit">Edit</a>
+  <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
+</p>

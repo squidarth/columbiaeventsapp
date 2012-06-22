@@ -36,7 +36,7 @@ class Event < ActiveRecord::Base
   end
 
   def has_free_food?
-    categories.find_by_name("Free Food")
+    categories.find_by_name("Free Food") ? true : false
   end
 
   def self.strip_events(user_id)

@@ -1,23 +1,24 @@
 class EventsController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
-  before_filter :determine_scope, only: [:index]
 
-  def index
-    #if params[:date]
-      #date = Date.parse(params[:date])
-      #@header = "Events from #{I18n.l date, format: :long}"
-      #@events = @scope.where(:date => date)
-    #else
-      #@title = "Events"
-      #@header = "Upcoming Events"
-      #@events = @scope.all limit: 10
-    #end
+  respond_to :json, :xml
+  before_filter :determine_scope, only: [:upcoming, :recent]
+  before_filter :parse_options, only: [:upcoming, :recent]
 
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @events }
-    end
+  def show
+    @event = Event.find_by_id(params[:id], conditions: { deleted: [nil, false] }) || []
+    render 'show'
+  end
+
+  def upcoming
+    @events = @scope.find_all_upcoming @datetime, @options
+    render 'index'
+  end
+
+  def recent
+    @events = @scope.find_all_recent @datetime, @options
+    render 'index'
   end
 
   def search
@@ -38,53 +39,10 @@ class EventsController < ApplicationController
     redirect_to '/events/new/'
   end
 
-  def calendar
-    @dates_with_events = []
-    Event.all.each do |event|
-      @dates_with_events << event.date
-    end
-    @events = Event.all
-    @categories = ['Fraternities', 'Theater', 'Sports', 'Politics', 'Career Networking', 'Arts', 'Community Service', 'Student Council', 'Other']
-    @events = []
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    if(!params[:date])
-      @events.each do |event|
-        if(event.date == Date.today)
-          @events << event
-        end
-      end
-    elsif params[:date]
-      @events.each do |event|
-        if(event.date == Date.parse(params[:date]))
-          @events << event
-        end
-      end
-    end
-    @events
-  end
-
-  def show
-    @event = Event.find(params[:id])
-    flash[:error] = "This event has been deleted!" if @event.deleted
-    if @event.facebooklink && false
-      @attendings = Event.get_fb_attendings(@event.facebooklink)
-      @maybes = Event.get_fb_maybes(@event.facebooklink)
-      if current_user && current_user.facebookid
-        @friends = @event.check_friends(current_user)
-      end
-    end
-    @title = @event.name
-  end
-
   def new
     @event = Event.new
     @user = current_user
     @title = "Create Event"
-  end
-
-  def edit
-    @event = Event.find(params[:id])
-    @title = "Edit " + @event.name
   end
 
   def create
@@ -150,6 +108,11 @@ class EventsController < ApplicationController
       @title = "Make New Event!"
       render 'new'
     end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+    @title = "Edit " + @event.name
   end
 
   def update
@@ -245,6 +208,12 @@ class EventsController < ApplicationController
     redirect_to root_path if @event.nil?
   end
 
+  def parse_options
+    @options = params.symbolize_keys.reject { |k| not [:limit, :offset].include?(k) }
+    @options[:limit] ||= 10
+    @datetime = params[:datetime] || DateTime.now
+  end
+
   def determine_scope
     return @scope = Event unless params[:category_id]
     if not Category.exists?(params[:category_id])
@@ -252,9 +221,10 @@ class EventsController < ApplicationController
       return @scope = Event
     end
     @category = Category.find(params[:category_id])
+    @scope = @category.events
+
     @title = @category.name
     flash[:notice] = 'Searching for events tagged: ' + @category.name
-    @scope = @category.events
   end
 
 end

@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
   def home
     @title = "Home"
-    @users = User.all
-    @events = Event.all
   end
 
   def contact

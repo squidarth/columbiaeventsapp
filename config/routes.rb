@@ -10,16 +10,11 @@ EventSalsa::Application.routes.draw do
   end
   resources :events do
     resources :comments, :only => [:create]
-    get 'pull'
-  end
-  namespace 'api' do
-    namespace 'events' do
+    collection do
       get 'upcoming'
       get 'recent'
-      get ':id', action: 'show'
+      get 'pull'
     end
-
-    get 'emails'
   end
   match '/auth/:provider/callback', :to => 'authorizations#create'
   namespace :admin do
@@ -44,7 +39,7 @@ EventSalsa::Application.routes.draw do
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
 
-  root :to => 'events#index'
+  root :to => 'pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

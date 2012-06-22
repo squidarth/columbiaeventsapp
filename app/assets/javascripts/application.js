@@ -2,6 +2,13 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.ui.timepicker
+//= require jquery.expander
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/event_salsa
+//= require date
 //= require_self
 //= require_directory .
 

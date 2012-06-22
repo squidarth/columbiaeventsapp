@@ -7,8 +7,8 @@
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
     <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js" %>
-    <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
     <%= yield :head %>
     <%= csrf_meta_tag %>
     <link rel="shortcut icon" href="/favicon.ico">
@@ -60,6 +60,8 @@
             <div class="flash<%= key %>"><%= value %></div>
           <% end %>
 
+          <div id="events"></div>
+          <div id="event"></div>
           <%= yield %>
 
         </div>

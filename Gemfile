@@ -11,7 +11,6 @@ gem 'watu_table_builder', :git => 'git://github.com/watu/table_builder.git'
 gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
-gem 'hirb'
 gem 'pg'
 gem 'rabl'
 
@@ -28,10 +27,15 @@ group :assets do
 end
 gem 'jquery-rails'
 gem 'rails-backbone'
+gem 'datejs-rails'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'faker', '0.3.1'
+  gem 'hirb'
+  gem 'wirble'
+  gem 'ori'
+  gem 'awesome_print'
 end
 
 group :test do
