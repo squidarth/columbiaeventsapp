@@ -2,16 +2,15 @@ class AuthorizationsController < ApplicationController
   def index
     @authorizations = current_user.authorizations if current_user
   end
-  
+
   def create
-   auth  = request.env["omniauth.auth"]
-   render :json =>  auth
-=begin
-   authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
+    auth  = request.env["omniauth.auth"]
+    #render :json => auth
+    authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
+
     if authorization #case that an authorizaiton is found, sign in user
       user = authorization.user
-      authorization.destroy
-      user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+      authorization.update_attributes!(:token => auth['credentials']['token'])
       flash[:success] = "Signed in!"
       Event.get_events(auth['credentials']['token'])
       sign_in(user)
@@ -38,7 +37,6 @@ class AuthorizationsController < ApplicationController
         redirect_to sign_up
       end
     end
-=end
   end
   
   def destroy
@@ -47,6 +45,4 @@ class AuthorizationsController < ApplicationController
     flash[:notice] = "Successfully destroyed authentication."
     redirect_to authorizations_url
   end
-
-
 end
