@@ -9,9 +9,7 @@ gem 'koala' #koala gem for dealing with graph api
 gem 'watu_table_builder', :git => 'git://github.com/watu/table_builder.git'
 #gem 'table_builder', :git => 'git://github.com/p8/table_builder.git'
 gem 'will_paginate', '3.0.pre2'
-gem 'sqlite3'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
-gem 'pg'
 gem 'rabl'
 
 gem "nokogiri", "~> 1.4.7"
@@ -29,6 +27,10 @@ gem 'jquery-rails'
 gem 'rails-backbone'
 gem 'datejs-rails'
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'faker', '0.3.1'
@@ -36,11 +38,13 @@ group :development do
   gem 'wirble'
   gem 'ori'
   gem 'awesome_print'
+  gem 'sqlite3'
 end
 
 group :test do
   gem 'rspec', '2.6.0'
   gem 'factory_girl_rails', '1.0'
+  gem 'sqlite3'
 end
 
 
