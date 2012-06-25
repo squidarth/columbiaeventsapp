@@ -17,6 +17,9 @@
 /vendor/tmp
 *.swp
 
+# Ignore local precompiled assets.
+/public/assets
+
 tags
 .rvmrc
 Gemfile.local
