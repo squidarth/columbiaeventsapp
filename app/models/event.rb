@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
     options[:conditions] ||= {}
     options[:conditions][:deleted] ||= [nil, false]
     with_scope :find => options do
-      where('start_time > ?', datetime).order('date ASC')
+      where('start_time > ?', datetime).order('start_time ASC')
     end
   end
 
@@ -35,7 +35,7 @@ class Event < ActiveRecord::Base
     options[:conditions] ||= {}
     options[:conditions][:deleted] ||= [nil, false]
     with_scope :find => options do
-      where('start_time < ?', datetime).order('date DESC')
+      where('start_time < ?', datetime).order('start_time DESC')
     end
   end
 
