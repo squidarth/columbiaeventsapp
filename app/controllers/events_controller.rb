@@ -211,7 +211,6 @@ class EventsController < ApplicationController
   def parse_options
     @options = params.symbolize_keys.reject { |k| not [:limit, :offset].include?(k) }
     @options[:limit] ||= 10
-    @options[:conditions] ||= { deleted: [nil, false] }
     @datetime = params[:datetime] || DateTime.now
   end
 

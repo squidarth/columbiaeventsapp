@@ -24,14 +24,18 @@ class Event < ActiveRecord::Base
 
 
   def self.find_all_upcoming(datetime = DateTime.now, options = {})
+    options[:conditions] ||= {}
+    options[:conditions][:deleted] ||= [nil, false]
     with_scope :find => options do
-      where('start_time > ?', datetime).where('deleted IS NOT ?', true).order('date ASC')
+      where('start_time > ?', datetime).order('date ASC')
     end
   end
 
   def self.find_all_recent(datetime = DateTime.now, options = {})
+    options[:conditions] ||= {}
+    options[:conditions][:deleted] ||= [nil, false]
     with_scope :find => options do
-      where('start_time < ?', datetime).where('deleted IS NOT ?', true).order('date DESC')
+      where('start_time < ?', datetime).order('date DESC')
     end
   end
 
