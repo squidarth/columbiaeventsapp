@@ -21,11 +21,11 @@ class AuthorizationsController < ApplicationController
     else #case that new user needs to be created
       random_id = rand(99999999)
       user = User.create(:name => auth['extra']['raw_info']['first_name'] + " " + auth['extra']['raw_info']['last_name'], 
-          :email => auth['info']['email'], 
-          :fblink => auth['extra']['raw_info']['link'], 
-          :fbnickname => auth['info']['nickname'],
-          :password => random_id, :password_confirmation => random_id, 
-          :facebookid => auth['uid'])
+                         :email => auth['info']['email'], 
+                         :fblink => auth['extra']['raw_info']['link'], 
+                         :fbnickname => auth['info']['nickname'],
+                         :password => random_id, :password_confirmation => random_id, 
+                         :facebookid => auth['uid'])
       if user.save
         user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
         sign_in user
@@ -38,7 +38,7 @@ class AuthorizationsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @authorization= current_user.authentications.find(params[:id])
     @authorization.destroy
