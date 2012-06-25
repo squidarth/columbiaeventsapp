@@ -31,10 +31,10 @@ group :production do
   gem 'pg'
 end
 
+gem 'hirb'
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'faker', '0.3.1'
-  gem 'hirb'
   gem 'wirble'
   gem 'ori'
   gem 'awesome_print'
