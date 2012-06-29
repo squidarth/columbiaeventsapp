@@ -8,17 +8,16 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id], conditions: { deleted: [nil, false] }) || []
-    render 'show'
   end
 
   def upcoming
-    @events = @scope.find_all_upcoming @datetime, @options
-    render 'index'
+    @events = @scope.upcoming.limit(10)
+    render :index
   end
 
   def recent
-    @events = @scope.find_all_recent @datetime, @options
-    render 'index'
+    @events = @scope.recent.limit(10)
+    render :index
   end
 
   def search
@@ -43,6 +42,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @user = current_user
     @title = "Create Event"
+    render 'show'
   end
 
   def create

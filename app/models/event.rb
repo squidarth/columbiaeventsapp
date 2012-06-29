@@ -22,22 +22,9 @@ class Event < ActiveRecord::Base
 
   validate :validate_date
 
-
-  def self.find_all_upcoming(datetime = DateTime.now, options = {})
-    options[:conditions] ||= {}
-    options[:conditions][:deleted] ||= [nil, false]
-    with_scope :find => options do
-      where('start_time > ?', datetime).order('start_time ASC')
-    end
-  end
-
-  def self.find_all_recent(datetime = DateTime.now, options = {})
-    options[:conditions] ||= {}
-    options[:conditions][:deleted] ||= [nil, false]
-    with_scope :find => options do
-      where('start_time < ?', datetime).order('start_time DESC')
-    end
-  end
+  default_scope where(deleted: [nil, false])
+  scope :upcoming, lambda { |datetime=DateTime.now| where('start_time > ?', datetime).order('start_time ASC') }
+  scope :recent,   lambda { |datetime=DateTime.now| where('start_time < ?', datetime).order('start_time DESC') }
 
   def has_free_food?
     categories.find_by_name("Free Food") ? true : false

@@ -3,14 +3,12 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'rake', '0.8.7'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'koala' #koala gem for dealing with graph api
 gem 'watu_table_builder', :git => 'git://github.com/watu/table_builder.git'
-#gem 'table_builder', :git => 'git://github.com/p8/table_builder.git'
 gem 'will_paginate', '3.0.pre2'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'rabl'
+gem 'hirb'
 
 gem "nokogiri", "~> 1.4.7"
 gem 'aws-sdk'
@@ -18,20 +16,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'aws-s3'
 
-group :assets do
-  gem 'sass-rails', '     3.1.4'
-  gem 'coffee-rails', '~> 3.1.0'
-  gem 'uglifier'
-end
-gem 'jquery-rails'
-gem 'rails-backbone'
-gem 'datejs-rails'
-
-group :production do
-  gem 'pg'
-end
-
-gem 'hirb'
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'faker', '0.3.1'
@@ -47,6 +31,19 @@ group :test do
   gem 'sqlite3'
 end
 
+group :assets do
+  gem 'sass-rails', '     3.1.4'
+  gem 'coffee-rails', '~> 3.1.0'
+  gem 'uglifier'
+end
+gem 'normalize-rails'
+gem 'jquery-rails'
+gem 'rails-backbone'
+gem 'datejs-rails'
+
+group :production do
+  gem 'pg'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
