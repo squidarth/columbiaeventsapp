@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :id, :name, :email, :password, :password_confirmation, :aboutme, :affiliatedorgs, :school, :fblink, :avatar, :fbnickname, :facebookid, :confirmed 
 
-  has_many :events, :dependent => :destroy
+  has_many :events, :dependent => :nullify
   has_many :authorizations, :dependent => :destroy
   has_many :attendings, :dependent => :destroy
 
