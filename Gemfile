@@ -43,6 +43,7 @@ gem 'datejs-rails'
 
 group :production do
   gem 'pg'
+  gem 'heroku'
 end
 
 # Use unicorn as the web server
