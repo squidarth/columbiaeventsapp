@@ -36,7 +36,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.0'
   gem 'uglifier'
 end
-gem 'normalize-rails'
 gem 'jquery-rails'
 gem 'rails-backbone'
 gem 'datejs-rails'

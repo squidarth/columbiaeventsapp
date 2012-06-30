@@ -4,6 +4,7 @@ class EventSalsa.Routers.EventsRouter extends Backbone.Router
     @events.fetch()
 
   routes:
+    "/"          : "index"
     "events/"          : "index"
     "events/new"       : "newEvent"
     "events/index"     : "index"

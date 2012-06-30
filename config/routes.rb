@@ -1,6 +1,5 @@
 EventSalsa::Application.routes.draw do
 
-
   match '/calendar', :to => 'events#calendar'
   resources :attendings
   resources :sessions, :only => [:new, :create, :destroy]
