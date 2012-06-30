@@ -38,7 +38,6 @@ group :assets do
 end
 gem 'jquery-rails'
 gem 'rails-backbone'
-gem 'datejs-rails'
 
 group :production do
   gem 'pg'

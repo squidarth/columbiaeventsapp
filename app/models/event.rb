@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :description, :day, :time, :location, :author, :facebooklink, :photo, :year,:date, :month, :category, :datescore
+  attr_accessible :name, :description, :day, :time, :location, :author, :facebook_id, :photo, :year,:date, :month, :category, :datescore
 
   has_attached_file :photo, :styles => { :thumb => "75x75>", :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
 
@@ -45,8 +45,8 @@ class Event < ActiveRecord::Base
   def self.make_from_facebook(event_id, author, category)
     event_ids = []
     Event.all.each do |event|
-      if event.facebooklink
-        event_ids << event.facebooklink
+      if event.facebook_id
+        event_ids << event.facebook_id
       end
     end
     if(!event_ids.include?(event_id))
@@ -57,7 +57,7 @@ class Event < ActiveRecord::Base
       #figure out how to change timezones
       @time = Time.mktime(2000, 3, 12, ((@time_to_change.hour)-8), @time_to_change.min) #this hack used to offset time differences
       @date = Date.parse(@event_deets["start_time"])
-      event = create!(:user_id => User.find(44).id, :facebooklink => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
+      event = create!(:user_id => User.find(44).id, :facebook_id => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
       event.categorize_by_keywords
     end
   end
@@ -119,8 +119,8 @@ class Event < ActiveRecord::Base
     events = @graph.get_connections('me', 'events')
     event_ids = []
     Event.all.each do |event|
-      if(event.facebooklink)
-        event_ids << event.facebooklink
+      if(event.facebook_id)
+        event_ids << event.facebook_id
       end
     end
     events = events.sample(10)
@@ -135,7 +135,7 @@ class Event < ActiveRecord::Base
           @numAttending = Event.get_fb_attendings(event['id'])
           @date = Date.parse(the_event["start_time"])
 
-          if new_event = create(:numAttending => @numAttending, :user_id => 44, :facebooklink => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date)
+          if new_event = create(:numAttending => @numAttending, :user_id => 44, :facebook_id => the_event['id'], :name => the_event['name'], :author => '', :description => the_event["description"].to_s, :location => the_event['location'], :time => @time, :date => @date)
             new_event.categorize_by_keywords
           else
           end
@@ -148,8 +148,8 @@ class Event < ActiveRecord::Base
 
   def self.update_attendings()
     Event.all.each do |event|
-      if(event.facebooklink)
-        @attendings = Event.get_fb_attendings(event.facebooklink)
+      if(event.facebook_id)
+        @attendings = Event.get_fb_attendings(event.facebook_id)
         numAttending = 0
 
         @attendings.each do |attending|
@@ -217,7 +217,7 @@ class Event < ActiveRecord::Base
       @me = User.find(45)
       @token = @me.authorizations.find_by_provider('facebook').token
       @graph = Koala::Facebook::GraphAPI.new(@token)
-      @attendees = @graph.get_connections(self.facebooklink, 'attending')
+      @attendees = @graph.get_connections(self.facebook_id, 'attending')
 
 
       @current_graph = Koala::Facebook::GraphAPI.new(user.authorizations.find_by_provider('facebook').token)
@@ -237,7 +237,7 @@ class Event < ActiveRecord::Base
   private
 
   def validate_date
-    if !self.facebooklink
+    if !self.facebook_id
       if self.date
         errors.add("Date", "is invalid.") unless self.date > Date.today || self.date == Date.today
       end

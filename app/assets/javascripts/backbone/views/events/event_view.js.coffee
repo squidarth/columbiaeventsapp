@@ -8,6 +8,8 @@ class EventSalsa.Views.Events.EventView extends Backbone.View
 
   tagName: "li"
 
+  className: "group"
+
   destroy: () ->
     @model.destroy()
     this.remove()

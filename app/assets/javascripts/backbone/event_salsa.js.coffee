@@ -18,6 +18,6 @@ window.EventSalsa =
       #EventSalsa.Routers.Events = new EventSalsa.Routers.EventsRouter "events/"
 
 $ ->
-  EventSalsa.Routers.Events = new EventSalsa.Routers.EventsRouter "events/"
+  EventSalsa.Routers.Events = new EventSalsa.Routers.EventsRouter
   #EventSalsa.App = new EventSalsa.Router()
   Backbone.history.start()

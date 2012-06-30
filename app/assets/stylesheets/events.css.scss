@@ -1,0 +1,153 @@
+body {
+    font: 100% Arial;
+    background: #222;
+}
+
+a {
+    text-decoration: none;
+}
+
+div#header {
+    font-weight: bold;
+    height: 3.5em;
+    line-height: 3.5em;
+    background: -webkit-linear-gradient(top, #555, #222);
+}
+
+header {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+}
+
+div#logo {
+    font: 300% 'Lovers Quarrel';
+    font-weight: bold;
+    width: 3em;
+    margin: 0 .5em;
+    display: inline-block;
+}
+
+span.logo-event {
+    color: #eee;
+    text-shadow: 0px 1px 1px #66f;
+}
+
+span.logo-salsa {
+    color: #99f;
+    text-shadow: 0px 1px 1px white;
+}
+
+#fblike {
+    line-height: 1em;
+    display: inline-block;
+    background-color: black;
+}
+
+header nav {
+    float: right;
+    display: inline-block;
+}
+
+header nav a {
+    color: #eee;
+    padding: 1em;
+    border-right: 1px #666 solid;
+}
+
+header nav a:hover {
+    text-shadow: 0 0 1em lightgray;
+}
+
+div#container {
+    width: 90%;
+    min-height: 100em;
+    margin: 0 auto;
+    background: #f8f8ff;
+    border-radius: 1em;
+    border: 1px black solid;
+}
+
+aside {
+    width: 10em;
+    padding: 1em;
+    position: absolute;
+    border-right: 1px #ccc solid;
+}
+
+aside form input {
+    font-size: 80%;
+    width: 80%;
+    display: block;
+    margin: 0 auto 1em;
+    padding: .5em;
+    border: 1px red solid;
+    border-radius: 2px;
+}
+
+aside form input:focus {
+    box-shadow: 0 0 5px white;
+}
+
+aside nav {
+    margin: 0 auto;
+}
+
+aside nav a {
+    display: block;
+    border-top: 1px #ccc solid;
+    color: black;
+    margin: 0 auto;
+    padding: .5em 0;
+}
+
+aside div#spec-image {
+    text-align: center;
+}
+
+section {
+    margin: 0 12em;
+}
+
+#block_header {
+    margin: 2em;
+}
+
+ul.event-list {
+    margin: 1em;
+}
+
+li {
+    position: relative;
+    border-top: 1px #ccc solid;
+}
+
+li img {
+    float: left;
+    margin: 10px;
+    max-height: 100px;
+    height: 100px;
+    width: 100px;
+    box-shadow: 5px 5px 10px #333;
+}
+
+li img:hover {
+    opacity: .8;
+}
+/*
+ul.event-list li .date-time {
+    line-height: 120px;
+    float: left;
+}
+
+ul.event-list li .test {
+    position: relative;
+}
+
+ul.event-list li .test .event-details {
+    position: absolute;
+    top: 50%;
+    height: 120px;
+    margin: 0px 0 0;
+}
+*/
