@@ -13,7 +13,7 @@ class AttendingsController < ApplicationController
     @attending = Attending.create(params[:attending])
     respond_to do |format|
       @event = Event.find(@attending.event_id)
-      format.html { redirect_to @event}
+      format.html { redirect_to @event }
       format.js
     end 
   end

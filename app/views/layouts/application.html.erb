@@ -17,10 +17,10 @@
     <meta property=og:image content="http://www.eventsalsa.com/images/monkey.png"/>
   </head>
   <body>
-    <div id="header">
+    <div id="header-container">
       <header>
         <div id="logo">
-          <span class="logo-event">Event</span><span class="logo-salsa">Salsa</span>
+          <a href="/#"><span class="logo-event">Event</span><span class="logo-salsa">Salsa</span></a>
         </div>
         <a id="fblike"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font="" allowTransparency="true"></fb:like></a>
         <nav>
@@ -36,16 +36,13 @@
         </nav>
       </header>
     </div>
-    <div id="container">
-      <aside>
+    <div id="content-container">
+      <aside class="sidebar">
         <%= form_tag events_path, {:method => :get} do %>
           <%= text_field_tag :search, params[:search], :placeholder => "Search events", class: 'text-field' %>
         <% end %>
 
-        <nav class="categories">
-          <% Category.all.each do |c| %>
-            <%= link_to c.name, category_events_path(c) %>
-          <% end %>
+        <nav id="categories">
         </nav>
         <div id="spec-image">
           <%= link_to "http://www.columbiaspectator.com/" do %>
@@ -67,6 +64,8 @@
 
         </div>
       </section>
+    </div>
+    <div id="footer-container">
       <footer>
         <%= link_to "About", about_path %>
         <%= link_to "Contact", contact_path %>

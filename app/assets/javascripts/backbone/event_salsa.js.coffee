@@ -19,5 +19,6 @@ window.EventSalsa =
 
 $ ->
   EventSalsa.Routers.Events = new EventSalsa.Routers.EventsRouter
+  EventSalsa.Routers.Categories = new EventSalsa.Routers.CategoriesRouter
   #EventSalsa.App = new EventSalsa.Router()
   Backbone.history.start()

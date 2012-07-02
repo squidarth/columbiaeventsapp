@@ -8,7 +8,7 @@
 
 <% if (start_time) { %>
   <p class="date-time">
-    <%= new Date(Date.parse(start_time)).toString('M/d/yy h:mmtt') %>
+    <%= moment(start_time).format('M/D/YY h:mmA') %>
   </p>
 <% } %>
 <p class="event-name">

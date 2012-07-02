@@ -3,6 +3,7 @@
 //= require jquery_ujs
 //= require jquery.ui.timepicker
 //= require jquery.expander
+//= require moment
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync

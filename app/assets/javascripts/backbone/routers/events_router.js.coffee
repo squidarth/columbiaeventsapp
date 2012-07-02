@@ -1,16 +1,15 @@
 class EventSalsa.Routers.EventsRouter extends Backbone.Router
   initialize: (options) ->
-    @events = new EventSalsa.Collections.EventsCollection()
+    @events = new EventSalsa.Collections.EventsCollection
     @events.fetch()
 
   routes:
-    ""          : "index"
-    "events/"          : "index"
+    ""                 : "index"
+    "events"           : "index"
     "events/new"       : "newEvent"
     "events/index"     : "index"
     "events/:id/edit"  : "edit"
     "events/:id"       : "show"
-    "events/.*"        : "index"
 
   newEvent: ->
     @view = new EventSalsa.Views.Events.NewView(collection: @events)

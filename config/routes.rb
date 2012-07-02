@@ -1,11 +1,22 @@
 EventSalsa::Application.routes.draw do
 
-  match '/calendar', :to => 'events#calendar'
+  match '/calendar', to: 'events#calendar'
   resources :attendings
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
-  resources :categories, only: [] do
-    resources :events, only: [:index]
+  match '/users/:id/confirm/:confirmcode', :to => 'users#confirm'
+  match '/users/:id/password', :to => 'users#changepassword'
+  match '/users/destroy', :to => 'users#destroy'
+  match '/signup', :to => 'users#new'
+  match '/verify', :to => 'users#wait'
+  match '/allusers', :to => 'users#index'
+  resources :categories, only: [:index, :show] do
+    resources :events, only: [] do
+      collection do
+        get 'upcoming'
+        get 'recent'
+      end
+    end
   end
   resources :events do
     resources :comments, :only => [:create]
@@ -24,17 +35,11 @@ EventSalsa::Application.routes.draw do
     get 'update'
     get 'create'
   end
-  match '/users/:id/confirm/:confirmcode', :to => 'users#confirm'
-  match '/verify', :to => 'users#wait'
   match '/attendings/attend', :to => 'attendings#attend'
   match '/attendings/maybe', :to => 'attendings#maybe'
-  match '/users/:id/password', :to => 'users#changepassword'
-  match '/users/destroy', :to => 'users#destroy'
   match "comments/create" => "comments#create"
-  match '/allusers', :to => 'users#index'
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
-  match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
 

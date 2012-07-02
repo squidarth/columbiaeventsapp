@@ -15,3 +15,26 @@
 }
 * html .group             { zoom: 1; } /* IE6 */
 *:first-child+html .group { zoom: 1; } /* IE7 */
+
+
+/* RAILS FLASH STYLES */
+
+.flashnotice {
+  
+}
+.flasherror {
+  
+}
+
+
+/* SITE-WIDE GENERIC STYLES */
+
+body {
+    font: 100% Arial;
+    background: #222;
+}
+
+a {
+    text-decoration: none;
+}
+

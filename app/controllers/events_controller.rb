@@ -7,16 +7,16 @@ class EventsController < ApplicationController
   before_filter :parse_options, only: [:upcoming, :recent]
 
   def show
-    @event = Event.find_by_id(params[:id], conditions: { deleted: [nil, false] }) || []
+    @event = Event.find_by_id(params[:id], conditions: { deleted: [nil, false] })
   end
 
   def upcoming
-    @events = @scope.upcoming.limit(10)
+    @events = @scope.upcoming(@datetime).limit(10)
     render :index
   end
 
   def recent
-    @events = @scope.recent.limit(10)
+    @events = @scope.recent(@datetime).limit(10)
     render :index
   end
 
@@ -211,20 +211,14 @@ class EventsController < ApplicationController
   def parse_options
     @options = params.symbolize_keys.reject { |k| not [:limit, :offset].include?(k) }
     @options[:limit] ||= 10
-    @datetime = params[:datetime] || DateTime.now
+    @datetime = params[:datetime] ? params[:datetime].to_datetime : DateTime.now
   end
 
   def determine_scope
     return @scope = Event unless params[:category_id]
-    if not Category.exists?(params[:category_id])
-      flash[:error] = 'Category does not exist!'
-      return @scope = Event
-    end
-    @category = Category.find(params[:category_id])
-    @scope = @category.events
-
-    @title = @category.name
-    flash[:notice] = 'Searching for events tagged: ' + @category.name
+    category = Category.find_by_id(params[:category_id])
+    # [TODO] prevent excess queries
+    @scope = category ? category.events : Event.none
   end
 
 end

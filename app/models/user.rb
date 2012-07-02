@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :id, :name, :email, :password, :password_confirmation, :aboutme, :affiliatedorgs, :school, :fblink, :avatar, :fbnickname, :facebookid, :confirmed 
 
-  has_many :events, :dependent => :nullify
+  has_many :events,         :dependent => :nullify
   has_many :authorizations, :dependent => :destroy
-  has_many :attendings, :dependent => :destroy
+  has_many :attendings,     :dependent => :destroy
 
   has_attached_file :avatar, :styles => { :thumb => "75x75>", :small => "150x150>", :normal => "220x220>" }, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
 
@@ -14,17 +14,14 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
 
   validates :name, :presence => true,
-    :length   => { :maximum => 50 }
+            :length   => { :maximum => 50 }
   validates :email, :presence => true,
-    :format   => { :with => email_regex },
-    :uniqueness => { :case_sensitive => false }
+            :format   => { :with => email_regex },
+            :uniqueness => { :case_sensitive => false }
   validates :password, :confirmation => true,
-    :length => { :within => 6..40 }
+            :length => { :within => 6..40 }
 
   before_save :encrypt_password
-
-
-
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)

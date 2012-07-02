@@ -110,6 +110,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    momentjs-rails (1.6.2)
+      railties (~> 3.1)
     multi_json (1.3.6)
     multi_xml (0.5.1)
     multipart-post (1.1.5)
@@ -220,6 +222,7 @@ DEPENDENCIES
   hirb
   jquery-rails
   koala
+  momentjs-rails
   nokogiri (~> 1.4.7)
   omniauth
   omniauth-facebook

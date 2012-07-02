@@ -9,4 +9,9 @@ class EventSalsa.Models.Event extends Backbone.Model
 
 class EventSalsa.Collections.EventsCollection extends Backbone.Collection
   model: EventSalsa.Models.Event
-  url: '/events/recent'
+  url: ->
+    @rootPath + @query
+
+  initialize: (options) ->
+    @rootPath = (options.rootPath if options) || '/events'
+    @query    = (options.query if options) || '/recent'

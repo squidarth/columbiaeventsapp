@@ -23,6 +23,7 @@ class Event < ActiveRecord::Base
   validate :validate_date
 
   default_scope where(deleted: [nil, false])
+  scope :none, where('1=0')
   scope :upcoming, lambda { |datetime=DateTime.now| where('start_time > ?', datetime).order('start_time ASC') }
   scope :recent,   lambda { |datetime=DateTime.now| where('start_time < ?', datetime).order('start_time DESC') }
 
