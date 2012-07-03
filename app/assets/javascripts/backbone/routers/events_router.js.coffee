@@ -1,32 +1,41 @@
 class EventSalsa.Routers.EventsRouter extends Backbone.Router
   initialize: (options) ->
-    @events = new EventSalsa.Collections.EventsCollection
-    @events.fetch()
+    @upcomingEvents = new EventSalsa.Collections.EventsCollection
+      query: '/upcoming'
+    @recentEvents = new EventSalsa.Collections.EventsCollection
+    # TODO refactor fetch
+    @upcomingEvents.fetch()
+    @recentEvents.fetch()
 
   routes:
-    ""                 : "index"
-    "events"           : "index"
+    ""                 : "indexUpcomingEvents"
+    "events"           : "indexUpcomingEvents"
     "events/new"       : "newEvent"
-    "events/index"     : "index"
+    "events/upcoming"  : "indexUpcomingEvents"
+    "events/recent"    : "indexRecentEvents"
     "events/:id/edit"  : "edit"
     "events/:id"       : "show"
 
   newEvent: ->
-    @view = new EventSalsa.Views.Events.NewView(collection: @events)
+    @view = new EventSalsa.Views.Events.NewView(collection: @upcomingEvents)
     $("#events").html(@view.render().el)
 
-  index: ->
-    @view = new EventSalsa.Views.Events.IndexView(events: @events)
+  indexUpcomingEvents: ->
+    @view = new EventSalsa.Views.Events.IndexView(events: @upcomingEvents)
+    $("#events").html(@view.render().el)
+
+  indexRecentEvents: ->
+    @view = new EventSalsa.Views.Events.IndexView(events: @recentEvents)
     $("#events").html(@view.render().el)
 
   show: (id) ->
-    event = @events.get(id)
+    event = @upcomingEvents.get(id)
 
     @view = new EventSalsa.Views.Events.ShowView(model: event)
     $("#event").html(@view.render().el)
 
   edit: (id) ->
-    event = @events.get(id)
+    event = @upcomingEvents.get(id)
 
     @view = new EventSalsa.Views.Events.EditView(model: event)
     $("#events").html(@view.render().el)

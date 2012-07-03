@@ -14,6 +14,8 @@ class EventSalsa.Views.Events.IndexView extends Backbone.View
     @$("ul").append(view.render().el)
 
   render: =>
-    $(@el).html(@template(events: @options.events.toJSON() ))
+    $(@el).html @template
+      events: @options.events.toJSON()
+      rootPath: @options.events.rootPath
     @addAll()
     return this
