@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 gem 'rake', '0.8.7'
+gem 'rails_admin'
 
 gem 'koala' #koala gem for dealing with graph api
 gem 'watu_table_builder', :git => 'git://github.com/watu/table_builder.git'
