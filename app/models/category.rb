@@ -5,6 +5,13 @@ class Category < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
 
   default_scope order: 'name ASC'
+
+  acts_as_api
+  api_accessible :public do |t|
+    t.add :id
+    t.add :name
+  end
+
   def to_param
     "#{name.parameterize}"
   end

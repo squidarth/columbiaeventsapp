@@ -8,7 +8,7 @@ gem 'koala' #koala gem for dealing with graph api
 gem 'watu_table_builder', :git => 'git://github.com/watu/table_builder.git'
 gem 'will_paginate', '3.0.pre2'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
-gem 'rabl'
+gem 'acts_as_api'
 gem 'hirb'
 
 gem "nokogiri", "~> 1.4.7"
