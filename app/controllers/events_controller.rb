@@ -1,23 +1,23 @@
-class EventsController < ApplicationController
+class EventsController < ApiController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
 
-  respond_to :json, :xml
   before_filter :determine_scope, only: [:upcoming, :recent]
   before_filter :parse_options, only: [:upcoming, :recent]
 
   def show
-    @event = Event.find_by_id(params[:id], conditions: { deleted: [nil, false] })
+    @event = Event.find(params[:id], conditions: { deleted: [nil, false] })
+    respond_with @event, api_template: :public
   end
 
   def upcoming
     @events = @scope.upcoming(@datetime).limit(10)
-    render :index
+    respond_with @events, api_template: :public, root: :events
   end
 
   def recent
     @events = @scope.recent(@datetime).limit(10)
-    render :index
+    respond_with @events, api_template: :public, root: :events
   end
 
   def search

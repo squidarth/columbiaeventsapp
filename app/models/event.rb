@@ -27,6 +27,19 @@ class Event < ActiveRecord::Base
   scope :upcoming, lambda { |datetime=DateTime.now| where('start_time > ?', datetime).order('start_time ASC') }
   scope :recent,   lambda { |datetime=DateTime.now| where('start_time < ?', datetime).order('start_time DESC') }
 
+  acts_as_api
+  api_accessible :public do |t|
+    t.add :id
+    t.add :name
+    t.add :location
+    t.add :description
+    t.add :facebook_id
+    t.add :photo_content_type
+    t.add lambda { |event| event.photo.url }, as: :photo_url
+    t.add lambda { |event| event.photo.url(:small) }, as: :photo_url_small
+    t.add :categorizations
+  end
+
   def has_free_food?
     categories.find_by_name("Free Food") ? true : false
   end

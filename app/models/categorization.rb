@@ -6,4 +6,9 @@ class Categorization < ActiveRecord::Base
   validates :category_id, :presence => true, :uniqueness => { :scope => :event_id }
 
   delegate :name, to: :category
+
+  acts_as_api
+  api_accessible :public do |t|
+    t.add :category
+  end
 end
