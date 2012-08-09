@@ -267,6 +267,7 @@ DEPENDENCIES
   heroku
   hirb
   jquery-rails
+  kaminari
   koala
   marionette-rails
   momentjs-rails

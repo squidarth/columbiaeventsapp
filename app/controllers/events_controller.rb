@@ -2,7 +2,7 @@ class EventsController < ApiController
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
 
-  before_filter :determine_scope, only: [:upcoming, :recent]
+  before_filter :determine_scope, only: [:upcoming, :recent, :search]
   before_filter :parse_options, only: [:upcoming, :recent]
 
   def show
@@ -11,23 +11,18 @@ class EventsController < ApiController
   end
 
   def upcoming
-    @events = @scope.upcoming(@datetime).limit(10)
+    @events = @scope.upcoming(@datetime).page(params[:page]).per(params[:per_page])
     respond_with @events, api_template: :public, root: :events
   end
 
   def recent
-    @events = @scope.recent(@datetime).limit(10)
+    @events = @scope.recent(@datetime).page(params[:page]).per(params[:per_page])
     respond_with @events, api_template: :public, root: :events
   end
 
   def search
-    @title = "Search"
-    if params[:search].empty?
-      redirect_to events_path
-    else
-      @header = "Search results for '" + params[:search] + "'"
-      @events = @scope.search(params[:search])
-    end
+    @events = @scope.search(params[:search]).page(params[:page]).per(params[:per_page])
+    respond_with @events, api_template: :public, root: :events
   end
 
   def pull
@@ -209,8 +204,6 @@ class EventsController < ApiController
   end
 
   def parse_options
-    @options = params.symbolize_keys.reject { |k| not [:limit, :offset].include?(k) }
-    @options[:limit] ||= 10
     @datetime = params[:datetime] ? params[:datetime].to_datetime : DateTime.now
   end
 
