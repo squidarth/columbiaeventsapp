@@ -1,0 +1,61 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">EventSalsa</a>
+      <a id="fblike"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font="" allowTransparency="true"></fb:like></a>
+      <ul id="navbar" class="nav">
+        <li>
+          <a data-target="calendar">Calendar</a>
+        </li>
+        <li class="active">
+          <a>Events</a>
+        </li>
+        <li>
+          <a>Users</a>
+        </li>
+        <li>
+          <a>Profile</a>
+        </li>
+        <% if signed_in { %>
+          <li>
+            <a>Login</a>
+          </li>
+        <% } else { %>
+          <li>
+            <a>Logout</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="fb-root"></div>
+<div id="wrap">
+  <div id="main" class="row">
+    <div class="span3">
+      <form id="search-bar" class="form-search">
+        <input type="text" name="query" placeholder="Search" />
+      </form>
+
+      <ul id="category-list" class="nav nav-pills nav-stacked">
+      </ul>
+
+      <div id="spec-image">
+        <a href="http://www.columbiaspectator.com/">
+          <%= image_tag "spec_logos.png", :width => 150 %>
+        </a>
+      </div>
+    </div>
+    <div class="span9">
+      <div class="flash">
+      </div>
+
+      <div id="content">
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <%= link_to "About", about_path %>
+  <%= link_to "Contact", contact_path %>
+</div>

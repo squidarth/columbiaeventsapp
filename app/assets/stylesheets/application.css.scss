@@ -1,5 +1,4 @@
 /*
- *= require reset
  *= require_self
  *= require_tree .
  */
@@ -16,25 +15,41 @@
 * html .group             { zoom: 1; } /* IE6 */
 *:first-child+html .group { zoom: 1; } /* IE7 */
 
+/* STICKY FOOTER */
+
+html, body {
+    height:100%;
+}
+
+#wrap {
+  min-height: 100%; 
+}
+
+#main {
+    overflow:auto;
+    padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+    position: relative;
+    margin-top: -150px; /* negative value of footer height */
+    height: 150px;
+    clear:both;
+    padding-top:20px;
+    color:#fff;
+}
 
 /* RAILS FLASH STYLES */
 
-.flashnotice {
+.flash-notice {
   
 }
-.flasherror {
+.flash-error {
   
 }
 
+/* LAYOUT STYLES */
 
-/* SITE-WIDE GENERIC STYLES */
-
-body {
-    font: 100% Arial;
-    background: #222;
+#spec-image {
+  margin: 0 auto;
 }
-
-a {
-    text-decoration: none;
-}
-

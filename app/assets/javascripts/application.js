@@ -1,14 +1,17 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require jquery.ui.timepicker
 //= require jquery.expander
 //= require moment
 //= require underscore
 //= require backbone
+//= require backbone.marionette
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require backbone/event_salsa
+//= require Backbone.ModelBinder-min
+//= require app/event_salsa
 //= require_self
 //= require_directory .
 
