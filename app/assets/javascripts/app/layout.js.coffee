@@ -1,6 +1,7 @@
 EventSalsa.module "Layout", (Layout, EventSalsa, Backbone, Marionette, $, _) ->
   Layout = Backbone.Marionette.Layout.extend
-    template: JST["templates/layout"]
+    template: ->
+      JST["templates/layout"]
 
     regions:
       categories: "#category-list"
@@ -12,4 +13,4 @@ EventSalsa.module "Layout", (Layout, EventSalsa, Backbone, Marionette, $, _) ->
     EventSalsa.layout.on 'show', ->
       EventSalsa.vent.trigger 'layout:rendered'
 
-    EventSalsa.content.show(EventSalsa.layout)
+    EventSalsa.application.show(EventSalsa.layout)

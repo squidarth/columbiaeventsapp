@@ -1,10 +1,10 @@
-EventSalsa.module 'EventsController.Events', (Events, EventSalsa, Backbone, Marionette, $, _) ->
+EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette, $, _) ->
   # Public API
   # ----------
   Events.show = (events) ->
     eventsView = new Events.EventListView
       collection: events
-    EventSalsa.layout.main.show eventsView
+    EventSalsa.layout.content.show eventsView
 
   # Views
   # ------
@@ -27,10 +27,10 @@ EventSalsa.module 'EventsController.Events', (Events, EventSalsa, Backbone, Mari
     events:
       "submit #new-event": "save"
     init: ->
-      @model = new EventsController.Event()
+      @model = new EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()
-    onRender:
-      @modelBinder.bind @model, @el
+    #onRender:
+      #@modelBinder.bind @model, @el
     save: (e) ->
       e.preventDefault()
       e.stopPropagation()

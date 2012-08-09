@@ -5,26 +5,26 @@
       <a id="fblike"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font="" allowTransparency="true"></fb:like></a>
       <ul id="navbar" class="nav">
         <li>
-          <a data-target="calendar">Calendar</a>
+          <a href="#" data-target="calendar">Calendar</a>
         </li>
         <li class="active">
-          <a>Events</a>
+          <a href="#">Events</a>
         </li>
         <li>
-          <a>Users</a>
+          <a href="#">Users</a>
         </li>
         <li>
-          <a>Profile</a>
+          <a href="#">Profile</a>
         </li>
-        <% if signed_in { %>
+        <%% if (true) { %>
           <li>
-            <a>Login</a>
+            <a href="#">Login</a>
           </li>
-        <% } else { %>
+        <%% } else { %>
           <li>
-            <a>Logout</a>
+            <a href="#">Logout</a>
           </li>
-        <% } %>
+        <%% } %>
       </ul>
     </div>
   </div>
@@ -56,6 +56,6 @@
   </div>
 </div>
 <div id="footer">
-  <%= link_to "About", about_path %>
-  <%= link_to "Contact", contact_path %>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
 </div>

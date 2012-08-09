@@ -4,17 +4,19 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
 
   # Private API
   # -----------
-  EventsRouting.Router extends Marionette.Router
+  EventsRouting.Router = Marionette.AppRouter.extend
     appRoutes:
-      "events": "showEventList"
+      ""                       : "showEventList"
+      "events"                 : "showEventList"
+      "categories/:id/events"  : "showEventListByCategory"
 
   # Event Bindings
   # --------------
-  EventSalsa.vent.bind "events.show", ->
+  EventSalsa.vent.bind "events:show", ->
     EventSalsa.Routing.showRoute "events"
 
   # Initializer
   # -----------
   EventSalsa.addInitializer ->
     EventsRouting.router = new EventsRouting.Router
-      controller: EventSalsa.Events
+      controller: EventSalsa.EventsApp

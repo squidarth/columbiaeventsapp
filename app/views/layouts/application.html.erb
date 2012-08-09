@@ -8,11 +8,12 @@
     <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
+
     <%= yield :head %>
+
     <%= csrf_meta_tag %>
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="image_src" href="http://www.eventsalsa.com/images/monkey.png" />
-    <%= render 'layouts/webputty' %>
     <meta property=og:image content="http://www.eventsalsa.com/images/monkey.png"/>
   </head>
   <body>
