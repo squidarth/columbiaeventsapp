@@ -31,6 +31,7 @@ class Event < ActiveRecord::Base
   api_accessible :public do |t|
     t.add :id
     t.add :name
+    t.add :start_time
     t.add :location
     t.add :description
     t.add :facebook_id

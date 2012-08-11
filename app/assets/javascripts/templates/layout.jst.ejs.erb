@@ -2,8 +2,12 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="#">EventSalsa</a>
-      <a id="fblike"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font="" allowTransparency="true"></fb:like></a>
-      <ul id="navbar" class="nav">
+      <a id="fblike" class="pull-left"><fb:like href="https://www.facebook.com/pages/EventSalsa/165333256908690" send="false" width="80" layout="button_count" show_faces="false" action="like" font="" allowTransparency="true"></fb:like></a>
+      <form id="search-bar" class="navbar-search">
+        <input type="text" name="query" placeholder="Search" />
+      </form>
+
+      <ul id="navbar" class="nav pull-right">
         <li>
           <a href="#" data-target="calendar">Calendar</a>
         </li>
@@ -32,13 +36,9 @@
 <div id="fb-root"></div>
 <div id="wrap">
   <div id="main" class="row">
-    <div class="span3">
-      <form id="search-bar" class="form-search">
-        <input type="text" name="query" placeholder="Search" />
-      </form>
-
-      <ul id="category-list" class="nav nav-pills nav-stacked">
-      </ul>
+    <div class="span2">
+      <div id="category-list">
+      </div>
 
       <div id="spec-image">
         <a href="http://www.columbiaspectator.com/">
@@ -46,7 +46,7 @@
         </a>
       </div>
     </div>
-    <div class="span9">
+    <div class="span10">
       <div class="flash">
       </div>
 

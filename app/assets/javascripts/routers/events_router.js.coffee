@@ -8,7 +8,7 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
     appRoutes:
       ""                       : "showEventList"
       "events"                 : "showEventList"
-      "categories/:id/events"  : "showEventListByCategory"
+      "categories/:id/events"  : "showEventListByCategoryId"
 
   # Event Bindings
   # --------------

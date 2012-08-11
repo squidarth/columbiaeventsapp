@@ -2,9 +2,12 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
   # Public API
   # ----------
   EventsApp.showEventList = ->
-    EventsApp.Events.show EventsApp.events
+    $.get '/events.json', (data) ->
+      EventsApp.upcomingEvents.reset data['upcoming']
+      EventsApp.recentEvents.reset data['recent']
+      EventsApp.Events.showEvents EventsApp.upcomingEvents, EventsApp.recentEvents
 
-  EventsApp.showEventListByCategory = (id) ->
+  EventsApp.showEventListByCategoryId = (id) ->
     EventsApp.Events.show EventsApp.events
 
   # Models
@@ -27,11 +30,13 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
       @prefix = options.prefix || ''
       @query = options.query || '/recent'
 
+  # Event Bindings
+  # --------------
+  EventSalsa.vent.bind 'events:show:category', (category) ->
+    EventsApp.Events.showEventListByCategoryId category.id
+
   # Private API
   # -----------
-
-  # Initializer
-  # -----------
   EventSalsa.addInitializer ->
-    EventsApp.events = new EventsApp.EventCollection()
-    EventsApp.events.fetch()
+    EventsApp.upcomingEvents = new EventsApp.EventCollection()
+    EventsApp.recentEvents = new EventsApp.EventCollection()

@@ -1,26 +1,33 @@
-<% if (photo_content_type) { %>
-  <img src="<%= photo_url_small %>" width=100></img>
-<% } else if (facebook_id) { %>
-  <img src="https://graph.facebook.com/<%= facebook_id %>/picture?type=normal" width=100></img>
-<% } else { %>
-  <img width=100></img>
-<% } %>
+<td>
+  <% if (photo_content_type) { %>
+    <img src="<%= photo_url_small %>" width=100 height=100></img>
+  <% } else if (facebook_id) { %>
+    <img src="https://graph.facebook.com/<%= facebook_id %>/picture?type=normal" width=100 height=100></img>
+  <% } else { %>
+    <img width=100 height=100></img>
+  <% } %>
+</td>
 
-<% if (start_time) { %>
-  <p class="date-time">
-    <%= moment(start_time).format('M/D/YY h:mmA') %>
-  </p>
-<% } %>
-<p class="event-name">
-  <%= name %>
-</p>
-<% if (facebook_id) { %>
-  <p class="facebook">
-    <a href="http://www.facebook.com/event.php?eventid=<%= facebook_id %>"><b>Link to Facebook Event</b></a>
-  </p>
-<% } %>
-<p>
+<td>
+  <% if (start_time) { %>
+    <p class="date-time">
+      <%= moment(start_time).format('M/D/YY h:mmA') %>
+    </p>
+  <% } %>
+</td>
+
+<td>
+  <h3>
+    <% if (facebook_id) { %>
+      <a href="http://www.facebook.com/event.php?eventid=<%= facebook_id %>"><%= name %></a>
+    <% } else { %>
+      <%= name %>
+    <% } %>
+  </h3>
+</td>
+
+<td>
   <a href="#/<%= id %>">Show</a>
   <a href="#/<%= id %>/edit">Edit</a>
   <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
-</p>
+</td>

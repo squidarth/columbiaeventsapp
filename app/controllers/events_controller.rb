@@ -1,28 +1,37 @@
 class EventsController < ApiController
+  include EventsHelper
+
   before_filter :authenticate, :only => [:create, :destroy]
   before_filter :authorized_user, :only => :destroy
 
-  before_filter :determine_scope, only: [:upcoming, :recent, :search]
-  before_filter :parse_options, only: [:upcoming, :recent]
+  before_filter :determine_scope, only: [:index, :upcoming, :recent, :search]
+  before_filter :parse_options, only: [:index, :upcoming, :recent]
+
+  def index
+    upcoming = @scope.upcoming(@datetime).page(params[:page]).per(params[:per_page])
+    recent = @scope.recent(@datetime).page(params[:page]).per(params[:per_page])
+    listing = EventListing.new({ upcoming: upcoming, recent: recent })
+    respond_with listing, api_template: :public
+  end
 
   def show
-    @event = Event.find(params[:id], conditions: { deleted: [nil, false] })
-    respond_with @event, api_template: :public
+    event = Event.find(params[:id], conditions: { deleted: [nil, false] })
+    respond_with event, api_template: :public
   end
 
   def upcoming
-    @events = @scope.upcoming(@datetime).page(params[:page]).per(params[:per_page])
-    respond_with @events, api_template: :public, root: :events
+    events = @scope.upcoming(@datetime).page(params[:page]).per(params[:per_page])
+    respond_with events, api_template: :public
   end
 
   def recent
-    @events = @scope.recent(@datetime).page(params[:page]).per(params[:per_page])
-    respond_with @events, api_template: :public, root: :events
+    events = @scope.recent(@datetime).page(params[:page]).per(params[:per_page])
+    respond_with events, api_template: :public
   end
 
   def search
-    @events = @scope.search(params[:search]).page(params[:page]).per(params[:per_page])
-    respond_with @events, api_template: :public, root: :events
+    events = @scope.search(params[:search]).page(params[:page]).per(params[:per_page])
+    respond_with events, api_template: :public
   end
 
   def pull
@@ -208,10 +217,7 @@ class EventsController < ApiController
   end
 
   def determine_scope
-    return @scope = Event unless params[:category_id]
-    category = Category.find_by_id(params[:category_id])
-    # [TODO] prevent excess queries
-    @scope = category ? category.events : Event.none
+    @scope = params[:category_id] ? Category.find(params[:category_id]).events : Event
+    return @scope = @scope.includes(:categories)
   end
-
 end

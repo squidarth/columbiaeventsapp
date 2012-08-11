@@ -11,7 +11,7 @@ EventSalsa::Application.routes.draw do
   match '/verify', :to => 'users#wait'
   match '/allusers', :to => 'users#index'
   resources :categories, only: [:index, :show] do
-    resources :events, only: [] do
+    resources :events, only: [:index] do
       collection do
         get 'upcoming'
         get 'recent'

@@ -1,7 +1,7 @@
 class CategoriesController < ApiController
   def index
     @categories = Category.all
-    respond_with @categories, api_template: :public, root: :categories
+    respond_with @categories, api_template: :public
   end
 
   def show

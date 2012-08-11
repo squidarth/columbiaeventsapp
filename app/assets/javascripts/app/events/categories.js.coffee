@@ -3,7 +3,7 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
   # ----------
   Categories.showCategoryList = ->
     Categories.categories ||= new Categories.CategoryCollection()
-    Categories.categories.bind 'reset', showCategories
+    Categories.categories.bind 'reset', prepareCategoryListView
     Categories.categories.fetch()
 
   # Models
@@ -19,8 +19,12 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
   # Views
   # -----
   class Categories.CategoryView extends Marionette.ItemView
-    template: JST["templates/categories/category"]
+    template: JST["templates/events/category"]
     tagName: 'li'
+    events:
+      'click a': 'showEventsByCategory'
+    showEventsByCategory: ->
+      EventSalsa.vent.trigger('events:show:category', @model)
 
   class Categories.CategoryListView extends Marionette.CollectionView
     itemView: Categories.CategoryView
@@ -30,19 +34,11 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
   # Event Bindings
   # --------------
   EventSalsa.vent.bind 'layout:rendered', ->
-    console.log EventSalsa.layout.categories.$el
-    console.log Categories.categories
     Categories.showCategoryList()
 
   # Private API
   # -----------
-  showCategories = ->
+  prepareCategoryListView = ->
     categoryListView = new Categories.CategoryListView
       collection: Categories.categories
     EventSalsa.layout.categories.show categoryListView
-
-  # Initializer
-  # -----------
-  EventSalsa.addInitializer ->
-    Categories.categories = new Categories.CategoryCollection()
-    Categories.categories.fetch()

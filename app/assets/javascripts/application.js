@@ -2,6 +2,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require twitter/bootstrap/bootstrap-tab
 //= require jquery.ui.timepicker
 //= require jquery.expander
 //= require moment

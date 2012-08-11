@@ -1,33 +1,36 @@
 EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette, $, _) ->
   # Public API
   # ----------
-  Events.show = (events) ->
-    eventsView = new Events.EventListView
-      collection: events
-    EventSalsa.layout.content.show eventsView
+  Events.showEvents = (upcomingEvents, recentEvents) ->
+    prepareEventLayout()
+    prepareEventList upcomingEvents, recentEvents
 
   # Views
   # ------
   class Events.EventView extends Marionette.ItemView
     template: JST["templates/events/event"]
-    tagName: 'li'
+    tagName: 'tr'
 
   class Events.EventListView extends Marionette.CollectionView
     itemView: Events.EventView
-    tagName: 'ul'
 
-  class Events.EventUpdateView extends Marionette.Layout
-    template: JST["templates/events/update"]
+  class Events.EventsView extends Marionette.Layout
+    template: JST["templates/events/index"]
     regions:
-      create: '.new'
-      update: '.edit'
+      upcoming: '#upcoming-events'
+      recent: '#recent-events'
+      new: '#new-event'
+    onRender: ->
+      $('.nav-tabs a:first').tab 'show'
+      @newEventView = new Events.EventNewView()
+      @new.show @newEventView
 
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]
     events:
       "submit #new-event": "save"
-    init: ->
-      @model = new EventsApp.Event()
+    initialize: ->
+      @model = new EventSalsa.EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()
     #onRender:
       #@modelBinder.bind @model, @el
@@ -61,3 +64,14 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
 
   # Private API
   # -----------
+  prepareEventLayout = ->
+    Events.eventsView = new Events.EventsView()
+    EventSalsa.layout.content.show Events.eventsView
+
+  prepareEventList = (upcomingEvents, recentEvents) ->
+    upcomingEventsView = new Events.EventListView
+      collection: upcomingEvents
+    recentEventsView = new Events.EventListView
+      collection: recentEvents
+    Events.eventsView.upcoming.show upcomingEventsView
+    Events.eventsView.recent.show recentEventsView

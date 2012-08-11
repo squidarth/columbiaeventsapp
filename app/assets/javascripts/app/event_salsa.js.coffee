@@ -9,9 +9,9 @@ window.EventSalsa = new Backbone.Marionette.Application()
 EventSalsa.addRegions
   application: '#application'
 
-#EventSalsa.vent.on 'layout:rendered', ->
-EventSalsa.bind 'initialize:after', ->
-  Backbone.history.start()
+EventSalsa.vent.on 'layout:rendered', ->
+  EventSalsa.bind 'initialize:after', ->
+    Backbone.history.start()
 
 EventSalsa.bind 'initialize:before', ->
   Backbone.Marionette.Renderer.render = (template, data) -> template(data) if template
