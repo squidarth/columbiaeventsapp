@@ -15,6 +15,16 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="image_src" href="http://www.eventsalsa.com/images/monkey.png" />
     <meta property=og:image content="http://www.eventsalsa.com/images/monkey.png"/>
+
+    <script type="text/javascript">
+      $(function() {
+        <% if current_user %>
+          EventSalsa.currentUser = JSON.parse(<%= current_user.to_json.html_safe %>);
+        <% else %>
+          EventSalsa.currentUser = null;
+        <% end %>
+      });
+    </script>
   </head>
   <body>
     <div id="application" class="container">
