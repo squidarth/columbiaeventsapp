@@ -218,6 +218,6 @@ class EventsController < ApiController
 
   def determine_scope
     @scope = params[:category_id] ? Category.find(params[:category_id]).events : Event
-    return @scope = @scope.includes(:categories)
+    return @scope = @scope.includes(:categories, :attendings)
   end
 end
