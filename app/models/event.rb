@@ -39,6 +39,8 @@ class Event < ActiveRecord::Base
     t.add lambda { |event| event.photo.url }, as: :photo_url
     t.add lambda { |event| event.photo.url(:small) }, as: :photo_url_small
     t.add :categorizations
+
+    #t.add lambda { |event| event.attendings}
   end
 
   def has_free_food?

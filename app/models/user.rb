@@ -23,6 +23,17 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  acts_as_api
+  api_accessible :public do |t|
+    t.add :id
+    t.add :name
+  end
+  api_accessible :session do |t|
+    t.add :id
+    t.add :name
+    t.add :facebookid
+  end
+
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
   end

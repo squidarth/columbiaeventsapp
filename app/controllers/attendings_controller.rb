@@ -1,4 +1,13 @@
 class AttendingsController < ApplicationController
+  def index
+    @attendings = Attending.all
+    respond_with @attendings, api_template: :public
+  end
+
+  def show
+    @attending = Attending.find_by_id(params[:id])
+    respond_with @attending, api_template: :public
+  end
   
   def attend
     @no_change = false
@@ -17,7 +26,7 @@ class AttendingsController < ApplicationController
       format.js
     end 
   end
-  
+
   def maybe
     @no_change = false;
     Attending.all.each do |attending|

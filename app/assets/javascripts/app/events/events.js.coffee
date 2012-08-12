@@ -4,6 +4,7 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
   Events.showEvents = (upcomingEvents, recentEvents) ->
     prepareEventLayout()
     prepareEventList upcomingEvents, recentEvents
+    Events.eventsView.$('.nav-tabs a:first').tab 'show'
 
   # Views
   # ------
@@ -21,7 +22,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       recent: '#recent-events'
       new: '#new-event'
     onRender: ->
-      $('.nav-tabs a:first').tab 'show'
       @newEventView = new Events.EventNewView()
       @new.show @newEventView
 
@@ -32,8 +32,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
     initialize: ->
       @model = new EventSalsa.EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()
-    #onRender:
-      #@modelBinder.bind @model, @el
     save: (e) ->
       e.preventDefault()
       e.stopPropagation()
@@ -70,6 +68,7 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
 
   prepareEventList = (upcomingEvents, recentEvents) ->
     upcomingEventsView = new Events.EventListView
+      #el: Events.eventsView.upcoming.$el
       collection: upcomingEvents
     recentEventsView = new Events.EventListView
       collection: recentEvents

@@ -1,8 +1,12 @@
-class SessionsController < ApplicationController
-  def new
-    @title = "Sign in"
+class SessionsController < ApiController
+  def show
+    if current_user
+      respond_with current_user, api_template: :session
+    else
+      respond_with nil
+    end
   end
-  
+
   def create
    user = User.authenticate(params[:session][:email], params[:session][:password])
       if user.nil?

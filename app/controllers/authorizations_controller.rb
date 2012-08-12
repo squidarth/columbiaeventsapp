@@ -1,20 +1,15 @@
 class AuthorizationsController < ApplicationController
-  def index
-    @authorizations = current_user.authorizations if current_user
-  end
-
   def create
-    auth  = request.env["omniauth.auth"]
+    auth = request.env["omniauth.auth"]
     #render :json => auth
     authorization = Authorization.find_by_provider_and_uid(auth['provider'], auth['uid'])
 
     if authorization #case that an authorizaiton is found, sign in user
       user = authorization.user
       authorization.update_attributes!(:token => auth['credentials']['token'])
-      flash[:success] = "Signed in!"
       Event.get_events(auth['credentials']['token'])
-      sign_in(user)
-      redirect_to(user)
+      sign_in user
+      redirect_to root_url
     elsif signed_in? #case that user is already signed into eventsalsa
       current_user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
       redirect_to current_user

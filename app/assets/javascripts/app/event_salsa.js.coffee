@@ -15,6 +15,10 @@ EventSalsa.vent.on 'layout:rendered', ->
 
 EventSalsa.bind 'initialize:before', ->
   Backbone.Marionette.Renderer.render = (template, data) -> template(data) if template
+  #Backbone.Marionette.Region.prototype.open = (view) ->
+    #@$el.html view.el.$el.html()
 
 $ ->
+  #EventSalsa.currentUser = JSON.parse(<%= current_user.to_json.html_safe %>)
+  #EventSalsa.currentUser = null
   EventSalsa.start()
