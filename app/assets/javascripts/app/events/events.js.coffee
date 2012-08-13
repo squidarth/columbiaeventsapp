@@ -32,6 +32,7 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @model = new EventSalsa.EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()
     onRender: ->
+      @modelBinder.bind @model, @el
       $('.input-timepicker').timepicker()
       $('.input-datepicker').datepicker()
     save: (e) ->
