@@ -1,7 +1,14 @@
 EventSalsa::Application.routes.draw do
 
   match '/calendar', to: 'events#calendar'
-  resources :users
+  resources :users do
+    resources :attendings, only: [] do
+      get 'index', on: :collection, action: 'index_for_user'
+    end
+  end
+  resources :attendings, only: [] do
+    get 'index', on: :collection, action: 'index_for_user'
+  end
 
   #resources :sessions, :only => [:new, :create, :destroy]
   match '/current_user' => 'sessions#show'
@@ -23,7 +30,7 @@ EventSalsa::Application.routes.draw do
   end
   resources :events do
     resources :comments, :only => [:create]
-    resources :attendings, only: [:index] do
+    resources :attendings, only: [:index, :create] do
       post 'attend'
     end
     collection do
