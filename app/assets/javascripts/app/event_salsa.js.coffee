@@ -19,6 +19,8 @@ EventSalsa.bind 'initialize:before', ->
     #@$el.html view.el.$el.html()
 
 $ ->
-  #EventSalsa.currentUser = JSON.parse(<%= current_user.to_json.html_safe %>)
-  #EventSalsa.currentUser = null
+  # Facebook redirect_uri #_=_ bug workaround
+  if window.location.hash[1] == '_'
+    window.location.hash = ''
+
   EventSalsa.start()

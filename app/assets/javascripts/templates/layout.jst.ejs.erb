@@ -20,15 +20,15 @@
         <li>
           <a href="#">Profile</a>
         </li>
+        <li id="login-button">
         <%% if (EventSalsa.currentUser) { %>
-          <li>
-            <a href="#">Logout</a>
-          </li>
+          <a href="/signout">Logout</a>
         <%% } else { %>
-          <li>
-            <a href="/auth/facebook">Login</a>
-          </li>
+          <a href="/auth/facebook">
+            <%= image_tag "fb-login.jpg" %>
+          </a>
         <%% } %>
+        </li>
       </ul>
     </div>
   </div>

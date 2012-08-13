@@ -10,6 +10,11 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
   class Events.EventView extends Marionette.ItemView
     template: JST["templates/events/event"]
     tagName: 'tr'
+    events:
+      'click button': 'attendStatusChanged'
+    attendStatusChanged: ->
+      if ($.inArray EventSalsa.currentUser.get('id'), @model.get('attendings').map (attending) -> attending.user.id)
+        $('button').toggleClass 'btn-warning btn-success'
 
   class Events.EventListView extends Marionette.CollectionView
     itemView: Events.EventView

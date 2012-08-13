@@ -16,14 +16,12 @@
     <meta property=og:image content="http://www.eventsalsa.com/images/monkey.png"/>
 
     <script type="text/javascript">
-      $(function() {
-        <% if current_user %>
-          EventSalsa.currentUser = JSON.parse("<%= current_user.as_api_response(:public).html_safe %>");
-        <% else %>
-          EventSalsa.currentUser = null;
-        <% end %>
-      });
-    </script>
+      <% if current_user %>
+        EventSalsa.currentUser = <%= raw current_user.as_api_response(:public).to_json %>;
+      <% else %>
+        EventSalsa.currentUser = null;
+      <% end %>
+      </script>
   </head>
   <body>
     <div id="application" class="container">

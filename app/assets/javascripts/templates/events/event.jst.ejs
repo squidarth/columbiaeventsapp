@@ -17,6 +17,9 @@
       <%= moment(start_time).format('M/D/YY h:mmA') %>
     </h6>
   <% } %>
+  <% if (EventSalsa.currentUser) { %>
+    <button class="btn btn-warning">Attend</button>
+  <% } %>
 </td>
 
 <td class="event-description">

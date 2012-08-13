@@ -9,10 +9,8 @@ class AuthorizationsController < ApplicationController
       authorization.update_attributes!(:token => auth['credentials']['token'])
       Event.get_events(auth['credentials']['token'])
       sign_in user
-      redirect_to root_url
     elsif signed_in? #case that user is already signed into eventsalsa
       current_user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
-      redirect_to current_user
     else #case that new user needs to be created
       random_id = rand(99999999)
       user = User.create(:name => auth['extra']['raw_info']['first_name'] + " " + auth['extra']['raw_info']['last_name'], 
@@ -26,12 +24,11 @@ class AuthorizationsController < ApplicationController
         sign_in user
         Event.get_events(auth['credentials']['token'])
         flash[:success] = "Thanks for joining! To get started either edit your profile or start creating events!"
-        redirect_to user
       else
         session[:auth]  = auth.except('extra')
-        redirect_to sign_up
       end
     end
+    redirect_to root_url
   end
 
   def destroy

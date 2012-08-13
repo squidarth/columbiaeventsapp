@@ -1,7 +1,6 @@
 EventSalsa::Application.routes.draw do
 
   match '/calendar', to: 'events#calendar'
-  resources :attendings
   resources :users
 
   #resources :sessions, :only => [:new, :create, :destroy]
@@ -24,6 +23,9 @@ EventSalsa::Application.routes.draw do
   end
   resources :events do
     resources :comments, :only => [:create]
+    resources :attendings, only: [:index] do
+      post 'attend'
+    end
     collection do
       get 'upcoming'
       get 'recent'
@@ -39,8 +41,6 @@ EventSalsa::Application.routes.draw do
     get 'update'
     get 'create'
   end
-  match '/attendings/attend', :to => 'attendings#attend'
-  match '/attendings/maybe', :to => 'attendings#maybe'
   match "comments/create" => "comments#create"
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
