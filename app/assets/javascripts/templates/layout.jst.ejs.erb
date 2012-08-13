@@ -20,13 +20,13 @@
         <li>
           <a href="#">Profile</a>
         </li>
-        <%% if (true) { %>
+        <%% if (EventSalsa.currentUser) { %>
           <li>
-            <a href="/auth/facebook">Login</a>
+            <a href="#">Logout</a>
           </li>
         <%% } else { %>
           <li>
-            <a href="#">Logout</a>
+            <a href="/auth/facebook">Login</a>
           </li>
         <%% } %>
       </ul>

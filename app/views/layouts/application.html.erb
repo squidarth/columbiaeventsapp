@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js" %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag  "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.js" %>
 
     <%= yield :head %>
 
@@ -19,7 +18,7 @@
     <script type="text/javascript">
       $(function() {
         <% if current_user %>
-          EventSalsa.currentUser = JSON.parse(<%= current_user.to_json.html_safe %>);
+          EventSalsa.currentUser = <%= current_user.as_api_response(:public) %>;
         <% else %>
           EventSalsa.currentUser = null;
         <% end %>

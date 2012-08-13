@@ -1,13 +1,13 @@
 //= require jquery
-//= require jquery-ui
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require twitter/bootstrap/bootstrap-tab
-//= require jquery.ui.timepicker
+//= require bootstrap-datepicker
+//= require bootstrap-timepicker
 //= require jquery.expander
 //= require moment
-//= require underscore
 //
+//= require underscore
 //= require backbone
 //= require backbone.marionette
 //= require backbone_rails_sync

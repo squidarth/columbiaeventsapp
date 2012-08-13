@@ -4,7 +4,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
   Events.showEvents = (upcomingEvents, recentEvents) ->
     prepareEventLayout()
     prepareEventList upcomingEvents, recentEvents
-    Events.eventsView.$('.nav-tabs a:first').tab 'show'
 
   # Views
   # ------
@@ -32,6 +31,9 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
     initialize: ->
       @model = new EventSalsa.EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()
+    onRender: ->
+      $('.input-timepicker').timepicker()
+      $('.input-datepicker').datepicker()
     save: (e) ->
       e.preventDefault()
       e.stopPropagation()
@@ -63,8 +65,13 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
   # Private API
   # -----------
   prepareEventLayout = ->
-    Events.eventsView = new Events.EventsView()
-    EventSalsa.layout.content.show Events.eventsView
+    if !Events.eventsView or EventSalsa.layout.content.currentView != Events.eventsView
+      Events.eventsView = new Events.EventsView()
+      EventSalsa.layout.content.show Events.eventsView
+
+      # [TODO] get onRender in Views to work
+      Events.eventsView.$('.nav-tabs a:first').tab 'show'
+      Events.eventsView.newEventView.onRender()
 
   prepareEventList = (upcomingEvents, recentEvents) ->
     upcomingEventsView = new Events.EventListView
