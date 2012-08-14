@@ -5,6 +5,9 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
     prepareEventLayout()
     prepareEventList upcomingEvents, recentEvents
 
+  # Event Bindings
+  # --------------
+
   # Views
   # ------
   class Events.EventView extends Marionette.Layout
@@ -66,9 +69,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
         success : (event) =>
           @model = event
           window.location.hash = "/#{@model.id}"
-
-  # Event Bindings
-  # --------------
 
   # Private API
   # -----------

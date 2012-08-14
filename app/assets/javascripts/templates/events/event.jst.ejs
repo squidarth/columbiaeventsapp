@@ -18,6 +18,9 @@
     </h6>
   <% } %>
   <div class="attending-control"></div>
+  <% if (false) { %>
+    <a href="#">Edit Event</a>
+  <% } %>
 </td>
 
 <td class="event-description">
@@ -31,10 +34,4 @@
   <p>
     <%= description %>
   </p>
-</td>
-
-<td class="event-menu">
-  <a href="#/<%= id %>">Show</a>
-  <a href="#/<%= id %>/edit">Edit</a>
-  <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
 </td>

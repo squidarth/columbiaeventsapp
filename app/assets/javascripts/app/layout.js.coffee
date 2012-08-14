@@ -7,15 +7,21 @@ EventSalsa.module "Layout", (Layout, EventSalsa, Backbone, Marionette, $, _) ->
       categories: "#category-list"
       content: "#content"
     events:
+      'submit form'      : 'showEventListByQuery'
       'click .brand'     : 'showEventList'
       'click #navbar a'  : 'showModule'
-      'submit form'      : 'showEventListByQuery'
-    showEventList: ->
-      return
-    showModule: ->
-      return
+      'click #about'     : 'showAboutPage'
+      'click #contact'   : 'showContactPage'
     showEventListByQuery: ->
       return
+    showEventList: ->
+      EventSalsa.vent.trigger 'events:show'
+    showModule: ->
+      return
+    showAboutPage: ->
+      EventSalsa.vent.trigger 'pages:about:show'
+    showContactPage: ->
+      EventSalsa.vent.trigger 'pages:contact:show'
 
   # Initializer
   # -----------

@@ -6,6 +6,11 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     Categories.categories.bind 'reset', prepareCategoryListView
     Categories.categories.fetch()
 
+  # Event Bindings
+  # --------------
+  EventSalsa.vent.bind 'layout:rendered', ->
+    Categories.showCategoryList()
+
   # Models
   # ------
   class Categories.Category extends Backbone.Model
@@ -30,11 +35,6 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     itemView: Categories.CategoryView
     tagName: 'ul'
     className: 'nav nav-pills nav-stacked'
-
-  # Event Bindings
-  # --------------
-  EventSalsa.vent.bind 'layout:rendered', ->
-    Categories.showCategoryList()
 
   # Private API
   # -----------

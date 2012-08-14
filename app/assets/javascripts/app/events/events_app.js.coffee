@@ -13,6 +13,16 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
       EventsApp.recentEvents.reset data['recent']
       EventsApp.Events.showEvents EventsApp.upcomingEvents, EventsApp.recentEvents
 
+  # Event Bindings
+  # --------------
+  EventSalsa.vent.bind 'events:show', ->
+    EventsApp.showEventList
+    window.scrollTo 0
+
+  EventSalsa.vent.bind 'events:show:category', (category) ->
+    EventsApp.showEventListByCategoryId category.id
+    window.scrollTo 0
+
   # Models
   # ------
   class EventsApp.Event extends Backbone.Model
@@ -40,11 +50,6 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
     initialize: (options = {}) ->
       @prefix = options.prefix || ''
       @query = options.query || '/recent'
-
-  # Event Bindings
-  # --------------
-  EventSalsa.vent.bind 'events:show:category', (category) ->
-    EventsApp.showEventListByCategoryId category.id
 
   # Private API
   # -----------
