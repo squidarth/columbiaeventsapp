@@ -5,8 +5,9 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
     prepareEventLayout()
     prepareEventList upcomingEvents, recentEvents
 
-  # Event Bindings
-  # --------------
+  Events.updateEvents = ->
+    Events.eventsView.upcoming.currentView.render()
+    Events.eventsView.recent.currentView.render()
 
   # Views
   # ------
@@ -30,9 +31,16 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       upcoming: '#upcoming-events'
       recent: '#recent-events'
       new: '#new-event'
+    initialize: ->
+      @bindTo EventSalsa.vent, 'scroll:bottom', @handleEndOfPage, @
     onRender: ->
       @newEventView = new Events.EventNewView()
       @new.show @newEventView
+    handleEndOfPage: ->
+      if $('#upcoming-events').hasClass 'active'
+        EventSalsa.vent.trigger 'events:more:upcoming'
+      if $('#recent-events').hasClass 'active'
+        EventSalsa.vent.trigger 'events:more:recent'
 
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]

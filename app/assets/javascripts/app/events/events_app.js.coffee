@@ -2,26 +2,36 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
   # Public API
   # ----------
   EventsApp.showEventList = ->
-    $.get '/events.json', (data) ->
-      EventsApp.upcomingEvents.reset data['upcoming']
-      EventsApp.recentEvents.reset data['recent']
-      EventsApp.Events.showEvents EventsApp.upcomingEvents, EventsApp.recentEvents
+    EventsApp.currentEventSource = '/events.json'
+    resetEventCollections()
+    fetchEvents()
 
   EventsApp.showEventListByCategoryId = (id) ->
-    $.get "/categories/#{id}/events.json", (data) ->
-      EventsApp.upcomingEvents.reset data['upcoming']
-      EventsApp.recentEvents.reset data['recent']
-      EventsApp.Events.showEvents EventsApp.upcomingEvents, EventsApp.recentEvents
+    EventsApp.currentEventSource = "/categories/#{id}/events.json"
+    resetEventCollections()
+    fetchEvents()
+
+  EventsApp.showMoreEvents = ->
+    EventsApp.currentPageCount += 1
+    fetchEvents()
 
   # Event Bindings
   # --------------
   EventSalsa.vent.bind 'events:show', ->
-    EventsApp.showEventList
     window.scrollTo 0
+    EventsApp.showEventList()
 
   EventSalsa.vent.bind 'events:show:category', (category) ->
-    EventsApp.showEventListByCategoryId category.id
     window.scrollTo 0
+    EventsApp.showEventListByCategoryId category.id
+
+  EventSalsa.vent.bind 'events:more:upcoming', ->
+    if EventsApp.upcomingEvents.isReadyToFetch()
+      EventsApp.showMoreEvents()
+
+  EventSalsa.vent.bind 'events:more:recent', ->
+    if EventsApp.recentEvents.isReadyToFetch()
+      EventsApp.showMoreEvents()
 
   # Models
   # ------
@@ -44,14 +54,30 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
 
   class EventsApp.EventCollection extends Backbone.Collection
     model: EventsApp.Event
-    url: ->
-      @prefix + '/events' + @query
-
-    initialize: (options = {}) ->
-      @prefix = options.prefix || ''
-      @query = options.query || '/recent'
+    url: '/events'
+    isReadyToFetch: ->
+      return not @loading and @length < @totalLength
 
   # Private API
+  # -----------
+  resetEventCollections = ->
+    EventsApp.currentPageCount = 1
+    EventsApp.upcomingEvents.reset()
+    EventsApp.recentEvents.reset()
+
+  fetchEvents = ->
+    EventsApp.upcomingEvents.loading = yes
+    EventsApp.recentEvents.loading = yes
+    $.getJSON EventsApp.currentEventSource, { page: EventsApp.currentPageCount }, (data) ->
+      EventsApp.upcomingEvents.add data['record']['upcoming']
+      EventsApp.upcomingEvents.totalLength = data['upcoming_count']
+      EventsApp.recentEvents.add data['record']['recent']
+      EventsApp.recentEvents.totalLength = data['recent_count']
+      EventsApp.upcomingEvents.loading = no
+      EventsApp.recentEvents.loading = no
+      EventsApp.Events.showEvents EventsApp.upcomingEvents, EventsApp.recentEvents
+
+  # Initializer
   # -----------
   EventSalsa.addInitializer ->
     EventsApp.upcomingEvents = new EventsApp.EventCollection()

@@ -8,6 +8,6 @@ class ApiController < ApplicationController
 
   def default_params
     params[:page] ||= 1
-    params[:per_page] ||= 10
+    params[:per_page] ||= 25
   end
 end

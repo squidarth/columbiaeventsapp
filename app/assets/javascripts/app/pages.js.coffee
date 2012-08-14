@@ -10,12 +10,12 @@ EventSalsa.module 'Pages', (Pages, EventSalsa, Backbone, Marionette, $, _) ->
   # Event Bindings
   # --------------
   EventSalsa.vent.bind 'pages:about:show', ->
-    Pages.showAboutPage()
     window.scrollTo 0
+    Pages.showAboutPage()
 
   EventSalsa.vent.bind 'pages:contact:show', ->
-    Pages.showContactPage()
     window.scrollTo 0
+    Pages.showContactPage()
 
   # Views
   # -----

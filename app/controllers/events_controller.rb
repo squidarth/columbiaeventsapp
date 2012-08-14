@@ -8,10 +8,13 @@ class EventsController < ApiController
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
   def index
-    upcoming = @scope.upcoming(@datetime).page(params[:page]).per(params[:per_page])
-    recent = @scope.recent(@datetime).page(params[:page]).per(params[:per_page])
-    listing = EventListing.new({ upcoming: upcoming, recent: recent })
-    respond_with listing, api_template: :public
+    upcoming = @scope.upcoming(@datetime)
+    recent = @scope.recent(@datetime)
+    listing = EventListing.new({
+      upcoming: upcoming.page(params[:page]).per(params[:per_page]),
+      recent: recent.page(params[:page]).per(params[:per_page])
+    })
+    respond_with listing, api_template: :public, meta: { upcoming_count: upcoming.count, recent_count: recent.count }
   end
 
   def show
