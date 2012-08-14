@@ -22,6 +22,15 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
     defaults:
       name: null
       date: null
+    initialize: ->
+      # [TODO] Find out why last attendings is undefined
+      @attending = new EventsApp.Attendings.Attending
+        event_id: @get('id')
+      if EventSalsa.currentUser and @get('attendings')
+        attendingIndex = $.inArray EventSalsa.currentUser.id, @get('attendings').map (attending) ->
+          attending.user.id
+        if attendingIndex >= 0
+          @attending.set @get('attendings')[attendingIndex]
 
   class EventsApp.EventCollection extends Backbone.Collection
     model: EventsApp.Event

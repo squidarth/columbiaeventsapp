@@ -7,14 +7,16 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
 
   # Views
   # ------
-  class Events.EventView extends Marionette.ItemView
+  class Events.EventView extends Marionette.Layout
     template: JST["templates/events/event"]
     tagName: 'tr'
-    events:
-      'click button': 'attendStatusChanged'
-    attendStatusChanged: ->
-      if ($.inArray EventSalsa.currentUser.get('id'), @model.get('attendings').map (attending) -> attending.user.id)
-        $('button').toggleClass 'btn-warning btn-success'
+    regions:
+      attending: '.attending-control'
+    onRender: ->
+      @attendingStatusView = new EventSalsa.EventsApp.Attendings.AttendingStatusView
+      if @model.attending
+        @attendingStatusView.model = @model.attending
+      @attending.show @attendingStatusView
 
   class Events.EventListView extends Marionette.CollectionView
     itemView: Events.EventView
@@ -38,8 +40,8 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @modelBinder = new Backbone.ModelBinder()
     onRender: ->
       @modelBinder.bind @model, @el
-      $('.input-timepicker').timepicker()
-      $('.input-datepicker').datepicker()
+      @$('.input-timepicker').timepicker()
+      @$('.input-datepicker').datepicker()
     save: (e) ->
       e.preventDefault()
       e.stopPropagation()
@@ -81,7 +83,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
 
   prepareEventList = (upcomingEvents, recentEvents) ->
     upcomingEventsView = new Events.EventListView
-      #el: Events.eventsView.upcoming.$el
       collection: upcomingEvents
     recentEventsView = new Events.EventListView
       collection: recentEvents

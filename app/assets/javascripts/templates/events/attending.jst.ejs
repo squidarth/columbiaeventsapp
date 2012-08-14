@@ -1,0 +1,15 @@
+<% if (EventSalsa.currentUser) { %>
+  <div class="btn-group">
+    <button class="btn <%= Helpers.EJS.classFromAttendStatus[status || undefined] %> attend-status" class="btn btn-primary">
+      <%= Helpers.EJS.displayAttendStatus[status || undefined] %>
+    </button>
+    <a class="btn <%= Helpers.EJS.classFromAttendStatus[status || undefined] %> dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </a>
+    <ul class="attend-option dropdown-menu">
+      <li><a data-value="YES">Attending</a></li>
+      <li><a data-value="MAYBE">Maybe</a></li>
+      <li><a data-value="NO">Not Attending</a></li>
+    </ul>
+  </div>
+<% } %>

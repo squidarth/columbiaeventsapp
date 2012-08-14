@@ -6,7 +6,7 @@ EventSalsa::Application.routes.draw do
       get 'index', on: :collection, action: 'index_for_user'
     end
   end
-  resources :attendings, only: [] do
+  resources :attendings, only: [:create, :update] do
     get 'index', on: :collection, action: 'index_for_user'
   end
 
@@ -30,9 +30,7 @@ EventSalsa::Application.routes.draw do
   end
   resources :events do
     resources :comments, :only => [:create]
-    resources :attendings, only: [:index, :create] do
-      post 'attend'
-    end
+    resources :attendings, only: [:index, :create]
     collection do
       get 'upcoming'
       get 'recent'

@@ -2,9 +2,12 @@
 #= require ./layout
 #= require_tree ./events
 #= require routers/events_router
+#= require_tree ../helpers
 #= require_tree ../templates
 
 window.EventSalsa = new Backbone.Marionette.Application()
+
+window.Helpers = {}
 
 EventSalsa.addRegions
   application: '#application'
