@@ -18,15 +18,20 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
     showNavItem: (e) ->
       $('#navbar li').removeClass 'active'
       $(e.target).parent().addClass 'active'
+      EventSalsa.vent.trigger 'events:category:clear'
       EventSalsa.vent.trigger @navItemEvents[$(e.target).data('target')]
     showEventListByQuery: (e) ->
       e.preventDefault()
+      EventSalsa.vent.trigger 'events:category:clear'
       EventSalsa.vent.trigger 'events:show:search', $(e.target).find('input').val()
     showEventList: ->
+      EventSalsa.vent.trigger 'events:category:clear'
       EventSalsa.vent.trigger 'events:show'
     showAboutPage: ->
+      EventSalsa.vent.trigger 'events:category:clear'
       EventSalsa.vent.trigger 'pages:about:show'
     showContactPage: ->
+      EventSalsa.vent.trigger 'events:category:clear'
       EventSalsa.vent.trigger 'pages:contact:show'
 
   # Initializer

@@ -11,6 +11,9 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
   EventSalsa.vent.bind 'layout:rendered', ->
     Categories.showCategoryList()
 
+  EventSalsa.vent.bind 'events:category:clear', ->
+    EventSalsa.layout.categories.currentView.highlightCategoryWithId null
+
   # Models
   # ------
   class Categories.Category extends Backbone.Model
