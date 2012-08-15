@@ -2,17 +2,23 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
   # Public API
   # ----------
   EventsApp.showEventList = ->
-    EventsApp.currentEventSource = '/events.json'
     resetEventCollections()
+    EventsApp.currentEventSource = '/events.json'
     fetchEvents()
 
   EventsApp.showEventListByCategoryId = (id) ->
-    EventsApp.currentEventSource = "/categories/#{id}/events.json"
     resetEventCollections()
+    EventsApp.currentEventSource = "/categories/#{id}/events.json"
+    fetchEvents()
+
+  EventsApp.showEventListByQuery = (query) ->
+    resetEventCollections()
+    EventsApp.currentEventSource = '/events.json'
+    EventsApp.currentEventSourceOptions.search = query
     fetchEvents()
 
   EventsApp.showMoreEvents = ->
-    EventsApp.currentPageCount += 1
+    EventsApp.currentEventSourceOptions.page += 1
     fetchEvents()
 
   # Event Bindings
@@ -24,6 +30,10 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
   EventSalsa.vent.bind 'events:show:category', (category) ->
     window.scrollTo 0
     EventsApp.showEventListByCategoryId category.id
+
+  EventSalsa.vent.bind 'events:show:search', (query) ->
+    window.scrollTo 0
+    EventsApp.showEventListByQuery query
 
   EventSalsa.vent.bind 'events:more:upcoming', ->
     if EventsApp.upcomingEvents.isReadyToFetch()
@@ -61,14 +71,16 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
   # Private API
   # -----------
   resetEventCollections = ->
-    EventsApp.currentPageCount = 1
+    EventsApp.currentEventSourceOptions =
+      page: 1
     EventsApp.upcomingEvents.reset()
     EventsApp.recentEvents.reset()
 
   fetchEvents = ->
     EventsApp.upcomingEvents.loading = yes
     EventsApp.recentEvents.loading = yes
-    $.getJSON EventsApp.currentEventSource, { page: EventsApp.currentPageCount }, (data) ->
+    EventsApp.currentEventSource, EventsApp.currentEventSourceOptions
+    $.getJSON EventsApp.currentEventSource, EventsApp.currentEventSourceOptions, (data) ->
       EventsApp.upcomingEvents.add data['record']['upcoming']
       EventsApp.upcomingEvents.totalLength = data['upcoming_count']
       EventsApp.recentEvents.add data['record']['recent']

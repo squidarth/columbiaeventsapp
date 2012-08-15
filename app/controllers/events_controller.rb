@@ -8,6 +8,9 @@ class EventsController < ApiController
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
   def index
+    if params[:q]
+      @scope = @scope.search(params[:q])
+    end
     upcoming = @scope.upcoming(@datetime)
     recent = @scope.recent(@datetime)
     listing = EventListing.new({
@@ -29,11 +32,6 @@ class EventsController < ApiController
 
   def recent
     events = @scope.recent(@datetime).page(params[:page]).per(params[:per_page])
-    respond_with events, api_template: :public
-  end
-
-  def search
-    events = @scope.search(params[:search]).page(params[:page]).per(params[:per_page])
     respond_with events, api_template: :public
   end
 

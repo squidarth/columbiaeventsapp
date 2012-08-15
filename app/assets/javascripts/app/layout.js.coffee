@@ -12,8 +12,9 @@ EventSalsa.module "Layout", (Layout, EventSalsa, Backbone, Marionette, $, _) ->
       'click #navbar a'  : 'showModule'
       'click #about'     : 'showAboutPage'
       'click #contact'   : 'showContactPage'
-    showEventListByQuery: ->
-      return
+    showEventListByQuery: (e) ->
+      e.preventDefault()
+      EventSalsa.vent.trigger 'events:show:search', $(e.target).val()
     showEventList: ->
       EventSalsa.vent.trigger 'events:show'
     showModule: ->
