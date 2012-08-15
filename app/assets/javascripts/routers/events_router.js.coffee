@@ -10,6 +10,9 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
   EventSalsa.vent.bind "events:show:category", (category) ->
     EventSalsa.Routing.showRoute "categories", category.id, "events"
 
+  EventSalsa.vent.bind "events:show:attending", ->
+    EventSalsa.Routing.showRoute "attendings", "events"
+
   EventSalsa.vent.bind "events:calendar:show", ->
     EventSalsa.Routing.showRoute "calendar"
 
@@ -20,6 +23,7 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
       ""                       : "showEventList"
       "events"                 : "showEventList"
       "categories/:id/events"  : "showEventListByCategoryId"
+      "attendings/events"      : "showEventListByAttending"
     routes:
       "calendar"               : "invokeCalendarModule"
     invokeCalendarModule: ->

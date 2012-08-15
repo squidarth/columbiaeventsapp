@@ -2,6 +2,7 @@ EventSalsa::Application.routes.draw do
 
   match '/calendar', to: 'events#calendar'
   resources :users do
+    resources :events, only: [:index]
     resources :attendings, only: [] do
       get 'index', on: :collection, action: 'index_for_user'
     end

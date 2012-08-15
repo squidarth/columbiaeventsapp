@@ -32,6 +32,7 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     events:
       'click a': 'showEventsByCategory'
     showEventsByCategory: ->
+      EventSalsa.vent.trigger('events:category:clear', @model)
       EventSalsa.vent.trigger('events:show:category', @model)
 
   class Categories.CategoryListView extends Marionette.CollectionView

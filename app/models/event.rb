@@ -4,8 +4,9 @@ class Event < ActiveRecord::Base
   has_attached_file :photo, :styles => { :thumb => "75x75>", :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
 
   has_many :comments, :dependent => :destroy
-  has_many :attendings, :dependent => :destroy
   has_many :tags, :dependent => :destroy
+  has_many :attendings, :dependent => :destroy
+  has_many :users, :through => :attendings
 
   has_many :categorizations, :dependent => :destroy
   has_many :categories, :through => :categorizations

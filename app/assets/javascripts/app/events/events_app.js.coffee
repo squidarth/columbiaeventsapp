@@ -18,6 +18,12 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
     EventsApp.currentEventSourceOptions.search = query
     fetchEvents()
 
+  EventsApp.showEventListByAttending = ->
+    EventSalsa.layout.$('#my-events').parent().addClass 'active'
+    resetEventCollections()
+    EventsApp.currentEventSource = "/users/#{EventSalsa.currentUser.id}/events.json"
+    fetchEvents()
+
   EventsApp.showMoreEvents = ->
     EventsApp.currentEventSourceOptions.page += 1
     fetchEvents()
@@ -35,6 +41,10 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
   EventSalsa.vent.bind 'events:show:search', (query) ->
     window.scrollTo 0
     EventsApp.showEventListByQuery query
+
+  EventSalsa.vent.bind 'events:show:attending', (query) ->
+    window.scrollTo 0
+    EventsApp.showEventListByAttending()
 
   EventSalsa.vent.bind 'events:more:upcoming', ->
     if EventsApp.upcomingEvents.isReadyToFetch()
