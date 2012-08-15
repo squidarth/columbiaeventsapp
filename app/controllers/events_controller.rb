@@ -8,8 +8,8 @@ class EventsController < ApiController
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
   def index
-    if params[:q]
-      @scope = @scope.search(params[:q])
+    if params[:search]
+      @scope = @scope.search(params[:search])
     end
     upcoming = @scope.upcoming(@datetime)
     recent = @scope.recent(@datetime)

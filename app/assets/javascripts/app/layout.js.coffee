@@ -1,4 +1,4 @@
-EventSalsa.module "Layout", (Layout, EventSalsa, Backbone, Marionette, $, _) ->
+EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) ->
   # Views
   # -----
   class Layout extends Marionette.Layout
@@ -7,18 +7,23 @@ EventSalsa.module "Layout", (Layout, EventSalsa, Backbone, Marionette, $, _) ->
       categories: "#category-list"
       content: "#content"
     events:
+      'click #navbar a'  : 'showModule'
       'submit form'      : 'showEventListByQuery'
       'click .brand'     : 'showEventList'
-      'click #navbar a'  : 'showModule'
       'click #about'     : 'showAboutPage'
       'click #contact'   : 'showContactPage'
+    modules:
+      'calendar': 'events:calendar:show'
+      'events': 'events:show'
+    showModule: (e) ->
+      $('#navbar li').removeClass 'active'
+      $(e.target).parent().addClass 'active'
+      EventSalsa.vent.trigger @modules[$(e.target).data('target')]
     showEventListByQuery: (e) ->
       e.preventDefault()
-      EventSalsa.vent.trigger 'events:show:search', $(e.target).val()
+      EventSalsa.vent.trigger 'events:show:search', $(e.target).find('input').val()
     showEventList: ->
       EventSalsa.vent.trigger 'events:show'
-    showModule: ->
-      return
     showAboutPage: ->
       EventSalsa.vent.trigger 'pages:about:show'
     showContactPage: ->

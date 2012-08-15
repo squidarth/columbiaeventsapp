@@ -49,9 +49,6 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
     paramRoot: 'event'
     urlRoot: '/events'
 
-    defaults:
-      name: null
-      date: null
     initialize: ->
       # [TODO] Find out why last attendings is undefined
       @attending = new EventsApp.Attendings.Attending
@@ -79,7 +76,6 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
   fetchEvents = ->
     EventsApp.upcomingEvents.loading = yes
     EventsApp.recentEvents.loading = yes
-    EventsApp.currentEventSource, EventsApp.currentEventSourceOptions
     $.getJSON EventsApp.currentEventSource, EventsApp.currentEventSourceOptions, (data) ->
       EventsApp.upcomingEvents.add data['record']['upcoming']
       EventsApp.upcomingEvents.totalLength = data['upcoming_count']

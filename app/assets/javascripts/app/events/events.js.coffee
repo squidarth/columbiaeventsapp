@@ -11,20 +11,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
 
   # Views
   # ------
-  class Events.EventView extends Marionette.Layout
-    template: JST["templates/events/event"]
-    tagName: 'tr'
-    regions:
-      attending: '.attending-control'
-    onRender: ->
-      @attendingStatusView = new EventSalsa.EventsApp.Attendings.AttendingStatusView
-      if @model.attending
-        @attendingStatusView.model = @model.attending
-      @attending.show @attendingStatusView
-
-  class Events.EventListView extends Marionette.CollectionView
-    itemView: Events.EventView
-
   class Events.EventsView extends Marionette.Layout
     template: JST["templates/events/index"]
     regions:
@@ -41,6 +27,20 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
         EventSalsa.vent.trigger 'events:more:upcoming'
       if $('#recent-events').hasClass 'active'
         EventSalsa.vent.trigger 'events:more:recent'
+
+  class Events.EventView extends Marionette.Layout
+    template: JST["templates/events/event"]
+    tagName: 'tr'
+    regions:
+      attending: '.attending-control'
+    onRender: ->
+      @attendingStatusView = new EventSalsa.EventsApp.Attendings.AttendingStatusView
+      if @model.attending
+        @attendingStatusView.model = @model.attending
+      @attending.show @attendingStatusView
+
+  class Events.EventListView extends Marionette.CollectionView
+    itemView: Events.EventView
 
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]

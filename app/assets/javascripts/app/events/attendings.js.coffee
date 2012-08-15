@@ -8,6 +8,10 @@ EventSalsa.module 'EventsApp.Attendings', (Attendings, EventSalsa, Backbone, Mar
     paramRoot: 'attending'
     urlRoot: '/attendings'
 
+  class Attendings.AttendingCollection extends Backbone.Collection
+    model: Attendings.Attending
+    url: '/attendings'
+
   # Views
   # ------
   class Attendings.AttendingStatusView extends Marionette.ItemView

@@ -26,6 +26,7 @@ class Event < ActiveRecord::Base
   scope :none, where('1=0')
   scope :upcoming, lambda { |datetime=DateTime.now| where('start_time > ?', datetime).order('start_time ASC') }
   scope :recent,   lambda { |datetime=DateTime.now| where('start_time < ?', datetime).order('start_time DESC') }
+  scope :search,   lambda { |query=''| where('LOWER(name) LIKE ? OR LOWER(description) LIKE ? ', "%#{query.downcase}%", "%#{query.downcase}%") }
 
   acts_as_api
   api_accessible :public do |t|
@@ -40,10 +41,6 @@ class Event < ActiveRecord::Base
     t.add lambda { |event| event.photo.url(:small) }, as: :photo_url_small
     t.add :categorizations
     t.add :attendings
-  end
-
-  def has_free_food?
-    categories.find_by_name("Free Food") ? true : false
   end
 
   def self.strip_events(user_id)
@@ -76,11 +73,6 @@ class Event < ActiveRecord::Base
       event = create!(:user_id => User.find(44).id, :facebook_id => event_id, :name => @event_deets["name"], :description => @event_deets["description"].to_s, :author => author, :location => @event_deets[:location], :time => @time, :date => @date, :category => category)
       event.categorize_by_keywords
     end
-  end
-
-  def self.search(search)
-    search_condition = "%" + search.downcase + "%"
-    find(:all, :conditions => ['LOWER(name) LIKE ? OR LOWER(description) LIKE ? ', search_condition, search_condition])
   end
 
   def self.get_fb_attendings(id)

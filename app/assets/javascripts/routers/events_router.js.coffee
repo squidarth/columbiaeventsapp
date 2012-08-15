@@ -10,6 +10,9 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
   EventSalsa.vent.bind "events:show:category", (category) ->
     EventSalsa.Routing.showRoute "categories", category.id, "events"
 
+  EventSalsa.vent.bind "events:calendar:show", ->
+    EventSalsa.Routing.showRoute "calendar"
+
   # Private API
   # -----------
   EventsRouting.Router = Marionette.AppRouter.extend
@@ -17,6 +20,10 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
       ""                       : "showEventList"
       "events"                 : "showEventList"
       "categories/:id/events"  : "showEventListByCategoryId"
+    routes:
+      "calendar"               : "invokeCalendarModule"
+    invokeCalendarModule: ->
+      EventSalsa.EventsApp.Calendar.showCalendar()
 
   # Initializer
   # -----------
