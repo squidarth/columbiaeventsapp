@@ -7,18 +7,18 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
       categories: "#category-list"
       content: "#content"
     events:
-      'click #navbar a'  : 'showModule'
+      'click #navbar a'  : 'showNavItem'
       'submit form'      : 'showEventListByQuery'
       'click .brand'     : 'showEventList'
       'click #about'     : 'showAboutPage'
       'click #contact'   : 'showContactPage'
-    modules:
+    navItemEvents:
       'calendar': 'events:calendar:show'
       'events': 'events:show'
-    showModule: (e) ->
+    showNavItem: (e) ->
       $('#navbar li').removeClass 'active'
       $(e.target).parent().addClass 'active'
-      EventSalsa.vent.trigger @modules[$(e.target).data('target')]
+      EventSalsa.vent.trigger @navItemEvents[$(e.target).data('target')]
     showEventListByQuery: (e) ->
       e.preventDefault()
       EventSalsa.vent.trigger 'events:show:search', $(e.target).find('input').val()

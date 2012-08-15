@@ -7,6 +7,7 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
     fetchEvents()
 
   EventsApp.showEventListByCategoryId = (id) ->
+    highlightCategoryWithId id
     resetEventCollections()
     EventsApp.currentEventSource = "/categories/#{id}/events.json"
     fetchEvents()
@@ -67,6 +68,10 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
 
   # Private API
   # -----------
+  highlightCategoryWithId = (id) ->
+    if EventSalsa.layout.categories.currentView
+      EventSalsa.layout.categories.currentView.highlightCategoryWithId id
+
   resetEventCollections = ->
     EventsApp.currentEventSourceOptions =
       page: 1

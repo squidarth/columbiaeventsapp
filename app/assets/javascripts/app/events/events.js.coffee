@@ -23,9 +23,9 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @newEventView = new Events.EventNewView()
       @new.show @newEventView
     handleEndOfPage: ->
-      if $('#upcoming-events').hasClass 'active'
+      if @$('#upcoming-events').hasClass 'active'
         EventSalsa.vent.trigger 'events:more:upcoming'
-      if $('#recent-events').hasClass 'active'
+      if @$('#recent-events').hasClass 'active'
         EventSalsa.vent.trigger 'events:more:recent'
 
   class Events.EventView extends Marionette.Layout

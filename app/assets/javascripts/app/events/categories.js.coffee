@@ -35,6 +35,9 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     itemView: Categories.CategoryView
     tagName: 'ul'
     className: 'nav nav-pills nav-stacked'
+    highlightCategoryWithId: (id) ->
+      @$('li').removeClass 'active'
+      @$("a[data-id=#{id}]").parent().addClass 'active'
 
   # Private API
   # -----------
@@ -42,3 +45,8 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     categoryListView = new Categories.CategoryListView
       collection: Categories.categories
     EventSalsa.layout.categories.show categoryListView
+
+    route = window.location.hash.split('/')
+    if route[0] == '#categories'
+      categoryListView.highlightCategoryWithId route[1]
+
