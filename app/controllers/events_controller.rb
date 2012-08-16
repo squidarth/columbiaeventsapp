@@ -2,9 +2,9 @@ class EventsController < ApiController
   include EventsHelper
 
   before_filter :authenticate, :only => [:create, :destroy]
-  before_filter :authorized_user, :only => :destroy
+  before_filter :authorized_user, only: [:update, :destroy]
 
-  before_filter :determine_scope, only: [:index, :upcoming, :recent, :search]
+  before_filter :determine_scope, only: [:index, :upcoming, :recent]
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
   def index
@@ -41,13 +41,6 @@ class EventsController < ApiController
     Event.make_from_facebook(event_id, '', category)
     flash[:success] = "Event Successfully Pulled!"
     redirect_to '/events/new/'
-  end
-
-  def new
-    @event = Event.new
-    @user = current_user
-    @title = "Create Event"
-    render 'show'
   end
 
   def create
@@ -113,11 +106,6 @@ class EventsController < ApiController
       @title = "Make New Event!"
       render 'new'
     end
-  end
-
-  def edit
-    @event = Event.find(params[:id])
-    @title = "Edit " + @event.name
   end
 
   def update
@@ -199,11 +187,7 @@ class EventsController < ApiController
   end
 
   def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html {redirect_to current_user}
-      format.js
-    end
+    respond_with @event.destroy, api_template: :public
   end
 
   protected
