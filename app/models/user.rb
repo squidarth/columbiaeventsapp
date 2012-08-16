@@ -1,18 +1,13 @@
 class User < ActiveRecord::Base
   attr_accessible :id, :name, :email, :about_me, :school, :facebook_id
-  has_many :events,           :dependent => :nullify
-  has_many :authorizations,   :dependent => :destroy
-  has_many :attendings,       :dependent => :destroy
-  has_many :attending_events, :class_name => 'Event', :through => :attendings, :source => :event
+  has_many :events,           dependent: :nullify
+  has_many :authorizations,   dependent: :destroy
+  has_many :attendings,       dependent: :destroy
+  has_many :attending_events, class_name: 'Event', through: :attendings, source: :event
 
-  email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
-  validates :name, :presence => true,
-            :length   => { :maximum => 50 }
-  validates :email, :presence => true,
-            :format   => { :with => email_regex },
-            :uniqueness => { :case_sensitive => false }
-  validates :password, :confirmation => true,
-            :length => { :within => 6..40 }
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :facebook_id, presence: true
 
   before_save :encrypt_password
 

@@ -11,18 +11,19 @@ class AuthorizationsController < ApplicationController
       Event.get_events(auth['credentials']['token'])
       sign_in user
     elsif signed_in? #case that user is already signed into eventsalsa
-      current_user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+      current_user.authorizations.create!(:provider => auth['provider'],
+                                          :uid => auth['uid'],
+                                          :token => auth['credentials']['token'])
     else #case that new user needs to be created
-      user = User.create(:name => auth['extra']['raw_info']['first_name'] + " " + auth['extra']['raw_info']['last_name'], 
+      user = User.create(:name => "#{auth['extra']['raw_info']['first_name']} #{auth['extra']['raw_info']['last_name']}", 
                          :email => auth['info']['email'], 
                          :facebook_id => auth['uid'])
       if user.save
-        user.authorizations.create!(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+        user.authorizations.create!(:provider => auth['provider'],
+                                    :uid => auth['uid'],
+                                    :token => auth['credentials']['token'])
         sign_in user
         Event.get_events(auth['credentials']['token'])
-        flash[:success] = "Thanks for joining! To get started either edit your profile or start creating events!"
-      else
-        session[:auth]  = auth.except('extra')
       end
     end
     redirect_to root_url

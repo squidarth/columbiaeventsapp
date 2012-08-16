@@ -3,8 +3,6 @@ class Event < ActiveRecord::Base
 
   has_attached_file :photo, :styles => { :thumb => "75x75>", :small => "150x150>" }, :storage => :s3, :s3_credentials => "#{Rails.root}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :bucket => "ColumbiaEventsApp"
 
-  has_many :comments, :dependent => :destroy
-  has_many :tags, :dependent => :destroy
   has_many :attendings, :dependent => :destroy
   has_many :attending_users, :class_name => 'User', :through => :attendings, :source => :user
 
@@ -16,12 +14,10 @@ class Event < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
 
-  validates :name, :presence => true, :length => { :maximum => 140 }
-  validates :location,  :length => { :maximum => 140 }
-  validates :author, :length => { :maximum => 140 }
-  validates :user_id, :presence => true
-
-  validate :validate_date
+  validates :name,     :presence => true, :length => { :maximum => 140 }
+  validates :location, :length => { :maximum => 140 }
+  validates :author,   :length => { :maximum => 140 }
+  validates :user_id,  :presence => true
 
   default_scope where(deleted: [nil, false])
   scope :none, where('1=0')
@@ -242,15 +238,4 @@ class Event < ActiveRecord::Base
       return []
     end
   end
-
-  private
-
-  def validate_date
-    if !self.facebook_id
-      if self.date
-        errors.add("Date", "is invalid.") unless self.date > Date.today || self.date == Date.today
-      end
-    end
-  end
-
 end    

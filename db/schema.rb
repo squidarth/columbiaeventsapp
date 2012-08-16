@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816202843) do
+ActiveRecord::Schema.define(:version => 20120816231029) do
 
   create_table "attendings", :force => true do |t|
     t.integer   "user_id"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20120816202843) do
   create_table "events", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "author"
     t.string   "facebook_id"
     t.string   "location"
     t.datetime "created_at"
@@ -58,9 +57,6 @@ ActiveRecord::Schema.define(:version => 20120816202843) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "category"
-    t.date     "date"
-    t.time     "time"
     t.boolean  "deleted"
     t.integer  "numAttending"
     t.datetime "start_time"
@@ -73,9 +69,8 @@ ActiveRecord::Schema.define(:version => 20120816202843) do
     t.string   "school"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin",              :default => false
+    t.boolean  "admin",       :default => false
     t.string   "facebook_id"
   end
 
