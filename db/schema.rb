@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120621210353) do
+ActiveRecord::Schema.define(:version => 20120816202843) do
 
   create_table "attendings", :force => true do |t|
     t.integer   "user_id"
@@ -45,14 +45,6 @@ ActiveRecord::Schema.define(:version => 20120621210353) do
     t.integer  "event_id"
   end
 
-  create_table "comments", :force => true do |t|
-    t.string    "author"
-    t.string    "content"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "event_id"
-  end
-
   create_table "events", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -74,34 +66,17 @@ ActiveRecord::Schema.define(:version => 20120621210353) do
     t.datetime "start_time"
   end
 
-  create_table "tags", :force => true do |t|
-    t.integer   "user_id"
-    t.string    "name"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "event_id"
-  end
-
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "email"
-    t.string    "aboutme"
-    t.string    "affiliatedorgs"
-    t.string    "school"
-    t.string    "fblink"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "encrypted_password"
-    t.string    "salt"
-    t.boolean   "admin",               :default => false
-    t.string    "avatar_file_name"
-    t.string    "avatar_content_type"
-    t.integer   "avatar_file_size"
-    t.timestamp "avatar_updated_at"
-    t.string    "fbnickname"
-    t.string    "facebookid"
-    t.string    "confirmcode"
-    t.boolean   "confirmed"
+    t.string   "name"
+    t.string   "email"
+    t.string   "about_me"
+    t.string   "school"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.boolean  "admin",              :default => false
+    t.string   "facebook_id"
   end
 
 end
