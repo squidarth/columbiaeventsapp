@@ -226,6 +226,6 @@ class EventsController < ApiController
     else
       @scope = Event
     end
-    @scope.includes(:categories, :attendings)
+    @scope.includes(:categorizations, :categories, :attendings)
   end
 end

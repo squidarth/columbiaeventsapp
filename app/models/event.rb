@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :tags, :dependent => :destroy
   has_many :attendings, :dependent => :destroy
-  has_many :users, :through => :attendings
+  has_many :attending_users, :class_name => 'User', :through => :attendings, :source => :user
 
   has_many :categorizations, :dependent => :destroy
   has_many :categories, :through => :categorizations
