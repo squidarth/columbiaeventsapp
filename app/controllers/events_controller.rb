@@ -1,16 +1,13 @@
 class EventsController < ApiController
   include EventsHelper
 
-  before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authenticate, :only => [:create, :fetch_from_facebook, :destroy]
   before_filter :authorized_user, only: [:update, :destroy]
 
   before_filter :determine_scope, only: [:index, :upcoming, :recent]
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
   def index
-    if params[:search]
-      @scope = @scope.search(params[:search])
-    end
     upcoming = @scope.upcoming(@datetime)
     recent = @scope.recent(@datetime)
     listing = EventListing.new({
@@ -35,12 +32,12 @@ class EventsController < ApiController
     respond_with events, api_template: :public
   end
 
-  def pull
-    event_id = params[:url].split("eid=")[1]
-    category = params[:category][0].to_i
-    Event.make_from_facebook(event_id, '', category)
-    flash[:success] = "Event Successfully Pulled!"
-    redirect_to '/events/new/'
+  def fetch_from_facebook
+    if current_user && params[:facebook_id]
+      current_user.authorizations.find_by_provider('facebook').fetch_event_from_facebook_by_id params[:facebook_id]
+    end
+    event = Event.find_by_facebook_id params[:facebook_id]
+    respond_with event, api_template: :public
   end
 
   def create
@@ -211,5 +208,8 @@ class EventsController < ApiController
       @scope = Event
     end
     @scope.includes(:categorizations, :categories, :attendings)
+    if params[:search]
+      @scope = @scope.search(params[:search])
+    end
   end
 end

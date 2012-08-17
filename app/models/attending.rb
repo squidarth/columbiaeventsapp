@@ -1,11 +1,11 @@
 class Attending < ActiveRecord::Base
-  attr_accessible :id, :user_id, :event_id
+  attr_accessible :id, :user_id, :event_id, :status
 
   belongs_to :user
   belongs_to :event
 
-  validates :status, inclusion: { in: %w(YES MAYBE NO) }
-  
+  validates :status, inclusion: { in: %w(attending unsure declined) }
+
   acts_as_api
   api_accessible :public do |t|
     t.add :id

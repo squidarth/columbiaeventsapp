@@ -1,6 +1,4 @@
 EventSalsa::Application.routes.draw do
-
-  match '/calendar', to: 'events#calendar'
   resources :users do
     resources :events, only: [:index]
     resources :attendings, only: [] do
@@ -24,7 +22,7 @@ EventSalsa::Application.routes.draw do
     collection do
       get 'upcoming'
       get 'recent'
-      get 'pull'
+      post 'fetch_from_facebook'
     end
   end
 
@@ -32,8 +30,6 @@ EventSalsa::Application.routes.draw do
   match '/current_user' => 'sessions#show'
   match '/signout' => 'sessions#destroy'
 
-  match '/users/:id/confirm/:confirmcode', :to => 'users#confirm'
-  match '/users/:id/password', :to => 'users#changepassword'
   match '/auth/:provider/callback', :to => 'authorizations#create'
   root :to => 'pages#home'
 end

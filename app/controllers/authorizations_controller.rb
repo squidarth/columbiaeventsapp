@@ -28,11 +28,4 @@ class AuthorizationsController < ApplicationController
     end
     redirect_to root_url
   end
-
-  def destroy
-    @authorization= current_user.authentications.find(params[:id])
-    @authorization.destroy
-    flash[:notice] = "Successfully destroyed authentication."
-    redirect_to authorizations_url
-  end
 end
