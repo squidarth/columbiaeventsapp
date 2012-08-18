@@ -12,14 +12,12 @@
 //= require backbone.marionette
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require backbone.analytics
 //= require Backbone.ModelBinder-min
 //= require app/event_salsa
 //
 //= require_self
 //= require_directory .
-
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
 
 // FACEBOOK INIT
 
@@ -30,15 +28,3 @@ FB.init({
     xfbml  : true, // parse XFBML
     oauth : true // enables OAuth 2.0
 });
-
-// GOOGLE ANALYTICS INIT
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-25696864-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();

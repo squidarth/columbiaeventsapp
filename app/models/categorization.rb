@@ -17,7 +17,7 @@ class Categorization < ActiveRecord::Base
       return
     end
     category_keywords.each do |category_name, keywords|
-      if not event.description.downcase.scan(/#{keywords.join('|')}/).empty?
+      if not keywords.empty? and not event.description.downcase.scan(/#{keywords.join('|')}/).empty?
         category = Category.find_or_create_by_name category_name
         Categorization.create event: event, category: category
       end
