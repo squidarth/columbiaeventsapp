@@ -13,7 +13,21 @@ class Categorization < ActiveRecord::Base
   end
 
   def self.categorize_event_by_keywords(event)
-    category_keywords = {
+    if not event.description.presence
+      return
+    end
+    category_keywords.each do |category_name, keywords|
+      if not event.description.downcase.scan(/#{keywords.join('|')}/).empty?
+        category = Category.find_or_create_by_name category_name
+        Categorization.create event: event, category: category
+      end
+    end
+  end
+
+  protected
+
+  def self.category_keywords
+    {
       'Academic'          => [],
       'Arts'              => [],
       'Career Networking' => ['cce', 'career', 'law', 'banking', 'medicine', 'premed', 'pre-med', 'pre-law', 'prelaw','cce', 'application', 'goldman', 'mckinsey', 'jp morgan', 'merill lynch', 'ubs'],
@@ -29,12 +43,5 @@ class Categorization < ActiveRecord::Base
       'Student Council'   => ['student council', 'ccsc', 'esc'],
       'Theater'           => ['theater', 'miller', 'shakespeare', 'oedipus', 'perform']
     }
-
-    category_keywords.each do |category_name, keywords|
-      if not event.description.downcase.scan(/#{keywords.join('|')}/).empty?
-        category = Category.find_or_create_by_name category_name
-        Categorization.create event: event, category: category
-      end
-    end
   end
 end
