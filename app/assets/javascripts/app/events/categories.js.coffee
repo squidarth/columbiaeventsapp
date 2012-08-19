@@ -31,7 +31,8 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     tagName: 'li'
     events:
       'click a': 'showEventsByCategory'
-    showEventsByCategory: ->
+    showEventsByCategory: (e) ->
+      e.preventDefault()
       EventSalsa.vent.trigger('events:category:clear', @model)
       EventSalsa.vent.trigger('events:show:category', @model)
 

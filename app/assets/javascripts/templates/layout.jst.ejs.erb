@@ -8,9 +8,11 @@
       </form>
 
       <ul id="navbar" class="nav pull-right">
+        <%% if (EventSalsa.currentUser) { %>
         <li>
           <a href="#calendar" data-target="calendar">Calendar</a>
         </li>
+        <%% } %>
         <li>
           <a href="#events" data-target="events">Events</a>
         </li>
@@ -34,11 +36,13 @@
 <div id="wrap">
   <div id="main" class="row">
     <div class="span2">
+      <%% if (EventSalsa.currentUser) { %>
       <ul class="nav nav-pills nav-stacked">
       	<li>
           <a id="my-events" href="#attendings/events">My Events</a>
       	</li>
       </ul>
+      <%% } %>
       <div id="category-list">
       </div>
 

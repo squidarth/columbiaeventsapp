@@ -8,8 +8,8 @@ class EventsController < ApiController
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
   def index
-    upcoming = @scope.upcoming(@datetime)
-    recent = @scope.recent(@datetime)
+    upcoming = @scope.includes(:categories, :attendings).upcoming(@datetime)
+    recent = @scope.includes(:categories, :attendings).recent(@datetime)
     listing = EventListing.new({
       upcoming: upcoming.page(params[:page]).per(params[:per_page]),
       recent: recent.page(params[:page]).per(params[:per_page])
@@ -207,7 +207,6 @@ class EventsController < ApiController
     else
       @scope = Event
     end
-    @scope.includes(:categorizations, :categories, :attendings)
     if params[:search]
       @scope = @scope.search(params[:search])
     end

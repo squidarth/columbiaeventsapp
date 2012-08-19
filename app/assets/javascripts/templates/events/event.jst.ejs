@@ -26,12 +26,12 @@
 <td class="event-description">
   <h3>
     <% if (facebook_id) { %>
-      <a href="http://www.facebook.com/event.php?eventid=<%= facebook_id %>"><%= name %></a>
+      <a href="http://www.facebook.com/<%= facebook_id %>"><%= name %></a>
     <% } else { %>
       <%= name %>
     <% } %>
   </h3>
-  <p>
-    <%= description %>
-  </p>
+  <h4>
+    <%= location %>
+  </h4>
 </td>

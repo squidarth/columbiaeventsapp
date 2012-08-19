@@ -12,12 +12,11 @@
 //= require backbone.marionette
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require backbone.analytics
 //= require Backbone.ModelBinder-min
-//= require app/event_salsa
 //
 //= require_self
 //= require_directory .
+//= require app/event_salsa
 
 // FACEBOOK INIT
 

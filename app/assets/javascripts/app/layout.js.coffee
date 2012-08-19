@@ -12,42 +12,47 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
       categories: "#category-list"
       content: "#content"
     events:
-      'click #navbar a'   : 'showNavItem'
-      'click #my-events'  : 'showEventListByAttending'
-      'submit form'       : 'showEventListByQuery'
-      'click .brand'      : 'showEventList'
       'click #about'      : 'showAboutPage'
       'click #contact'    : 'showContactPage'
+      'click .brand'      : 'showEventList'
+      'click #my-events'  : 'showEventListByAttending'
+      'submit form'       : 'showEventListByQuery'
+      'click #navbar a'   : 'showNavItem'
     navItemEvents:
       'calendar': 'events:calendar:show'
       'events': 'events:show'
-    showNavItem: (e) ->
-      $('#navbar li').removeClass 'active'
-      $(e.target).parent().addClass 'active'
+    showAboutPage: (e) ->
+      e.preventDefault()
       EventSalsa.vent.trigger 'events:category:clear'
-      EventSalsa.vent.trigger @navItemEvents[$(e.target).data('target')]
+      EventSalsa.vent.trigger 'pages:about:show'
+    showContactPage: (e) ->
+      e.preventDefault()
+      EventSalsa.vent.trigger 'events:category:clear'
+      EventSalsa.vent.trigger 'pages:contact:show'
+    showEventList: (e) ->
+      e.preventDefault()
+      EventSalsa.vent.trigger 'events:category:clear'
+      EventSalsa.vent.trigger 'events:show', e
+    showEventListByAttending: (e) ->
+      e.preventDefault()
+      EventSalsa.vent.trigger 'events:category:clear'
+      EventSalsa.vent.trigger 'events:show:attending'
     showEventListByQuery: (e) ->
       e.preventDefault()
       EventSalsa.vent.trigger 'events:category:clear'
       EventSalsa.vent.trigger 'events:show:search', $(e.target).find('input').val()
-    showEventList: ->
+    showNavItem: (e) ->
+      if $(e.target).is('#login-button')
+        e.preventDefault()
       EventSalsa.vent.trigger 'events:category:clear'
-      EventSalsa.vent.trigger 'events:show'
-    showAboutPage: ->
-      EventSalsa.vent.trigger 'events:category:clear'
-      EventSalsa.vent.trigger 'pages:about:show'
-    showContactPage: ->
-      EventSalsa.vent.trigger 'events:category:clear'
-      EventSalsa.vent.trigger 'pages:contact:show'
-    showEventListByAttending: ->
-      EventSalsa.vent.trigger 'events:category:clear'
-      EventSalsa.vent.trigger 'events:show:attending'
+      $('#navbar li').removeClass 'active'
+      $(e.target).parent().addClass 'active'
+      EventSalsa.vent.trigger @navItemEvents[$(e.target).data('target')]
 
   # Initializer
   # -----------
   EventSalsa.addInitializer ->
     EventSalsa.layout = new Layout()
-
     EventSalsa.layout.on 'show', ->
       EventSalsa.vent.trigger 'layout:rendered'
 
