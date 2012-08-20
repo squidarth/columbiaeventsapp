@@ -4,7 +4,6 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
 
   # Event Bindings
   # --------------
-  console.log 'hi'
   EventSalsa.vent.bind "events:show", ->
     EventSalsa.Routing.showRoute "events"
 
@@ -29,6 +28,5 @@ EventSalsa.module "Routing.Events", (EventsRouting, EventSalsa, Backbone, Marion
   # Initializer
   # -----------
   EventSalsa.addInitializer ->
-    console.log 'bye'
     EventsRouting.router = new EventsRouting.Router
       controller: EventSalsa.EventsApp

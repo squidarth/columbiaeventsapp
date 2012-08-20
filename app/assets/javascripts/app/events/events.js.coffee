@@ -45,24 +45,33 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]
     events:
-      "submit #new-event": "save"
+      "submit #new-event form": "save"
     initialize: ->
       @model = new EventSalsa.EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()
     onRender: ->
       @modelBinder.bind @model, @el
       @$('.input-timepicker').timepicker()
-      @$('.input-datepicker').datepicker()
+
+      # [TODO] Find out why datepicker isn't binding to @model
+      model = @model
+      model.set 'date', @$('input[name=date]').val()
+      @$('.input-datepicker').datepicker().on 'changeDate', (e) ->
+        window.test = @
+        model.set 'date', $(@).find('input').val()
     save: (e) ->
+      console.log 'submitting', @model
       e.preventDefault()
       e.stopPropagation()
       @model.unset("errors")
 
-      @collection.create @model.attributes,
+      @model.set 'start_time', moment("#{@model.get('date')} #{@model.get('time')}").toString()
+      @model.save @model.attributes,
         success: (event) =>
+          console.log 'success', event
           @model = event
-          window.location.hash = "/#{@model.id}"
         error: (event, jqXHR) =>
+          console.log 'error', event, jqXHR
           @model.set({errors: $.parseJSON(jqXHR.responseText)})
 
   class Events.EventEditView extends Marionette.ItemView
