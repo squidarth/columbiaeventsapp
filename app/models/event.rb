@@ -48,21 +48,20 @@ class Event < ActiveRecord::Base
     graph = Koala::Facebook::API.new token
     begin
       attendings_data = graph.get_connections(self.facebook_id, 'attending')
-      attendings_data.each do |attending_data|
-        user = User.find_by_facebook_id attending_data['id']
-        if user
-          attending = self.attendings.find_or_create_by_user_id(user_id: user.id,
-                                                                status: attending_data['rsvp_status'])
-          attending.update_attributes!(status: attending_data['rsvp_status'])
-        end
+      attendees = {}
+      attendings_data.each do |data|
+        attendees[data['id']] = data['rsvp_status']
       end
-      self.update_attributes!(attendings_count: attendings_data.count)
+
+      #self.update_attributes!(attendings_count: attendings_data.count)
+      User.where(facebook_id: attendees.keys).each do |user|
+        attending = self.attendings.find_or_create_by_user_id(user_id: user.id)
+        attending.update_attributes!(status: attendees[user.facebook_id])
+      end
     rescue Koala::Facebook::APIError
       puts "Error accessing Facebook graph"
     end
   end
-
-  protected
 
   def appropriate?
     self.attendings.count > 1

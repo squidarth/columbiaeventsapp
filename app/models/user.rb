@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   api_accessible :session do |t|
     t.add :id
     t.add :name
-    t.add :facebookid
+    t.add :facebook_id
   end
 
   def self.authenticate_with_remember_token(id, facebook_id)
