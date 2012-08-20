@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :description, :facebook_id, :location, :user_id, :start_time
+  attr_accessible :name, :description, :facebook_id, :location, :user_id, :start_time, :attendings_count
 
   belongs_to :user
   has_many :attendings, dependent: :destroy
@@ -41,11 +41,30 @@ class Event < ActiveRecord::Base
   end
 
   def fetch_attendings_from_facebook
+    return false if not self.facebook_id.presence
+
     authorization = self.user.authorizations.find_by_provider('facebook')
     token = authorization ? authorization.token : ENV['facebook_app_token']
     graph = Koala::Facebook::API.new token
-    graph.get_connections(self.facebook_id, 'attending')['data'].each do |attending|
-      self.attendings.find_or_create_by_user_id user_id: User.find_by_facebook_id(facebook_id: attending['id']).id, status: attending['rsvp_status']
+    begin
+      attendings_data = graph.get_connections(self.facebook_id, 'attending')
+      attendings_data.each do |attending_data|
+        user = User.find_by_facebook_id attending_data['id']
+        if user
+          attending = self.attendings.find_or_create_by_user_id(user_id: user.id,
+                                                                status: attending_data['rsvp_status'])
+          attending.update_attributes!(status: attending_data['rsvp_status'])
+        end
+      end
+      self.update_attributes!(attendings_count: attendings_data.count)
+    rescue Koala::Facebook::APIError
+      puts "Error accessing Facebook graph"
     end
+  end
+
+  protected
+
+  def appropriate?
+    self.attendings.count > 1
   end
 end

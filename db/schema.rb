@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816231029) do
+ActiveRecord::Schema.define(:version => 20120820151032) do
 
   create_table "attendings", :force => true do |t|
     t.integer   "user_id"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20120816231029) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.boolean  "deleted"
-    t.integer  "numAttending"
+    t.integer  "attendings_count"
     t.datetime "start_time"
   end
 
