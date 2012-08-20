@@ -1,6 +1,6 @@
 class UsersController < ApiController
-  before_filter :authenticate, :only => [:update, :index]
-  before_filter :correct_user, :only => [:update]
+  before_filter :authenticate, only: [:update, :index]
+  before_filter :correct_user, only: [:update]
 
   def index
     users = User.page(params[:page]).per(params[:per_page])

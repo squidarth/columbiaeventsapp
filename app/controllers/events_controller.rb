@@ -1,15 +1,15 @@
 class EventsController < ApiController
   include EventsHelper
 
-  before_filter :authenticate, :only => [:create, :fetch_from_facebook, :destroy]
+  before_filter :authenticate, only: [:create, :fetch_from_facebook, :destroy]
   before_filter :authorized_user, only: [:update, :destroy]
 
   before_filter :determine_scope, only: [:index, :upcoming, :recent]
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
   def index
-    upcoming = @scope.includes(:categories, :attendings).upcoming(@datetime)
-    recent = @scope.includes(:categories, :attendings).recent(@datetime)
+    upcoming = @scope.includes(:categories, attendings: :user).upcoming(@datetime)
+    recent = @scope.includes(:categories, attendings: :user).recent(@datetime)
     listing = EventListing.new({
       upcoming: upcoming.page(params[:page]).per(params[:per_page]),
       recent: recent.page(params[:page]).per(params[:per_page])
@@ -41,68 +41,22 @@ class EventsController < ApiController
   end
 
   def create
-    @event = current_user.events.build(params[:event])
-    if @event.save
-      @attending = @event.attendings.build(:event_id => @event.id, :user_id => current_user.id, :status => "Attending")
-      @attending.save
-      flash[:success] = "Event created!"
-      if(@event.facebookevent == 1)
-        if(!current_user.authorizations.empty?)
-          current_user.authorizations.each do |authorization|
-            if authorization.provider.eql?("facebook")
-              @token = authorization.token
-            end
-          end
-          @graph = Koala::Facebook::GraphAPI.new(@token)  
-          require 'open-uri'
-          OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
-          OpenURI::Buffer.const_set 'StringMax', 0
-          #NEED TO HAVE SEPARATE SEND OPTIONS FOR PICTURE, NO PICTURE, DATE&TIME, NO DATE&TIME
-          #CASE THAT PICTURE, DATE, TIME EXIST
-          if(!@event.photo.url.eql?("/photos/original/missing.png") && @event.date && @event.time)
-            picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
-            datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
-            params = {
-              :picture => picture,
-              :name => @event.name,
-              :description => @event.description,
-              :location => @event.location,
-              :start_time => datetime,
-            }
-          elsif(!@event.photo.url.eql?("/photos/original/missing.png")) #CASE THAT PHOTO EXISTS, NO DATETIME
-            picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
-            params = {
-              :picture => picture,
-              :name => @event.name,
-              :description => @event.description,
-              :location => @event.location,
-            }
-          elsif(@event.date && @event.time)
-            datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
-            params = {
-              :name => @event.name,
-              :description => @event.description,
-              :location => @event.location,
-              :start_time => datetime,
-            }
-          else
-            params = {
-              :name => @event.name,
-              :description => @event.description,
-              :location => @event.location,
-            }
-          end
-          require 'json'
-          answer = @graph.put_object('me', 'events', params)
-          @event.facebooklink = answer['id']
-          @event.save
-        end
+    event = current_user.events.build(params[:event])
+    if event.save
+      authorization = current_user.authorizations.find_by_provider 'facebook'
+      if params[:post_to_facebook] and authorization
+        graph = Koala::Facebook::API.new authorization.token
+        params = {
+          picture: event.photo.url,
+          name: event.name,
+          description: event.description,
+          location: event.location,
+        }
+        facebook_event = graph.put_object('me', 'events', params)
+        event.update_attributes!(facebook_id: facebook_event['id'])
       end
-      redirect_to @event
-    else
-      @title = "Make New Event!"
-      render 'new'
     end
+    respond_with event, api_template: :public
   end
 
   def update
@@ -132,16 +86,16 @@ class EventsController < ApiController
                 picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
                 datetime = Time.mktime(@event.date.year, @event.date.month, @event.date.day, @event.time.hour, @event.time.min)
                 params = {
-                  :picture => picture,
+                  picture: picture,
                   :name => @event.name,
                   :description => @event.description,
                   :location => @event.location,
-                  :start_time => datetime,
+                  start_time: datetime,
                 }
               elsif(!@event.photo.nil?) #CASE THAT PHOTO EXISTS, NO DATETIME
                 picture = Koala::UploadableIO.new(open(@event.photo.url(:small)).path, 'image')
                 params = {
-                  :picture => picture,
+                  picture: picture,
                   :name => @event.name,
                   :description => @event.description,
                   :location => @event.location,
@@ -152,7 +106,7 @@ class EventsController < ApiController
                   :name => @event.name,
                   :description => @event.description,
                   :location => @event.location,
-                  :start_time => datetime,
+                  start_time: datetime,
                 }
               else
                 params = {
@@ -165,19 +119,19 @@ class EventsController < ApiController
               @event.save
             end
           end
-          format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
+          format.html { redirect_to(@event, notice: 'Event was successfully updated.') }
           format.xml { head :ok }
         else
-          format.html { render :action => "edit" }
-          format.xml { render :xml => @event.errors, :status => :unprocessable_entity }
+          format.html { render action: "edit" }
+          format.xml { render :xml => @event.errors, status: :unprocessable_entity }
         end
       else
         if @event.update_attributes(params[:event])
-          format.html { redirect_to(@event, :notice => 'Event successfully updated.')}
+          format.html { redirect_to(@event, notice: 'Event successfully updated.')}
           format.xml {head :ok}
         else
-          format.html { render :action => "edit" }
-          format.xml { render :xml => @event.errors, :status => :unprocessable_entity }
+          format.html { render action: "edit" }
+          format.xml { render :xml => @event.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -189,6 +143,9 @@ class EventsController < ApiController
 
   protected
 
+  def has_photo?
+    self.photo.url == "/photos/original/missing.png"
+  end
   def authorized_user
     @event = current_user.events.find_by_id(params[:id])
     redirect_to root_path if @event.nil?
