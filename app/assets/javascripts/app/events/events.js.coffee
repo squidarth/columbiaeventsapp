@@ -1,4 +1,5 @@
 EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette, $, _) ->
+  console.log 'hi'
   # Public API
   # ----------
   Events.showEvents = (upcomingEvents, recentEvents) ->
@@ -47,9 +48,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
 
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]
-
-    #events:
-      #"submit #new-event form": "save"
     initialize: ->
       @model = new EventSalsa.EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()
@@ -63,20 +61,11 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @$('.input-datepicker').datepicker().on 'changeDate', (e) ->
         window.test = @
         model.set 'date', $(@).find('input').val()
-    save: (e) ->
-      console.log 'submitting', @model
-      e.preventDefault()
-      e.stopPropagation()
-      @model.unset("errors")
 
-      @model.set 'start_time', moment("#{@model.get('date')} #{@model.get('time')}").toString()
-      @model.save @model.attributes,
-        success: (event) =>
-          @$('form').append $('<div class="alert alert-success"').text('Event successfully added! Go to "My Events" to view and make changes.')
-          @model = event
-        error: (event, jqXHR) =>
-          @$('form').append $('<div class="alert alert-error"').text('There was a problem adding the event.')
-          @model.set({errors: $.parseJSON(jqXHR.responseText)})
+      @$('form').on 'ajax:success', =>
+        @$('form').prepend $('<div class="alert alert-success">').text('Event successfully added! Go to "My Events" to view and make changes.')
+      @$('form').on 'ajax:error', =>
+        @$('form').prepend $('<div class="alert alert-error">').text('There was a problem adding the event.')
 
   class Events.EventEditView extends Marionette.ItemView
     template: JST["templates/events/edit"]
