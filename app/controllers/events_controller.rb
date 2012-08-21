@@ -44,7 +44,7 @@ class EventsController < ApiController
     event = current_user.events.build(params[:event])
     if event.save
       authorization = current_user.authorizations.find_by_provider 'facebook'
-      if params[:post_to_facebook] and authorization
+      if params[:event][:post_to_facebook] and authorization
         graph = Koala::Facebook::API.new authorization.token
         params = {
           picture: event.photo.url,

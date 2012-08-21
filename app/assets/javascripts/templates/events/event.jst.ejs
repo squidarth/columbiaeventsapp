@@ -4,7 +4,8 @@
   <% } else if (facebook_id) { %>
     <img src="https://graph.facebook.com/<%= facebook_id %>/picture?type=normal" width=100></img>
   <% } else { %>
-    <img width=100></img>
+    <!-- [TODO] use .erb and image_tag somehow -->
+    <img src="http://eventsalsa.com/images/favicon.ico" width=100></img>
   <% } %>
 </td>
 
@@ -26,7 +27,7 @@
 <td class="event-description">
   <h3>
     <% if (facebook_id) { %>
-      <a href="http://www.facebook.com/<%= facebook_id %>"><%= name %></a>
+      <a href="http://www.facebook.com/<%= facebook_id %>" target="_blank" data-content="<%= description %>"><%= name %></a>
     <% } else { %>
       <%= name %>
     <% } %>

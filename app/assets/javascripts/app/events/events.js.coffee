@@ -38,9 +38,12 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       if @model.attending
         @attendingStatusView.model = @model.attending
       @attending.show @attendingStatusView
+      $('.event-description a').popover
+        placement: 'bottom'
 
   class Events.EventListView extends Marionette.CollectionView
     itemView: Events.EventView
+    className: 'event-list'
 
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]
@@ -68,10 +71,10 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @model.set 'start_time', moment("#{@model.get('date')} #{@model.get('time')}").toString()
       @model.save @model.attributes,
         success: (event) =>
-          console.log 'success', event
+          @$('form').append $('<div class="alert alert-success"').text('Event successfully added! Go to "My Events" to view and make changes.')
           @model = event
         error: (event, jqXHR) =>
-          console.log 'error', event, jqXHR
+          @$('form').append $('<div class="alert alert-error"').text('There was a problem adding the event.')
           @model.set({errors: $.parseJSON(jqXHR.responseText)})
 
   class Events.EventEditView extends Marionette.ItemView

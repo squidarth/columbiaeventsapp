@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require twitter/bootstrap/bootstrap-tab
+//= require twitter/bootstrap/bootstrap-tooltip
+//= require twitter/bootstrap/bootstrap-popover
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
 //= require jquery.expander
