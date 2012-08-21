@@ -3,20 +3,20 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'rake', '0.8.7'
 gem 'rails_admin'
+gem 'hirb'
 
-gem 'koala' #koala gem for dealing with graph api
-gem 'watu_table_builder', :git => 'git://github.com/watu/table_builder.git'
-gem 'will_paginate', '3.0.pre2'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'acts_as_api'
 gem 'kaminari'
-gem 'hirb'
+gem 'remotipart', '~> 1.0'
 
-gem "nokogiri", "~> 1.4.7"
-gem 'aws-sdk'
+gem 'chronic'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'koala'
 gem 'aws-s3'
+gem 'aws-sdk'
 
 group :development do
   gem 'rspec-rails', '2.6.1'

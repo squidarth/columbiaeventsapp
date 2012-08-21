@@ -1,4 +1,17 @@
-<h1>What's happening?</h1>
+<div class="page-header">
+  <h1>
+    <%% if (EventSalsa.currentUser) { %>
+      What's happening?
+      <!-- What's happening, <%%= EventSalsa.currentUser.name %>? -->
+    <%% } else { %>
+      What's happening?
+      <a href="/auth/facebook">
+        <%= image_tag "fb-connect-large.png" %>
+      </a>
+    <%% } %>
+  </h1>
+</div>
+
 
 <ul class="nav nav-tabs">
   <li>

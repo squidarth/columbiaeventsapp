@@ -1,3 +1,5 @@
+require 'chronic'
+
 class EventsController < ApiController
   include EventsHelper
 
@@ -41,6 +43,7 @@ class EventsController < ApiController
   end
 
   def create
+    params[:event][:start_time] = Chronic.parse("#{params[:event][:date]} #{params[:event][:time]}").to_datetime
     event = current_user.events.build(params[:event])
     if event.save
       authorization = current_user.authorizations.find_by_provider 'facebook'

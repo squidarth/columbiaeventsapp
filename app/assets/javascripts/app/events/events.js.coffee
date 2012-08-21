@@ -47,8 +47,9 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
 
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]
-    events:
-      "submit #new-event form": "save"
+
+    #events:
+      #"submit #new-event form": "save"
     initialize: ->
       @model = new EventSalsa.EventsApp.Event()
       @modelBinder = new Backbone.ModelBinder()

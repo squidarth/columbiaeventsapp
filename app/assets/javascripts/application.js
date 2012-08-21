@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require twitter/bootstrap
 //= require twitter/bootstrap/bootstrap-tab
 //= require twitter/bootstrap/bootstrap-tooltip
