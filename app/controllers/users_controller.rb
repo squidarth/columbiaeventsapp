@@ -1,7 +1,4 @@
 class UsersController < ApiController
-  before_filter :authenticate, only: [:update, :index]
-  before_filter :correct_user, only: [:update]
-
   def index
     users = User.page(params[:page]).per(params[:per_page])
     respond_with users, api_template: :public, root: :users
@@ -18,14 +15,9 @@ class UsersController < ApiController
   end
 
   def update
-    @user.update_attributes params[:user] if @user
-    respond_with @user, api_template: :public
-  end
-
-  private
-
-  def correct_user
-    @user = User.find(params[:id])
-    @user = nil unless current_user?(@user)
+    user = User.find params[:id]
+    authorize! :update, user
+    user.update_attributes params[:user] if user
+    respond_with user, api_template: :public
   end
 end

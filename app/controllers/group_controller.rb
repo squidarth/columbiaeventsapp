@@ -1,7 +1,4 @@
 class GroupController < ApplicationController
-  before_filter :authenticate, only: [:create, :update]
-  before_filter :correct_user, only: [:update]
-
   def index
     groups = Group.page(params[:page]).per(params[:per_page])
     respond_with groups, api_template: :public, root: :groups
@@ -18,14 +15,9 @@ class GroupController < ApplicationController
   end
 
   def update
-    @group.update_attributes params[:group] if @group
-    respond_with @group, api_template: :public
-  end
-
-  private
-
-  def correct_user
-    group = Group.find(params[:id])
-    group = nil unless Group.users.find_by_user_id(current_user.id)
+    group = Group.find params[:id] 
+    authorize! :update, group
+    group.update_attributes params[:group] if group
+    respond_with group, api_template: :public
   end
 end

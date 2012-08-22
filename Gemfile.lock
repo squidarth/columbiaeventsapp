@@ -59,6 +59,7 @@ GEM
     bbenezech-nested_form (0.0.6)
     bootstrap-sass (2.0.4.0)
     builder (3.0.0)
+    cancan (1.6.8)
     chronic (0.7.0)
     cocaine (0.2.1)
     coffee-rails (3.1.1)
@@ -255,6 +256,7 @@ DEPENDENCIES
   awesome_print
   aws-s3
   aws-sdk
+  cancan
   chronic
   coffee-rails (~> 3.1.0)
   factory_girl_rails (= 1.0)

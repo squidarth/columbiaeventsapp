@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   has_many :attending_users, class_name: 'User', through: :attendings, source: :user
   has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
+
   has_attached_file :photo, styles: { thumb: "75x75>", small: "150x150>" }, storage: :s3, s3_credentials: "#{Rails.root}/config/s3.yml", path: ":attachment/:id/:style.:extension", bucket: "ColumbiaEventsApp"
   validates_attachment_size :photo, less_than: 5.megabytes
   validates_attachment_content_type :photo, content_type: ['image/jpeg', 'image/png', 'image/gif']

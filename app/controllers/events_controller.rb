@@ -3,9 +3,6 @@ require 'chronic'
 class EventsController < ApiController
   include EventsHelper
 
-  before_filter :authenticate, only: [:create, :fetch_from_facebook, :destroy]
-  before_filter :authorized_user, only: [:update, :destroy]
-
   before_filter :determine_scope, only: [:index, :upcoming, :recent]
   before_filter :parse_options, only: [:index, :upcoming, :recent]
 
@@ -35,6 +32,7 @@ class EventsController < ApiController
   end
 
   def fetch_from_facebook
+    authorize! :create, Event
     if current_user && params[:facebook_id]
       current_user.authorizations.find_by_provider('facebook').fetch_event_from_facebook_by_id params[:facebook_id]
     end
@@ -43,6 +41,7 @@ class EventsController < ApiController
   end
 
   def create
+    authorize! :create, Event
     params[:event][:start_time] = Chronic.parse("#{params[:event][:date]} #{params[:event][:time]}").to_datetime
     event = current_user.events.build(params[:event])
     if event.save
@@ -64,6 +63,7 @@ class EventsController < ApiController
 
   def update
     @event = Event.find(params[:id])
+    authorize! :update, @event
     respond_to do |format|
       #Changes that need to be made
       # 1.) Make sure that the Facebook event is changed as well
@@ -141,17 +141,15 @@ class EventsController < ApiController
   end
 
   def destroy
-    respond_with @event.destroy, api_template: :public
+    event = Event.find params[:id]
+    authorize! :destroy, event
+    respond_with event, api_template: :public
   end
 
   protected
 
   def has_photo?
     self.photo.url == "/photos/original/missing.png"
-  end
-  def authorized_user
-    @event = current_user.events.find_by_id(params[:id])
-    redirect_to root_path if @event.nil?
   end
 
   def parse_options

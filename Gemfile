@@ -5,18 +5,19 @@ gem 'rake', '0.8.7'
 gem 'rails_admin'
 gem 'hirb'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'koala'
+gem 'aws-s3'
+gem 'aws-sdk'
+
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'acts_as_api'
 gem 'kaminari'
 gem 'remotipart', '~> 1.0'
 
 gem 'chronic'
-
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'koala'
-gem 'aws-s3'
-gem 'aws-sdk'
+gem 'cancan'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
