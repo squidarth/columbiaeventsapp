@@ -18,7 +18,7 @@ class AttendingsController < ApiController
   def create
     event_id = params[:event_id] || params[:attending][:event_id]
     attending = Attending.find_or_create_by_user_id_and_event_id(current_user.id, event_id) do |u|
-      u.status = params[:attending][:status] || 'YES'
+      u.status = params[:attending][:status] || 'attending'
     end
     respond_with attending, api_template: :public
   end

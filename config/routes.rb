@@ -1,23 +1,27 @@
 EventSalsa::Application.routes.draw do
   resources :users do
     resources :events, only: [:index]
+    resources :memberships, only: [] do
+      get 'index', on: :collection, action: 'index_for_user'
+    end
     resources :attendings, only: [] do
       get 'index', on: :collection, action: 'index_for_user'
     end
   end
+
+  resources :memberships, only: [] do
+    get 'index', on: :collection, action: 'index_for_user'
+  end
+  resources :groups do
+    resources :memberships, only: [] do
+      get 'index', on: :collection, action: 'index_for_group'
+    end
+  end
+
   resources :attendings, only: [:create, :update] do
     get 'index', on: :collection, action: 'index_for_user'
   end
-  resources :categories, only: [:index, :show] do
-    resources :events, only: [:index] do
-      collection do
-        get 'upcoming'
-        get 'recent'
-      end
-    end
-  end
   resources :events do
-    resources :comments, only: [:create]
     resources :attendings, only: [:create] do
       get 'index', on: :collection, action: 'index_for_event'
     end
@@ -25,6 +29,14 @@ EventSalsa::Application.routes.draw do
       get 'upcoming'
       get 'recent'
       post 'fetch_from_facebook'
+    end
+  end
+  resources :categories, only: [:index, :show] do
+    resources :events, only: [:index] do
+      collection do
+        get 'upcoming'
+        get 'recent'
+      end
     end
   end
 

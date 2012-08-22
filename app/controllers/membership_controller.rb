@@ -18,7 +18,7 @@ class MembershipController < ApplicationController
   def create
     group_id = params[:group_id] || params[:membership][:group_id]
     membership = Membership.find_or_create_by_user_id_and_group_id(current_user.id, group_id) do |u|
-      u.status = params[:membership][:status] || 'YES'
+      u.status = params[:membership][:status] || 'follower'
     end
     respond_with membership, api_template: :public
   end
