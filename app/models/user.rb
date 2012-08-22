@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :facebook_id, presence: true
 
-  before_save :encrypt_password
+  delegate :can?, :cannot?, to: :ability
 
   acts_as_api
   api_accessible :public do |t|
@@ -21,9 +21,18 @@ class User < ActiveRecord::Base
     t.add :memberships, template: :groups
     t.add :attendings, template: :events
     t.add :facebook_id
+    t.add ->(user, options) {
+      (options[:current_user] || User.new).can? :update, user
+    }, as: :can_update
   end
 
   def self.authenticate_with_remember_token(id, facebook_id)
     user = find_by_id_and_facebook_id(id, facebook_id)
+  end
+
+  protected
+
+  def ability
+    @ability ||= Ability.new(self)
   end
 end

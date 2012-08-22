@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
     head :forbidden
   end
   # check_authorization # Uncomment to enforce authorize! on all actions
+
+  def current_ability
+    current_user.ability
+  end
 end

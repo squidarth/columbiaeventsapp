@@ -6,7 +6,7 @@ class UsersController < ApiController
 
   def show
     user = User.find params[:id] 
-    respond_with user, api_template: :public, location: user_path(user)
+    respond_with user.as_api_response :public, current_user: current_user
   end
 
   def create
