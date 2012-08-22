@@ -18,10 +18,8 @@ class User < ActiveRecord::Base
   api_accessible :public do |t|
     t.add :id
     t.add :name
-  end
-  api_accessible :session do |t|
-    t.add :id
-    t.add :name
+    t.add :memberships, template: :groups
+    t.add :attendings, template: :events
     t.add :facebook_id
   end
 

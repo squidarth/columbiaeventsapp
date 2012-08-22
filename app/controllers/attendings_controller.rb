@@ -1,7 +1,7 @@
 class AttendingsController < ApiController
-  def index
+  def index_for_event
     attendings = params[:event_id] ? Attending.find_all_by_event_id(params[:event_id]) : Attending.all
-    respond_with attendings, api_template: :public
+    respond_with attendings, api_template: :users
   end
 
   def index_for_user

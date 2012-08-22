@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
     t.add lambda { |event| event.photo.url }, as: :photo_url
     t.add lambda { |event| event.photo.url(:small) }, as: :photo_url_small
     t.add :categorizations
-    t.add :attendings
+    t.add :attendings, template: :users
   end
 
   def self.fetch_all_events_from_facebook

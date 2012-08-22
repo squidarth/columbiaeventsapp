@@ -12,6 +12,7 @@ class Group < ActiveRecord::Base
   api_accessible :public do |t|
     t.add :name
     t.add :description
+    t.add :memberships, template: :users
     t.add :facebook_id
   end
 end

@@ -10,6 +10,12 @@ class Attending < ActiveRecord::Base
   api_accessible :public do |t|
     t.add :id
     t.add :user
+    t.add :event
+    t.add :status
+  end
+  api_accessible :users do |t|
+    t.add :id
+    t.add :user, template: :public
     t.add :status
   end
   api_accessible :events do |t|

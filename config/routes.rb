@@ -17,8 +17,10 @@ EventSalsa::Application.routes.draw do
     end
   end
   resources :events do
-    resources :comments, :only => [:create]
-    resources :attendings, only: [:index, :create]
+    resources :comments, only: [:create]
+    resources :attendings, only: [:create] do
+      get 'index', on: :collection, action: 'index_for_event'
+    end
     collection do
       get 'upcoming'
       get 'recent'
@@ -26,10 +28,10 @@ EventSalsa::Application.routes.draw do
     end
   end
 
-  #resources :sessions, :only => [:new, :create, :destroy]
+  #resources :sessions, only: [:new, :create, :destroy]
   match '/current_user' => 'sessions#show'
   match '/signout' => 'sessions#destroy'
 
-  match '/auth/:provider/callback', :to => 'authorizations#create'
-  root :to => 'pages#home'
+  match '/auth/:provider/callback', to: 'authorizations#create'
+  root to: 'pages#home'
 end
