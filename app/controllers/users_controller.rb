@@ -18,9 +18,8 @@ class UsersController < ApiController
   end
 
   def update
-    user = User.find params[:id] 
-    user.update_attributes params[:user] 
-    respond_with user, api_template: :public
+    @user.update_attributes params[:user] if @user
+    respond_with @user, api_template: :public
   end
 
   private

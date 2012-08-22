@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :authorizations,   dependent: :destroy
   has_many :attendings,       dependent: :destroy
   has_many :attending_events, class_name: 'Event', through: :attendings, source: :event
+  
+  has_many :memberships
+  has_many :groups, through: :memberships
 
   validates :name, presence: true
   validates :email, presence: true
