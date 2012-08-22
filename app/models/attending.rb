@@ -15,7 +15,7 @@ class Attending < ActiveRecord::Base
   end
   api_accessible :users do |t|
     t.add :id
-    t.add :user, template: :public
+    t.add :user, template: :shallow
     t.add :status
   end
   api_accessible :events do |t|

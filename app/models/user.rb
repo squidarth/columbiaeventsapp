@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
       (options[:current_user] || User.new).can? :update, user
     }, as: :can_update
   end
+  api_accessible :shallow do |t|
+    t.add :id
+    t.add :name
+    t.add :facebook_id
+  end
 
   def self.authenticate_with_remember_token(id, facebook_id)
     user = find_by_id_and_facebook_id(id, facebook_id)

@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 gem 'rake', '0.8.7'
+gem 'thin'
+
 gem 'rails_admin'
 gem 'hirb'
 
