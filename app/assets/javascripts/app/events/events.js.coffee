@@ -1,5 +1,4 @@
 EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette, $, _) ->
-  console.log 'hi'
   # Public API
   # ----------
   Events.showEvents = (upcomingEvents, recentEvents) ->
