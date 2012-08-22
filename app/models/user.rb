@@ -16,14 +16,12 @@ class User < ActiveRecord::Base
 
   acts_as_api
   api_accessible :public do |t|
+    t.add ->(user, options) { (options[:current_user] || User.new).can? :manage, user }, as: :can_manage
     t.add :id
     t.add :name
     t.add :memberships, template: :groups
     t.add :attendings, template: :events
     t.add :facebook_id
-    t.add ->(user, options) {
-      (options[:current_user] || User.new).can? :update, user
-    }, as: :can_update
   end
   api_accessible :shallow do |t|
     t.add :id

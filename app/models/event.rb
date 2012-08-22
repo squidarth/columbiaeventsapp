@@ -22,6 +22,7 @@ class Event < ActiveRecord::Base
 
   acts_as_api
   api_accessible :public do |t|
+    t.add ->(event, options) { (options[:current_user] || User.new).can? :manage, event }, as: :can_manage
     t.add :id
     t.add :name
     t.add :start_time

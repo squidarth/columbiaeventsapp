@@ -13,11 +13,11 @@ class Ability
 
       # Group
       can :create, Group
-      can :update, Group, users: { id: user.id }
+      can :manage, Group, users: { id: user.id }
 
       # Event
       can [:create, :fetch_from_facebook], Event
-      can [:update, :destroy], Event, user_id: user.id
+      can :manage, Event, user_id: user.id
     end
   end
 end

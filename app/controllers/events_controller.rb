@@ -13,22 +13,12 @@ class EventsController < ApiController
       upcoming: upcoming.page(params[:page]).per(params[:per_page]),
       recent: recent.page(params[:page]).per(params[:per_page])
     })
-    respond_with listing, api_template: :public, meta: { upcoming_count: upcoming.count, recent_count: recent.count }
+    respond_with listing.as_api_response :public, current_user: current_user
   end
 
   def show
     event = Event.find(params[:id], conditions: { deleted: [nil, false] })
-    respond_with event, api_template: :public
-  end
-
-  def upcoming
-    events = @scope.upcoming(@datetime).page(params[:page]).per(params[:per_page])
-    respond_with events, api_template: :public
-  end
-
-  def recent
-    events = @scope.recent(@datetime).page(params[:page]).per(params[:per_page])
-    respond_with events, api_template: :public
+    respond_with event.as_api_response :public, current_user: current_user
   end
 
   def fetch_from_facebook

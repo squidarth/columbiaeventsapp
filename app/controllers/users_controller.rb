@@ -1,7 +1,7 @@
 class UsersController < ApiController
   def index
     users = User.page(params[:page]).per(params[:per_page])
-    respond_with users, api_template: :public, root: :users
+    respond_with users.as_api_response :shallow, current_user: current_user
   end
 
   def show

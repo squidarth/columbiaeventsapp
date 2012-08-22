@@ -92,9 +92,9 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
     EventsApp.upcomingEvents.loading = yes
     EventsApp.recentEvents.loading = yes
     $.getJSON EventsApp.currentEventSource, EventsApp.currentEventSourceOptions, (data) ->
-      EventsApp.upcomingEvents.add data['record']['upcoming']
+      EventsApp.upcomingEvents.add data['upcoming']
       EventsApp.upcomingEvents.totalLength = data['upcoming_count']
-      EventsApp.recentEvents.add data['record']['recent']
+      EventsApp.recentEvents.add data['recent']
       EventsApp.recentEvents.totalLength = data['recent_count']
       EventsApp.upcomingEvents.loading = no
       EventsApp.recentEvents.loading = no
