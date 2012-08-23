@@ -29,56 +29,77 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       if @$('#recent-events').hasClass 'active'
         EventSalsa.vent.trigger 'events:more:recent'
 
+  class Events.EventListView extends Marionette.CollectionView
+    itemView: Events.EventView
+    className: 'event-list'
+
   class Events.EventView extends Marionette.Layout
     template: JST["templates/events/event"]
     tagName: 'tr'
     regions:
       attending: '.attending-control'
+      detail: '.event-detail'
+    events:
+      'click .edit': 'edit'
+      'click .delete': 'destroy'
     onRender: ->
       @attendingStatusView = new EventSalsa.EventsApp.Attendings.AttendingStatusView
       if @model.attending
         @attendingStatusView.model = @model.attending
       @attending.show @attendingStatusView
-      $('.event-description a').popover
+
+      @eventDetailView = new Events.EventDetailView
+        model: @model
+      @detail.show @eventDetailView
+    edit: ->
+      if @detail.currentView is @eventDetailView
+        @eventEditView ||= new Events.EventEditView
+          parent: @
+          model: @model
+        @detail.show @eventEditView
+      else
+        @detail.show @eventDetailView
+    destroy: ->
+      @model.destroy()
+    reload: ->
+      console.log 'hi'
+      @model.fetch
+        success: => @render()
+        error: => @render()
+
+  class Events.EventDetailView extends Marionette.ItemView
+    template: JST["templates/events/detail"]
+    initialize: (options) ->
+      @model = options.model || new EventSalsa.EventsApp.Event
+    onRender: ->
+      @$('.facebook-link').popover
         placement: 'bottom'
 
-  class Events.EventListView extends Marionette.CollectionView
-    itemView: Events.EventView
-    className: 'event-list'
+  class Events.EventEditView extends Marionette.ItemView
+    template: JST["templates/events/edit"]
+    initialize: (options) ->
+      @parent = options.parent
+      @model = options.model
+    onRender: ->
+      @$('.input-timepicker').timepicker
+        defaultTime: 'value'
+      @$('.input-datepicker').datepicker()
+
+      @$('form').on 'ajax:success', =>
+        @parent.reload()
+      @$('form').on 'ajax:error', =>
+        @$('form').prepend $('<div class="alert alert-error">').text('There was a problem updating the event.')
 
   class Events.EventNewView extends Marionette.ItemView
     template: JST["templates/events/new"]
-    initialize: ->
-      @model = new EventSalsa.EventsApp.Event()
-      @modelBinder = new Backbone.ModelBinder()
     onRender: ->
-      @modelBinder.bind @model, @el
       @$('.input-timepicker').timepicker()
-
-      # [TODO] Find out why datepicker isn't binding to @model
-      model = @model
-      model.set 'date', @$('input[name=date]').val()
-      @$('.input-datepicker').datepicker().on 'changeDate', (e) ->
-        window.test = @
-        model.set 'date', $(@).find('input').val()
+      @$('.input-datepicker').datepicker()
 
       @$('form').on 'ajax:success', =>
         @$('form').prepend $('<div class="alert alert-success">').text('Event successfully added! Go to "My Events" to view and make changes.')
       @$('form').on 'ajax:error', =>
         @$('form').prepend $('<div class="alert alert-error">').text('There was a problem adding the event.')
-
-  class Events.EventEditView extends Marionette.ItemView
-    template: JST["templates/events/edit"]
-    events:
-      "submit #edit-event" : "update"
-    update: (e) ->
-      e.preventDefault()
-      e.stopPropagation()
-
-      @model.save null,
-        success : (event) =>
-          @model = event
-          window.location.hash = "/#{@model.id}"
 
   # Private API
   # -----------

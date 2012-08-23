@@ -16,7 +16,7 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
       'click #contact'    : 'showContactPage'
       'click .brand'      : 'showEventList'
       'click #my-events'  : 'showEventListByAttending'
-      'submit form'       : 'showEventListByQuery'
+      'submit #search-bar'       : 'showEventListByQuery'
       'click #navbar a'   : 'showNavItem'
     navItemEvents:
       'calendar': 'events:calendar:show'

@@ -23,7 +23,7 @@ EventSalsa.module 'EventsApp.Attendings', (Attendings, EventSalsa, Backbone, Mar
       previousStatus = @model.get('status')
       target = $(e.target)
       if target.hasClass 'attend-status'
-        targetAttendStatus = if @model.get('status') == 'YES' then 'NO' else 'YES'
+        targetAttendStatus = if @model.get('status') is 'attending' then 'declined' else 'attending'
       else
         targetAttendStatus = target.data('value')
 

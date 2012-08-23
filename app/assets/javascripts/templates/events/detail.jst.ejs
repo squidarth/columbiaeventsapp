@@ -1,0 +1,10 @@
+<h3>
+  <% if (facebook_id) { %>
+    <a class="facebook-link" href="http://www.facebook.com/<%= facebook_id %>" target="_blank" data-content="<%= description %>"><%= name %></a>
+  <% } else { %>
+    <%= name %>
+  <% } %>
+</h3>
+<h4>
+  <%= location %>
+</h4>

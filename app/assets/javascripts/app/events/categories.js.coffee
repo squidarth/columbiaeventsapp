@@ -52,6 +52,6 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     EventSalsa.layout.categories.show categoryListView
 
     route = window.location.hash.split('/')
-    if route[0] == '#categories'
+    if route[0] is '#categories'
       categoryListView.highlightCategoryWithId route[1]
 

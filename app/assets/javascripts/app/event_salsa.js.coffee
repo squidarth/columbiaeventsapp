@@ -22,7 +22,7 @@ EventSalsa.bind 'initialize:before', ->
 
 $ ->
   # Facebook redirect_uri #_=_ bug workaround
-  if window.location.hash[1] == '_'
+  if window.location.hash[1] is '_'
     window.location.hash = ''
 
   EventSalsa.start()

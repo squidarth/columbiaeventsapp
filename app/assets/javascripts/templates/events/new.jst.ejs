@@ -5,21 +5,14 @@
     <div class="control-group">
       <label class="control-label required" for="name">Event name</label>
       <div class="controls">
-        <input class="input-xxlarge" type="text" name="event[name]" />
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label" for="description">Description</label>
-      <div class="controls">
-        <textarea class="input-xxlarge" rows=4 name="event[description]"></textarea>
+        <input class="input-xxlarge" type="text" name="event[name]" id="name" />
       </div>
     </div>
 
     <div class="control-group">
       <label class="control-label" for="location">Location</label>
       <div class="controls">
-        <input class="input-xxlarge" type="text" name="event[location]" />
+        <input class="input-xxlarge" type="text" name="event[location]" id="location" />
       </div>
     </div>
 
@@ -44,11 +37,26 @@
     <div class="control-group">
       <label class="control-label" for="photo">Photo</label>
       <div class="controls">
-        <input type="file" name="event[photo]" />
+        <input type="file" name="event[photo]" id="photo" />
       </div>
     </div>
 
-    <input class="btn btn-primary" type="submit" />
+    <div class="control-group">
+      <label class="control-label" for="description">Description</label>
+      <div class="controls">
+        <textarea class="input-xxlarge" rows=4 name="event[description]" id="description" ></textarea>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <label class="checkbox" for="post-to-facebook">
+          <input type="checkbox" name="event[post_to_facebook]" id="post-to-facebook" />
+          Post to Facebook
+        </label>
+        <button class="btn btn-primary" type="submit">Create Event</button>
+      </div>
+    </div>
 
   </fieldset>
 </form>

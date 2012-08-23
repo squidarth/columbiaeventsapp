@@ -9,7 +9,12 @@
   <% } %>
 </td>
 
-<td class="event-time">
+<td class="event-console">
+  <% if (can_manage) { %>
+    <a class="edit">Edit</a>
+    <a class="delete">Delete</a>
+  <% } %>
+
   <% if (start_time) { %>
     <h5 class="humane-time">
       <%= moment(start_time).from(moment()) %>
@@ -24,15 +29,5 @@
   <% } %>
 </td>
 
-<td class="event-description">
-  <h3>
-    <% if (facebook_id) { %>
-      <a href="http://www.facebook.com/<%= facebook_id %>" target="_blank" data-content="<%= description %>"><%= name %></a>
-    <% } else { %>
-      <%= name %>
-    <% } %>
-  </h3>
-  <h4>
-    <%= location %>
-  </h4>
+<td class="event-detail">
 </td>

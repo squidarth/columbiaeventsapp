@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :description, :facebook_id, :location, :user_id, :start_time, :attendings_count, :photo
+  attr_accessible :name, :description, :facebook_id, :location, :user_id, :start_time, :attendings_count, :photo, :deleted
 
   belongs_to :user
   has_many :attendings, dependent: :destroy
