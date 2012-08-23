@@ -36,22 +36,39 @@
 <div id="wrap">
   <div id="main" class="row">
     <div class="span2">
-      <div id="meta-nav-list">
-        <ul class="nav nav-pills nav-stacked">
+      <div id="meta-nav-list" class="well">
+        <ul class="nav nav-list">
+          <li class="nav-header">All</li>
           <li>
-            <a href="#events">All Events</a>
+            <a class="all-events" href="#events">Events</a>
+          </li>
+          <li>
+            <a class="all-groups" href="#groups">Groups</a>
           </li>
           <%% if (EventSalsa.currentUser) { %>
+            <li class="nav-header">Following</li>
             <li>
-              <a id="my-events" href="#attendings/events">My Attendings</a>
+              <a class="attending-events" href="#users/u/attendings">Events</a>
             </li>
             <li>
-              <a id="owned-events" href="#users/events">My Events</a>
+              <a class="following-groups" href="#users/u/followings">Groups</a>
+            </li>
+            <li class="nav-header">Managing</li>
+            <li>
+              <a class="managing-events" href="#users/u/events">Events</a>
+            </li>
+            <li>
+              <a class="managing-groups" href="#users/u/groups">Groups</a>
             </li>
           <%% } %>
         </ul>
-      </div>
-      <div id="category-list">
+
+        <ul class="nav nav-list">
+          <li class="divider"></li>
+          <li class="nav-header">Tags</li>
+        </ul>
+        <div id="category-list">
+        </div>
       </div>
 
       <div id="spec-image">
@@ -59,8 +76,7 @@
           <%= image_tag "spec_logos.png", :width => 150 %>
         </a>
       </div>
-      <a id="about">About</a>
-      <a id="contact">Contact</a>
+      <a id="about">About</a> | <a id="contact">Contact</a>
     </div>
     <div class="span10">
       <div class="flash">

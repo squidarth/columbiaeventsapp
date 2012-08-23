@@ -22,9 +22,7 @@ EventSalsa::Application.routes.draw do
     get 'index', on: :collection, action: 'index_for_user'
   end
   resources :events do
-    resources :attendings, only: [:create] do
-      get 'index', on: :collection, action: 'index_for_event'
-    end
+    resources :attendings, only: [:create]
     post 'fetch_from_facebook', on: :collection
   end
   resources :categories, only: [:index, :show] do

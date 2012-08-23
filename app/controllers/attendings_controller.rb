@@ -1,13 +1,14 @@
 class AttendingsController < ApiController
-  def index_for_event
-    attendings = Attending.includes(:user).find_all_by_event_id(params[:event_id])
-    respond_with attendings, api_template: :users
-  end
+  include EventsHelper
 
   def index_for_user
     user_id = params[:user_id] || current_user.id
-    attendings = User.find(user_id).attendings.includes(event: { attendings: :user, categorizations: nil })
-    respond_with attendings, api_template: :events
+    attending_events = User.find(user_id).attending_events.includes(:categories, attendings: :user)
+    listing = EventListing.new({
+      upcoming: attending_events.upcoming.page(params[:page]).per(params[:per_page]),
+      recent: attending_events.recent.page(params[:page]).per(params[:per_page])
+    })
+    respond_with listing.as_api_response :public, current_user: current_user
   end
 
   def show

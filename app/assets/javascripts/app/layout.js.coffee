@@ -2,7 +2,7 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
   # Event Bindings
   # --------------
   EventSalsa.vent.bind 'events:category:clear', ->
-    EventSalsa.layout.$('#my-events').parent().removeClass 'active'
+    EventSalsa.layout.$('#attending-events').parent().removeClass 'active'
 
   # Views
   # -----
@@ -12,12 +12,14 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
       categories: "#category-list"
       content: "#content"
     events:
-      'click #about'      : 'showAboutPage'
-      'click #contact'    : 'showContactPage'
-      'click .brand'      : 'showEventList'
-      'click #my-events'  : 'showEventListByAttending'
+      'click #about'             : 'showAboutPage'
+      'click #contact'           : 'showContactPage'
+      'click .brand'             : 'showEventList'
+      'click .all-events'        : 'showEventList'
+      'click .attending-events'  : 'showEventListByAttending'
+      'click .managing-events'   : 'showEventListByManaging'
       'submit #search-bar'       : 'showEventListByQuery'
-      'click #navbar a'   : 'showNavItem'
+      'click #navbar a'          : 'showNavItem'
     navItemEvents:
       'calendar': 'events:calendar:show'
       'events': 'events:show'
@@ -36,7 +38,11 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
     showEventListByAttending: (e) ->
       e.preventDefault()
       EventSalsa.vent.trigger 'events:category:clear'
-      EventSalsa.vent.trigger 'events:show:attending'
+      EventSalsa.vent.trigger 'events:show:attending', EventSalsa.currentUser.id
+    showEventListByManaging: (e) ->
+      e.preventDefault()
+      EventSalsa.vent.trigger 'events:category:clear'
+      EventSalsa.vent.trigger 'events:show:managing', EventSalsa.currentUser.id
     showEventListByQuery: (e) ->
       e.preventDefault()
       EventSalsa.vent.trigger 'events:category:clear'

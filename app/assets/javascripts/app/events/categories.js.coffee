@@ -39,7 +39,7 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
   class Categories.CategoryListView extends Marionette.CollectionView
     itemView: Categories.CategoryView
     tagName: 'ul'
-    className: 'nav nav-pills nav-stacked'
+    className: 'nav nav-list'
     highlightCategoryWithId: (id) ->
       @$('li').removeClass 'active'
       @$("a[data-id=#{id}]").parent().addClass 'active'

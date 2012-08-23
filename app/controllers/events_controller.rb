@@ -93,7 +93,7 @@ class EventsController < ApiController
   def determine_scope
     # [TODO] merge both filters
     if params[:user_id]
-      @scope = User.find(params[:user_id]).attending_events
+      @scope = User.find(params[:user_id]).events
     elsif params[:category_id]
       @scope = Category.find(params[:category_id]).events
     else
