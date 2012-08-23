@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
   attr_accessible :id, :name, :email, :about_me, :school, :facebook_id
-  has_many :events,           dependent: :nullify
+
   has_many :authorizations,   dependent: :destroy
+
+  has_many :events,           dependent: :nullify
   has_many :attendings,       dependent: :destroy
   has_many :attending_events, class_name: 'Event', through: :attendings, source: :event
-  
-  has_many :memberships
-  has_many :groups, through: :memberships
+
+  has_many :memberships,      dependent: :destroy
+  has_many :groups,           through: :memberships
 
   validates :name, presence: true
   validates :email, presence: true

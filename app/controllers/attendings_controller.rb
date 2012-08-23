@@ -1,12 +1,12 @@
 class AttendingsController < ApiController
   def index_for_event
-    attendings = params[:event_id] ? Attending.find_all_by_event_id(params[:event_id]) : Attending.all
+    attendings = Attending.includes(:user).find_all_by_event_id(params[:event_id])
     respond_with attendings, api_template: :users
   end
 
   def index_for_user
     user_id = params[:user_id] || current_user.id
-    attendings = User.find(user_id).attendings
+    attendings = User.find(user_id).attendings.includes(event: { attendings: :user, categorizations: nil })
     respond_with attendings, api_template: :events
   end
 

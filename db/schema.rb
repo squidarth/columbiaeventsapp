@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822173855) do
+ActiveRecord::Schema.define(:version => 20120823194226) do
 
   create_table "attendings", :force => true do |t|
     t.integer   "user_id"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(:version => 20120822173855) do
     t.timestamp "updated_at"
   end
 
+  add_index "attendings", ["event_id"], :name => "index_attendings_on_event_id"
+  add_index "attendings", ["user_id"], :name => "index_attendings_on_user_id"
+
   create_table "authorizations", :force => true do |t|
     t.string    "provider"
     t.string    "uid"
@@ -29,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20120822173855) do
     t.timestamp "updated_at"
     t.string    "token"
   end
+
+  add_index "authorizations", ["user_id"], :name => "index_authorizations_on_user_id"
 
   create_table "categories", :force => true do |t|
     t.integer  "user_id"
@@ -44,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20120822173855) do
     t.datetime "updated_at"
     t.integer  "event_id"
   end
+
+  add_index "categorizations", ["event_id"], :name => "index_categorizations_on_event_id"
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -61,6 +68,9 @@ ActiveRecord::Schema.define(:version => 20120822173855) do
     t.integer  "attendings_count"
     t.datetime "start_time"
   end
+
+  add_index "events", ["facebook_id"], :name => "index_events_on_facebook_id"
+  add_index "events", ["start_time"], :name => "index_events_on_start_time"
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -93,5 +103,7 @@ ActiveRecord::Schema.define(:version => 20120822173855) do
     t.boolean  "admin",       :default => false
     t.string   "facebook_id"
   end
+
+  add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id"
 
 end

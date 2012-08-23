@@ -25,11 +25,7 @@ EventSalsa::Application.routes.draw do
     resources :attendings, only: [:create] do
       get 'index', on: :collection, action: 'index_for_event'
     end
-    collection do
-      get 'upcoming'
-      get 'recent'
-      post 'fetch_from_facebook'
-    end
+    post 'fetch_from_facebook', on: :collection
   end
   resources :categories, only: [:index, :show] do
     resources :events, only: [:index] do
