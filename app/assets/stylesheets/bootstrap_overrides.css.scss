@@ -1,0 +1,20 @@
+a {
+    cursor: pointer;
+}
+
+.nav-tabs {
+    margin: 0;
+}
+
+.event-list tr:nth-child(1) td {
+    border: 0;
+}
+
+label.required:after {
+    content: "*";
+    color: #f00;
+}
+
+.well {
+    padding: 19px 0px;
+}
