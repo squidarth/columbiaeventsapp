@@ -8,18 +8,10 @@ EventSalsa::Application.routes.draw do
       get 'index', on: :collection, action: 'index_for_user'
     end
   end
-
-  resources :memberships, only: [] do
-    get 'index', on: :collection, action: 'index_for_user'
-  end
   resources :groups do
     resources :memberships, only: [] do
       get 'index', on: :collection, action: 'index_for_group'
     end
-  end
-
-  resources :attendings, only: [:create, :update] do
-    get 'index', on: :collection, action: 'index_for_user'
   end
   resources :events do
     resources :attendings, only: [:create]
