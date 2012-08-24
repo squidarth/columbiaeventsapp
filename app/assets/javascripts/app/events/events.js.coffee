@@ -76,12 +76,16 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
         trigger: 'hover'
         placement: 'bottom'
 
-  class Events.EventEditView extends Marionette.ItemView
+  class Events.EventEditView extends Marionette.Layout
     template: JST["templates/events/edit"]
+    regions:
+      categories: '.categories'
     initialize: (options) ->
       @parent = options.parent
       @model = options.model
+      @categoryControlListView = EventSalsa.EventsApp.Categories.categoryControlListViewFromCategories()
     onRender: ->
+      @categories.show @categoryControlListView
       @$('.input-timepicker').timepicker
         defaultTime: 'value'
       @$('.input-datepicker').datepicker()

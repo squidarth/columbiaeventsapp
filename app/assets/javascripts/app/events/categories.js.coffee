@@ -6,7 +6,7 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     Categories.categories.bind 'reset', prepareCategoryListView
     Categories.categories.fetch()
 
-  Categories.categoryControlListViewFromCategories = ->
+  Categories.categoryControlListViewFromCategories =  ->
     new EventSalsa.EventsApp.Categories.CategoryControlListView
       collection: Categories.categories
 
@@ -51,11 +51,12 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
   class Categories.CategoryControlView extends Marionette.ItemView
     template: JST["templates/categories/control"]
     tagName: 'label'
-    className: 'span2 pull-left'
+    className: 'pull-left'
+    setChecked: (status) ->
+      @$('input').attr('checked', status)
 
   class Categories.CategoryControlListView extends Marionette.CollectionView
     itemView: Categories.CategoryControlView
-    className: 'row controls'
 
   # Private API
   # -----------

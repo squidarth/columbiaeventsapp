@@ -34,18 +34,24 @@ class EventsController < ApiController
     authorize! :create, Event
     params[:event][:start_time] = Chronic.parse("#{params[:event][:date]} #{params[:event][:time]}").to_datetime
     event = current_user.events.build(params[:event])
-    if event.save && params[:event][:post_to_facebook] 
-      authorization = current_user.authorizations.find_by_provider 'facebook'
-      if authorization
-        graph = Koala::Facebook::API.new authorization.token
-        params = {
-          picture: event.photo.url,
-          name: event.name,
-          description: event.description,
-          location: event.location,
-        }
-        facebook_event = graph.put_object('me', 'events', params)
-        event.update_attributes!(facebook_id: facebook_event['id'])
+    if event.save
+      Categorization.categorize_event_by_keywords event
+      params[:event][:categories].each do |category_id|
+        event.categorizations.create(user_id: current_user.id, category_id: category_id)
+      end
+      if params[:event][:post_to_facebook] 
+        authorization = current_user.authorizations.find_by_provider 'facebook'
+        if authorization
+          graph = Koala::Facebook::API.new authorization.token
+          params = {
+            picture: event.photo.url,
+            name: event.name,
+            description: event.description,
+            location: event.location,
+          }
+          facebook_event = graph.put_object('me', 'events', params)
+          event.update_attributes!(facebook_id: facebook_event['id'])
+        end
       end
     end
     respond_with event, api_template: :public
