@@ -6,6 +6,10 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     Categories.categories.bind 'reset', prepareCategoryListView
     Categories.categories.fetch()
 
+  Categories.categoryControlListViewFromCategories = ->
+    new EventSalsa.EventsApp.Categories.CategoryControlListView
+      collection: Categories.categories
+
   # Event Bindings
   # --------------
   EventSalsa.vent.bind 'layout:rendered', ->
@@ -27,7 +31,7 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
   # Views
   # -----
   class Categories.CategoryView extends Marionette.ItemView
-    template: JST["templates/events/category"]
+    template: JST["templates/categories/link"]
     tagName: 'li'
     events:
       'click a': 'showEventsByCategory'
@@ -43,6 +47,15 @@ EventSalsa.module 'EventsApp.Categories', (Categories, EventSalsa, Backbone, Mar
     highlightCategoryWithId: (id) ->
       @$('li').removeClass 'active'
       @$("a[data-id=#{id}]").parent().addClass 'active'
+
+  class Categories.CategoryControlView extends Marionette.ItemView
+    template: JST["templates/categories/control"]
+    tagName: 'label'
+    className: 'span2 pull-left'
+
+  class Categories.CategoryControlListView extends Marionette.CollectionView
+    itemView: Categories.CategoryControlView
+    className: 'row controls'
 
   # Private API
   # -----------

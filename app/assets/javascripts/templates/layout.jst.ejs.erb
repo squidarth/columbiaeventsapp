@@ -8,16 +8,14 @@
       </form>
 
       <ul id="navbar" class="nav pull-right">
-        <%% if (EventSalsa.currentUser) { %>
         <li>
           <a href="#calendar" data-target="calendar">Calendar</a>
         </li>
-        <%% } %>
         <li>
           <a href="#events" data-target="events">Events</a>
         </li>
         <li>
-          <a href="#">Users</a>
+          <a href="#groups" data-target="groups">Groups</a>
         </li>
         <li id="login-button">
         <%% if (EventSalsa.currentUser) { %>

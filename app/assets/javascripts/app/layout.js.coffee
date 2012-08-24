@@ -51,8 +51,6 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
       if $(e.target).is('#login-button')
         e.preventDefault()
       EventSalsa.vent.trigger 'events:category:clear'
-      $('#navbar li').removeClass 'active'
-      $(e.target).parent().addClass 'active'
       EventSalsa.vent.trigger @navItemEvents[$(e.target).data('target')]
 
   # Initializer

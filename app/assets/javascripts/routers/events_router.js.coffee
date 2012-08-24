@@ -29,6 +29,11 @@ EventSalsa.module 'Routing.Events', (EventsRouting, EventSalsa, Backbone, Marion
       'users/:user_id/attendings'  : 'showEventListByAttending'
       'users/:user_id/events'      : 'showEventListByManaging'
 
+    routes:
+      'calendar' : 'showCalendar'
+    showCalendar: ->
+      EventSalsa.EventsApp.Calendar.showCalendar()
+
   # Initializer
   # -----------
   EventSalsa.addInitializer ->

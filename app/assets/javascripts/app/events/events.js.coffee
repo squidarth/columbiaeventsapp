@@ -20,8 +20,8 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       new: '#new-event'
     initialize: ->
       @bindTo EventSalsa.vent, 'scroll:bottom', @handleEndOfPage, @
-    onRender: ->
       @newEventView = new Events.EventNewView()
+    onRender: ->
       @new.show @newEventView
     handleEndOfPage: ->
       if @$('#upcoming-events').hasClass 'active'
@@ -73,6 +73,7 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @model = options.model || new EventSalsa.EventsApp.Event
     onRender: ->
       @$('.facebook-link').popover
+        trigger: 'hover'
         placement: 'bottom'
 
   class Events.EventEditView extends Marionette.ItemView
@@ -90,9 +91,14 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @$('form').on 'ajax:error', =>
         @$('form').prepend $('<div class="alert alert-error">').text('There was a problem updating the event.')
 
-  class Events.EventNewView extends Marionette.ItemView
+  class Events.EventNewView extends Marionette.Layout
     template: JST["templates/events/new"]
+    regions:
+      categories: '.categories'
+    initialize: ->
+      @categoryControlListView = EventSalsa.EventsApp.Categories.categoryControlListViewFromCategories()
     onRender: ->
+      @categories.show @categoryControlListView
       @$('.input-timepicker').timepicker()
       @$('.input-datepicker').datepicker()
 
