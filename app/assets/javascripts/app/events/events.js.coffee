@@ -84,6 +84,7 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
       @parent = options.parent
       @model = options.model
       @categoryControlListView = EventSalsa.EventsApp.Categories.categoryControlListViewFromCategories()
+      # [TODO] Automatically check existing categorizations
     onRender: ->
       @categories.show @categoryControlListView
       @$('.input-timepicker').timepicker

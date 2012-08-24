@@ -26,10 +26,7 @@ EventSalsa::Application.routes.draw do
     end
   end
 
-  #resources :sessions, only: [:new, :create, :destroy]
-  match '/current_user' => 'sessions#show'
   match '/signout' => 'sessions#destroy'
-
   match '/auth/:provider/callback', to: 'authorizations#create'
   root to: 'pages#home'
 end
