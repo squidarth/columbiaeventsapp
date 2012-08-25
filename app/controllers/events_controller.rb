@@ -17,7 +17,7 @@ class EventsController < ApiController
   end
 
   def show
-    event = Event.find(params[:id], conditions: { deleted: [nil, false] })
+    event = Event.includes(:categories, attendings: :user).find(params[:id], conditions: { deleted: [nil, false] })
     respond_with event.as_api_response :public, current_user: current_user
   end
 

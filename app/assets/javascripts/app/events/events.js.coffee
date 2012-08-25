@@ -37,16 +37,22 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
     template: JST["templates/events/event"]
     tagName: 'tr'
     regions:
-      attending: '.attending-control'
+      attendingControl: '.attending-control'
+      attendingDetail: '.attending-detail'
       detail: '.event-detail'
     events:
       'click .edit': 'edit'
       'click .delete': 'destroy'
     onRender: ->
-      @attendingStatusView = new EventSalsa.EventsApp.Attendings.AttendingStatusView
+      @attendingControlView = new EventSalsa.EventsApp.Attendings.AttendingControlView
+        parent: @
       if @model.attending
-        @attendingStatusView.model = @model.attending
-      @attending.show @attendingStatusView
+        @attendingControlView.model = @model.attending
+      @attendingControl.show @attendingControlView
+
+      @attendingDetailView = new EventSalsa.EventsApp.Attendings.AttendingDetailView
+        collection: new EventSalsa.EventsApp.Attendings.AttendingCollection(@model.get('attendings'))
+      @attendingDetail.show @attendingDetailView
 
       @eventDetailView = new Events.EventDetailView
         model: @model
@@ -62,10 +68,13 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
     destroy: ->
       @model.destroy()
     reload: ->
-      console.log 'hi'
       @model.fetch
         success: => @render()
         error: => @render()
+    reloadAttendingData: ->
+      @reload()
+      #@attendingControlView.render()
+      #@attendingDetailView.render()
 
   class Events.EventDetailView extends Marionette.ItemView
     template: JST["templates/events/detail"]

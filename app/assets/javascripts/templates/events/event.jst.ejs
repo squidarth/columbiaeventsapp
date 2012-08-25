@@ -16,17 +16,15 @@
   <% } %>
 
   <% if (start_time) { %>
-    <h5 class="humane-time">
+    <h4 class="humane-time">
       <%= moment(start_time).from(moment()) %>
-    </h5>
+    </h4>
     <h6 class="date-time">
       <%= moment(start_time).format('M/D/YY h:mmA') %>
     </h6>
   <% } %>
   <div class="attending-control"></div>
-  <% if (false) { %>
-    <a href="#">Edit Event</a>
-  <% } %>
+  <div class="attending-detail"></div>
 </td>
 
 <td class="event-detail">
