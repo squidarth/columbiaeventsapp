@@ -75,7 +75,7 @@ EventSalsa.module 'EventsApp', (EventsApp, EventSalsa, Backbone, Marionette, $, 
       if EventSalsa.currentUser and @get('attendings')
         attendingIndex = $.inArray EventSalsa.currentUser.id, @get('attendings').map (attending) ->
           attending.user.id
-        if attendingIndex >= 0
+        if not attendingIndex is -1
           @attending.set @get('attendings')[attendingIndex]
 
   class EventsApp.EventCollection extends Backbone.Collection
