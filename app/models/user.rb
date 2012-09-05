@@ -35,8 +35,6 @@ class User < ActiveRecord::Base
     user = find_by_id_and_facebook_id(id, facebook_id)
   end
 
-  protected
-
   def ability
     @ability ||= Ability.new(self)
   end
