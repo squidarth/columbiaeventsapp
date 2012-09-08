@@ -73,8 +73,6 @@ EventSalsa.module 'EventsApp.Events', (Events, EventSalsa, Backbone, Marionette,
         error: => @render()
     reloadAttendingData: ->
       @reload()
-      #@attendingControlView.render()
-      #@attendingDetailView.render()
 
   class Events.EventDetailView extends Marionette.ItemView
     template: JST["templates/events/detail"]
