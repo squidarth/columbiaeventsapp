@@ -9,13 +9,13 @@
 
       <ul id="navbar" class="nav pull-right">
         <li>
-          <a href="#calendar" data-target="calendar">Calendar</a>
+          <a class="coming-soon" rel="tooltip" href="#calendar" data-target="calendar" data-original-title="<%%= Helpers.EJS.comingSoonMessage %>">Calendar</a>
         </li>
         <li>
           <a href="#events" data-target="events">Events</a>
         </li>
         <li>
-          <a href="#groups" data-target="groups">Groups</a>
+          <a class="coming-soon" href="#groups" data-target="groups" data-original-title="<%%= Helpers.EJS.comingSoonMessage %>">Groups</a>
         </li>
         <li id="login-button">
         <%% if (EventSalsa.currentUser) { %>
@@ -41,7 +41,7 @@
             <a class="all-events" href="#events">Events</a>
           </li>
           <li>
-            <a class="all-groups" href="#groups">Groups</a>
+            <a class="coming-soon all-groups" href="#groups" data-original-title="<%%= Helpers.EJS.comingSoonMessage %>">Groups</a>
           </li>
           <%% if (EventSalsa.currentUser) { %>
             <li class="nav-header">Following</li>
@@ -49,14 +49,14 @@
               <a class="attending-events" href="#users/u/attendings">Events</a>
             </li>
             <li>
-              <a class="following-groups" href="#users/u/followings">Groups</a>
+              <a class="coming-soon following-groups" href="#users/u/followings" data-original-title="<%%= Helpers.EJS.comingSoonMessage %>">Groups</a>
             </li>
             <li class="nav-header">Managing</li>
             <li>
               <a class="managing-events" href="#users/u/events">Events</a>
             </li>
             <li>
-              <a class="managing-groups" href="#users/u/groups">Groups</a>
+              <a class="coming-soon managing-groups" href="#users/u/groups" data-original-title="<%%= Helpers.EJS.comingSoonMessage %>">Groups</a>
             </li>
           <%% } %>
         </ul>

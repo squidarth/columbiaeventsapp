@@ -12,6 +12,7 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
       categories: "#category-list"
       content: "#content"
     events:
+      'click .coming-soon'       : 'trackClick'
       'click #about'             : 'showAboutPage'
       'click #contact'           : 'showContactPage'
       'click .brand'             : 'showEventList'
@@ -21,8 +22,25 @@ EventSalsa.module "Layout", (LayoutApp, EventSalsa, Backbone, Marionette, $, _) 
       'submit #search-bar'       : 'showEventListByQuery'
       'click #navbar a'          : 'showNavItem'
     navItemEvents:
-      'calendar': 'events:calendar:show'
+      #'calendar': 'events:calendar:show'
       'events': 'events:show'
+    onRender: ->
+      # Set up tooltips for "Coming Soon" features
+      @$('#navbar a.coming-soon').tooltip
+        trigger: 'click'
+        placement: 'bottom'
+      @$('#meta-nav-list a.coming-soon').tooltip
+        trigger: 'click'
+        placement: 'right'
+
+      @$('.coming-soon').on 'click', ->
+        $(@).tooltip 'show'
+        setTimeout =>
+          $(@).tooltip 'hide'
+        , 2000
+    trackClick: (e) ->
+      e.preventDefault()
+      EventSalsa.Routing.trackRoute $(e.target).attr('href')
     showAboutPage: (e) ->
       e.preventDefault()
       EventSalsa.vent.trigger 'events:category:clear'
